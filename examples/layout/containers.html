@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Containers - Vanilla CSS Design System</title>
+	<link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+<body>
+	<nav class="docs-nav">
+		<div class="container">
+			<a href="../index.html">← Back to Documentation</a>
+			<h1>Containers</h1>
+		</div>
+	</nav>
+
+	<main class="my-4">
+		<!-- Default Container -->
+		<div class="example-section">
+			<h2 class="example-title">Default Container</h2>
+			<p class="example-description">
+				The default container class provides a responsive max-width and horizontal padding.
+				It centers content and maintains readable line lengths on larger screens.
+			</p>
+
+			<div class="demo-container container">
+				<div class="demo-content">
+					Default Container
+					<br>
+					<small>Max-width: 1200px</small>
+				</div>
+			</div>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="container"&gt;
+	Your content here
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Container with Different Paddings -->
+		<div class="example-section">
+			<h2 class="example-title">Container Padding Variations</h2>
+			<p class="example-description">
+				Containers can have different padding using utility classes.
+			</p>
+
+			<div class="demo-container container p-2">
+				<div class="demo-content">
+					Small Padding (p-2)
+				</div>
+			</div>
+
+			<div class="demo-container container p-4">
+				<div class="demo-content">
+					Large Padding (p-4)
+				</div>
+			</div>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="container p-2"&gt;
+	Small padding container
+&lt;/div&gt;
+
+&lt;div class="container p-4"&gt;
+	Large padding container
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Nested Containers -->
+		<div class="example-section">
+			<h2 class="example-title">Nested Containers</h2>
+			<p class="example-description">
+				Containers can be nested to create complex layouts.
+			</p>
+
+			<div class="demo-container container">
+				<div class="demo-content">
+					Outer Container
+					<div class="demo-container container my-3">
+						<div class="demo-content">
+							Nested Container
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="container"&gt;
+	Outer container content
+	&lt;div class="container"&gt;
+		Nested container content
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Container with Grid -->
+		<div class="example-section">
+			<h2 class="example-title">Container with Grid</h2>
+			<p class="example-description">
+				Containers work seamlessly with the grid system for complex layouts.
+			</p>
+
+			<div class="demo-container container">
+				<div class="grid grid-cols-2 gap-3">
+					<div class="demo-content">Column 1</div>
+					<div class="demo-content">Column 2</div>
+				</div>
+			</div>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="container"&gt;
+	&lt;div class="grid grid-cols-2 gap-3"&gt;
+		&lt;div&gt;Column 1&lt;/div&gt;
+		&lt;div&gt;Column 2&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Responsive Behavior -->
+		<div class="example-section">
+			<h2 class="example-title">Responsive Behavior</h2>
+			<p class="example-description">
+				Containers automatically adjust their width based on screen size.
+				Resize your browser to see how they respond.
+			</p>
+
+			<div class="demo-container container">
+				<div class="demo-content">
+					Responsive Container
+					<br>
+					<small>Width adjusts based on viewport</small>
+				</div>
+			</div>
+
+			<div class="code-block">
+				<pre><code>/* CSS Variables */
+:root {
+	--breakpoint-sm: 576px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 992px;
+	--breakpoint-xl: 1200px;
+}
+
+.container {
+	width: 100%;
+	padding-right: var(--spacing-3);
+	padding-left: var(--spacing-3);
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1200px;
+}</code></pre>
+			</div>
+		</div>
+
+		<!-- Container with Card -->
+		<div class="example-section">
+			<h2 class="example-title">Container with Card</h2>
+			<p class="example-description">
+				Combining containers with cards for common layout patterns.
+			</p>
+
+			<div class="demo-container container">
+				<div class="card">
+					<h3>Card Title</h3>
+					<p>This card is contained within a container class for proper spacing and alignment.</p>
+				</div>
+			</div>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="container"&gt;
+	&lt;div class="card"&gt;
+		&lt;h3&gt;Card Title&lt;/h3&gt;
+		&lt;p&gt;Card content...&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Best Practices -->
+		<div class="example-section">
+			<h2 class="example-title">Container Best Practices</h2>
+			<ul class="my-3">
+				<li>Use containers to maintain consistent content width across your site</li>
+				<li>Combine with grid system for complex layouts</li>
+				<li>Avoid nesting containers unnecessarily</li>
+				<li>Use padding utilities to adjust spacing when needed</li>
+				<li>Remember containers are responsive by default</li>
+			</ul>
+		</div>
+	</main>
+</body>
+
+</html>

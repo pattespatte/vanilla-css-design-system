@@ -1,0 +1,158 @@
+/* variables.css - Design Tokens */
+:root {
+	/* Colors */
+	/* Base Colors */
+	--color-primary: #6e0e50;
+	--color-secondary: #ffe098;
+	--color-tertiary: #e28ab7;
+	--color-quaternary: #0ec3ad;
+
+	/* Primary Color Shades */
+	--color-primary-100: #f2e6ee;
+	/* Lightest */
+	--color-primary-200: #d5b0c7;
+	/* Lighter */
+	--color-primary-300: var(--color-primary);
+	/* Base color */
+	--color-primary-400: #5c0c43;
+	/* Darker shade */
+	--color-primary-500: #4a0a36;
+	/* Darkest */
+
+	/* Secondary Color Shades */
+	--color-secondary-100: #fff9ed;
+	/* Lightest */
+	--color-secondary-200: #fff0c4;
+	/* Lighter */
+	--color-secondary-300: var(--color-secondary);
+	/* Base color */
+	--color-secondary-400: #ffd370;
+	/* Darker shade */
+	--color-secondary-500: #ffc647;
+	/* Darkest */
+
+	--color-success: #28a745;
+	--color-danger: #dc3545;
+	--color-warning: #ffc107;
+	--color-info: #007bff;
+	--color-light: #f8f9fa;
+	--color-dark: #343a40;
+	--color-muted: #6c757d;
+	--color-white: #fff;
+	--color-black: #000;
+	--color-transparent: transparent;
+
+	/* Typography */
+	--font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	--font-size-base: 1rem;
+	--font-size-sm: 0.875rem;
+	--font-size-lg: 1.25rem;
+	--font-weight-base: 400;
+	--font-weight-bold: 700;
+	--line-height-base: 1.5;
+
+	/* Spacing */
+	--spacing-unit: 0.25rem;
+	--spacing-1: calc(var(--spacing-unit) * 1);
+	/* 4px */
+	--spacing-2: calc(var(--spacing-unit) * 2);
+	/* 8px */
+	--spacing-3: calc(var(--spacing-unit) * 4);
+	/* 16px */
+	--spacing-4: calc(var(--spacing-unit) * 6);
+	/* 24px */
+	--spacing-5: calc(var(--spacing-unit) * 8);
+	/* 32px */
+
+	/* Border */
+	--border-radius: 0.25rem;
+	--border-width: 1px;
+	--border-color: #dee2e6;
+
+	/* Transitions */
+	--transition-base: all 0.2s ease-in-out;
+
+	/* Shadows */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+	/* Breakpoints */
+	--breakpoint-sm: 576px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 992px;
+	--breakpoint-xl: 1200px;
+}
+
+/* Responsive utilities */
+@media (min-width: 576px) {
+	.sm-hidden {
+		display: none;
+	}
+
+	.sm-block {
+		display: block;
+	}
+
+	.sm-grid-cols-6 {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.sm-col-span-6 {
+		grid-column: span 6 / span 6;
+	}
+}
+
+@media (min-width: 768px) {
+	.md-hidden {
+		display: none;
+	}
+
+	.md-block {
+		display: block;
+	}
+
+	.md-grid-cols-6 {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.md-col-span-6 {
+		grid-column: span 6 / span 6;
+	}
+}
+
+@media (min-width: 992px) {
+	.lg-hidden {
+		display: none;
+	}
+
+	.lg-block {
+		display: block;
+	}
+
+	.lg-grid-cols-6 {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.lg-col-span-6 {
+		grid-column: span 6 / span 6;
+	}
+}
+
+@media (min-width: 1200px) {
+	.xl-hidden {
+		display: none;
+	}
+
+	.xl-block {
+		display: block;
+	}
+
+	.xl-grid-cols-6 {
+		grid-template-columns: repeat(6, 1fr);
+	}
+
+	.xl-col-span-6 {
+		grid-column: span 6 / span 6;
+	}
+}

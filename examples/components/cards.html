@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cards - Vanilla CSS Design System</title>
+	<link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+<body>
+	<nav class="docs-nav">
+		<div class="container">
+			<a href="../index.html">← Back to Documentation</a>
+			<h1>Cards</h1>
+		</div>
+	</nav>
+
+	<main class="container my-4">
+		<div class="example-section">
+			<h2 class="example-title">Basic Card</h2>
+			<p class="example-description">
+				A simple card with basic content using the .card class.
+			</p>
+
+			<div class="card">
+				<h3>Card Title</h3>
+				<p>This is a basic card with some sample content.</p>
+			</div>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="card"&gt;
+    &lt;h3&gt;Card Title&lt;/h3&gt;
+    &lt;p&gt;This is a basic card with some sample content.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<div class="example-section">
+			<h2 class="example-title">Card with Image</h2>
+			<p class="example-description">
+				A card that includes an image, title, text, and a button.
+			</p>
+
+			<div class="card">
+				<img src="https://picsum.photos/600/400" alt="Sample image" class="card-image">
+				<div class="p-3">
+					<h3 class="card-title">Card with Image</h3>
+					<p class="card-text">This card includes an image at the top, followed by content and a button.</p>
+					<button class="btn btn-primary">Learn More</button>
+				</div>
+			</div>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="card"&gt;
+    &lt;img src="image.jpg" alt="Sample image" class="card-image"&gt;
+    &lt;div class="p-3"&gt;
+        &lt;h3 class="card-title"&gt;Card with Image&lt;/h3&gt;
+        &lt;p class="card-text"&gt;This card includes an image at the top...&lt;/p&gt;
+        &lt;button class="btn btn-primary"&gt;Learn More&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<div class="example-section">
+			<h2 class="example-title">Card Grid Layout</h2>
+			<p class="example-description">
+				Multiple cards arranged in a responsive grid layout.
+			</p>
+
+			<div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-3">
+				<div class="card">
+					<h3 class="card-title">Card 1</h3>
+					<p class="card-text">Content for card 1</p>
+				</div>
+				<div class="card">
+					<h3 class="card-title">Card 2</h3>
+					<p class="card-text">Content for card 2</p>
+				</div>
+				<div class="card">
+					<h3 class="card-title">Card 3</h3>
+					<p class="card-text">Content for card 3</p>
+				</div>
+			</div>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-3"&gt;
+    &lt;div class="card"&gt;
+        &lt;h3 class="card-title"&gt;Card 1&lt;/h3&gt;
+        &lt;p class="card-text"&gt;Content for card 1&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card"&gt;
+        &lt;h3 class="card-title"&gt;Card 2&lt;/h3&gt;
+        &lt;p class="card-text"&gt;Content for card 2&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card"&gt;
+        &lt;h3 class="card-title"&gt;Card 3&lt;/h3&gt;
+        &lt;p class="card-text"&gt;Content for card 3&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<div class="example-section">
+			<h2 class="example-title">Card with Footer</h2>
+			<p class="example-description">
+				A card with a separated footer section.
+			</p>
+
+			<div class="card">
+				<div class="p-3">
+					<h3 class="card-title">Card with Footer</h3>
+					<p class="card-text">This is the main content of the card.</p>
+				</div>
+				<div class="card-footer">
+					<div class="flex justify-between items-center">
+						<span>Posted by John Doe</span>
+						<button class="btn btn-primary">Share</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="card"&gt;
+    &lt;div class="p-3"&gt;
+        &lt;h3 class="card-title"&gt;Card with Footer&lt;/h3&gt;
+        &lt;p class="card-text"&gt;This is the main content of the card.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card-footer"&gt;
+        &lt;div class="flex justify-between items-center"&gt;
+            &lt;span&gt;Posted by John Doe&lt;/span&gt;
+            &lt;button class="btn btn-primary"&gt;Share&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Typography - Vanilla CSS Design System</title>
+	<link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+<body>
+	<nav class="docs-nav">
+		<div class="container">
+			<a href="../index.html">← Back to Documentation</a>
+			<h1>Typography</h1>
+		</div>
+	</nav>
+
+	<main class="container my-4">
+		<!-- Font Family -->
+		<div class="example-section">
+			<h2 class="example-title">Font Family</h2>
+			<p class="example-description">
+				The design system uses a system font stack for optimal performance and native feel.
+			</p>
+
+			<div class="font-demo">
+				<p style="font-size: 1.5rem;">
+					The quick brown fox jumps over the lazy dog
+				</p>
+				<p style="color: var(--color-muted);">
+					System font stack
+				</p>
+			</div>
+
+			<div class="code-block">
+				<pre><code>:root {
+	--font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 
+		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}</code></pre>
+			</div>
+		</div>
+
+		<!-- Type Scale -->
+		<div class="example-section">
+			<h2 class="example-title">Type Scale</h2>
+			<p class="example-description">
+				A consistent type scale for headings and text elements.
+			</p>
+
+			<div class="type-scale-demo">
+				<h1>Heading 1</h1>
+				<h2>Heading 2</h2>
+				<h3>Heading 3</h3>
+				<h4>Heading 4</h4>
+				<h5>Heading 5</h5>
+				<h6>Heading 6</h6>
+			</div>
+
+			<div class="code-block">
+				<pre><code>:root {
+	--font-size-base: 1rem;	  /* 16px */
+	--font-size-sm: 0.875rem;	/* 14px */
+	--font-size-lg: 1.25rem;	 /* 20px */
+}</code></pre>
+			</div>
+		</div>
+
+		<!-- Font Weights -->
+		<div class="example-section">
+			<h2 class="example-title">Font Weights</h2>
+			<p class="example-description">
+				Available font weights for different purposes.
+			</p>
+
+			<div class="font-demo">
+				<p style="font-weight: 400;">Regular (400) - Primary text weight</p>
+				<p style="font-weight: 700;">Bold (700) - Emphasis and headings</p>
+			</div>
+
+			<div class="code-block">
+				<pre><code>:root {
+	--font-weight-base: 400;
+	--font-weight-bold: 700;
+}</code></pre>
+			</div>
+		</div>
+
+		<!-- Line Height -->
+		<div class="example-section">
+			<h2 class="example-title">Line Height</h2>
+			<p class="example-description">
+				Different line heights for optimal readability.
+			</p>
+
+			<div class="font-demo">
+				<p style="line-height: 1.5;">
+					Default line height (1.5) - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+				</p>
+			</div>
+
+			<div class="code-block">
+				<pre><code>:root {
+	--line-height-base: 1.5;
+}</code></pre>
+			</div>
+		</div>
+
+		<!-- Text Styles -->
+		<div class="example-section">
+			<h2 class="example-title">Text Styles</h2>
+			<p class="example-description">
+				Common text styles and variations.
+			</p>
+
+			<div class="font-demo">
+				<p><strong>Bold text</strong> - using &lt;strong&gt; or .bold</p>
+				<p><em>Italic text</em> - using &lt;em&gt; or .italic</p>
+				<p><u>Underlined text</u> - using &lt;u&gt; or .underline</p>
+				<p><small>Small text</small> - using &lt;small&gt; or .small</p>
+				<p><mark>Highlighted text</mark> - using &lt;mark&gt;</p>
+				<p><code>Inline code</code> - using &lt;code&gt;</p>
+			</div>
+		</div>
+
+		<!-- Text Colors -->
+		<div class="example-section">
+			<h2 class="example-title">Text Colors</h2>
+			<p class="example-description">
+				Standard text colors for different purposes.
+			</p>
+
+			<div class="font-demo">
+				<p style="color: var(--color-dark);">Default text color</p>
+				<p style="color: var(--color-muted);">Muted text color</p>
+				<p style="color: var(--color-primary);">Primary text color</p>
+				<p style="color: var(--color-success);">Success text color</p>
+				<p style="color: var(--color-danger);">Danger text color</p>
+			</div>
+
+			<div class="code-block">
+				<pre><code>:root {
+	--color-dark: #343a40;
+	--color-muted: #6c757d;
+	--color-primary: #6e0e50;
+	--color-success: #28a745;
+	--color-danger: #dc3545;
+}</code></pre>
+			</div>
+		</div>
+
+		<!-- Text Block Examples -->
+		<div class="example-section">
+			<h2 class="example-title">Text Block Examples</h2>
+			<p class="example-description">
+				Examples of common text patterns and combinations.
+			</p>
+
+			<!-- Article Example -->
+			<article class="card">
+				<h2>Article Title</h2>
+				<p class="text-muted">Posted on January 1, 2024</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+					incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+					nostrud exercitation ullamco laboris.</p>
+				<blockquote>
+					This is a blockquote. It stands out from regular text and is commonly used
+					for quotes or notable text.
+				</blockquote>
+				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+					eu fugiat nulla pariatur.</p>
+			</article>
+		</div>
+
+		<!-- Typography Best Practices -->
+		<div class="example-section">
+			<h2 class="example-title">Typography Best Practices</h2>
+			<div class="card">
+				<ul>
+					<li>Use semantic HTML elements (h1-h6, p, etc.)</li>
+					<li>Maintain consistent spacing between text elements</li>
+					<li>Use appropriate font weights for hierarchy</li>
+					<li>Consider line length for readability (50-75 characters)</li>
+					<li>Use color contrast that meets accessibility standards</li>
+					<li>Apply consistent line heights for readability</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Typography Variables Reference -->
+		<div class="example-section">
+			<h2 class="example-title">Typography Variables Reference</h2>
+			<div class="card">
+				<h3>Font Family</h3>
+				<ul class="my-3">
+					<li><code>--font-family-base</code></li>
+				</ul>
+
+				<h3>Font Sizes</h3>
+				<ul class="my-3">
+					<li><code>--font-size-base</code></li>
+					<li><code>--font-size-sm</code></li>
+					<li><code>--font-size-lg</code></li>
+				</ul>
+
+				<h3>Font Weights</h3>
+				<ul class="my-3">
+					<li><code>--font-weight-base</code></li>
+					<li><code>--font-weight-bold</code></li>
+				</ul>
+
+				<h3>Line Heights</h3>
+				<ul class="my-3">
+					<li><code>--line-height-base</code></li>
+				</ul>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

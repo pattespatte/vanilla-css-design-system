@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Design Tokens & Variables - Vanilla CSS Design System</title>
+	<link rel="stylesheet" href="../../styles/main.css">
+	<style>
+		.example-section {
+			margin-bottom: var(--spacing-4);
+			padding: var(--spacing-4);
+			border: var(--border-width) solid var(--border-color);
+			border-radius: var(--border-radius);
+		}
+
+		.example-title {
+			margin-bottom: var(--spacing-3);
+		}
+
+		.example-description {
+			margin-bottom: var(--spacing-3);
+			color: var(--color-muted);
+		}
+
+		.code-block {
+			background: var(--color-light);
+			padding: var(--spacing-3);
+			border-radius: var(--border-radius);
+			margin-top: var(--spacing-3);
+			overflow-x: auto;
+			font-family: monospace;
+		}
+
+		.color-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			gap: var(--spacing-3);
+		}
+
+		.color-swatch {
+			padding: var(--spacing-3);
+			border-radius: var(--border-radius);
+			color: white;
+			margin-bottom: var(--spacing-2);
+		}
+
+		.spacing-demo {
+			background: var(--color-light);
+			margin-bottom: var(--spacing-3);
+			border-radius: var(--border-radius);
+		}
+
+		.spacing-block {
+			background: var(--color-primary-100);
+			border: 1px solid var(--color-primary);
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="docs-nav">
+		<div class="container">
+			<a href="../index.html">← Back to Documentation</a>
+			<h1>Design Tokens & Variables</h1>
+		</div>
+	</nav>
+
+	<main class="container my-4">
+		<!-- Color Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Colors</h2>
+			<p class="example-description">
+				Core color palette and variations used throughout the design system.
+			</p>
+
+			<h3 class="mb-3">Primary Colors</h3>
+			<div class="color-grid">
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-primary-100)">
+						Primary 100
+					</div>
+					<code>--color-primary-100</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-primary-200)">
+						Primary 200
+					</div>
+					<code>--color-primary-200</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-primary-300)">
+						Primary 300
+					</div>
+					<code>--color-primary-300</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-primary-400)">
+						Primary 400
+					</div>
+					<code>--color-primary-400</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-primary-500)">
+						Primary 500
+					</div>
+					<code>--color-primary-500</code>
+				</div>
+			</div>
+
+			<h3 class="my-3">Secondary Colors</h3>
+			<div class="color-grid">
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-secondary-100); color: var(--color-dark)">
+						Secondary 100
+					</div>
+					<code>--color-secondary-100</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-secondary-200); color: var(--color-dark)">
+						Secondary 200
+					</div>
+					<code>--color-secondary-200</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-secondary-300); color: var(--color-dark)">
+						Secondary 300
+					</div>
+					<code>--color-secondary-300</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-secondary-400); color: var(--color-dark)">
+						Secondary 400
+					</div>
+					<code>--color-secondary-400</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-secondary-500); color: var(--color-dark)">
+						Secondary 500
+					</div>
+					<code>--color-secondary-500</code>
+				</div>
+			</div>
+
+			<h3 class="my-3">System Colors</h3>
+			<div class="color-grid">
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-success)">
+						Success
+					</div>
+					<code>--color-success</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-danger)">
+						Danger
+					</div>
+					<code>--color-danger</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-warning); color: var(--color-dark)">
+						Warning
+					</div>
+					<code>--color-warning</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-info)">
+						Info
+					</div>
+					<code>--color-info</code>
+				</div>
+			</div>
+
+			<h3 class="my-3">Neutral Colors</h3>
+			<div class="color-grid">
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-light); color: var(--color-dark)">
+						Light
+					</div>
+					<code>--color-light</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-dark)">
+						Dark
+					</div>
+					<code>--color-dark</code>
+				</div>
+				<div>
+					<div class="color-swatch" style="background-color: var(--color-muted)">
+						Muted
+					</div>
+					<code>--color-muted</code>
+				</div>
+			</div>
+		</div>
+
+		<!-- Typography Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Typography</h2>
+			<p class="example-description">
+				Font families, sizes, weights, and line heights used in the system.
+			</p>
+
+			<h3 class="mb-3">Font Family</h3>
+			<div class="card mb-3">
+				<p style="font-family: var(--font-family-base)">
+					System Font Stack
+					<br>
+					<code>--font-family-base</code>
+				</p>
+			</div>
+
+			<h3 class="mb-3">Font Sizes</h3>
+			<div class="card mb-3">
+				<p style="font-size: var(--font-size-sm)">Small Text (--font-size-sm)</p>
+				<p style="font-size: var(--font-size-base)">Base Text (--font-size-base)</p>
+				<p style="font-size: var(--font-size-lg)">Large Text (--font-size-lg)</p>
+			</div>
+
+			<h3 class="mb-3">Font Weights</h3>
+			<div class="card mb-3">
+				<p style="font-weight: var(--font-weight-base)">Base Weight (--font-weight-base)</p>
+				<p style="font-weight: var(--font-weight-bold)">Bold Weight (--font-weight-bold)</p>
+			</div>
+		</div>
+
+		<!-- Spacing Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Spacing</h2>
+			<p class="example-description">
+				Consistent spacing units used throughout the system.
+			</p>
+
+			<div class="spacing-demo">
+				<div class="spacing-block" style="width: var(--spacing-1); height: var(--spacing-1);"></div>
+				<code>--spacing-1 (4px)</code>
+			</div>
+
+			<div class="spacing-demo">
+				<div class="spacing-block" style="width: var(--spacing-2); height: var(--spacing-2);"></div>
+				<code>--spacing-2 (8px)</code>
+			</div>
+
+			<div class="spacing-demo">
+				<div class="spacing-block" style="width: var(--spacing-3); height: var(--spacing-3);"></div>
+				<code>--spacing-3 (16px)</code>
+			</div>
+
+			<div class="spacing-demo">
+				<div class="spacing-block" style="width: var(--spacing-4); height: var(--spacing-4);"></div>
+				<code>--spacing-4 (24px)</code>
+			</div>
+
+			<div class="spacing-demo">
+				<div class="spacing-block" style="width: var(--spacing-5); height: var(--spacing-5);"></div>
+				<code>--spacing-5 (32px)</code>
+			</div>
+		</div>
+
+		<!-- Border Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Borders</h2>
+			<p class="example-description">
+				Border properties used in the system.
+			</p>
+
+			<div class="card mb-3">
+				<div style="border: var(--border-width) solid var(--border-color); padding: var(--spacing-3); border-radius: var(--border-radius);">
+					Default Border
+				</div>
+				<code>--border-width: 1px</code>
+				<br>
+				<code>--border-color: #dee2e6</code>
+				<br>
+				<code>--border-radius: 0.25rem</code>
+			</div>
+		</div>
+
+		<!-- Shadow Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Shadows</h2>
+			<p class="example-description">
+				Box shadow variations used in the system.
+			</p>
+
+			<div class="grid grid-cols-3 gap-3">
+				<div class="card" style="box-shadow: var(--shadow-sm)">
+					<p>Small Shadow</p>
+					<code>--shadow-sm</code>
+				</div>
+				<div class="card" style="box-shadow: var(--shadow-md)">
+					<p>Medium Shadow</p>
+					<code>--shadow-md</code>
+				</div>
+				<div class="card" style="box-shadow: var(--shadow-lg)">
+					<p>Large Shadow</p>
+					<code>--shadow-lg</code>
+				</div>
+			</div>
+		</div>
+
+		<!-- Breakpoint Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Breakpoints</h2>
+			<p class="example-description">
+				Responsive breakpoints used in the system.
+			</p>
+
+			<div class="card">
+				<ul>
+					<li><code>--breakpoint-sm: 576px</code></li>
+					<li><code>--breakpoint-md: 768px</code></li>
+					<li><code>--breakpoint-lg: 992px</code></li>
+					<li><code>--breakpoint-xl: 1200px</code></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- All Variables Reference -->
+		<div class="example-section">
+			<h2 class="example-title">Complete Variables Reference</h2>
+			<div class="code-block">
+				<pre><code>:root {
+	/* Colors */
+	--color-primary: #6e0e50;
+	--color-primary-100: #f2e6ee;
+	--color-primary-200: #d5b0c7;
+	--color-primary-300: #6e0e50;
+	--color-primary-400: #5c0c43;
+	--color-primary-500: #4a0a36;
+
+	--color-secondary: #ffe098;
+	--color-secondary-100: #fff9ed;
+	--color-secondary-200: #fff0c4;
+	--color-secondary-300: #ffe098;
+	--color-secondary-400: #ffd370;
+	--color-secondary-500: #ffc647;
+
+	--color-success: #28a745;
+	--color-danger: #dc3545;
+	--color-warning: #ffc107;
+	--color-info: #007bff;
+	--color-light: #f8f9fa;
+	--color-dark: #343a40;
+	--color-muted: #6c757d;
+
+	/* Typography */
+	--font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 
+		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	--font-size-base: 1rem;
+	--font-size-sm: 0.875rem;
+	--font-size-lg: 1.25rem;
+	--font-weight-base: 400;
+	--font-weight-bold: 700;
+	--line-height-base: 1.5;
+
+	/* Spacing */
+	--spacing-unit: 0.25rem;
+	--spacing-1: calc(var(--spacing-unit) * 1);
+	--spacing-2: calc(var(--spacing-unit) * 2);
+	--spacing-3: calc(var(--spacing-unit) * 4);
+	--spacing-4: calc(var(--spacing-unit) * 6);
+	--spacing-5: calc(var(--spacing-unit) * 8);
+
+	/* Borders */
+	--border-radius: 0.25rem;
+	--border-width: 1px;
+	--border-color: #dee2e6;
+
+	/* Shadows */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+	/* Breakpoints */
+	--breakpoint-sm: 576px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 992px;
+	--breakpoint-xl: 1200px;
+	}</code></pre>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

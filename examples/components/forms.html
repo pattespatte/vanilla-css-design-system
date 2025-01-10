@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Forms - Vanilla CSS Design System</title>
+	<link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+<body>
+	<nav class="docs-nav">
+		<div class="container">
+			<a href="../index.html">← Back to Documentation</a>
+			<h1>Forms</h1>
+		</div>
+	</nav>
+
+	<main class="container my-4">
+		<!-- Basic Input Fields -->
+		<div class="example-section">
+			<h2 class="example-title">Basic Input Fields</h2>
+			<p class="example-description">
+				Standard text input fields with labels and different states.
+			</p>
+
+			<form>
+				<div class="form-group">
+					<label class="form-label" for="username">Username</label>
+					<input type="text" class="form-input" id="username" placeholder="Enter username">
+				</div>
+
+				<div class="form-group">
+					<label class="form-label required" for="email">Email</label>
+					<input type="email" class="form-input" id="email" placeholder="Enter email">
+				</div>
+
+				<div class="form-group">
+					<label class="form-label" for="disabled">Disabled Input</label>
+					<input type="text" class="form-input" id="disabled" disabled value="Disabled input">
+				</div>
+			</form>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="form-group"&gt;
+	&lt;label class="form-label" for="username"&gt;Username&lt;/label&gt;
+	&lt;input type="text" class="form-input" id="username" placeholder="Enter username"&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Form Validation States -->
+		<div class="example-section">
+			<h2 class="example-title">Validation States</h2>
+			<p class="example-description">
+				Input fields with validation states and feedback messages.
+			</p>
+
+			<form>
+				<div class="form-group">
+					<label class="form-label" for="valid-input">Valid Input</label>
+					<input type="text" class="form-input is-valid" id="valid-input" value="Correct input">
+					<span class="form-feedback valid">This input is valid!</span>
+				</div>
+
+				<div class="form-group">
+					<label class="form-label" for="invalid-input">Invalid Input</label>
+					<input type="text" class="form-input is-invalid" id="invalid-input" value="Incorrect input">
+					<span class="form-feedback invalid">Please check your input.</span>
+				</div>
+			</form>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="form-group"&gt;
+	&lt;label class="form-label" for="valid-input"&gt;Valid Input&lt;/label&gt;
+	&lt;input type="text" class="form-input is-valid" id="valid-input" value="Correct input"&gt;
+	&lt;span class="form-feedback valid"&gt;This input is valid!&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Select and Textarea -->
+		<div class="example-section">
+			<h2 class="example-title">Select and Textarea</h2>
+			<p class="example-description">
+				Dropdown select menus and multiline text areas.
+			</p>
+
+			<form>
+				<div class="form-group">
+					<label class="form-label" for="select-example">Select Option</label>
+					<select class="form-select" id="select-example">
+						<option>Select an option</option>
+						<option>Option 1</option>
+						<option>Option 2</option>
+						<option>Option 3</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label class="form-label" for="textarea-example">Message</label>
+					<textarea class="form-textarea" id="textarea-example" rows="4" placeholder="Enter your message"></textarea>
+				</div>
+			</form>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="form-group"&gt;
+	&lt;label class="form-label" for="select-example"&gt;Select Option&lt;/label&gt;
+	&lt;select class="form-select" id="select-example"&gt;
+		&lt;option&gt;Select an option&lt;/option&gt;
+		&lt;option&gt;Option 1&lt;/option&gt;
+		&lt;option&gt;Option 2&lt;/option&gt;
+		&lt;option&gt;Option 3&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Checkboxes and Radio Buttons -->
+		<div class="example-section">
+			<h2 class="example-title">Checkboxes and Radio Buttons</h2>
+			<p class="example-description">
+				Custom styled checkboxes and radio button groups.
+			</p>
+
+			<form>
+				<div class="form-group">
+					<div class="form-check">
+						<input type="checkbox" class="form-check-input" id="checkbox1">
+						<label class="form-check-label" for="checkbox1">Checkbox 1</label>
+					</div>
+					<div class="form-check">
+						<input type="checkbox" class="form-check-input" id="checkbox2">
+						<label class="form-check-label" for="checkbox2">Checkbox 2</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="form-check">
+						<input type="radio" class="form-check-input" name="radio-group" id="radio1">
+						<label class="form-check-label" for="radio1">Radio 1</label>
+					</div>
+					<div class="form-check">
+						<input type="radio" class="form-check-input" name="radio-group" id="radio2">
+						<label class="form-check-label" for="radio2">Radio 2</label>
+					</div>
+				</div>
+			</form>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="form-check"&gt;
+	&lt;input type="checkbox" class="form-check-input" id="checkbox1"&gt;
+	&lt;label class="form-check-label" for="checkbox1"&gt;Checkbox 1&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Input Groups -->
+		<div class="example-section">
+			<h2 class="example-title">Input Groups</h2>
+			<p class="example-description">
+				Input fields with prepended or appended text.
+			</p>
+
+			<form>
+				<div class="form-group">
+					<label class="form-label" for="price-input">Price</label>
+					<div class="input-group">
+						<span class="input-group-text" style="border-right-width: 0;border-bottom-right-radius: 0; border-top-right-radius: 0;">$</span>
+						<input type="text" class="form-input" style="border-bottom-left-radius: 0; border-top-left-radius: 0;" id="price-input" placeholder="0.00">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="form-label" for="search-input">Search</label>
+					<div class="form-search">
+						<span class="form-search-icon">🔍</span>
+						<input type="search" class="form-input" id="search-input" placeholder="Search...">
+					</div>
+				</div>
+			</form>
+
+			<div class="code-block">
+				<pre><code>&lt;div class="input-group"&gt;
+	&lt;span class="input-group-text"&gt;$&lt;/span&gt;
+	&lt;input type="text" class="form-input" id="price-input" placeholder="0.00"&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Complete Form Example -->
+		<div class="example-section">
+			<h2 class="example-title">Complete Form Example</h2>
+			<p class="example-description">
+				A complete form combining various form elements.
+			</p>
+
+			<form class="card">
+				<div class="form-grid">
+					<div class="col-span-6">
+						<div class="form-group">
+							<label class="form-label required" for="first-name">First Name</label>
+							<input type="text" class="form-input" id="first-name" required>
+						</div>
+					</div>
+					<div class="col-span-6">
+						<div class="form-group">
+							<label class="form-label required" for="last-name">Last Name</label>
+							<input type="text" class="form-input" id="last-name" required>
+						</div>
+					</div>
+					<div class="col-span-12">
+						<div class="form-group">
+							<label class="form-label required" for="email-address">Email Address</label>
+							<input type="email" class="form-input" id="email-address" required>
+						</div>
+					</div>
+					<div class="col-span-12">
+						<div class="form-group">
+							<label class="form-label" for="message">Message</label>
+							<textarea class="form-textarea" id="message" rows="4"></textarea>
+						</div>
+					</div>
+					<div class="col-span-12">
+						<div class="form-check">
+							<input type="checkbox" class="form-check-input" id="terms">
+							<label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+						</div>
+					</div>
+					<div class="col-span-12">
+						<button type="submit" class="btn btn-primary">Submit Form</button>
+					</div>
+				</div>
+			</form>
+
+			<div class="code-block">
+				<pre><code>&lt;form class="card"&gt;
+	&lt;div class="form-grid"&gt;
+		&lt;div class="col-span-6"&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label class="form-label required" for="first-name"&gt;First Name&lt;/label&gt;
+				&lt;input type="text" class="form-input" id="first-name" required&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		...
+	&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>
