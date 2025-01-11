@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +8,13 @@
 	<link rel="stylesheet" href="../styles/examples.css">
 	<link rel="stylesheet" href="../../styles/components/navigation.css">
 </head>
-
 <body>
-
 	<section class="docs-nav">
 		<div class="container">
 			<nav class="nav">
-					<h1>Helper Utilities</h1>
 				<a href="#" class="nav-brand" data-home-link>
+					<h1>Helper Utilities</h1>
+				</a>
 				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
@@ -26,7 +24,6 @@
 			</nav>
 		</div>
 	</section>
-
 	<main class="container my-4">
 		<!-- Display Helpers -->
 		<div class="example-section">
@@ -34,104 +31,85 @@
 			<p class="example-description">
 				Control the display property of elements.
 			</p>
-
 			<div class="demo-box">Default display</div>
 			<div class="demo-box hidden">Hidden element (won't be visible)</div>
 			<div class="demo-box flex">Flex container</div>
-
 			<div class="code-block">
 				<pre><code>.hidden {
 	display: none;
 }
-
 .flex {
 	display: flex;
 }
-
 .block {
 	display: block;
 }</code></pre>
 			</div>
 		</div>
-
 		<!-- Flex Utilities -->
 		<div class="example-section">
 			<h2 class="example-title">Flex Utilities</h2>
 			<p class="example-description">
 				Helper classes for flexbox layouts.
 			</p>
-
 			<div class="demo-box flex items-center justify-between">
 				<div class="demo-flex-item">Flex Item 1</div>
 				<div class="demo-flex-item">Flex Item 2</div>
 				<div class="demo-flex-item">Flex Item 3</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>.flex {
 	display: flex;
 }
-
 .items-center {
 	align-items: center;
 }
-
 .justify-between {
 	justify-content: space-between;
 }</code></pre>
 			</div>
 		</div>
-
 		<!-- Text Alignment -->
 		<div class="example-section">
 			<h2 class="example-title">Text Alignment</h2>
 			<p class="example-description">
 				Control text alignment with utility classes.
 			</p>
-
 			<div class="demo-box text-center">Centered text</div>
 			<div class="demo-box" style="text-align: left;">Left aligned text</div>
 			<div class="demo-box" style="text-align: right;">Right aligned text</div>
-
 			<div class="code-block">
 				<pre><code>.text-center {
 	text-align: center;
 }
-
 .text-left {
 	text-align: left;
 }
-
 .text-right {
 	text-align: right;
 }</code></pre>
 			</div>
 		</div>
-
 		<!-- Responsive Visibility -->
 		<div class="example-section">
 			<h2 class="example-title">Responsive Visibility</h2>
 			<p class="example-description">
 				Control element visibility at different breakpoints.
 			</p>
-
 			<div class="demo-box sm-hidden">Hidden on small screens</div>
 			<div class="demo-box md-hidden">Hidden on medium screens</div>
 			<div class="demo-box lg-hidden">Hidden on large screens</div>
-
 			<div class="code-block">
 				<pre><code>@media (min-width: 576px) {
 	.sm-hidden {
 		display: none;
 	}
 }
-
 @media (min-width: 768px) {
 	.md-hidden {
 		display: none;
 	}
 }
-
 @media (min-width: 992px) {
 	.lg-hidden {
 		display: none;
@@ -139,47 +117,39 @@
 }</code></pre>
 			</div>
 		</div>
-
 		<!-- Spacing Helpers -->
 		<div class="example-section">
 			<h2 class="example-title">Quick Spacing Helpers</h2>
 			<p class="example-description">
 				Common spacing utility classes for margin and padding.
 			</p>
-
 			<div class="demo-box m-3">Margin 3 (all sides)</div>
 			<div class="demo-box mx-3">Margin 3 (horizontal)</div>
 			<div class="demo-box my-3">Margin 3 (vertical)</div>
 			<div class="demo-box p-3">Padding 3 (all sides)</div>
-
 			<div class="code-block">
 				<pre><code>.m-3 {
 	margin: var(--spacing-3);
 }
-
 .mx-3 {
 	margin-left: var(--spacing-3);
 	margin-right: var(--spacing-3);
 }
-
 .my-3 {
 	margin-top: var(--spacing-3);
 	margin-bottom: var(--spacing-3);
 }
-
 .p-3 {
 	padding: var(--spacing-3);
 }</code></pre>
 			</div>
 		</div>
-
 		<!-- Common Combinations -->
 		<div class="example-section">
 			<h2 class="example-title">Common Helper Combinations</h2>
 			<p class="example-description">
 				Frequently used combinations of helper classes.
 			</p>
-
 			<div class="demo-box flex items-center justify-between p-3">
 				<div class="demo-flex-item text-center">
 					Centered Flex Item
@@ -188,7 +158,6 @@
 					Centered Flex Item
 				</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="flex items-center justify-between p-3"&gt;
 	&lt;div class="text-center"&gt;Centered Flex Item&lt;/div&gt;
@@ -196,7 +165,6 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Helper Classes Reference -->
 		<div class="example-section">
 			<h2 class="example-title">Helper Classes Reference</h2>
@@ -207,27 +175,23 @@
 					<li><code>.flex</code> - Flex container</li>
 					<li><code>.block</code> - Block element</li>
 				</ul>
-
 				<h3>Flex</h3>
 				<ul class="my-3">
 					<li><code>.items-center</code> - Center items vertically</li>
 					<li><code>.justify-between</code> - Space between items</li>
 				</ul>
-
 				<h3>Text</h3>
 				<ul class="my-3">
 					<li><code>.text-center</code> - Center text</li>
 					<li><code>.text-left</code> - Left align text</li>
 					<li><code>.text-right</code> - Right align text</li>
 				</ul>
-
 				<h3>Responsive</h3>
 				<ul class="my-3">
 					<li><code>.sm-hidden</code> - Hide on small screens</li>
 					<li><code>.md-hidden</code> - Hide on medium screens</li>
 					<li><code>.lg-hidden</code> - Hide on large screens</li>
 				</ul>
-
 				<h3>Spacing</h3>
 				<ul class="my-3">
 					<li><code>.m-{1-5}</code> - Margin all sides</li>
@@ -240,5 +204,4 @@
 	</main>
 	<script src="../assets/main.js"></script>
 </body>
-
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +8,13 @@
 	<link rel="stylesheet" href="../styles/examples.css">
 	<link rel="stylesheet" href="../../styles/components/navigation.css">
 </head>
-
 <body>
-
 	<section class="docs-nav">
 		<div class="container">
 			<nav class="nav">
-					<h1>Grid System</h1>
 				<a href="#" class="nav-brand" data-home-link>
+					<h1>Grid System</h1>
+				</a>
 				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
@@ -26,7 +24,6 @@
 			</nav>
 		</div>
 	</section>
-
 	<main class="container my-4">
 		<!-- Basic Grid -->
 		<div class="example-section">
@@ -34,13 +31,11 @@
 			<p class="example-description">
 				The basic grid system uses CSS Grid with a 12-column layout. Use grid-cols-* classes to define the number of columns.
 			</p>
-
 			<div class="grid grid-cols-3 gap-3">
 				<div class="demo-col">Column 1</div>
 				<div class="demo-col">Column 2</div>
 				<div class="demo-col">Column 3</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="grid grid-cols-3 gap-3"&gt;
 	&lt;div&gt;Column 1&lt;/div&gt;
@@ -49,21 +44,18 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Column Spans -->
 		<div class="example-section">
 			<h2 class="example-title">Column Spans</h2>
 			<p class="example-description">
 				Use col-span-* classes to make elements span multiple columns.
 			</p>
-
 			<div class="grid grid-cols-6 gap-3">
 				<div class="demo-col col-span-4">col-span-4</div>
 				<div class="demo-col col-span-2">col-span-2</div>
 				<div class="demo-col col-span-3">col-span-3</div>
 				<div class="demo-col col-span-3">col-span-3</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="grid grid-cols-6 gap-3"&gt;
 	&lt;div class="col-span-4"&gt;col-span-4&lt;/div&gt;
@@ -73,21 +65,18 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Responsive Grid -->
 		<div class="example-section">
 			<h2 class="example-title">Responsive Grid</h2>
 			<p class="example-description">
 				Grids can adapt to different screen sizes using responsive prefixes (sm-, md-, lg-, xl-).
 			</p>
-
 			<div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-3">
 				<div class="demo-col">1 col mobile</div>
 				<div class="demo-col">2 cols tablet</div>
 				<div class="demo-col">4 cols desktop</div>
 				<div class="demo-col">Responsive</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-3"&gt;
 	&lt;div&gt;1 col mobile&lt;/div&gt;
@@ -97,14 +86,12 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Nested Grids -->
 		<div class="example-section">
 			<h2 class="example-title">Nested Grids</h2>
 			<p class="example-description">
 				Grids can be nested inside grid columns for complex layouts.
 			</p>
-
 			<div class="grid grid-cols-2 gap-3">
 				<div class="demo-col">
 					<div class="grid grid-cols-2 gap-2">
@@ -119,7 +106,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="grid grid-cols-2 gap-3"&gt;
 	&lt;div&gt;
@@ -137,33 +123,28 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Different Gap Sizes -->
 		<div class="example-section">
 			<h2 class="example-title">Grid Gaps</h2>
 			<p class="example-description">
 				Control the spacing between grid items using gap-* utilities.
 			</p>
-
 			<div class="grid grid-cols-3 gap-2 mb-3">
 				<div class="demo-col">gap-2</div>
 				<div class="demo-col">gap-2</div>
 				<div class="demo-col">gap-2</div>
 			</div>
-
 			<div class="grid grid-cols-3 gap-4">
 				<div class="demo-col">gap-4</div>
 				<div class="demo-col">gap-4</div>
 				<div class="demo-col">gap-4</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="grid grid-cols-3 gap-2"&gt;
 	&lt;div&gt;gap-2&lt;/div&gt;
 	&lt;div&gt;gap-2&lt;/div&gt;
 	&lt;div&gt;gap-2&lt;/div&gt;
 &lt;/div&gt;
-
 &lt;div class="grid grid-cols-3 gap-4"&gt;
 	&lt;div&gt;gap-4&lt;/div&gt;
 	&lt;div&gt;gap-4&lt;/div&gt;
@@ -171,21 +152,18 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Common Layout Patterns -->
 		<div class="example-section">
 			<h2 class="example-title">Common Layout Patterns</h2>
 			<p class="example-description">
 				Example of common layout patterns using the grid system.
 			</p>
-
 			<!-- Sidebar Layout -->
 			<h3 class="my-3">Sidebar Layout</h3>
 			<div class="grid grid-cols-12 gap-3">
 				<div class="demo-col col-span-3">Sidebar</div>
 				<div class="demo-col col-span-9">Main Content</div>
 			</div>
-
 			<!-- Card Grid -->
 			<h3 class="my-3">Card Grid</h3>
 			<div class="grid grid-cols-1 md-grid-cols-3 gap-3">
@@ -202,14 +180,12 @@
 					<p>Card content</p>
 				</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;!-- Sidebar Layout --&gt;
 &lt;div class="grid grid-cols-12 gap-3"&gt;
 	&lt;div class="col-span-3"&gt;Sidebar&lt;/div&gt;
 	&lt;div class="col-span-9"&gt;Main Content&lt;/div&gt;
 &lt;/div&gt;
-
 &lt;!-- Card Grid --&gt;
 &lt;div class="grid grid-cols-1 md-grid-cols-3 gap-3"&gt;
 	&lt;div class="card"&gt;...&lt;/div&gt;
@@ -218,7 +194,6 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Grid System Reference -->
 		<div class="example-section">
 			<h2 class="example-title">Grid System Reference</h2>
@@ -237,5 +212,4 @@
 	</main>
 	<script src="../assets/main.js"></script>
 </body>
-
 </html>

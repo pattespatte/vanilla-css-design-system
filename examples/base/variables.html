@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +9,13 @@
 	<link rel="stylesheet" href="../../styles/variables.css">
 	<link rel="stylesheet" href="../../styles/components/navigation.css">
 </head>
-
 <body>
 	<section class="docs-nav">
 		<div class="container">
 			<nav class="nav">
-					<h1>Design Tokens & Variables</h1>
 				<a href="#" class="nav-brand" data-home-link>
+					<h1>Design Tokens & Variables</h1>
+				</a>
 				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
@@ -26,7 +25,6 @@
 			</nav>
 		</div>
 	</section>
-
 	<main class="container my-4">
 		<!-- Color Variables -->
 		<div class="example-section">
@@ -34,7 +32,6 @@
 			<p class="example-description">
 				Core color palette and variations used throughout the design system.
 			</p>
-
 			<h3 class="mb-3">Primary Colors</h3>
 			<div class="color-grid">
 				<div>
@@ -68,7 +65,6 @@
 					<code>--color-primary-500</code>
 				</div>
 			</div>
-
 			<h3 class="my-3">Secondary Colors</h3>
 			<div class="color-grid">
 				<div>
@@ -102,7 +98,6 @@
 					<code>--color-secondary-500</code>
 				</div>
 			</div>
-
 			<h3 class="my-3">System Colors</h3>
 			<div class="color-grid">
 				<div>
@@ -130,7 +125,6 @@
 					<code>--color-info</code>
 				</div>
 			</div>
-
 			<h3 class="my-3">Neutral Colors</h3>
 			<div class="color-grid">
 				<div>
@@ -153,14 +147,12 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- Typography Variables -->
 		<div class="example-section">
 			<h2 class="example-title">Typography</h2>
 			<p class="example-description">
 				Font families, sizes, weights, and line heights used in the system.
 			</p>
-
 			<h3 class="mb-3">Font Family</h3>
 			<div class="card mb-3">
 				<p style="font-family: var(--font-family-base)">
@@ -169,61 +161,51 @@
 					<code>--font-family-base</code>
 				</p>
 			</div>
-
 			<h3 class="mb-3">Font Sizes</h3>
 			<div class="card mb-3">
 				<p style="font-size: var(--font-size-sm)">Small Text (--font-size-sm)</p>
 				<p style="font-size: var(--font-size-base)">Base Text (--font-size-base)</p>
 				<p style="font-size: var(--font-size-lg)">Large Text (--font-size-lg)</p>
 			</div>
-
 			<h3 class="mb-3">Font Weights</h3>
 			<div class="card mb-3">
 				<p style="font-weight: var(--font-weight-base)">Base Weight (--font-weight-base)</p>
 				<p style="font-weight: var(--font-weight-bold)">Bold Weight (--font-weight-bold)</p>
 			</div>
 		</div>
-
 		<!-- Spacing Variables -->
 		<div class="example-section">
 			<h2 class="example-title">Spacing</h2>
 			<p class="example-description">
 				Consistent spacing units used throughout the system.
 			</p>
-
 			<div class="spacing-demo">
 				<div class="spacing-block" style="width: var(--spacing-1); height: var(--spacing-1);"></div>
 				<code>--spacing-1 (4px)</code>
 			</div>
-
 			<div class="spacing-demo">
 				<div class="spacing-block" style="width: var(--spacing-2); height: var(--spacing-2);"></div>
 				<code>--spacing-2 (8px)</code>
 			</div>
-
 			<div class="spacing-demo">
 				<div class="spacing-block" style="width: var(--spacing-3); height: var(--spacing-3);"></div>
 				<code>--spacing-3 (16px)</code>
 			</div>
-
 			<div class="spacing-demo">
 				<div class="spacing-block" style="width: var(--spacing-4); height: var(--spacing-4);"></div>
 				<code>--spacing-4 (24px)</code>
 			</div>
-
 			<div class="spacing-demo">
 				<div class="spacing-block" style="width: var(--spacing-5); height: var(--spacing-5);"></div>
 				<code>--spacing-5 (32px)</code>
 			</div>
 		</div>
-
 		<!-- Border Variables -->
 		<div class="example-section">
 			<h2 class="example-title">Borders</h2>
 			<p class="example-description">
 				Border properties used in the system.
 			</p>
-
 			<div class="card mb-3">
 				<div style="border: var(--border-width) solid var(--border-color); padding: var(--spacing-3); border-radius: var(--border-radius);">
 					Default Border
@@ -235,14 +217,12 @@
 				<code>--border-radius: 0.25rem</code>
 			</div>
 		</div>
-
 		<!-- Shadow Variables -->
 		<div class="example-section">
 			<h2 class="example-title">Shadows</h2>
 			<p class="example-description">
 				Box shadow variations used in the system.
 			</p>
-
 			<div class="grid grid-cols-3 gap-3">
 				<div class="card" style="box-shadow: var(--shadow-sm)">
 					<p>Small Shadow</p>
@@ -258,14 +238,12 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- Breakpoint Variables -->
 		<div class="example-section">
 			<h2 class="example-title">Breakpoints</h2>
 			<p class="example-description">
 				Responsive breakpoints used in the system.
 			</p>
-
 			<div class="card">
 				<ul>
 					<li><code>--breakpoint-sm: 576px</code></li>
@@ -275,7 +253,6 @@
 				</ul>
 			</div>
 		</div>
-
 		<!-- All Variables Reference -->
 		<div class="example-section">
 			<h2 class="example-title">Complete Variables Reference</h2>
@@ -288,14 +265,12 @@
 	--color-primary-300: #6e0e50;
 	--color-primary-400: #5c0c43;
 	--color-primary-500: #4a0a36;
-
 	--color-secondary: #ffe098;
 	--color-secondary-100: #fff9ed;
 	--color-secondary-200: #fff0c4;
 	--color-secondary-300: #ffe098;
 	--color-secondary-400: #ffd370;
 	--color-secondary-500: #ffc647;
-
 	--color-success: #28a745;
 	--color-danger: #dc3545;
 	--color-warning: #ffc107;
@@ -303,7 +278,6 @@
 	--color-light: #f8f9fa;
 	--color-dark: #343a40;
 	--color-muted: #6c757d;
-
 	/* Typography */
 	--font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 
 		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -313,7 +287,6 @@
 	--font-weight-base: 400;
 	--font-weight-bold: 700;
 	--line-height-base: 1.5;
-
 	/* Spacing */
 	--spacing-unit: 0.25rem;
 	--spacing-1: calc(var(--spacing-unit) * 1);
@@ -321,17 +294,14 @@
 	--spacing-3: calc(var(--spacing-unit) * 4);
 	--spacing-4: calc(var(--spacing-unit) * 6);
 	--spacing-5: calc(var(--spacing-unit) * 8);
-
 	/* Borders */
 	--border-radius: 0.25rem;
 	--border-width: 1px;
 	--border-color: #dee2e6;
-
 	/* Shadows */
 	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
 	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
 	--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-
 	/* Breakpoints */
 	--breakpoint-sm: 576px;
 	--breakpoint-md: 768px;
@@ -343,5 +313,4 @@
 	</main>
 	<script src="../assets/main.js"></script>
 </body>
-
 </html>

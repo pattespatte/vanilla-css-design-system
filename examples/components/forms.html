@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +8,13 @@
 	<link rel="stylesheet" href="../styles/examples.css">
 	<link rel="stylesheet" href="../../styles/components/navigation.css">
 </head>
-
 <body>
-
 	<section class="docs-nav">
 		<div class="container">
 			<nav class="nav">
-					<h1>Forms</h1>
 				<a href="#" class="nav-brand" data-home-link>
+					<h1>Forms</h1>
+				</a>
 				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
@@ -26,7 +24,6 @@
 			</nav>
 		</div>
 	</section>
-
 	<main class="container my-4">
 		<!-- Basic Input Fields -->
 		<div class="example-section">
@@ -34,24 +31,20 @@
 			<p class="example-description">
 				Standard text input fields with labels and different states.
 			</p>
-
 			<form>
 				<div class="form-group">
 					<label class="form-label" for="username">Username</label>
 					<input type="text" class="form-input" id="username" placeholder="Enter username">
 				</div>
-
 				<div class="form-group">
 					<label class="form-label required" for="email">Email</label>
 					<input type="email" class="form-input" id="email" placeholder="Enter email">
 				</div>
-
 				<div class="form-group">
 					<label class="form-label" for="disabled">Disabled Input</label>
 					<input type="text" class="form-input" id="disabled" disabled value="Disabled input">
 				</div>
 			</form>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="form-group"&gt;
 	&lt;label class="form-label" for="username"&gt;Username&lt;/label&gt;
@@ -59,28 +52,24 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Form Validation States -->
 		<div class="example-section">
 			<h2 class="example-title">Validation States</h2>
 			<p class="example-description">
 				Input fields with validation states and feedback messages.
 			</p>
-
 			<form>
 				<div class="form-group">
 					<label class="form-label" for="valid-input">Valid Input</label>
 					<input type="text" class="form-input is-valid" id="valid-input" value="Correct input">
 					<span class="form-feedback valid">This input is valid!</span>
 				</div>
-
 				<div class="form-group">
 					<label class="form-label" for="invalid-input">Invalid Input</label>
 					<input type="text" class="form-input is-invalid" id="invalid-input" value="Incorrect input">
 					<span class="form-feedback invalid">Please check your input.</span>
 				</div>
 			</form>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="form-group"&gt;
 	&lt;label class="form-label" for="valid-input"&gt;Valid Input&lt;/label&gt;
@@ -89,14 +78,12 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Select and Textarea -->
 		<div class="example-section">
 			<h2 class="example-title">Select and Textarea</h2>
 			<p class="example-description">
 				Dropdown select menus and multiline text areas.
 			</p>
-
 			<form>
 				<div class="form-group">
 					<label class="form-label" for="select-example">Select Option</label>
@@ -107,13 +94,11 @@
 						<option>Option 3</option>
 					</select>
 				</div>
-
 				<div class="form-group">
 					<label class="form-label" for="textarea-example">Message</label>
 					<textarea class="form-textarea" id="textarea-example" rows="4" placeholder="Enter your message"></textarea>
 				</div>
 			</form>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="form-group"&gt;
 	&lt;label class="form-label" for="select-example"&gt;Select Option&lt;/label&gt;
@@ -126,14 +111,12 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Checkboxes and Radio Buttons -->
 		<div class="example-section">
 			<h2 class="example-title">Checkboxes and Radio Buttons</h2>
 			<p class="example-description">
 				Custom styled checkboxes and radio button groups.
 			</p>
-
 			<form>
 				<div class="form-group">
 					<div class="form-check">
@@ -145,7 +128,6 @@
 						<label class="form-check-label" for="checkbox2">Checkbox 2</label>
 					</div>
 				</div>
-
 				<div class="form-group">
 					<div class="form-check">
 						<input type="radio" class="form-check-input" name="radio-group" id="radio1">
@@ -157,7 +139,6 @@
 					</div>
 				</div>
 			</form>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="form-check"&gt;
 	&lt;input type="checkbox" class="form-check-input" id="checkbox1"&gt;
@@ -165,14 +146,12 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Input Groups -->
 		<div class="example-section">
 			<h2 class="example-title">Input Groups</h2>
 			<p class="example-description">
 				Input fields with prepended or appended text.
 			</p>
-
 			<form>
 				<div class="form-group">
 					<label class="form-label" for="price-input">Price</label>
@@ -181,7 +160,6 @@
 						<input type="text" class="form-input" style="border-bottom-left-radius: 0; border-top-left-radius: 0;" id="price-input" placeholder="0.00">
 					</div>
 				</div>
-
 				<div class="form-group">
 					<label class="form-label" for="search-input">Search</label>
 					<div class="form-search">
@@ -190,7 +168,6 @@
 					</div>
 				</div>
 			</form>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="input-group"&gt;
 	&lt;span class="input-group-text"&gt;$&lt;/span&gt;
@@ -198,14 +175,12 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Complete Form Example -->
 		<div class="example-section">
 			<h2 class="example-title">Complete Form Example</h2>
 			<p class="example-description">
 				A complete form combining various form elements.
 			</p>
-
 			<form class="card">
 				<div class="form-grid">
 					<div class="col-span-6">
@@ -243,7 +218,6 @@
 					</div>
 				</div>
 			</form>
-
 			<div class="code-block">
 				<pre><code>&lt;form class="card"&gt;
 	&lt;div class="form-grid"&gt;
@@ -261,5 +235,4 @@
 	</main>
 	<script src="../assets/main.js"></script>
 </body>
-
 </html>

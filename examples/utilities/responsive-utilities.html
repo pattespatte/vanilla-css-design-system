@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +8,15 @@
 	<link rel="stylesheet" href="../styles/examples.css">
 	<link rel="stylesheet" href="../../styles/components/navigation.css">
 </head>
-
 <body>
 	<!-- Breakpoint Indicator -->
 	<div class="breakpoint-indicator"></div>
-
 	<section class="docs-nav">
 		<div class="container">
 			<nav class="nav">
-					<h1>Responsive Utilities</h1>
 				<a href="#" class="nav-brand" data-home-link>
+					<h1>Responsive Utilities</h1>
+				</a>
 				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
@@ -28,7 +26,6 @@
 			</nav>
 		</div>
 	</section>
-
 	<main class="container my-4">
 		<!-- Breakpoints Overview -->
 		<div class="example-section">
@@ -36,7 +33,6 @@
 			<p class="example-description">
 				The design system includes five breakpoints for responsive design. Resize your browser to see the breakpoint indicator in the bottom right corner.
 			</p>
-
 			<div class="card">
 				<table class="w-100">
 					<thead>
@@ -76,59 +72,48 @@
 				</table>
 			</div>
 		</div>
-
 		<!-- Responsive Display -->
 		<div class="example-section">
 			<h2 class="example-title">Responsive Display</h2>
 			<p class="example-description">
 				Control element visibility at different breakpoints.
 			</p>
-
 			<div class="demo-box sm-hidden">
 				Only visible on extra small screens (xs)
 			</div>
-
 			<div class="demo-box hidden sm-block md-hidden">
 				Only visible on small screens (sm)
 			</div>
-
 			<div class="demo-box hidden md-block lg-hidden">
 				Only visible on medium screens (md)
 			</div>
-
 			<div class="demo-box hidden lg-block xl-hidden">
 				Only visible on large screens (lg)
 			</div>
-
 			<div class="demo-box hidden xl-block">
 				Only visible on extra large screens (xl)
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="sm-hidden"&gt;
 	Only visible on extra small screens
 &lt;/div&gt;
-
 &lt;div class="hidden sm-block md-hidden"&gt;
 	Only visible on small screens
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Responsive Grid -->
 		<div class="example-section">
 			<h2 class="example-title">Responsive Grid</h2>
 			<p class="example-description">
 				Grid columns that adapt to different screen sizes.
 			</p>
-
 			<div class="grid grid-cols-1 sm-grid-cols-2 md-grid-cols-3 lg-grid-cols-4">
 				<div class="demo-box">1</div>
 				<div class="demo-box">2</div>
 				<div class="demo-box">3</div>
 				<div class="demo-box">4</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="grid grid-cols-1 sm-grid-cols-2 md-grid-cols-3 lg-grid-cols-4"&gt;
 	&lt;div&gt;1&lt;/div&gt;
@@ -138,14 +123,12 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Responsive Column Spans -->
 		<div class="example-section">
 			<h2 class="example-title">Responsive Column Spans</h2>
 			<p class="example-description">
 				Column spans that change based on screen size.
 			</p>
-
 			<div class="grid grid-cols-12 gap-3">
 				<div class="demo-box col-span-12 md-col-span-6 lg-col-span-4">
 					Responsive column span
@@ -154,7 +137,6 @@
 					Responsive column span
 				</div>
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="grid grid-cols-12 gap-3"&gt;
 	&lt;div class="col-span-12 md-col-span-6 lg-col-span-4"&gt;
@@ -163,32 +145,27 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Responsive Spacing -->
 		<div class="example-section">
 			<h2 class="example-title">Responsive Spacing</h2>
 			<p class="example-description">
 				Apply different spacing at different breakpoints.
 			</p>
-
 			<div class="demo-box p-2 sm-p-3 md-p-4 lg-p-5">
 				Responsive padding
 			</div>
-
 			<div class="code-block">
 				<pre><code>&lt;div class="p-2 sm-p-3 md-p-4 lg-p-5"&gt;
 	Responsive padding
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-
 		<!-- Common Responsive Patterns -->
 		<div class="example-section">
 			<h2 class="example-title">Common Responsive Patterns</h2>
 			<p class="example-description">
 				Examples of common responsive layout patterns.
 			</p>
-
 			<!-- Responsive Navigation -->
 			<h3 class="my-3">Responsive Navigation</h3>
 			<nav class="demo-box">
@@ -202,7 +179,6 @@
 					</div>
 				</div>
 			</nav>
-
 			<!-- Responsive Card Layout -->
 			<h3 class="my-3">Responsive Card Layout</h3>
 			<div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-3">
@@ -211,7 +187,6 @@
 				<div class="card">Card 3</div>
 			</div>
 		</div>
-
 		<!-- Best Practices -->
 		<div class="example-section">
 			<h2 class="example-title">Responsive Design Best Practices</h2>
@@ -225,7 +200,6 @@
 				</ul>
 			</div>
 		</div>
-
 		<!-- Reference -->
 		<div class="example-section">
 			<h2 class="example-title">Responsive Utilities Reference</h2>
@@ -236,13 +210,11 @@
 					<li><code>{sm|md|lg|xl}-block</code></li>
 					<li><code>{sm|md|lg|xl}-flex</code></li>
 				</ul>
-
 				<h3>Grid Classes</h3>
 				<ul class="my-3">
 					<li><code>{sm|md|lg|xl}-grid-cols-{1-12}</code></li>
 					<li><code>{sm|md|lg|xl}-col-span-{1-12}</code></li>
 				</ul>
-
 				<h3>Spacing Classes</h3>
 				<ul class="my-3">
 					<li><code>{sm|md|lg|xl}-p-{1-5}</code></li>
@@ -253,5 +225,4 @@
 	</main>
 	<script src="../assets/main.js"></script>
 </body>
-
 </html>
