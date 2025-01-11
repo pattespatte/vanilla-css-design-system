@@ -6,7 +6,35 @@
 }
 
 .docs-section {
-	margin-bottom: var(--spacing-4);
+	background-color: var(--color-light);
+	padding: 1.5rem;
+	border: var(--border-width) solid var(--color-lighter);
+	border-radius: calc(var(--border-radius) * 2);
+}
+
+/* Optional: Styling for the links to make them look like cards */
+ul.docs-links.cards {
+	list-style: none;
+	padding: 0;
+}
+
+ul.docs-links.cards li {
+	margin-bottom: 0.75rem;
+}
+
+ul.docs-links.cards li a {
+	display: block;
+	padding: 0.75rem;
+	background-color: var(--color-white);
+	border-radius: var(--border-radius);
+	border: 1px solid var(--color-lighter);
+	text-decoration: none;
+	color: var(--color-dark);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul.docs-links.cards li a:hover {
+	background-color: var(--color-lighter);
 }
 
 .docs-links {
