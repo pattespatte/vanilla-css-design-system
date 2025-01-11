@@ -7,6 +7,9 @@ A design system built with vanilla CSS to provide a consistent look and feel acr
 - Reusable CSS components
 - Consistent design patterns
 - Easy to integrate into any project
+- Well-organized file structure for maintainability
+- Responsive design using CSS media queries
+- Comprehensive documentation with examples
 
 ## Getting Started
 
@@ -35,10 +38,27 @@ A design system built with vanilla CSS to provide a consistent look and feel acr
     <link rel="stylesheet" href="path/to/your/css/file.css">
     ```
 
+    The main css file `main.css` imports all other css files.
+
+    The folder structure is as follows:
+    - `styles/`: contains all css files
+        - `base/`: contains css files with base styles, such as reset, typography and variables
+        - `components/`: contains the css for the components such as buttons, cards and forms
+        - `layout/`: contains the css files for layout such as containers and grids
+        - `utilities/`: contains the css files for helpers and spacing
+    - `examples/`: contains the html files to showcase all the components in the design system.
+
 ### Usage
 
 Use the provided CSS classes in your HTML to apply the design system styles. For example:
 
 ```html
-<button class="btn-primary">Primary Button</button>
-```
+<div class="container">
+  <button class="btn btn-primary">Primary Button</button>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Card title</h2>
+      <p class="card-text">This is an example card using some components of the design system.</p>
+    </div>
+  </div>
+</div>
