@@ -1,7 +1,7 @@
 /* Demo styles */
 .docs-nav {
 	padding: var(--spacing-4);
-	background: var(--color-light);
+	background: var(--color-lighter);
 	border-bottom: var(--border-width) solid var(--border-color);
 }
 

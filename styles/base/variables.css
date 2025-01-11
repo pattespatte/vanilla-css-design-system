@@ -35,7 +35,8 @@
 	--color-danger: #dc3545;
 	--color-warning: #ffc107;
 	--color-info: #007bff;
-	--color-light: #f8f9fa;
+	--color-lighter: #f8f9fa;
+	--color-light: #e9ecef;
 	--color-dark: #343a40;
 	--color-muted: #6c757d;
 	--color-white: #fff;
@@ -68,7 +69,7 @@
 	/* Border */
 	--border-radius: 0.25rem;
 	--border-width: 1px;
-	--border-color: #dee2e6;
+	--border-color: var(--color-light);
 
 	/* Transitions */
 	--transition-base: all 0.2s ease-in-out;

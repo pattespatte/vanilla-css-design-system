@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Spacing Utilities - Vanilla CSS Design System</title>
+	<title>Border Utilities - Vanilla CSS Design System</title>
 	<link rel="stylesheet" href="../../styles/main.css">
 	<link rel="stylesheet" href="../styles/examples.css">
 </head>
@@ -14,7 +14,7 @@
 		<div class="container grid grid-cols-3 gap-3">
 			<div>
 				<a href="#" class="nav-brand" data-home-link>
-					<h1>Spacing Utilities</h1>
+					<h1>Border Utilities</h1>
 				</a>
 			</div>
 			<div class="col-span-2">
@@ -25,29 +25,35 @@
 					<ul class="nav-menu">
 						<!-- Navigation items will be inserted here by JavaScript -->
 					</ul>
-				</nav>
 			</div>
+			</nav>
 		</div>
 	</section>
 	<main class="container my-4">
 		<!-- Display Helpers -->
-		<div class="example-section">
-			<header>
-				<h1>Spacing Utilities</h1>
-				<p>Spacing utilities control margin and padding for elements.</p>
-			</header>
-			<main>
-				<h2>Margin Utilities</h2>
-				<section class="border">
-					<div class="m-1 border border-primary" style="background-color: var(--color-secondary);">Margin 1</div>
-					<div class="m-3 border border-primary" style="background-color: var(--color-secondary);">Margin 3</div>
-				</section>
-				<h2>Padding Utilities</h2>
-				<section class="border">
-					<div class="p-1 border border-primary" style="background-color: var(--color-secondary);">Padding 1</div>
-					<div class="p-3 border border-primary" style="background-color: var(--color-secondary);">Padding 3</div>
-				</section>
-			</main>
+		<div class="example-section grid grid-cols-1 gap-4">
+			<h2 class="example-title">Border Helpers</h2>
+
+			<!-- Basic border -->
+			<div class="border">Basic border</div>
+
+			<!-- Colored border -->
+			<div class="border border-primary border-1">Primary colored border</div>
+
+			<!-- Thick dashed border -->
+			<div class="border border-4 border-dashed border-success">Thick dashed success border</div>
+
+			<!-- Rounded corners -->
+			<div class="border rounded-lg">Large rounded corners</div>
+
+			<!-- Individual side border -->
+			<div class="border border-t border-primary">Only top border</div>
+
+			<!-- Combining utilities -->
+			<div class="border border-2 border-danger rounded-full">
+				Thick danger border with full rounding
+			</div>
+
 		</div>
 	</main>
 	<script src="../assets/main.js"></script>
