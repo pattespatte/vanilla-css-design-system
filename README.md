@@ -46,7 +46,7 @@ A design system built with vanilla CSS to provide a consistent look and feel acr
         - `components/`: contains the css for the components such as buttons, cards and forms
         - `layout/`: contains the css files for layout such as containers and grids
         - `utilities/`: contains the css files for helpers and spacing
-    - `examples/`: contains the html files to showcase all the components in the design system.
+    - `examples/`: contains the html files to showcase all the components in the design system. This file is not included in the `main.css` file and is only used for demonstration purposes.
 
 ### Usage
 
