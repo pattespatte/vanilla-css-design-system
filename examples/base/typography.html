@@ -7,15 +7,25 @@
 	<title>Typography - Vanilla CSS Design System</title>
 	<link rel="stylesheet" href="../../styles/main.css">
 	<link rel="stylesheet" href="../styles/examples.css">
+	<link rel="stylesheet" href="../../styles/components/navigation.css">
 </head>
 
 <body>
-	<nav class="docs-nav">
+
+	<section class="docs-nav">
 		<div class="container">
-			<a href="../index.html">← Back to Documentation</a>
-			<h1>Typography</h1>
+			<nav class="nav">
+					<h1>Typography</h1>
+				<a href="/" class="nav-brand">Home</a>
+				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
+					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
+				</button>
+				<ul class="nav-menu">
+					<!-- Navigation items will be inserted here by JavaScript -->
+				</ul>
+			</nav>
 		</div>
-	</nav>
+	</section>
 
 	<main class="container my-4">
 		<!-- Font Family -->
@@ -219,6 +229,7 @@
 			</div>
 		</div>
 	</main>
+	<script src="../assets/main.js"></script>
 </body>
 
 </html>

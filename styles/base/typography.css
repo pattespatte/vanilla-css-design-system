@@ -35,3 +35,19 @@ h5 {
 h6 {
 	font-size: 1rem;
 }
+
+.font-size-sm {
+	font-size: var(--font-size-sm);
+}
+.font-size-lg {
+	font-size: var(--font-size-lg);
+}
+.font-weight-light {
+	font-weight: var(--font-weight-light);
+}
+.font-weight-base {
+	font-weight: var(--font-weight-base);
+}
+.font-weight-bold {
+	font-weight: var(--font-weight-bold);
+}

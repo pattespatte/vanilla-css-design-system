@@ -7,65 +7,25 @@
 	<title>Design Tokens & Variables - Vanilla CSS Design System</title>
 	<link rel="stylesheet" href="../../styles/main.css">
 	<link rel="stylesheet" href="../styles/examples.css">
-	<style>
-		.example-section {
-			margin-bottom: var(--spacing-4);
-			padding: var(--spacing-4);
-			border: var(--border-width) solid var(--border-color);
-			border-radius: var(--border-radius);
-		}
-
-		.example-title {
-			margin-bottom: var(--spacing-3);
-		}
-
-		.example-description {
-			margin-bottom: var(--spacing-3);
-			color: var(--color-muted);
-		}
-
-		.code-block {
-			background: var(--color-light);
-			padding: var(--spacing-3);
-			border-radius: var(--border-radius);
-			margin-top: var(--spacing-3);
-			overflow-x: auto;
-			font-family: monospace;
-		}
-
-		.color-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-			gap: var(--spacing-3);
-		}
-
-		.color-swatch {
-			padding: var(--spacing-3);
-			border-radius: var(--border-radius);
-			color: white;
-			margin-bottom: var(--spacing-2);
-		}
-
-		.spacing-demo {
-			background: var(--color-light);
-			margin-bottom: var(--spacing-3);
-			border-radius: var(--border-radius);
-		}
-
-		.spacing-block {
-			background: var(--color-primary-100);
-			border: 1px solid var(--color-primary);
-		}
-	</style>
+	<link rel="stylesheet" href="../../styles/variables.css">
+	<link rel="stylesheet" href="../../styles/components/navigation.css">
 </head>
 
 <body>
-	<nav class="docs-nav">
+	<section class="docs-nav">
 		<div class="container">
-			<a href="../index.html">← Back to Documentation</a>
-			<h1>Design Tokens & Variables</h1>
+			<nav class="nav">
+					<h1>Design Tokens & Variables</h1>
+				<a href="/" class="nav-brand">Home</a>
+				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
+					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
+				</button>
+				<ul class="nav-menu">
+					<!-- Navigation items will be inserted here by JavaScript -->
+				</ul>
+			</nav>
 		</div>
-	</nav>
+	</section>
 
 	<main class="container my-4">
 		<!-- Color Variables -->
@@ -381,6 +341,7 @@
 			</div>
 		</div>
 	</main>
+	<script src="../assets/main.js"></script>
 </body>
 
 </html>

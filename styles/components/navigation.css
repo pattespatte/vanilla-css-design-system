@@ -1,0 +1,80 @@
+/* components/navigation.css */
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	/* This helps with spacing */
+	gap: var(--spacing-3);
+	padding: var(--spacing-3) 0;
+	max-width: 100%;
+	/* Ensure nav doesn't exceed viewport width */
+	width: 100%;
+	/* Take full width of container */
+}
+
+.nav-brand {
+	font-size: var(--font-size-lg);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	color: var(--color-primary);
+}
+
+.nav-menu {
+	display: flex;
+	list-style: none;
+	gap: var(--spacing-3);
+	margin: 0;
+	padding: 0;
+	flex-wrap: wrap;
+	/* Allow items to wrap on smaller screens */
+	max-width: calc(100% - 200px);
+	/* Adjust based on your brand logo width */
+}
+
+.nav-menu a {
+	text-decoration: none;
+}
+
+.nav-link {
+	text-decoration: none;
+	color: var(--color-dark);
+	padding: var(--spacing-2);
+	transition: var(--transition-base);
+}
+
+.nav-link:hover {
+	color: var(--color-primary);
+}
+
+.nav-link.active {
+	color: var(--color-primary);
+	font-weight: var(--font-weight-bold);
+}
+
+/* Mobile navigation */
+.nav-toggle {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.nav-toggle {
+		display: block;
+	}
+
+	.nav-menu {
+		display: none;
+		flex-direction: column;
+		background: var(--color-white);
+		padding: var(--spacing-3);
+		box-shadow: var(--shadow-md);
+	}
+
+	.nav-menu.active {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+	}
+}
