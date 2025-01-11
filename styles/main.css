@@ -5,6 +5,8 @@
 @import "components/forms.css";
 @import "components/navigation.css";
 @import "layout/grid.css";
+@import "utilities/accessibility.css";
+@import "utilities/animations.css";
 @import "utilities/borders.css";
 @import "utilities/helpers.css";
 @import "utilities/spacing.css";

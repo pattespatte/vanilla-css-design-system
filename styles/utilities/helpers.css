@@ -7,6 +7,34 @@
 	display: flex;
 }
 
+.flex-col {
+	flex-direction: column;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-nowrap {
+	flex-wrap: nowrap;
+}
+
+.gap-1 {
+	gap: var(--spacing-1);
+}
+
+.gap-2 {
+	gap: var(--spacing-2);
+}
+
+.gap-3 {
+	gap: var(--spacing-3);
+}
+
 .items-center {
 	align-items: center;
 }

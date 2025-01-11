@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Animation - Vanilla CSS Design System</title>
+	<link rel="stylesheet" href="../../styles/main.css">
+	<link rel="stylesheet" href="../styles/examples.css">
+</head>
+
+<body>
+	<section class="docs-nav">
+		<div class="container grid grid-cols-3 gap-3">
+			<div>
+				<a href="#" class="nav-brand" data-home-link>
+					<h1>Animation Demo</h1>
+				</a>
+			</div>
+			<div class="col-span-2">
+				<nav class="nav">
+					<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
+						☰ <!-- You can replace this with an SVG icon or a better-looking character -->
+					</button>
+					<ul class="nav-menu">
+						<!-- Navigation items will be inserted here by JavaScript -->
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</section>
+
+	<main class="container my-4">
+
+		<!-- Basic Animations -->
+		<div class="example-section">
+			<h2 class="example-title">Basic Animations</h2>
+			<div class="grid" id="basicAnimations">
+				<div class="card border border-primary" id="fadeInCard">Fade In</div>
+				<div class="card border border-primary" id="slideInRightCard">Slide In Right</div>
+				<div class="card border border-primary" id="slideInLeftCard">Slide In Left</div>
+				<div class="card border border-primary" id="slideInUpCard">Slide In Up</div>
+			</div>
+			<div class="controls my-3">
+				<button class="btn btn-primary" onclick="triggerBasicAnimations()">Trigger Basic Animations</button>
+			</div>
+		</div>
+
+		<!-- Continuous Animations -->
+		<div class="example-section">
+			<h2 class="example-title">Continuous Animations</h2>
+			<div class="grid">
+				<div class="card border border-primary" id="bounceCard">Bounce</div>
+				<div class="card border border-primary" id="pulseCard">Pulse</div>
+				<div class="card border border-primary" id="spinCard">Spin</div>
+			</div>
+			<div class="controls my-3">
+				<button class="btn btn-primary" onclick="startAnimations()">Start Animations</button>
+				<button class="btn btn-danger" onclick="stopAnimations()">Stop Animations</button>
+			</div>
+		</div>
+
+		<!-- Hover Animations -->
+		<div class="example-section">
+			<h2 class="example-title">Hover Animations</h2>
+			<div class="grid">
+				<div class="card border border-primary hover-grow">Hover to Grow</div>
+				<div class="card border border-primary hover-shrink">Hover to Shrink</div>
+				<div class="card border border-primary hover-rotate">Hover to Rotate</div>
+			</div>
+		</div>
+
+		<!-- Triggered Animations -->
+		<div class="example-section">
+			<h2 class="example-title">Triggered Animations</h2>
+			<div class="grid">
+				<div id="triggerDemo" class="card border border-primary">Click Button to Animate</div>
+			</div>
+			<div class="controls my-3">
+				<button class="btn btn-primary" onclick="triggerAnimation()">Trigger Animation</button>
+			</div>
+		</div>
+
+	</main>
+
+	<script src="../assets/main.js"></script>
+
+	<script>
+		// Function to trigger Basic Animations
+		function triggerBasicAnimations() {
+			// Get all the elements to animate
+			const animations = [
+				{ id: 'fadeInCard', animation: 'fade-in' },
+				{ id: 'slideInRightCard', animation: 'slide-in-right' },
+				{ id: 'slideInLeftCard', animation: 'slide-in-left' },
+				{ id: 'slideInUpCard', animation: 'slide-in-up' },
+			];
+
+			animations.forEach(({ id, animation }) => {
+				const element = document.getElementById(id);
+
+				// Remove the animation class if it already exists
+				element.classList.remove(animation);
+
+				// Trigger reflow to restart the animation
+				void element.offsetWidth;
+
+				// Add the animation class
+				element.classList.add(animation);
+
+				// Listen for the animationend event to remove the class
+				element.addEventListener('animationend', () => {
+					element.classList.remove(animation);
+				}, { once: true }); // Use { once: true } to ensure the listener is removed automatically
+			});
+		}
+
+		// Function to trigger one-time animation
+		function triggerAnimation() {
+			const element = document.getElementById('triggerDemo');
+			element.className = 'card'; // Reset animations
+			void element.offsetWidth; // Trigger reflow
+			element.className = 'card border border-primary slide-in-right'; // Add animation
+		}
+
+		// Start continuous animations
+		function startAnimations() {
+			document.getElementById('bounceCard').classList.add('bounce');
+			document.getElementById('pulseCard').classList.add('pulse');
+			document.getElementById('spinCard').classList.add('spin');
+		}
+
+		// Stop continuous animations
+		function stopAnimations() {
+			document.getElementById('bounceCard').classList.remove('bounce');
+			document.getElementById('pulseCard').classList.remove('pulse');
+			document.getElementById('spinCard').classList.remove('spin');
+		}
+	</script>
+
+</body>
+
+</html>
