@@ -62,3 +62,18 @@ Use the provided CSS classes in your HTML to apply the design system styles. For
     </div>
   </div>
 </div>
+```
+
+## Contributing
+
+Contributions are welcome! We appreciate any help with bug fixes, new features, or documentation improvements. To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Submit a pull request with a detailed description of your changes, including the purpose and any relevant context.
+
+If you have any questions or need assistance, feel free to reach out!
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
