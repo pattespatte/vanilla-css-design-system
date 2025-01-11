@@ -1,14 +1,14 @@
 /* Demo styles */
 .docs-nav {
 	padding: var(--spacing-4);
-	background: var(--color-lighter);
+	background: var(--color-gray-100);
 	border-bottom: var(--border-width) solid var(--border-color);
 }
 
 .docs-section {
 	background-color: var(--color-light);
 	padding: 1.5rem;
-	border: var(--border-width) solid var(--color-lighter);
+	border: var(--border-width) solid var(--color-gray-100);
 	border-radius: calc(var(--border-radius) * 2);
 }
 
@@ -27,14 +27,14 @@ ul.docs-links.cards li a {
 	padding: 0.75rem;
 	background-color: var(--color-white);
 	border-radius: var(--border-radius);
-	border: 1px solid var(--color-lighter);
+	border: 1px solid var(--color-gray-100);
 	text-decoration: none;
 	color: var(--color-dark);
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 ul.docs-links.cards li a:hover {
-	background-color: var(--color-lighter);
+	background-color: var(--color-gray-100);
 }
 
 .docs-links {
@@ -96,7 +96,6 @@ ul.docs-links.cards li a:hover {
 	padding: var(--spacing-3);
 	border-radius: var(--border-radius);
 	margin-top: var(--spacing-3);
-	overflow-x: auto;
 	font-family: monospace;
 }
 

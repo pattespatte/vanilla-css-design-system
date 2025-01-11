@@ -31,7 +31,7 @@
 	font-family: var(--font-family-base);
 	line-height: var(--line-height-base);
 	color: var(--color-dark);
-	background-color: white;
+	background-color: var(--color-white);
 	border: var(--border-width) solid var(--border-color);
 	border-radius: var(--border-radius);
 	transition: var(--transition-base);
