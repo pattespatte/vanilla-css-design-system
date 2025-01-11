@@ -217,7 +217,7 @@
 				</div>
 				<code>--border-width: 1px</code>
 				<br>
-				<code>--border-color: #dee2e6</code>
+				<code>--border-color: var(--color-gray-400);</code>
 				<br>
 				<code>--border-radius: 0.25rem</code>
 			</div>
@@ -297,14 +297,25 @@
 	--color-success: #1e7e34;
 	--color-danger: #dc3545;
 	--color-warning: #ffc107;
-	--color-info: #007bff;
-	--color-gray-100: #f8f9fa;
+	--color-info: #0266d6;
 	--color-light: #e9ecef;
-	--color-dark: #343a40;
 	--color-muted: #6c757d;
+	--color-dark: #343a40;
 	--color-white: #fff;
 	--color-black: #000;
 	--color-transparent: transparent;
+
+	/* Expanded gray scale */
+	--color-gray-50: #f9fafb;    /* Lightest gray */
+	--color-gray-100: #f8f9fa;   /* Slightly darker than 50 */
+	--color-gray-200: #e9ecef;   /* Matches your --color-light */
+	--color-gray-300: #dee2e6;   /* Slightly darker */
+	--color-gray-400: #ced4da;   /* Medium light gray */
+	--color-gray-500: #adb5bd;   /* Mid gray */
+	--color-gray-600: #6c757d;   /* Matches your --color-muted */
+	--color-gray-700: #495057;   /* Darker muted gray */
+	--color-gray-800: #343a40;   /* Matches your --color-dark */
+	--color-gray-900: #212529;   /* Almost black */
 
 	/* Typography */
 	--font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -332,7 +343,7 @@
 	/* Border */
 	--border-radius: 0.25rem;
 	--border-width: 1px;
-	--border-color: var(--color-light);
+	--border-color: var(--color-gray-400);
 
 	/* Transitions */
 	--transition-base: all 0.2s ease-in-out;
@@ -352,6 +363,9 @@
 			</div>
 		</div>
 	</main>
+	<footer>
+		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>
+	</footer>
 	<script src="../assets/main.js"></script>
 </body>
 

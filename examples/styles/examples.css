@@ -1,7 +1,31 @@
 /* Demo styles */
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	background-color: var(--color-gray-100);
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1;
+}
+
+footer {
+	padding: 1rem 0;
+	background-color: var(--color-gray-200);
+	border-top: var(--border-width) solid var(--border-color);
+}
+
 .docs-nav {
 	padding: var(--spacing-4);
-	background: var(--color-gray-100);
+	background: var(--color-gray-200);
 	border-bottom: var(--border-width) solid var(--border-color);
 }
 
@@ -76,6 +100,7 @@ ul.docs-links.cards li a:hover {
 }
 
 .example-section {
+	background-color: var(--color-white);
 	margin-bottom: var(--spacing-4);
 	padding: var(--spacing-4);
 	border: var(--border-width) solid var(--border-color);
@@ -169,7 +194,6 @@ ul.docs-links.cards li a:hover {
 	box-shadow: var(--shadow-sm);
 	display: block;
 }
-
 
 @media (min-width: 576px) {
 	.breakpoint-indicator::after {
