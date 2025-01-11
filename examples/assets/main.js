@@ -7,6 +7,9 @@ const scriptBasePath = script.src.replace(/\/assets\/main\.js$/, '');
 // Set the examples folder relative to the script's location
 const examplesFolder = `${scriptBasePath}/`;
 
+// Update all elements that need the base path
+document.querySelector('[data-home-link]').href = examplesFolder;
+
 // Get a reference to the navigation menu
 const navMenu = document.querySelector('.nav-menu');
 
