@@ -1,13 +1,26 @@
-@import "base/reset.css";
-@import "base/typography.css";
-@import "components/buttons.css";
-@import "components/cards.css";
-@import "components/forms.css";
-@import "components/navigation.css";
-@import "layout/grid.css";
-@import "utilities/accessibility.css";
-@import "utilities/animations.css";
-@import "utilities/borders.css";
-@import "utilities/helpers.css";
-@import "utilities/spacing.css";
-@import "base/variables.css";
+/* styles/main.css */
+
+/* Base styles */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./base/typography.css');
+
+/* Layout styles */
+@import url('./layout/grid.css');
+
+/* Component styles */
+@import url('./components/buttons.css');
+@import url('./components/cards.css');
+@import url('./components/forms.css');
+@import url('./components/navigation.css');
+
+/* Utility styles */
+@import url('./utilities/accessibility.css');
+@import url('./utilities/animations.css');
+@import url('./utilities/borders.css');
+@import url('./utilities/helpers.css');
+@import url('./utilities/print.css');
+@import url('./utilities/spacing.css');
+
+/* Custom styles */
+@import url('./custom.css');
