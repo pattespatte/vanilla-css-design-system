@@ -1,4 +1,29 @@
 /* utilities/helpers.css */
+
+.position-relative {
+	position: relative;
+}
+
+.position-absolute {
+	position: absolute;
+}
+
+.position-fixed {
+	position: fixed;
+}
+
+.position-sticky {
+	position: sticky;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
 .text-center {
 	text-align: center;
 }
