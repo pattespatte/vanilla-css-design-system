@@ -28,4 +28,5 @@
 .btn-primary:hover,
 .btn-secondary:hover {
 	filter: brightness(90%);
+	box-shadow: var(--shadow-sm);
 }
