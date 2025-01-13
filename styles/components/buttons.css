@@ -8,7 +8,8 @@
 	text-align: center;
 	text-decoration: none;
 	border: var(--border-width) solid transparent;
-	border-radius: var(--border-radius);
+	border-radius: calc(var(--border-radius) * 2);
+	box-shadow: var(--shadow-md);
 	transition: var(--transition-base);
 	cursor: pointer;
 }
