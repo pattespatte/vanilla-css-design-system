@@ -29,6 +29,18 @@ footer {
 	border-bottom: var(--border-width) solid var(--border-color);
 }
 
+.nav-menu a {
+	background-color: var(--color-gray-100);
+	color: var(--color-primary);
+	padding: 0.25rem 0.5rem;
+	border-radius: var(--border-radius);
+}
+
+.nav-menu a:hover {
+	background-color: var(--color-white);
+	color: var(--color-dark);
+}
+
 .docs-section {
 	background-color: var(--color-light);
 	padding: 1.5rem;

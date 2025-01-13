@@ -13,7 +13,7 @@
 <body>
 	<!-- Breakpoint Indicator -->
 	<div class="breakpoint-indicator"></div>
-	<header class="docs-nav position-relative">
+	<header class="docs-nav">
 		<div class="container grid grid-cols-2 md-grid-cols-3 gap-3">
 			<a href="#" class="nav-brand" data-home-link>
 				<h1>Responsive Utilities</h1>
@@ -171,25 +171,19 @@
 			<p class="example-description">
 				Examples of common responsive layout patterns.
 			</p>
-			<!-- Responsive Navigation -->
-			<h3 class="my-3">Responsive Navigation</h3>
-			<nav class="demo-box">
-				<div class="flex justify-between items-center">
-					<div>Logo</div>
-					<div class="sm-hidden">☰</div>
-					<div class="hidden sm-block">
-						<a href="#" class="mx-2">Link 1</a>
-						<a href="#" class="mx-2">Link 2</a>
-						<a href="#" class="mx-2">Link 3</a>
-					</div>
-				</div>
-			</nav>
 			<!-- Responsive Card Layout -->
 			<h3 class="my-3">Responsive Card Layout</h3>
 			<div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-3">
 				<div class="card">Card 1</div>
 				<div class="card">Card 2</div>
 				<div class="card">Card 3</div>
+			</div>
+			<div class="code-block">
+				<pre><code>&lt;div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-3"&gt;
+	&lt;div class="card"&gt;Card 1&lt;/div&gt;
+	&lt;div class="card"&gt;Card 2&lt;/div&gt;
+	&lt;div class="card"&gt;Card 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 			</div>
 		</div>
 		<!-- Best Practices -->
