@@ -9,10 +9,13 @@
 @import url('./layout/grid.css');
 
 /* Component styles */
+@import url('./components/alerts.css');
 @import url('./components/buttons.css');
 @import url('./components/cards.css');
+@import url('./components/data.css');
 @import url('./components/forms.css');
 @import url('./components/navigation.css');
+@import url('./components/popups.css');
 
 /* Utility styles */
 @import url('./utilities/accessibility.css');

@@ -42,6 +42,15 @@
 	--color-black: #000;
 	--color-transparent: transparent;
 
+	--color-success-100: #d4edda;
+	--color-success-200: #c3e6cb;
+	--color-danger-100: #f8d7da;
+	--color-danger-200: #f5c6cb;
+	--color-warning-100: #fff3cd;
+	--color-warning-200: #ffeeba;
+	--color-info-100: #cce5ff;
+	--color-info-200: #b8daff;
+
 	/* Expanded gray scale */
 	--color-gray-50: #f9fafb;    /* Lightest gray */
 	--color-gray-100: #f8f9fa;   /* Slightly darker than 50 */

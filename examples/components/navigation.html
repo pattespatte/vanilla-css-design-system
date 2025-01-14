@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Navigation - Vanilla CSS Design System</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" integrity="sha512-hasIneQUHlh06VNBe7f6ZcHmeRTLIaQWFd43YriJ0UND19bvYRauxthDg8E4eVNPm9bRUhr5JGeqH7FRFXQu5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="../../styles/main.css">
+	<link rel="stylesheet" href="../assets/examples.css">
+</head>
+
+<body>
+	<header class="docs-nav">
+		<div class="container grid grid-cols-2 md-grid-cols-3 gap-3">
+			<a href="#" class="nav-brand" data-home-link>
+				<h1>Navigation</h1>
+			</a>
+			<nav class="nav col-span-1 md-col-span-2">
+				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
+					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
+				</button>
+				<ul class="nav-menu">
+					<!-- Navigation items will be inserted here by JavaScript -->
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main class="container my-4">
+		<!-- Basic Navigation -->
+		<div class="example-section">
+			<h2 class="example-title">Basic Navigation</h2>
+			<p class="example-description">
+				Basic horizontal navigation with hover effects.
+			</p>
+			<nav class="nav">
+				<a href="#" class="nav-brand">Brand</a>
+				<ul class="nav-menu">
+					<li><a href="#" class="nav-link active">Home</a></li>
+					<li><a href="#" class="nav-link">About</a></li>
+					<li><a href="#" class="nav-link">Services</a></li>
+					<li><a href="#" class="nav-link">Contact</a></li>
+				</ul>
+			</nav>
+			<div class="code-block">
+				<pre><code>&lt;nav class="nav"&gt;
+	&lt;a href="#" class="nav-brand"&gt;Brand&lt;/a&gt;
+	&lt;ul class="nav-menu"&gt;
+		&lt;li&gt;&lt;a href="#" class="nav-link active"&gt;Home&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#" class="nav-link"&gt;About&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#" class="nav-link"&gt;Services&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#" class="nav-link"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Breadcrumbs -->
+		<div class="example-section">
+			<h2 class="example-title">Breadcrumbs</h2>
+			<p class="example-description">
+				Navigation aid showing the current page's location in a hierarchical structure.
+			</p>
+			<nav class="breadcrumbs">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Products</a></li>
+					<li class="active">Current Page</li>
+				</ul>
+			</nav>
+			<div class="code-block">
+				<pre><code>&lt;nav class="breadcrumbs"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Products&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="active"&gt;Current Page&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Pagination -->
+		<div class="example-section">
+			<h2 class="example-title">Pagination</h2>
+			<p class="example-description">
+				Navigation for splitting content across multiple pages.
+			</p>
+			<nav class="pagination">
+				<ul>
+					<li><a href="#" class="disabled">Previous</a></li>
+					<li><a href="#" class="active">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><span>...</span></li>
+					<li><a href="#">10</a></li>
+					<li><a href="#">Next</a></li>
+				</ul>
+			</nav>
+			<div class="code-block">
+				<pre><code>&lt;nav class="pagination"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href="#" class="disabled"&gt;Previous&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#" class="active"&gt;1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;span&gt;...&lt;/span&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;10&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Next&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>hljs.highlightAll();</script>
+	<script src="../assets/main.js"></script>
+</body>
+
+</html>
