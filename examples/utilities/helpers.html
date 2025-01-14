@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 	<link rel="stylesheet" href="../../styles/main.css">
 	<link rel="stylesheet" href="../assets/examples.css">
 </head>
+
 <body>
 	<header class="docs-nav">
 		<div class="container grid grid-cols-2 md-grid-cols-3 gap-3">
@@ -35,17 +37,12 @@
 			<div class="demo-box hidden">Hidden element (won't be visible)</div>
 			<div class="demo-box flex">Flex container</div>
 			<div class="code-block">
-				<pre><code>.hidden {
-	display: none;
-}
-.flex {
-	display: flex;
-}
-.block {
-	display: block;
-}</code></pre>
+				<pre><code class="hljs language-html">&lt;div&gt;Default display&lt;/div&gt;
+&lt;div class="hidden"&gt;Hidden element (won't be visible)&lt;/div&gt;
+&lt;div class="flex"&gt;Flex container&lt;/div&gt;</code></pre>
 			</div>
 		</div>
+
 		<!-- Flex Utilities -->
 		<div class="example-section">
 			<h2 class="example-title">Flex Utilities</h2>
@@ -58,17 +55,14 @@
 				<div class="demo-flex-item">Flex Item 3</div>
 			</div>
 			<div class="code-block">
-				<pre><code>.flex {
-	display: flex;
-}
-.items-center {
-	align-items: center;
-}
-.justify-between {
-	justify-content: space-between;
-}</code></pre>
+				<pre><code class="hljs language-html">&lt;div class="flex items-center justify-between"&gt;
+    &lt;div&gt;Flex Item 1&lt;/div&gt;
+    &lt;div&gt;Flex Item 2&lt;/div&gt;
+    &lt;div&gt;Flex Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
 			</div>
 		</div>
+
 		<!-- Text Alignment -->
 		<div class="example-section">
 			<h2 class="example-title">Text Alignment</h2>
@@ -79,17 +73,12 @@
 			<div class="demo-box text-left">Left aligned text</div>
 			<div class="demo-box text-right">Right aligned text</div>
 			<div class="code-block">
-				<pre><code>.text-center {
-	text-align: center;
-}
-.text-left {
-	text-align: left;
-}
-.text-right {
-	text-align: right;
-}</code></pre>
+				<pre><code class="hljs language-html">&lt;div class="text-center"&gt;Centered text&lt;/div&gt;
+&lt;div class="text-left"&gt;Left aligned text&lt;/div&gt;
+&lt;div class="text-right"&gt;Right aligned text&lt;/div&gt;</code></pre>
 			</div>
 		</div>
+
 		<!-- Responsive Visibility -->
 		<div class="example-section">
 			<h2 class="example-title">Responsive Visibility</h2>
@@ -100,23 +89,12 @@
 			<div class="demo-box md-hidden">Hidden on medium screens</div>
 			<div class="demo-box lg-hidden">Hidden on large screens</div>
 			<div class="code-block">
-				<pre><code>@media (min-width: 576px) {
-	.sm-hidden {
-		display: none;
-	}
-}
-@media (min-width: 768px) {
-	.md-hidden {
-		display: none;
-	}
-}
-@media (min-width: 992px) {
-	.lg-hidden {
-		display: none;
-	}
-}</code></pre>
+				<pre><code class="hljs language-html">&lt;div class="sm-hidden"&gt;Hidden on small screens&lt;/div&gt;
+&lt;div class="md-hidden"&gt;Hidden on medium screens&lt;/div&gt;
+&lt;div class="lg-hidden"&gt;Hidden on large screens&lt;/div&gt;</code></pre>
 			</div>
 		</div>
+
 		<!-- Spacing Helpers -->
 		<div class="example-section">
 			<h2 class="example-title">Quick Spacing Helpers</h2>
@@ -128,20 +106,10 @@
 			<div class="demo-box my-3">Margin 3 (vertical)</div>
 			<div class="demo-box p-5" style="padding: var(--spacing-5);">Padding 5 (all sides)</div>
 			<div class="code-block">
-				<pre><code>.m-3 {
-	margin: var(--spacing-3);
-}
-.mx-3 {
-	margin-left: var(--spacing-3);
-	margin-right: var(--spacing-3);
-}
-.my-3 {
-	margin-top: var(--spacing-3);
-	margin-bottom: var(--spacing-3);
-}
-.p-5 {
-	padding: var(--spacing-5);
-}</code></pre>
+				<pre><code class="hljs language-html">&lt;div class="m-3"&gt;Margin 3 (all sides)&lt;/div&gt;
+&lt;div class="mx-3"&gt;Margin 3 (horizontal)&lt;/div&gt;
+&lt;div class="my-3"&gt;Margin 3 (vertical)&lt;/div&gt;
+&lt;div class="p-5"&gt;Padding 5 (all sides)&lt;/div&gt;</code></pre>
 			</div>
 		</div>
 		<!-- Common Combinations -->
@@ -209,4 +177,5 @@
 	<script>hljs.highlightAll();</script>
 	<script src="../assets/main.js"></script>
 </body>
+
 </html>
