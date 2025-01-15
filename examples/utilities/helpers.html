@@ -155,15 +155,27 @@
 			<p class="example-description">
 				Common spacing utility classes for margin and padding.
 			</p>
-			<div class="demo-box m-3">Margin 3 (all sides)</div>
-			<div class="demo-box mx-3">Margin 3 (horizontal)</div>
-			<div class="demo-box my-3">Margin 3 (vertical)</div>
-			<div class="demo-box p-5" style="padding: var(--spacing-5);">Padding 5 (all sides)</div>
+			<div class="demo-box"><div class="demo-box m-1">Margin 1 (all sides)</div></div>
+			<div class="demo-box"><div class="demo-box m-3">Margin 3 (all sides)</div></div>
+			<div class="demo-box"><div class="demo-box mx-3">Margin 3 (horizontal)</div></div>
+			<div class="demo-box"><div class="demo-box my-3">Margin 3 (vertical)</div></div>
+			<div class="demo-box"><div class="demo-box p-5" style="padding: var(--spacing-5);">Padding 5 (all sides)</div></div>
 			<div class="code-block">
-				<pre><code>&lt;div class="m-3"&gt;Margin 3 (all sides)&lt;/div&gt;
-&lt;div class="mx-3"&gt;Margin 3 (horizontal)&lt;/div&gt;
-&lt;div class="my-3"&gt;Margin 3 (vertical)&lt;/div&gt;
-&lt;div class="p-5"&gt;Padding 5 (all sides)&lt;/div&gt;</code></pre>
+				<pre><code>&lt;div class="demo-box"&gt;
+&lt;div class="demo-box m-1"&gt;Margin 1 (all sides)&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="demo-box"&gt;
+&lt;div class="demo-box m-3"&gt;Margin 3 (all sides)&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="demo-box"&gt;
+&lt;div class="demo-box mx-3"&gt;Margin 3 (horizontal)&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="demo-box"&gt;
+&lt;div class="demo-box my-3"&gt;Margin 3 (vertical)&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="demo-box"&gt;
+&lt;div class="demo-box p-5" style="padding: var(--spacing-5);"&gt;Padding 5 (all sides)&lt;/div&gt;
+&lt;/div&gt;
 			</div>
 		</div>
 		<!-- Common Combinations -->
@@ -206,6 +218,15 @@
 					<li><code>.text-center</code> - Center text</li>
 					<li><code>.text-left</code> - Left align text</li>
 					<li><code>.text-right</code> - Right align text</li>
+				</ul>
+				<h3>Float</h3>
+				<ul class="p-3">
+					<li><code>.float-left</code> - Float left</li>
+					<li><code>.float-right</code> - Float right</li>
+				</ul>
+				<h3>Clearfix</h3>
+				<ul class="p-3">
+					<li><code>.clearfix</code> - Remove floats</li>
 				</ul>
 				<h3>Responsive</h3>
 				<ul class="p-3">

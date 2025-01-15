@@ -49,6 +49,7 @@
 	font-size: var(--font-size-lg);
 	cursor: pointer;
 	color: var(--color-dark);
+	text-decoration: none;
 }
 
 .modal-close:hover {
