@@ -188,8 +188,6 @@ ul.docs-links.cards li a:hover {
 .demo-container {
 	background-color: var(--color-primary-100);
 	border: 2px dashed var(--color-primary);
-	padding: var(--spacing-3);
-	margin-bottom: var(--spacing-3);
 }
 
 .demo-content {
