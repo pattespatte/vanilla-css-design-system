@@ -15,27 +15,45 @@ const navMenu = document.querySelector('.nav-menu');
 
 // Check if navigation menu exists
 if (navMenu) {
-	// Fetch the directory listing of the examples folder
 	fetch(examplesFolder)
 		.then(response => response.text())
 		.then(html => {
-			// Match all HTML file links in the directory listing
 			const htmlFiles = html.match(/<a href="([^"]+\.html)"/g);
 			if (htmlFiles) {
 				htmlFiles.forEach(file => {
-					// Extract the file name from the match
 					const fileName = file.replace(/<a href="|\.html"/g, '');
-
-					// Create a new link element for each file
 					const link = document.createElement('a');
 					link.href = `${examplesFolder}${fileName}.html`;
-					link.textContent = fileName.charAt(0).toUpperCase() + fileName.slice(1);
 
-					// Create a list item to hold the link
+					// Split the fileName into parts
+					const parts = fileName.split('/');
+					let linkText = '';
+
+					if (parts.length > 1) {
+						// If there's a subdirectory, format as "Directory/filename"
+						linkText = `${parts[0].charAt(0).toUpperCase() + parts[0].slice(1)}/`;
+						const currentPage = parts[parts.length - 1];
+
+						// Check if this is the current page
+						if (window.location.pathname.endsWith(fileName + '.html')) {
+							linkText += `<strong>${currentPage}</strong>`;
+						} else {
+							linkText += currentPage;
+						}
+					} else {
+						// If no subdirectory, just capitalize the filename
+						linkText = fileName.charAt(0).toUpperCase() + fileName.slice(1);
+
+						// Check if this is the current page
+						if (window.location.pathname.endsWith(fileName + '.html')) {
+							linkText = `<strong>${linkText}</strong>`;
+						}
+					}
+
+					link.innerHTML = linkText;
+
 					const listItem = document.createElement('li');
 					listItem.appendChild(link);
-
-					// Append the list item to the navigation menu
 					navMenu.appendChild(listItem);
 				});
 			}
