@@ -10,6 +10,7 @@ A design system built with vanilla CSS to provide a consistent look and feel acr
 - Well-organized file structure for maintainability
 - Responsive design using CSS media queries
 - Comprehensive documentation with examples
+- Naming conventions inspired by Atomic Design or BEM
 
 ## Getting Started
 
