@@ -102,7 +102,7 @@
 		</div>
 
 		<!-- Float Utilities -->
-		 <div class="example-section">
+		<div class="example-section">
 			<h2 class="example-title">Float Utilities</h2>
 			<p class="example-description">
 				Float elements to the left or right.
@@ -155,11 +155,21 @@
 			<p class="example-description">
 				Common spacing utility classes for margin and padding.
 			</p>
-			<div class="demo-box"><div class="demo-box m-1">Margin 1 (all sides)</div></div>
-			<div class="demo-box"><div class="demo-box m-3">Margin 3 (all sides)</div></div>
-			<div class="demo-box"><div class="demo-box mx-3">Margin 3 (horizontal)</div></div>
-			<div class="demo-box"><div class="demo-box my-3">Margin 3 (vertical)</div></div>
-			<div class="demo-box"><div class="demo-box p-5" style="padding: var(--spacing-5);">Padding 5 (all sides)</div></div>
+			<div class="demo-box">
+				<div class="demo-box m-1">Margin 1 (all sides)</div>
+			</div>
+			<div class="demo-box">
+				<div class="demo-box m-3">Margin 3 (all sides)</div>
+			</div>
+			<div class="demo-box">
+				<div class="demo-box mx-3">Margin 3 (horizontal)</div>
+			</div>
+			<div class="demo-box">
+				<div class="demo-box my-3">Margin 3 (vertical)</div>
+			</div>
+			<div class="demo-box">
+				<div class="demo-box p-5" style="padding: var(--spacing-5);">Padding 5 (all sides)</div>
+			</div>
 			<div class="code-block">
 				<pre><code>&lt;div class="demo-box"&gt;
 &lt;div class="demo-box m-1"&gt;Margin 1 (all sides)&lt;/div&gt;
@@ -176,6 +186,7 @@
 &lt;div class="demo-box"&gt;
 &lt;div class="demo-box p-5" style="padding: var(--spacing-5);"&gt;Padding 5 (all sides)&lt;/div&gt;
 &lt;/div&gt;
+</code></pre>
 			</div>
 		</div>
 		<!-- Common Combinations -->
@@ -196,6 +207,22 @@
 				<pre><code>&lt;div class="flex items-center justify-between p-3"&gt;
 	&lt;div class="text-center"&gt;Centered Flex Item&lt;/div&gt;
 	&lt;div class="text-center"&gt;Centered Flex Item&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+		<div class="example-section">
+			<div class="demo-box flex position-relative p-3" style="height: 200px;">
+				<div class="demo-box m-3 item-top-left">Top Left</div>
+				<div class="demo-box m-3 item-top-right">Top Right</div>
+				<div class="demo-box m-3 item-bottom-left">Bottom Left</div>
+				<div class="demo-box m-3 item-bottom-right">Bottom Right</div>
+			</div>
+			<div class="code-block">
+				<pre><code>&lt;div class="flex position-relative p-3" style="height: 200px;"&gt;
+	&lt;div class="demo-box m-3 item-top-left"&gt;Top Left&lt;/div&gt;
+	&lt;div class="demo-box m-3 item-top-right"&gt;Top Right&lt;/div&gt;
+	&lt;div class="demo-box m-3 item-bottom-left"&gt;Bottom Left&lt;/div&gt;
+	&lt;div class="demo-box m-3 item-bottom-right"&gt;Bottom Right&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
