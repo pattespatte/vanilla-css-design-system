@@ -16,6 +16,14 @@
 	position: sticky;
 }
 
+.position-static {
+	position: static;
+}
+
+.position-unset {
+	position: unset;
+}
+
 .text-left {
 	text-align: left;
 }
