@@ -120,7 +120,7 @@
 		display: none;
 	}
 
-	.sm-block {
+	.sm-d-block {
 		display: block;
 	}
 
@@ -141,7 +141,7 @@
 		display: none;
 	}
 
-	.md-block {
+	.md-d-block {
 		display: block;
 	}
 
@@ -183,7 +183,7 @@
 		display: none;
 	}
 
-	.lg-block {
+	.lg-d-block {
 		display: block;
 	}
 
@@ -224,7 +224,7 @@
 		display: none;
 	}
 
-	.xl-block {
+	.xl-d-block {
 		display: block;
 	}
 

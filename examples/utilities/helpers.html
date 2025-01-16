@@ -39,8 +39,8 @@
 				<div class="p-2 bd-highlight">Item 2</div>
 				<div class="p-2 bd-highlight">Item 3</div>
 			</div>
-			<h3 class="hidden">Hidden element (won't be visible)</h3>
-			<div class="demo-box hidden">Hidden element (won't be visible)</div>
+			<h3 class="d-none">Hidden element (won't be visible)</h3>
+			<div class="demo-box d-none">Hidden element (won't be visible)</div>
 			<h3>Flex container</h3>
 			<div class="demo-box flex">
 				<div class="p-2 bd-highlight">Item 1</div>
@@ -54,8 +54,8 @@
 	&lt;div class="p-2 bd-highlight"&gt;Item 2&lt;/div&gt;
 	&lt;div class="p-2 bd-highlight"&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;
-&lt;h3&gt; class="hidden"&gt;Hidden element (won't be visible)&lt;/h3&gt;
-&lt;div class="demo-box hidden"&gt;Hidden element (won't be visible)&lt;/div&gt;
+&lt;h3&gt; class="d-none"&gt;Hidden element (won't be visible)&lt;/h3&gt;
+&lt;div class="demo-box d-none"&gt;Hidden element (won't be visible)&lt;/div&gt;
 &lt;h3&gt;Flex container&lt;/h3&gt;
 &lt;div class="demo-box flex"&gt;
 	&lt;div class="p-2 bd-highlight"&gt;Item 1&lt;/div&gt;
@@ -211,18 +211,18 @@
 			</div>
 		</div>
 		<div class="example-section">
-			<div class="demo-box flex position-relative p-3" style="height: 200px;">
-				<div class="demo-box m-3 item-top-left">Top Left</div>
-				<div class="demo-box m-3 item-top-right">Top Right</div>
-				<div class="demo-box m-3 item-bottom-left">Bottom Left</div>
-				<div class="demo-box m-3 item-bottom-right">Bottom Right</div>
+			<div class="demo-box position-relative" style="height: 10rem;">
+				<div class="demo-box item-top-left">Top Left</div>
+				<div class="demo-box item-top-right">Top Right</div>
+				<div class="demo-box item-bottom-left">Bottom Left</div>
+				<div class="demo-box item-bottom-right">Bottom Right</div>
 			</div>
 			<div class="code-block">
-				<pre><code>&lt;div class="flex position-relative p-3" style="height: 200px;"&gt;
-	&lt;div class="demo-box m-3 item-top-left"&gt;Top Left&lt;/div&gt;
-	&lt;div class="demo-box m-3 item-top-right"&gt;Top Right&lt;/div&gt;
-	&lt;div class="demo-box m-3 item-bottom-left"&gt;Bottom Left&lt;/div&gt;
-	&lt;div class="demo-box m-3 item-bottom-right"&gt;Bottom Right&lt;/div&gt;
+				<pre><code>&lt;div class="position-relative" style="height: 10rem"&gt;
+	&lt;div class="demo-box item-top-left"&gt;Top Left&lt;/div&gt;
+	&lt;div class="demo-box item-top-right"&gt;Top Right&lt;/div&gt;
+	&lt;div class="demo-box item-bottom-left"&gt;Bottom Left&lt;/div&gt;
+	&lt;div class="demo-box item-bottom-right"&gt;Bottom Right&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
@@ -232,7 +232,7 @@
 			<div class="card">
 				<h3>Display</h3>
 				<ul class="p-3">
-					<li><code>.hidden</code> - Hide element</li>
+					<li><code>.d-none</code> - Hide element</li>
 					<li><code>.position-relative</code> - Relative positioning</li>
 					<li><code>.position-absolute</code> - Absolute positioning</li>
 					<li><code>.position-fixed</code> - Fixed positioning</li>
