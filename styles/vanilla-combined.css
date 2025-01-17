@@ -318,8 +318,6 @@ h6 {
 /* grid.css */
 .container {
 	width: 100%;
-	padding-right: var(--spacing-3);
-	padding-left: var(--spacing-3);
 	margin-right: auto;
 	margin-left: auto;
 	max-width: var(--breakpoint-xl);
