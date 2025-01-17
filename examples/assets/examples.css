@@ -48,7 +48,7 @@ footer {
 	border-radius: calc(var(--border-radius) * 2);
 }
 
-/* Optional: Styling for the links to make them look like cards */
+/* Styling for the links to make them look like cards */
 ul.docs-links.cards {
 	list-style: none;
 	padding: 0;
@@ -88,27 +88,6 @@ ul.docs-links.cards li a:hover {
 
 .docs-links a:hover {
 	text-decoration: underline;
-}
-
-.demo-box {
-	background-color: var(--color-primary-100);
-	border: 1px solid var(--color-primary);
-	padding: var(--spacing-3);
-	margin-bottom: var(--spacing-3);
-}
-
-.demo-col {
-	background-color: var(--color-primary-100);
-	border: 1px solid var(--color-primary);
-	padding: var(--spacing-3);
-	text-align: center;
-}
-
-.demo-nested {
-	background-color: var(--color-secondary-100);
-	border: 1px solid var(--color-secondary);
-	padding: var(--spacing-2);
-	text-align: center;
 }
 
 .example-section {
@@ -185,6 +164,27 @@ ul.docs-links.cards li a:hover {
 	z-index: 1000;
 }
 
+.demo-box {
+	background-color: var(--color-primary-100);
+	border: 1px solid var(--color-primary);
+	padding: var(--spacing-3);
+	margin-bottom: var(--spacing-3);
+}
+
+.demo-col {
+	background-color: var(--color-primary-100);
+	border: 1px solid var(--color-primary);
+	padding: var(--spacing-3);
+	text-align: center;
+}
+
+.demo-nested {
+	background-color: var(--color-secondary-100);
+	border: 1px solid var(--color-secondary);
+	padding: var(--spacing-2);
+	text-align: center;
+}
+
 .demo-container {
 	background-color: var(--color-primary-100);
 	border: 2px dashed var(--color-primary);
@@ -203,6 +203,10 @@ ul.docs-links.cards li a:hover {
 	padding: var(--spacing-3);
 	box-shadow: var(--shadow-sm);
 	display: block;
+}
+
+.bd-highlight {
+	background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* Repeated so they are not overridden by example styles - START */
