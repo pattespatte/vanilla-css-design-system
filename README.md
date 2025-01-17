@@ -92,6 +92,45 @@ Use the provided CSS classes in your HTML to apply the design system styles. For
 </div>
 ```
 
+### Development and Production Modes
+
+The design system supports two modes of operation:
+
+#### Development Mode
+
+In development mode, the system uses `main.css` which loads individual CSS files separately. This is useful for development as it makes debugging easier.
+
+To switch to development mode:
+
+```bash
+npm run dev
+```
+
+#### Production Mode
+
+In production mode, the system uses the combined and minified CSS file (`vanilla-combined.min.css`). This is optimized for production use as it reduces HTTP requests and file size.
+
+To build and switch to production mode:
+
+```bash
+npm run build
+```
+
+This command will:
+
+1. Combine all CSS files into one
+2. Minify the combined CSS
+3. Switch all HTML files to use the minified version
+
+#### Switching Between Modes
+
+You can switch between modes at any time using the npm scripts:
+
+- `npm run dev` - Switch to development mode
+- `npm run build` - Build files and switch to production mode
+
+Note: Make sure you have run `npm install` first to install the required dependencies for mode switching.
+
 ## Contributing
 
 Contributions are welcome! We appreciate any help with bug fixes, new features, or documentation improvements. To contribute:

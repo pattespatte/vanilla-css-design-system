@@ -1,4 +1,5 @@
 styles/vanilla-combined.css
+styles/vanilla-combined.min.css
 
 # Node modules
 node_modules/

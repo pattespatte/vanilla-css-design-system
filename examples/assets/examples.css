@@ -36,6 +36,10 @@ footer {
 	border-radius: var(--border-radius);
 }
 
+.nav-menu a.active {
+	background-color: var(--color-white);
+}
+
 .nav-menu a:hover {
 	background-color: var(--color-white);
 	color: var(--color-dark);
