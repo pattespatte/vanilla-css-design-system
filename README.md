@@ -49,6 +49,33 @@ A design system built with vanilla CSS to provide a consistent look and feel acr
         - `utilities/`: contains the css files for helpers and spacing
     - `examples/`: contains the html files to showcase all the components in the design system. This file is not included in the `main.css` file and is only used for demonstration purposes.
 
+### Combined and Minified CSS
+
+You can use the combined and minified CSS file for easier integration into your projects. This file includes all the styles from the design system:
+
+- **Filename**: `vanilla-combined.min.css`
+
+#### How to Generate the File
+
+To generate the combined and minified CSS file yourself, follow these steps:
+
+1. Clone the repository and navigate to the project folder.
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Run the build script:
+
+   ```bash
+   npm run build:css
+   ```
+
+4. The `vanilla-combined.min.css` file will be created in the project root.
+
+Alternatively, download the prebuilt `vanilla-combined.min.css` file from the [GitHub Releases](https://github.com/pattespatte/vanilla-css-design-system/releases).
+
 ### Usage
 
 Use the provided CSS classes in your HTML to apply the design system styles. For example:
