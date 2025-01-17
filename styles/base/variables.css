@@ -183,7 +183,6 @@
 	.container {
 		max-width: var(--breakpoint-md);
 	}
-
 }
 
 @media (min-width: 992px) {

@@ -219,7 +219,7 @@ ul.docs-links.cards li a:hover {
 
 #header-logo {
 	display: none;
-	width: 2.5rem;
+	width: 3rem;
 	padding: .5rem;
 	vertical-align: middle;
 }
@@ -236,7 +236,8 @@ ul.docs-links.cards li a:hover {
 	}
 	#header-logo {
 		display: inline-block;
-	}}
+	}
+}
 
 @media (min-width: 992px) {
 	.breakpoint-indicator::after {

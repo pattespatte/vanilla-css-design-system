@@ -195,18 +195,18 @@
 			<p class="example-description">
 				Frequently used combinations of helper classes.
 			</p>
-			<div class="demo-box flex items-center justify-between p-3">
-				<div class="demo-flex-item text-center">
-					Centered Flex Item
+			<div class="demo-box flex justify-between p-3">
+				<div>
+					One Flex Item
 				</div>
-				<div class="demo-flex-item text-center">
-					Centered Flex Item
+				<div>
+					Another Flex Item
 				</div>
 			</div>
 			<div class="code-block">
-				<pre><code>&lt;div class="flex items-center justify-between p-3"&gt;
-	&lt;div class="text-center"&gt;Centered Flex Item&lt;/div&gt;
-	&lt;div class="text-center"&gt;Centered Flex Item&lt;/div&gt;
+				<pre><code>&lt;div class="flex justify-between p-3"&gt;
+	&lt;div&gt;One Flex Item&lt;/div&gt;
+	&lt;div&gt;Another Flex Item&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
@@ -226,59 +226,40 @@
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
-		<!-- Helper Classes Reference -->
 		<div class="example-section">
 			<h2 class="example-title">Helper Classes Reference</h2>
 			<div class="card">
 				<h3>Display</h3>
 				<ul class="p-3">
-					<li><code>.d-none</code> - Hide element</li>
-					<li><code>.d-block</code> - Block level element</li>
-					<li><code>.d-inline</code> - Inline element</li>
-					<li><code>.d-inline-block</code> - Inline block element</li>
+					<li><code>.d-{block|inline|inline-block|flex|inline-flex|grid|none}</code> - Display property</li>
+					<li><code>.d-table{-row|-cell|-caption|-header-group|-footer-group|-row-group|-column|-column-group}</code> - Table display properties</li>
 				</ul>
+
 				<h3>Position</h3>
 				<ul class="p-3">
-					<li><code>.position-relative</code> - Position relative</li>
-					<li><code>.position-absolute</code> - Position absolute</li>
-					<li><code>.position-fixed</code> - Position fixed</li>
-					<li><code>.position-sticky</code> - Position sticky</li>
-					<li><code>.position-static</code> - Position static</li>
-					<li><code>.position-unset</code> - Position unset</li>
+					<li><code>.position-{relative|absolute|fixed|sticky|static|unset}</code> - Position property</li>
+					<li><code>.item-{top|bottom}-{left|right}</code> - Position shortcuts for absolute elements</li>
 				</ul>
+
 				<h3>Flex</h3>
 				<ul class="p-3">
 					<li><code>.flex</code> - Flex container</li>
-					<li><code>.items-center</code> - Center items vertically</li>
-					<li><code>.justify-between</code> - Space between items</li>
+					<li><code>.flex-{col|row}</code> - Flex direction</li>
+					<li><code>.flex-{wrap|nowrap}</code> - Flex wrap</li>
+					<li><code>.items-center</code> - Align items center</li>
+					<li><code>.justify-between</code> - Justify content space-between</li>
+					<li><code>.gap-{1|2|3}</code> - Gap spacing</li>
 				</ul>
+
 				<h3>Text</h3>
 				<ul class="p-3">
-					<li><code>.text-center</code> - Center text</li>
-					<li><code>.text-left</code> - Left align text</li>
-					<li><code>.text-right</code> - Right align text</li>
+					<li><code>.text-{left|right|center}</code> - Text alignment</li>
 				</ul>
+
 				<h3>Float</h3>
 				<ul class="p-3">
-					<li><code>.float-left</code> - Float left</li>
-					<li><code>.float-right</code> - Float right</li>
-				</ul>
-				<h3>Clearfix</h3>
-				<ul class="p-3">
-					<li><code>.clearfix</code> - Remove floats</li>
-				</ul>
-				<h3>Responsive</h3>
-				<ul class="p-3">
-					<li><code>.sm-hidden</code> - Hide on small screens</li>
-					<li><code>.md-hidden</code> - Hide on medium screens</li>
-					<li><code>.lg-hidden</code> - Hide on large screens</li>
-				</ul>
-				<h3>Spacing</h3>
-				<ul class="p-3">
-					<li><code>.m-{1-5}</code> - Margin all sides</li>
-					<li><code>.mx-{1-5}</code> - Horizontal margin</li>
-					<li><code>.my-{1-5}</code> - Vertical margin</li>
-					<li><code>.p-{1-5}</code> - Padding all sides</li>
+					<li><code>.float-{left|right|none}</code> - Float property</li>
+					<li><code>.clearfix</code> - Clear floats</li>
 				</ul>
 			</div>
 		</div>
