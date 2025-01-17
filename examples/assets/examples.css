@@ -217,6 +217,13 @@ ul.docs-links.cards li a:hover {
 
 /* Repeated so they are not overridden by example styles - END */
 
+#header-logo {
+	display: none;
+	width: 2.5rem;
+	padding: .5rem;
+	vertical-align: middle;
+}
+
 @media (min-width: 576px) {
 	.breakpoint-indicator::after {
 		content: "SM (≥576px)";
@@ -227,7 +234,9 @@ ul.docs-links.cards li a:hover {
 	.breakpoint-indicator::after {
 		content: "MD (≥768px)";
 	}
-}
+	#header-logo {
+		display: inline-block;
+	}}
 
 @media (min-width: 992px) {
 	.breakpoint-indicator::after {

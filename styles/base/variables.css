@@ -124,6 +124,10 @@
 		display: block;
 	}
 
+	.sm-d-inline {
+		display: inline;
+	}
+
 	.sm-grid-cols-6 {
 		grid-template-columns: repeat(6, 1fr);
 	}
@@ -143,6 +147,10 @@
 
 	.md-d-block {
 		display: block;
+	}
+
+	.md-d-inline {
+		display: inline;
 	}
 
 	.md-grid-cols-1 {
@@ -187,6 +195,10 @@
 		display: block;
 	}
 
+	.lg-d-inline {
+		display: inline;
+	}
+
 	.lg-grid-cols-1 {
 		grid-template-columns: repeat(1, 1fr);
 	}
@@ -226,6 +238,10 @@
 
 	.xl-d-block {
 		display: block;
+	}
+
+	.xl-d-inline {
+		display: inline;
 	}
 
 	.xl-grid-cols-6 {
