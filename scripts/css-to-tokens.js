@@ -1,20 +1,51 @@
 const fs = require('fs');
 const css = require('css');
+const path = require('path');
 
-// Function to load all existing tokens
-function loadAllTokens() {
-	const tokens = {};
-	const tokenFiles = fs.readdirSync('./tokens/');
-	tokenFiles.forEach(file => {
-		if (file.endsWith('.json')) {
-			const content = fs.readFileSync(`./tokens/${file}`, 'utf8');
-			tokens[file.replace('.json', '')] = JSON.parse(content);
-		}
-	});
-	return tokens;
+// Helper function to determine $type based on variable name
+function determineTokenType(variableName) {
+	if (variableName.includes('color')) {
+		return 'color'; // Token type for colors
+	} else if (variableName.includes('spacing') || variableName.includes('margin') || variableName.includes('padding')) {
+		return 'spacing'; // Token type for spacing
+	} else if (variableName.includes('font') || variableName.includes('typography') || variableName.includes('size')) {
+		return 'typography'; // Token type for typography
+	} else if (variableName.includes('border') || variableName.includes('radius')) {
+		return 'border'; // Token type for borders
+	} else {
+		return 'other'; // Default token type
+	}
 }
 
-// Function to resolve variable reference
+// Helper function to format tokens with $type and $value
+function formatToken(value, type) {
+	return {
+		$type: type,
+		$value: value,
+	};
+}
+
+// Function to recursively build JSON structure for variables
+function buildTokenStructure(variableName, value, root) {
+	const parts = variableName.split('-');
+	let current = root;
+
+	parts.forEach((part, index) => {
+		if (index === parts.length - 1) {
+			// Assign the final value with $type and $value
+			const type = determineTokenType(variableName);
+			current[part] = formatToken(value, type);
+		} else {
+			// Create nested objects as needed
+			current[part] = current[part] || {};
+			current = current[part];
+		}
+	});
+
+	return root;
+}
+
+// Function to resolve variable references
 function resolveVariableReference(value, allTokens) {
 	if (typeof value !== 'string') return value;
 
@@ -22,102 +53,93 @@ function resolveVariableReference(value, allTokens) {
 	if (!varMatch) return value;
 
 	const varPath = varMatch[1].split('-');
-
-	// Special handling for color-gray-{number} pattern
-	if (varPath[0] === 'color' && varPath[1] === 'gray' && /^\d+$/.test(varPath[2])) {
-		try {
-			return allTokens.colors.color.gray[varPath[2]];
-		} catch (e) {
-			console.warn(`Could not resolve variable: ${value}`);
-			return value;
-		}
-	}
-
-	// Normal handling for other variables
 	let currentValue = allTokens;
+
 	try {
 		varPath.forEach(segment => {
 			currentValue = currentValue[segment];
 		});
-		return currentValue;
+		return currentValue?.$value || value; // Return resolved value or fallback
 	} catch (e) {
 		console.warn(`Could not resolve variable: ${value}`);
 		return value;
 	}
 }
 
-// Read CSS files from variables directory
-const variablesDir = './styles/variables/';
-const files = fs.readdirSync(variablesDir);
+// Function to process a single CSS file and extract tokens
+function processCssFile(filePath) {
+	const cssContent = fs.readFileSync(filePath, 'utf8');
+	const parsedCss = css.parse(cssContent);
+	const variables = {};
 
-// First pass: generate all token files
-files.forEach(file => {
-	if (file.endsWith('.css')) {
-		const cssContent = fs.readFileSync(variablesDir + file, 'utf8');
-		const tokenName = file.replace('.css', '');
+	parsedCss.stylesheet.rules.forEach(rule => {
+		if (rule.type === 'rule' && rule.selectors.includes(':root')) {
+			rule.declarations.forEach(declaration => {
+				if (declaration.type === 'declaration' && declaration.property.startsWith('--')) {
+					const variableName = declaration.property.substring(2); // Remove -- prefix
+					const variableValue = declaration.value;
+					buildTokenStructure(variableName, variableValue, variables);
+				}
+			});
+		}
+	});
 
-		// Parse CSS
-		const parsedCss = css.parse(cssContent);
+	return variables;
+}
 
-		// Extract CSS variables
-		const variables = {};
-		parsedCss.stylesheet.rules.forEach(rule => {
-			if (rule.type === 'rule' && rule.selectors.includes(':root')) {
-				rule.declarations.forEach(declaration => {
-					if (declaration.type === 'declaration' && declaration.property.startsWith('--')) {
-						// Remove the -- prefix and split by -
-						const parts = declaration.property.substring(2).split('-');
-
-						// Special handling for color-gray-{number} pattern
-						if (parts[0] === 'color' && parts[1] === 'gray' && /^\d+$/.test(parts[2])) {
-							variables.color = variables.color || {};
-							variables.color.gray = variables.color.gray || {};
-							variables.color.gray[parts[2]] = declaration.value;
-						} else {
-							// Normal handling for other variables
-							let current = variables;
-
-							parts.forEach((part, index) => {
-								if (index === parts.length - 1) {
-									current[part] = declaration.value;
-								} else {
-									current[part] = current[part] || {};
-									current = current[part];
-								}
-							});
-						}
-					}
-				});
-			}
-		});
-
-		// Write to JSON file
-		fs.writeFileSync(
-			`./tokens/${tokenName}.json`,
-			JSON.stringify(variables, null, 2)
-		);
-	}
-});
-
-// Second pass: resolve variable references
-const allTokens = loadAllTokens();
-
-Object.keys(allTokens).forEach(tokenName => {
-	const resolveNestedReferences = (obj) => {
+// Function to resolve all variable references in the token files
+function resolveAllReferences(allTokens) {
+	const resolveNestedReferences = obj => {
 		for (let key in obj) {
-			if (typeof obj[key] === 'object') {
+			if (typeof obj[key] === 'object' && obj[key].$value) {
+				obj[key].$value = resolveVariableReference(obj[key].$value, allTokens);
+			} else if (typeof obj[key] === 'object') {
 				resolveNestedReferences(obj[key]);
-			} else {
-				obj[key] = resolveVariableReference(obj[key], allTokens);
 			}
 		}
 		return obj;
 	};
 
-	const resolvedTokens = resolveNestedReferences({ ...allTokens[tokenName] });
+	Object.keys(allTokens).forEach(tokenName => {
+		allTokens[tokenName] = resolveNestedReferences(allTokens[tokenName]);
+	});
 
-	fs.writeFileSync(
-		`./tokens/${tokenName}.json`,
-		JSON.stringify(resolvedTokens, null, 2)
-	);
-});
+	return allTokens;
+}
+
+// Main function to process all CSS files and generate tokens
+function generateTokens() {
+	const variablesDir = './styles/variables/';
+	const tokenFiles = fs.readdirSync(variablesDir).filter(file => file.endsWith('.css'));
+	const allTokens = {};
+
+	// First pass: Process each CSS file and generate raw tokens
+	tokenFiles.forEach(file => {
+		const filePath = path.join(variablesDir, file);
+		const tokenName = file.replace('.css', '');
+		const tokens = processCssFile(filePath);
+		allTokens[tokenName] = tokens;
+
+		// Write the raw token file
+		fs.writeFileSync(
+			`./tokens/${tokenName}.json`,
+			JSON.stringify(tokens, null, 2)
+		);
+	});
+
+	// Second pass: Resolve variable references
+	const resolvedTokens = resolveAllReferences(allTokens);
+
+	// Write resolved tokens back to the files
+	Object.keys(resolvedTokens).forEach(tokenName => {
+		fs.writeFileSync(
+			`./tokens/${tokenName}.json`,
+			JSON.stringify(resolvedTokens[tokenName], null, 2)
+		);
+	});
+
+	console.log('Tokens generated successfully!');
+}
+
+// Run the script
+generateTokens();
