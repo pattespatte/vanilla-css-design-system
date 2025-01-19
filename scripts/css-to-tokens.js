@@ -5,8 +5,7 @@ const path = require('path');
 // Updated mapping of token types to their associated keywords
 const tokenTypeMapping = {
 	color: ['color', 'background-color', 'border-color'],
-	spacing: ['margin', 'padding', 'gap'],
-	dimension: ['width', 'height', 'min-width', 'min-height', 'max-width', 'max-height', 'border-radius', 'border-width', 'size', 'breakpoint'],
+	dimension: ['width', 'height', 'min-width', 'min-height', 'max-width', 'max-height', 'border-radius', 'border-width', 'size', 'breakpoint', 'margin', 'padding', 'gap', 'spacing'],
 	typography: ['font-weight', 'font-size', 'line-height', 'letter-spacing'],
 	other: ['z-index', 'opacity'],
 };
