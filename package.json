@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build:css": "concat-cli -f styles/base/reset.css styles/variables/*.css styles/base/!(reset).css styles/layout/*.css styles/components/*.css styles/utilities/*.css styles/custom.css -o styles/vanilla-combined.css",
+    "build:css": "concat-cli -f styles/variables/*.css styles/base/*.css styles/layout/*.css styles/components/*.css styles/utilities/*.css styles/custom.css -o styles/vanilla-combined.css",
     "minify:css": "cleancss -o styles/vanilla-combined.min.css styles/vanilla-combined.css",
     "switch:prod": "node scripts/switch-mode.js prod",
     "switch:dev": "node scripts/switch-mode.js dev",

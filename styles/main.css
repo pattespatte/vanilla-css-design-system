@@ -1,7 +1,7 @@
 /* styles/main.css */
 
 /* Reset styles */
-@import url('./base/reset.css');
+@import url('./base/01-reset.css');
 
 /* Variables */
 @import url('./variables/colors.css');
