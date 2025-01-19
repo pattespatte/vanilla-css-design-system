@@ -2,13 +2,13 @@ const fs = require('fs');
 const css = require('css');
 const path = require('path');
 
-// Mapping of token types to their associated keywords
+// Updated mapping of token types to their associated keywords
 const tokenTypeMapping = {
-	color: ['color'],
-	spacing: ['margin', 'padding'],
-	typography: ['font-weight', 'font-size'],
-	border: ['border', 'radius'],
-	breakpoints: ['breakpoint'],
+	color: ['color', 'background-color', 'border-color'],
+	spacing: ['margin', 'padding', 'gap'],
+	dimension: ['width', 'height', 'min-width', 'min-height', 'max-width', 'max-height', 'border-radius', 'border-width', 'size', 'breakpoint'],
+	typography: ['font-weight', 'font-size', 'line-height', 'letter-spacing'],
+	other: ['z-index', 'opacity'],
 };
 
 // Helper function to determine $type based on variable name
