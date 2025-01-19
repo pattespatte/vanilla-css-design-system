@@ -1,5 +1,8 @@
 /* styles/main.css */
 
+/* Reset styles */
+@import url('./base/reset.css');
+
 /* Variables */
 @import url('./variables/colors.css');
 @import url('./variables/typography.css');
@@ -9,7 +12,6 @@
 @import url('./variables/extra.css');
 
 /* Base styles */
-@import url('./base/reset.css');
 @import url('./base/typography.css');
 @import url('./base/breakpoints.css');
 
