@@ -43,16 +43,27 @@ function parseCSSToTokens(cssContent) {
 				try {
 					// Extract the mathematical expression
 					const calcExpression = value.match(/calc\((.*)\)/)[1];
-					// Evaluate simple multiplication
-					const multiply = calcExpression.match(/([\d.]+)\s*\*\s*([\d.]+)/);
-					if (multiply) {
-						const result = parseFloat(multiply[1]) * parseFloat(multiply[2]);
-						value = value.replace(/calc\(.*\)/, `${result}rem`);
+
+					// Handle multiplication
+					if (calcExpression.includes('*')) {
+						const [num1, num2] = calcExpression.split('*').map(part => {
+							// Clean up and parse numbers
+							return parseFloat(part.trim().replace('rem', ''));
+						});
+
+						const result = num1 * num2;
+						value = `${result}rem`;
 					}
 				} catch (e) {
-					console.warn(`Could not resolve calc expression for ${name}`);
+					console.warn(`Could not resolve calc expression for ${name}: ${e.message}`);
 				}
 			}
+
+			// Clean up any remaining calc() expressions
+			value = value.replace(/calc\((.*?)\)/, '$1');
+
+			// Remove unnecessary spaces
+			value = value.trim();
 
 			variables[name] = value;
 		}
