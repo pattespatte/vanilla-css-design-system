@@ -9,6 +9,7 @@ A design system built with vanilla CSS to provide a consistent look and feel acr
 - Easy to integrate into any project
 - Well-organized file structure for maintainability
 - Responsive design using CSS media queries
+- Seamless conversion between CSS variables and design tokens
 - Comprehensive documentation with examples
 - Naming conventions inspired by Atomic Design or BEM
 
@@ -39,15 +40,17 @@ A design system built with vanilla CSS to provide a consistent look and feel acr
     <link rel="stylesheet" href="path/to/your/css/file.css">
     ```
 
-    The main css file `main.css` imports all other css files.
+    During development the css file `main.css` will be used. In production you want to use`vanilla-combined.min.css`(or a name of you choice)
+
+    The main CSS file `main.css` imports all other CSS files.
 
     The folder structure is as follows:
-    - `styles/`: contains all css files
-        - `base/`: contains css files with base styles, such as reset, typography and variables
-        - `components/`: contains the css for the components such as buttons, cards and forms
-        - `layout/`: contains the css files for layout such as containers and grids
-        - `utilities/`: contains the css files for helpers and spacing
-    - `examples/`: contains the html files to showcase all the components in the design system. This file is not included in the `main.css` file and is only used for demonstration purposes.
+    - `styles/`: contains all CSS files
+        - `base/`: contains CSS files with base styles, such as reset, typography, and variables
+        - `components/`: contains the CSS for the components such as buttons, cards, and forms
+        - `layout/`: contains the CSS files for layout such as containers and grids
+        - `utilities/`: contains the CSS files for helpers and spacing
+    - `examples/`: contains the HTML files to showcase all the components in the design system. This file is not included in the `main.css` file and is only used for demonstration purposes.
 
 ### Combined and Minified CSS
 
@@ -130,6 +133,61 @@ You can switch between modes at any time using the npm scripts:
 - `npm run build` - Build files and switch to production mode
 
 Note: Make sure you have run `npm install` first to install the required dependencies for mode switching.
+
+### Design Tokens and CSS Variables
+
+The design system supports seamless conversion between CSS variables and design tokens, making it easy to maintain consistency across different platforms and frameworks.
+
+#### Converting Between Formats
+
+You can convert between CSS variables and design tokens using the built-in conversion tools:
+
+1. From CSS variables to design tokens:
+
+```bash
+npm run css-to-tokens
+```
+
+2. From design tokens to CSS variables:
+
+```bash
+npm run tokens-to-css
+```
+
+#### Token Structure
+
+Design tokens are stored in JSON format and follow this structure:
+
+```json
+{
+  "color": {
+    "primary": {
+      "value": "#007bff",
+      "type": "color"
+    }
+  }
+}
+```
+
+The equivalent CSS variable would be:
+
+```css
+:root {
+  --color-primary: #007bff;
+}
+```
+
+#### Using Design Tokens
+
+You can use the design tokens in your project either as CSS variables or by importing the JSON tokens directly into your design tools or other frameworks.
+
+Example usage in CSS:
+
+```css
+.button-primary {
+  background-color: var(--color-primary);
+}
+```
 
 ## Contributing
 
