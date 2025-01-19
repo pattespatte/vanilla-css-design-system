@@ -5,6 +5,7 @@
     "switch:prod": "node scripts/switch-mode.js prod",
     "switch:dev": "node scripts/switch-mode.js dev",
     "css-to-tokens": "node scripts/css-to-tokens.js",
+    "tokens-to-css": "node scripts/tokens-to-css.js",
     "build": "npm run build:css && npm run minify:css && npm run switch:prod",
     "dev": "npm run switch:dev"
   },

@@ -1,129 +1,123 @@
-// scripts/css-to-tokens.js
 const fs = require('fs');
-const path = require('path');
 const css = require('css');
 
-function parseCSSToTokens(cssContent) {
-	const ast = css.parse(cssContent);
-	const variables = {};
-
-	// First pass: collect all raw variables
-	const rawVariables = {};
-	const rootRule = ast.stylesheet.rules.find(rule =>
-		rule.type === 'rule' && rule.selectors.includes(':root')
-	);
-
-	if (!rootRule) return variables;
-
-	// First collect all raw values
-	rootRule.declarations.forEach(declaration => {
-		if (declaration.type === 'declaration' && declaration.property.startsWith('--')) {
-			const name = declaration.property.slice(2);
-			rawVariables[name] = declaration.value;
+// Function to load all existing tokens
+function loadAllTokens() {
+	const tokens = {};
+	const tokenFiles = fs.readdirSync('./tokens/');
+	tokenFiles.forEach(file => {
+		if (file.endsWith('.json')) {
+			const content = fs.readFileSync(`./tokens/${file}`, 'utf8');
+			tokens[file.replace('.json', '')] = JSON.parse(content);
 		}
 	});
+	return tokens;
+}
 
-	// Second pass: resolve variables and calc expressions
-	rootRule.declarations.forEach(declaration => {
-		if (declaration.type === 'declaration' && declaration.property.startsWith('--')) {
-			const name = declaration.property.slice(2);
-			let value = declaration.value;
+// Function to resolve variable reference
+function resolveVariableReference(value, allTokens) {
+	if (typeof value !== 'string') return value;
 
-			// Resolve var() references
-			while (value.includes('var(')) {
-				const varMatch = value.match(/var\(--([^)]+)\)/);
-				if (varMatch) {
-					const varName = varMatch[1];
-					value = value.replace(`var(--${varName})`, rawVariables[varName]);
-				}
-			}
+	const varMatch = value.match(/var\(--([^)]+)\)/);
+	if (!varMatch) return value;
 
-			// Resolve calc expressions
-			if (value.startsWith('calc(')) {
-				try {
-					// Extract the mathematical expression
-					const calcExpression = value.match(/calc\((.*)\)/)[1];
+	const varPath = varMatch[1].split('-');
 
-					// Handle multiplication
-					if (calcExpression.includes('*')) {
-						const [num1, num2] = calcExpression.split('*').map(part => {
-							// Clean up and parse numbers
-							return parseFloat(part.trim().replace('rem', ''));
-						});
-
-						const result = num1 * num2;
-						value = `${result}rem`;
-					}
-				} catch (e) {
-					console.warn(`Could not resolve calc expression for ${name}: ${e.message}`);
-				}
-			}
-
-			// Clean up any remaining calc() expressions
-			value = value.replace(/calc\((.*?)\)/, '$1');
-
-			// Remove unnecessary spaces
-			value = value.trim();
-
-			variables[name] = value;
+	// Special handling for color-gray-{number} pattern
+	if (varPath[0] === 'color' && varPath[1] === 'gray' && /^\d+$/.test(varPath[2])) {
+		try {
+			return allTokens.colors.color.gray[varPath[2]];
+		} catch (e) {
+			console.warn(`Could not resolve variable: ${value}`);
+			return value;
 		}
-	});
-
-	return variables;
-}
-
-function convertToNestedStructure(variables) {
-	const result = {};
-
-	Object.entries(variables).forEach(([key, value]) => {
-		const parts = key.split('-');
-		let current = result;
-
-		parts.forEach((part, index) => {
-			if (index === parts.length - 1) {
-				current[part] = value;
-			} else {
-				current[part] = current[part] || {};
-				current = current[part];
-			}
-		});
-	});
-
-	return result;
-}
-
-function processCSS(filePath) {
-	const cssContent = fs.readFileSync(filePath, 'utf8');
-	const variables = parseCSSToTokens(cssContent);
-	const nestedTokens = convertToNestedStructure(variables);
-	return nestedTokens;
-}
-
-// Main function to convert CSS variables to tokens
-function cssToTokens() {
-	const variablesDir = path.join(__dirname, '../styles/variables');
-	const tokensDir = path.join(__dirname, '../tokens');
-
-	// Ensure directories exist
-	if (!fs.existsSync(tokensDir)) {
-		fs.mkdirSync(tokensDir);
 	}
 
-	// Process each CSS file in the variables directory
-	fs.readdirSync(variablesDir).forEach(file => {
-		if (path.extname(file) === '.css') {
-			const baseName = path.basename(file, '.css');
-			const cssPath = path.join(variablesDir, file);
-			const tokens = processCSS(cssPath);
-
-			// Write to JSON file
-			fs.writeFileSync(
-				path.join(tokensDir, `${baseName}.json`),
-				JSON.stringify({ [baseName]: tokens }, null, 2)
-			);
-		}
-	});
+	// Normal handling for other variables
+	let currentValue = allTokens;
+	try {
+		varPath.forEach(segment => {
+			currentValue = currentValue[segment];
+		});
+		return currentValue;
+	} catch (e) {
+		console.warn(`Could not resolve variable: ${value}`);
+		return value;
+	}
 }
 
-// Run the conversion
-cssToTokens();
+// Read CSS files from variables directory
+const variablesDir = './styles/variables/';
+const files = fs.readdirSync(variablesDir);
+
+// First pass: generate all token files
+files.forEach(file => {
+	if (file.endsWith('.css')) {
+		const cssContent = fs.readFileSync(variablesDir + file, 'utf8');
+		const tokenName = file.replace('.css', '');
+
+		// Parse CSS
+		const parsedCss = css.parse(cssContent);
+
+		// Extract CSS variables
+		const variables = {};
+		parsedCss.stylesheet.rules.forEach(rule => {
+			if (rule.type === 'rule' && rule.selectors.includes(':root')) {
+				rule.declarations.forEach(declaration => {
+					if (declaration.type === 'declaration' && declaration.property.startsWith('--')) {
+						// Remove the -- prefix and split by -
+						const parts = declaration.property.substring(2).split('-');
+
+						// Special handling for color-gray-{number} pattern
+						if (parts[0] === 'color' && parts[1] === 'gray' && /^\d+$/.test(parts[2])) {
+							variables.color = variables.color || {};
+							variables.color.gray = variables.color.gray || {};
+							variables.color.gray[parts[2]] = declaration.value;
+						} else {
+							// Normal handling for other variables
+							let current = variables;
+
+							parts.forEach((part, index) => {
+								if (index === parts.length - 1) {
+									current[part] = declaration.value;
+								} else {
+									current[part] = current[part] || {};
+									current = current[part];
+								}
+							});
+						}
+					}
+				});
+			}
+		});
+
+		// Write to JSON file
+		fs.writeFileSync(
+			`./tokens/${tokenName}.json`,
+			JSON.stringify(variables, null, 2)
+		);
+	}
+});
+
+// Second pass: resolve variable references
+const allTokens = loadAllTokens();
+
+Object.keys(allTokens).forEach(tokenName => {
+	const resolveNestedReferences = (obj) => {
+		for (let key in obj) {
+			if (typeof obj[key] === 'object') {
+				resolveNestedReferences(obj[key]);
+			} else {
+				obj[key] = resolveVariableReference(obj[key], allTokens);
+			}
+		}
+		return obj;
+	};
+
+	const resolvedTokens = resolveNestedReferences({ ...allTokens[tokenName] });
+
+	fs.writeFileSync(
+		`./tokens/${tokenName}.json`,
+		JSON.stringify(resolvedTokens, null, 2)
+	);
+});
