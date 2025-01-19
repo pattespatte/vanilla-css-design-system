@@ -17,7 +17,7 @@
 	font-size: var(--font-size-lg);
 	font-weight: var(--font-weight-bold);
 	text-decoration: none;
-	color: var(--color-primary);
+	color: var(--color-primary-500);
 }
 
 .nav-menu {
@@ -46,11 +46,11 @@
 }
 
 .nav-link:hover {
-	color: var(--color-primary);
+	color: var(--color-primary-500);
 }
 
 .nav-link.active {
-	color: var(--color-primary);
+	color: var(--color-primary-500);
 	font-weight: var(--font-weight-bold);
 }
 
@@ -98,7 +98,7 @@
 }
 
 .breadcrumbs a {
-	color: var(--color-primary);
+	color: var(--color-primary-500);
 	text-decoration: none;
 	transition: var(--transition-base);
 }
@@ -149,8 +149,8 @@
 }
 
 .pagination .active {
-	background-color: var(--color-primary);
-	border-color: var(--color-primary);
+	background-color: var(--color-primary-500);
+	border-color: var(--color-primary-500);
 	color: var(--color-white);
 }
 

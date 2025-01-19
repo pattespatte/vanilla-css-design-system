@@ -42,7 +42,7 @@
 .form-select:focus,
 .form-textarea:focus {
 	outline: none;
-	border-color: var(--color-primary);
+	border-color: var(--color-primary-500);
 	box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 

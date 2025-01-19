@@ -51,7 +51,7 @@
 
 /* Border colors */
 .border-primary {
-	border-color: var(--color-primary);
+	border-color: var(--color-primary-500);
 }
 
 .border-secondary {

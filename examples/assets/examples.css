@@ -31,7 +31,7 @@ footer {
 
 .nav-menu a {
 	background-color: var(--color-gray-100);
-	color: var(--color-primary);
+	color: var(--color-primary-500);
 	padding: 0.25rem 0.5rem;
 	border-radius: var(--border-radius);
 }
@@ -86,7 +86,7 @@ ul.docs-links.cards li a:hover {
 }
 
 .docs-links a {
-	color: var(--color-primary);
+	color: var(--color-primary-500);
 	text-decoration: none;
 }
 
@@ -140,7 +140,7 @@ ul.docs-links.cards li a:hover {
 
 .spacing-block {
 	background: var(--color-primary-100);
-	border: 1px solid var(--color-primary);
+	border: 1px solid var(--color-primary-500);
 }
 
 .type-scale-demo {
@@ -170,14 +170,14 @@ ul.docs-links.cards li a:hover {
 
 .demo-box {
 	background-color: var(--color-primary-100);
-	border: 1px solid var(--color-primary);
+	border: 1px solid var(--color-primary-500);
 	padding: var(--spacing-3);
 	margin-bottom: var(--spacing-3);
 }
 
 .demo-col {
 	background-color: var(--color-primary-100);
-	border: 1px solid var(--color-primary);
+	border: 1px solid var(--color-primary-500);
 	padding: var(--spacing-3);
 	text-align: center;
 }
@@ -191,7 +191,7 @@ ul.docs-links.cards li a:hover {
 
 .demo-container {
 	background-color: var(--color-primary-100);
-	border: 2px dashed var(--color-primary);
+	border: 2px dashed var(--color-primary-500);
 }
 
 .demo-content {
