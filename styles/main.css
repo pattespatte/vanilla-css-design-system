@@ -1,9 +1,17 @@
 /* styles/main.css */
 
+/* Variables */
+@import url('./variables/colors.css');
+@import url('./variables/typography.css');
+@import url('./variables/spacing.css');
+@import url('./variables/borders.css');
+@import url('./variables/breakpoints.css');
+@import url('./variables/extra.css');
+
 /* Base styles */
 @import url('./base/reset.css');
-@import url('./base/variables.css');
 @import url('./base/typography.css');
+@import url('./base/breakpoints.css');
 
 /* Layout styles */
 @import url('./layout/grid.css');

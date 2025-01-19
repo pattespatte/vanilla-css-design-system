@@ -1,0 +1,6 @@
+/* variables/borders.css - Design Tokens */
+:root {
+	--border-radius: 0.25rem;
+	--border-width: 1px;
+	--border-color: var(--color-gray-400);
+}

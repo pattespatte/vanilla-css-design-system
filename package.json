@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build:css": "concat-cli -f styles/base/reset.css styles/base/variables.css styles/base/typography.css styles/layout/grid.css styles/components/alerts.css styles/components/buttons.css styles/components/cards.css styles/components/data.css styles/components/forms.css styles/components/navigation.css styles/components/popups.css styles/utilities/accessibility.css styles/utilities/animations.css styles/utilities/borders.css styles/utilities/helpers.css styles/utilities/print.css styles/utilities/spacing.css styles/custom.css -o styles/vanilla-combined.css",
+    "build:css": "concat-cli -f styles/base/reset.css styles/variables/colors.css styles/variables/typography.css styles/variables/spacing.css styles/variables/borders.css styles/variables/breakpoints.css styles/variables/extra.css styles/base/typography.css styles/layout/grid.css styles/components/alerts.css styles/components/buttons.css styles/components/cards.css styles/components/data.css styles/components/forms.css styles/components/navigation.css styles/components/popups.css styles/utilities/accessibility.css styles/utilities/animations.css styles/utilities/borders.css styles/utilities/helpers.css styles/utilities/print.css styles/utilities/spacing.css styles/custom.css -o styles/vanilla-combined.css",
     "minify:css": "cleancss -o styles/vanilla-combined.min.css styles/vanilla-combined.css",
     "switch:prod": "node scripts/switch-mode.js prod",
     "switch:dev": "node scripts/switch-mode.js dev",

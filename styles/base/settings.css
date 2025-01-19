@@ -1,0 +1,8 @@
+/* base/settings.css */
+
+/* Dark theme */
+[data-theme="dark"] {
+	--color-bg: var(--color-dark);
+	--color-text: var(--color-white);
+	/* Add dark theme variations */
+}
