@@ -1,4 +1,3 @@
-// scripts/tokens-to-css.js
 const fs = require('fs');
 const path = require('path');
 
@@ -6,7 +5,13 @@ function flattenObject(obj, prefix = '') {
 	return Object.keys(obj).reduce((acc, key) => {
 		const pre = prefix.length ? `${prefix}-` : '';
 		if (typeof obj[key] === 'object' && obj[key] !== null) {
-			Object.assign(acc, flattenObject(obj[key], `${pre}${key}`));
+			if ('$value' in obj[key]) {
+				// If the object has a $value property, use it directly
+				acc[`${pre}${key}`] = obj[key]['$value'];
+			} else {
+				// Otherwise, continue flattening
+				Object.assign(acc, flattenObject(obj[key], `${pre}${key}`));
+			}
 		} else {
 			acc[`${pre}${key}`] = obj[key];
 		}
