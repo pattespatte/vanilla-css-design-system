@@ -2,19 +2,27 @@ const fs = require('fs');
 const css = require('css');
 const path = require('path');
 
+// Mapping of token types to their associated keywords
+const tokenTypeMapping = {
+	color: ['color'],
+	spacing: ['margin', 'padding'],
+	typography: ['font-weight', 'font-size'],
+	border: ['border', 'radius'],
+	breakpoints: ['breakpoint'],
+};
+
 // Helper function to determine $type based on variable name
 function determineTokenType(variableName) {
-	if (variableName.includes('color')) {
-		return 'color'; // Token type for colors
-	} else if (variableName.includes('spacing') || variableName.includes('margin') || variableName.includes('padding')) {
-		return 'spacing'; // Token type for spacing
-	} else if (variableName.includes('font') || variableName.includes('typography') || variableName.includes('size')) {
-		return 'typography'; // Token type for typography
-	} else if (variableName.includes('border') || variableName.includes('radius')) {
-		return 'border'; // Token type for borders
-	} else {
-		return 'other'; // Default token type
+	// Iterate over the mapping object
+	for (const [type, keywords] of Object.entries(tokenTypeMapping)) {
+		// Check if any keyword matches the variable name
+		if (keywords.some(keyword => variableName.includes(keyword))) {
+			return type; // Return the matching token type
+		}
 	}
+
+	// Default token type if no match is found
+	return 'other';
 }
 
 // Helper function to format tokens with $type and $value

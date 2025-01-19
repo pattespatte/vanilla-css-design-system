@@ -9,7 +9,7 @@
 @import url('./variables/spacing.css');
 @import url('./variables/borders.css');
 @import url('./variables/breakpoints.css');
-@import url('./variables/extra.css');
+@import url('./variables/other.css');
 
 /* Base styles */
 @import url('./base/typography.css');
