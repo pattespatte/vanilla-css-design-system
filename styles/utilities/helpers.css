@@ -100,8 +100,28 @@
 	text-align: center;
 }
 
+.text-black {
+	color: var(--color-black);
+}
+
+.text-white {
+	color: var(--color-white);
+}
+
+.text-primary {
+	color: var(--color-primary-500);
+}
+
+.text-secondary {
+	color: var(--color-secondary-500);
+}
+
 .float-left {
 	float: left;
+}
+
+.float-right {
+	float: right;
 }
 
 .float-right {

@@ -7,27 +7,6 @@
 	border-color: var(--border-color);
 }
 
-/* Border widths */
-.border-0 {
-	border-width: 0;
-}
-
-.border-1 {
-	border-width: 1px;
-}
-
-.border-2 {
-	border-width: 2px;
-}
-
-.border-4 {
-	border-width: 4px;
-}
-
-.border-8 {
-	border-width: 8px;
-}
-
 /* Border styles */
 .border-solid {
 	border-style: solid;
@@ -121,19 +100,19 @@
 
 /* Individual side borders */
 .border-t {
-	border-top-width: var(--border-width);
+	border-top: solid;
 }
 
 .border-r {
-	border-right-width: var(--border-width);
+	border-right: solid;
 }
 
 .border-b {
-	border-bottom-width: var(--border-width);
+	border-bottom: solid;
 }
 
 .border-l {
-	border-left-width: var(--border-width);
+	border-left: solid;
 }
 
 /* Individual corner radius */
@@ -176,4 +155,25 @@
 
 .border-opacity-100 {
 	border-color: rgba(var(--border-color-rgb), 1);
+}
+
+/* Border widths */
+.border-0 {
+	border-width: 0;
+}
+
+.border-1 {
+	border-width: 1px;
+}
+
+.border-2 {
+	border-width: 2px;
+}
+
+.border-4 {
+	border-width: 4px;
+}
+
+.border-8 {
+	border-width: 8px;
 }

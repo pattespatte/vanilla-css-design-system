@@ -20,9 +20,16 @@
   --color-tertiary: #e28ab7;
   --color-quaternary: #0ec3ad;
   --color-success: #1e7e34;
+  --color-success-100: #d4edda;
+  --color-success-200: #c3e6cb;
   --color-danger: #dc3545;
+  --color-danger-100: #f8d7da;
+  --color-danger-200: #f1c2c6;
   --color-warning: #ffc647;
+  --color-warning-100: #fff3cd;
+  --color-warning-200: #ffe8b5;
   --color-info: #0266d6;
+  --color-info-100: #cce5ff;
   --color-light: #e9ecef;
   --color-muted: #6c757d;
   --color-dark: #343a40;
