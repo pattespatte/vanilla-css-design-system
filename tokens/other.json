@@ -1,6 +1,6 @@
 {
   "transition-base": {
-    "$value": "200000ms",
+    "$value": "200ms",
     "$type": "duration"
   },
   "shadow-sm-x": {

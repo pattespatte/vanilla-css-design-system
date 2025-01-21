@@ -44,7 +44,7 @@ function getTokenType(name, value) {
 	}
 
 	// Dimensions (px, rem, em, etc.)
-	if (value.match(/px|rem|em|%|vw|vh/)) {
+	if (value.match(/px|rem|em|%|vw|vh|vh/)) {
 		return 'dimension';
 	}
 
@@ -59,7 +59,11 @@ function processValue(name, value, type) {
 			return parseFloat(value);
 		case 'duration':
 			// Convert transition value to milliseconds
-			if (value.includes('s')) {
+			if (value.endsWith('ms')) {
+				// Already in milliseconds, just return as is
+				return value;
+			} else if (value.endsWith('s')) {
+				// Convert seconds to milliseconds
 				const seconds = parseFloat(value.match(/[\d.]+/)[0]);
 				return `${seconds * 1000}ms`;
 			}
