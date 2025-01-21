@@ -8,6 +8,11 @@ const OUTPUT_DIR = './tokens';
 
 // Helper function to determine token type
 function getTokenType(name, value) {
+	// Shadows
+	if (name.includes('shadow')) {
+		return 'shadow';
+	}
+
 	// Font families
 	if (name.includes('font-family')) {
 		return 'string';
@@ -33,11 +38,6 @@ function getTokenType(name, value) {
 		return 'duration';
 	}
 
-	// Shadows
-	if (name.includes('shadow')) {
-		return 'dimension';
-	}
-
 	// Colors
 	if (name.includes('color') || value.match(/^#|rgb|hsl/)) {
 		return 'color';
@@ -51,9 +51,33 @@ function getTokenType(name, value) {
 	return 'string';
 }
 
+// Helper function to process shadow values
+function parseShadowValue(value) {
+	const shadowRegex = /^([\d.]+px|[\d.]+em|[\d.]+rem|0) +([\d.]+px|[\d.]+em|[\d.]+rem|0) +([\d.]+px|[\d.]+em|[\d.]+rem|0) +([\d.]+px|[\d.]+em|[\d.]+rem|0) +(.*)$/;
+
+	const match = value.match(shadowRegex);
+	if (match) {
+		const [, x, y, blur, spread, color] = match;
+		return [
+			{
+				x,
+				y,
+				blur,
+				spread,
+				color,
+			},
+		];
+	}
+
+	return value; // Return as-is if it doesn't match the shadow format
+}
+
 // Helper function to process values based on type
 function processValue(name, value, type) {
 	switch (type) {
+		case 'shadow':
+			// Parse shadow shorthand into structured object
+			return parseShadowValue(value);
 		case 'number':
 			// Convert numeric strings to actual numbers
 			return parseFloat(value);
@@ -85,7 +109,7 @@ function cssToTokens(cssObj) {
 
 			tokens[tokenName] = {
 				"$value": processedValue,
-				"$type": type
+				"$type": type,
 			};
 		}
 	});

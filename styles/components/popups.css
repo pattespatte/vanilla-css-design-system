@@ -13,7 +13,7 @@
 	box-shadow: var(--shadow-lg);
 	padding: var(--spacing-4);
 	border: 1px solid var(--color-light);
-	border-radius: var(--radius-md);
+	border-radius: var(--border-radius);
 	z-index: 1000;
 }
 
@@ -201,7 +201,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	transition: max-height 0.3s ease-out, padding 0.3s ease-out;
 }
 
-.accordion-toggle:checked ~ .accordion-content {
+.accordion-toggle:checked~.accordion-content {
 	max-height: 200px;
 	padding: var(--spacing-3);
 }

@@ -62,21 +62,9 @@
 
 :root {
   --transition-base: 200ms;
-  --shadow-sm-x: 0px;
-  --shadow-sm-y: 1px;
-  --shadow-sm-blur: 2px;
-  --shadow-sm-spread: 0px;
-  --shadow-sm-color: rgba(0, 0, 0, 0.05);
-  --shadow-md-x: 0px;
-  --shadow-md-y: 4px;
-  --shadow-md-blur: 6px;
-  --shadow-md-spread: 0px;
-  --shadow-md-color: rgba(0, 0, 0, 0.1);
-  --shadow-lg-x: 0px;
-  --shadow-lg-y: 10px;
-  --shadow-lg-blur: 15px;
-  --shadow-lg-spread: 0px;
-  --shadow-lg-color: rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
 }
 
 :root {
@@ -1122,7 +1110,7 @@ h6 {
 	box-shadow: var(--shadow-lg);
 	padding: var(--spacing-4);
 	border: 1px solid var(--color-light);
-	border-radius: var(--radius-md);
+	border-radius: var(--border-radius);
 	z-index: 1000;
 }
 
@@ -1310,7 +1298,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	transition: max-height 0.3s ease-out, padding 0.3s ease-out;
 }
 
-.accordion-toggle:checked ~ .accordion-content {
+.accordion-toggle:checked~.accordion-content {
 	max-height: 200px;
 	padding: var(--spacing-3);
 }
