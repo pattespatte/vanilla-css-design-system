@@ -61,7 +61,7 @@
 }
 
 :root {
-  --transition-base: 200000ms;
+  --transition-base: 200000000ms;
   --shadow-sm-x: 0px;
   --shadow-sm-y: 1px;
   --shadow-sm-blur: 2px;

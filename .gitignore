@@ -1,4 +1,5 @@
 styles/vanilla-combined.css
+styles/vanilla-combined.purged.css
 # styles/vanilla-combined.min.css
 # tokens/*.json
 
