@@ -1,12 +1,12 @@
 {
   "scripts": {
-    "build:css": "concat-cli -f styles/variables/*.css styles/base/*.css styles/layout/*.css styles/components/*.css styles/utilities/*.css styles/custom.css -o styles/vanilla-combined.css",
-    "minify:css": "cleancss -o styles/vanilla-combined.min.css styles/vanilla-combined.css && node scripts/postprocess-css.js",
     "switch:prod": "node scripts/switch-mode.js prod",
     "switch:dev": "node scripts/switch-mode.js dev",
+    "combine:css": "concat-cli -f styles/variables/*.css styles/base/*.css styles/layout/*.css styles/components/*.css styles/utilities/*.css styles/custom.css -o styles/vanilla-combined.css",
+    "minify:css": "cleancss -o styles/vanilla-combined.min.css styles/vanilla-combined.css && node scripts/postprocess-css.js",
     "css-to-tokens": "node scripts/css-to-tokens.js",
     "tokens-to-css": "node scripts/tokens-to-css.js",
-    "build": "npm run build:css && npm run minify:css && npm run switch:prod",
+    "build": "npm run combine:css && npm run minify:css && npm run switch:prod",
     "dev": "npm run switch:dev"
   },
   "devDependencies": {

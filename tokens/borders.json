@@ -1,0 +1,14 @@
+{
+  "border-radius": {
+    "$value": "0.25rem",
+    "$type": "dimension"
+  },
+  "border-width": {
+    "$value": "1px",
+    "$type": "dimension"
+  },
+  "border-color": {
+    "$value": "#ced4da",
+    "$type": "color"
+  }
+}

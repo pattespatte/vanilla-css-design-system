@@ -69,10 +69,10 @@ To generate the combined and minified CSS file yourself, follow these steps:
    npm install
    ```
 
-3. Run the build script:
+3. Run the npm script to combine CSS files:
 
    ```bash
-   npm run build:css
+   npm run combine:css
    ```
 
 4. The `vanilla-combined.min.css` file will be created in the project root.

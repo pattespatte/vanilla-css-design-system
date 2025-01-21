@@ -1,0 +1,34 @@
+{
+  "font-family-base": {
+    "$value": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
+    "$type": "string"
+  },
+  "font-size-base": {
+    "$value": "1rem",
+    "$type": "dimension"
+  },
+  "font-size-sm": {
+    "$value": "0.875rem",
+    "$type": "dimension"
+  },
+  "font-size-lg": {
+    "$value": "1.25rem",
+    "$type": "dimension"
+  },
+  "font-weight-light": {
+    "$value": 200,
+    "$type": "number"
+  },
+  "font-weight-base": {
+    "$value": 400,
+    "$type": "number"
+  },
+  "font-weight-bold": {
+    "$value": 700,
+    "$type": "number"
+  },
+  "line-height-base": {
+    "$value": 1.5,
+    "$type": "number"
+  }
+}
