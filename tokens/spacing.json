@@ -1,26 +1,28 @@
 {
-  "spacing-1": {
-    "$value": "0.25rem",
-    "$type": "dimension"
-  },
-  "spacing-2": {
-    "$value": "0.5rem",
-    "$type": "dimension"
-  },
-  "spacing-3": {
-    "$value": "1rem",
-    "$type": "dimension"
-  },
-  "spacing-4": {
-    "$value": "1.5rem",
-    "$type": "dimension"
-  },
-  "spacing-5": {
-    "$value": "2rem",
-    "$type": "dimension"
-  },
-  "spacing-unit": {
-    "$value": "0.25rem",
-    "$type": "dimension"
+  "spacing": {
+    "1": {
+      "$value": "0.25rem",
+      "$type": "dimension"
+    },
+    "2": {
+      "$value": "0.5rem",
+      "$type": "dimension"
+    },
+    "3": {
+      "$value": "1rem",
+      "$type": "dimension"
+    },
+    "4": {
+      "$value": "1.5rem",
+      "$type": "dimension"
+    },
+    "5": {
+      "$value": "2rem",
+      "$type": "dimension"
+    },
+    "unit": {
+      "$value": "0.25rem",
+      "$type": "dimension"
+    }
   }
 }

@@ -6,6 +6,39 @@ const postcssJs = require('postcss-js');
 const SOURCE_DIR = './styles/variables';
 const OUTPUT_DIR = './tokens';
 
+// Helper function to create nested object structure
+function createNestedObject(obj, path, value) {
+	const keys = path.split('.');
+	let current = obj;
+
+	for (let i = 0; i < keys.length - 1; i++) {
+		if (!(keys[i] in current)) {
+			current[keys[i]] = {};
+		}
+		current = current[keys[i]];
+	}
+
+	current[keys[keys.length - 1]] = value;
+}
+
+// Convert token name to nested path
+function convertTokenNameToPath(tokenName) {
+	// Split by hyphen
+	const parts = tokenName.split('-');
+
+	// Handle special cases for 'default'
+	if (parts.length === 3 && parts[2] === 'default') {
+		return `${parts[0]}.${parts[1]}.default`;
+	}
+
+	// Handle numbered variations (like 100, 200, etc.)
+	if (parts.length === 3 && /^\d+$/.test(parts[2])) {
+		return `${parts[0]}.${parts[1]}.${parts[2]}`;
+	}
+
+	return parts.join('.');
+}
+
 // Helper function to convert var() to token references
 function convertVarToTokenReference(value) {
 	if (typeof value === 'string' && value.startsWith('var(--')) {
@@ -133,15 +166,28 @@ function cssToTokens(cssObj) {
 	Object.entries(cssObj).forEach(([key, value]) => {
 		if (key.startsWith('--')) {
 			const tokenName = key.substring(2);
-			// First convert any var() references
 			const resolvedValue = convertVarToTokenReference(value);
 			const type = getTokenType(tokenName, resolvedValue);
 			const processedValue = processValue(tokenName, resolvedValue, type);
 
-			tokens[tokenName] = {
-				"$value": processedValue,
-				"$type": type,
+			// Convert the flat token name to a nested path
+			const tokenPath = convertTokenNameToPath(tokenName);
+
+			// Update token references to use dot notation
+			let finalValue = processedValue;
+			if (typeof processedValue === 'string' && processedValue.startsWith('{') && processedValue.endsWith('}')) {
+				const refName = processedValue.slice(1, -1);
+				finalValue = '{' + refName.replace(/-/g, '.') + '}';
+			}
+
+			// Create the token object
+			const tokenObject = {
+				"$value": finalValue,
+				"$type": type
 			};
+
+			// Create nested structure
+			createNestedObject(tokens, tokenPath, tokenObject);
 		}
 	});
 
