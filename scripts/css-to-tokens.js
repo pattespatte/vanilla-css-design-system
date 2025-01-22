@@ -6,8 +6,32 @@ const postcssJs = require('postcss-js');
 const SOURCE_DIR = './styles/variables';
 const OUTPUT_DIR = './tokens';
 
+// Helper function to convert var() to token references
+function convertVarToTokenReference(value) {
+	if (typeof value === 'string' && value.startsWith('var(--')) {
+		// Extract the variable name without 'var(--' and ')'
+		const varName = value.slice(6, -1);
+		// Return as a token reference
+		return `{${varName}}`;
+	}
+	return value;
+}
+
 // Helper function to determine token type
 function getTokenType(name, value) {
+	// If the value is a token reference, try to determine type from the name
+	if (typeof value === 'string' && value.startsWith('{') && value.endsWith('}')) {
+		// Use the name to determine type since the value is a reference
+		if (name.includes('shadow')) return 'shadow';
+		if (name.includes('font-family')) return 'string';
+		if (name.includes('font-size')) return 'dimension';
+		if (name.includes('font-weight')) return 'number';
+		if (name.includes('line-height')) return 'number';
+		if (name.includes('transition')) return 'duration';
+		if (name.includes('color')) return 'color';
+		return 'string';
+	}
+
 	// Shadows
 	if (name.includes('shadow')) {
 		return 'shadow';
@@ -74,6 +98,11 @@ function parseShadowValue(value) {
 
 // Helper function to process values based on type
 function processValue(name, value, type) {
+	// If the value is already a token reference, return it as-is
+	if (typeof value === 'string' && value.startsWith('{') && value.endsWith('}')) {
+		return value;
+	}
+
 	switch (type) {
 		case 'shadow':
 			// Parse shadow shorthand into structured object
@@ -104,8 +133,10 @@ function cssToTokens(cssObj) {
 	Object.entries(cssObj).forEach(([key, value]) => {
 		if (key.startsWith('--')) {
 			const tokenName = key.substring(2);
-			const type = getTokenType(tokenName, value);
-			const processedValue = processValue(tokenName, value, type);
+			// First convert any var() references
+			const resolvedValue = convertVarToTokenReference(value);
+			const type = getTokenType(tokenName, resolvedValue);
+			const processedValue = processValue(tokenName, resolvedValue, type);
 
 			tokens[tokenName] = {
 				"$value": processedValue,

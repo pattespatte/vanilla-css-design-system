@@ -1,4 +1,8 @@
 {
+  "color-primary": {
+    "$value": "{color-primary-500}",
+    "$type": "color"
+  },
   "color-primary-100": {
     "$value": "#f3e1eb",
     "$type": "color"
@@ -35,6 +39,10 @@
     "$value": "#26061b",
     "$type": "color"
   },
+  "color-secondary": {
+    "$value": "{color-secondary-500}",
+    "$type": "color"
+  },
   "color-secondary-100": {
     "$value": "#fff9ed",
     "$type": "color"
@@ -68,7 +76,7 @@
     "$type": "color"
   },
   "color-secondary-900": {
-    "$value": "#ffc647",
+    "$value": "#403723",
     "$type": "color"
   },
   "color-tertiary": {

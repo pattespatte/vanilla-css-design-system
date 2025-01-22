@@ -6,10 +6,7 @@ function formatShadowValue(value) {
 	if (Array.isArray(value)) {
 		// Handle arrays of shadow values
 		return value
-			.map(
-				v =>
-					`${v.x} ${v.y} ${v.blur} ${v.spread} ${v.color}`
-			)
+			.map(v => `${v.x} ${v.y} ${v.blur} ${v.spread} ${v.color}`)
 			.join(', '); // If multiple shadows, separate them with commas
 	}
 	return value; // Return the value directly if it's not an array
@@ -39,12 +36,22 @@ function flattenObject(obj, prefix = '') {
 	}, {});
 }
 
+// Helper function to process token references (e.g., `{color-primary-500}` → `var(--color-primary-500)`)
+function processReferences(value) {
+	const referenceRegex = /\{([\w-]+)\}/g; // Match `{reference-name}`
+	return value.replace(referenceRegex, (_, refName) => `var(--${refName})`);
+}
+
 // Function to convert tokens to CSS variables
 function convertTokensToCSS(tokens) {
 	const flatTokens = flattenObject(tokens);
 	let css = ':root {\n';
 
 	Object.entries(flatTokens).forEach(([key, value]) => {
+		// If the value contains a reference, process it
+		if (typeof value === 'string') {
+			value = processReferences(value);
+		}
 		css += `  --${key}: ${value};\n`;
 	});
 
@@ -77,10 +84,7 @@ function tokensToCSS() {
 			const css = processTokenFile(tokenPath);
 
 			// Write to CSS file
-			fs.writeFileSync(
-				path.join(variablesDir, `${baseName}.css`),
-				css
-			);
+			fs.writeFileSync(path.join(variablesDir, `${baseName}.css`), css);
 		}
 	});
 
