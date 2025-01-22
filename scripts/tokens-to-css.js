@@ -4,30 +4,42 @@ const path = require('path');
 // Helper function to format shadow objects to CSS-compatible strings
 function formatShadowValue(value) {
 	if (Array.isArray(value)) {
-		// Handle arrays of shadow values
 		return value
 			.map(v => `${v.x} ${v.y} ${v.blur} ${v.spread} ${v.color}`)
-			.join(', '); // If multiple shadows, separate them with commas
+			.join(', ');
 	}
-	return value; // Return the value directly if it's not an array
+	return value;
+}
+
+// Helper function to convert dot notation to hyphen notation
+function dotToHyphen(str) {
+	return str.replace(/\./g, '-');
 }
 
 // Helper function to flatten token objects
 function flattenObject(obj, prefix = '') {
 	return Object.keys(obj).reduce((acc, key) => {
 		const pre = prefix.length ? `${prefix}-` : '';
+
+		// Handle the case where an object has both $value and other properties
 		if (typeof obj[key] === 'object' && obj[key] !== null) {
+			// If the object has a $value, add it to accumulator
 			if ('$value' in obj[key]) {
-				// Handle special cases for shadow values
 				if (typeof obj[key]['$value'] === 'object') {
 					acc[`${pre}${key}`] = formatShadowValue(obj[key]['$value']);
 				} else {
-					// For normal values
 					acc[`${pre}${key}`] = obj[key]['$value'];
 				}
-			} else {
-				// Continue flattening nested objects
-				Object.assign(acc, flattenObject(obj[key], `${pre}${key}`));
+			}
+
+			// Continue flattening the object (for nested properties)
+			// Only process properties that aren't $value or $type
+			const nestedObj = Object.keys(obj[key])
+				.filter(k => k !== '$value' && k !== '$type')
+				.reduce((o, k) => ({ ...o, [k]: obj[key][k] }), {});
+
+			if (Object.keys(nestedObj).length > 0) {
+				Object.assign(acc, flattenObject(nestedObj, `${pre}${key}`));
 			}
 		} else {
 			acc[`${pre}${key}`] = obj[key];
@@ -36,10 +48,17 @@ function flattenObject(obj, prefix = '') {
 	}, {});
 }
 
-// Helper function to process token references (e.g., `{color-primary-500}` → `var(--color-primary-500)`)
+// Helper function to process token references
 function processReferences(value) {
-	const referenceRegex = /\{([\w-]+)\}/g; // Match `{reference-name}`
-	return value.replace(referenceRegex, (_, refName) => `var(--${refName})`);
+	if (typeof value !== 'string') return value;
+
+	// Match references in the format {color.primary.500}
+	const referenceRegex = /\{([\w.-]+)\}/g;
+	return value.replace(referenceRegex, (_, refName) => {
+		// Convert dot notation to hyphen notation
+		const hyphenRef = dotToHyphen(refName);
+		return `var(--${hyphenRef})`;
+	});
 }
 
 // Function to convert tokens to CSS variables
@@ -48,11 +67,8 @@ function convertTokensToCSS(tokens) {
 	let css = ':root {\n';
 
 	Object.entries(flatTokens).forEach(([key, value]) => {
-		// If the value contains a reference, process it
-		if (typeof value === 'string') {
-			value = processReferences(value);
-		}
-		css += `  --${key}: ${value};\n`;
+		const processedValue = processReferences(value);
+		css += `  --${key}: ${processedValue};\n`;
 	});
 
 	css += '}\n';
