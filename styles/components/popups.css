@@ -53,7 +53,7 @@
 }
 
 .modal-close:hover {
-	color: var(--color-primary-500);
+	color: var(--color-primary-default);
 }
 
 /* Additional Dropdown Styles */

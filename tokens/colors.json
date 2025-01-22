@@ -1,8 +1,4 @@
 {
-  "color-primary": {
-    "$value": "{color-primary-500}",
-    "$type": "color"
-  },
   "color-primary-100": {
     "$value": "#f3e1eb",
     "$type": "color"
@@ -39,8 +35,8 @@
     "$value": "#26061b",
     "$type": "color"
   },
-  "color-secondary": {
-    "$value": "{color-secondary-500}",
+  "color-primary-default": {
+    "$value": "{color-primary-500}",
     "$type": "color"
   },
   "color-secondary-100": {
@@ -76,7 +72,11 @@
     "$type": "color"
   },
   "color-secondary-900": {
-    "$value": "#403723",
+    "$value": "#ffc048",
+    "$type": "color"
+  },
+  "color-secondary-default": {
+    "$value": "{color-secondary-500}",
     "$type": "color"
   },
   "color-tertiary": {

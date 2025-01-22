@@ -30,11 +30,11 @@
 
 /* Border colors */
 .border-primary {
-	border-color: var(--color-primary-500);
+	border-color: var(--color-primary-default);
 }
 
 .border-secondary {
-	border-color: var(--color-secondary);
+	border-color: var(--color-secondary-default);
 }
 
 .border-success {

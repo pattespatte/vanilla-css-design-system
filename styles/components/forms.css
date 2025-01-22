@@ -42,7 +42,7 @@
 .form-select:focus,
 .form-textarea:focus {
 	outline: none;
-	border-color: var(--color-primary-500);
+	border-color: var(--color-primary-default);
 	box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
@@ -163,7 +163,7 @@
 	left: var(--spacing-2);
 	top: 50%;
 	transform: translateY(-50%);
-	color: var(--color-secondary);
+	color: var(--color-secondary-default);
 }
 
 /* Form grid */

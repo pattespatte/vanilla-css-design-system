@@ -109,7 +109,7 @@
 }
 
 .text-primary {
-	color: var(--color-primary-500);
+	color: var(--color-primary-default);
 }
 
 .text-secondary {

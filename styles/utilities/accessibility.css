@@ -11,6 +11,6 @@
 }
 
 :focus-visible {
-	outline: 3px solid var(--color-primary-500);
+	outline: 3px solid var(--color-primary-default);
 	outline-offset: 2px;
 }
