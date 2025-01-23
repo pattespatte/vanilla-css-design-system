@@ -1,8 +1,0 @@
-/* base/01-reset.css */
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-}

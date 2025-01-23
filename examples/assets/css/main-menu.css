@@ -1,0 +1,87 @@
+.main-menu {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+	grid-gap: 1em;
+	justify-content: start;
+	list-style: none;
+	padding: 0;
+}
+
+.main-menu a,
+.main-menu button {
+	background-color: var(--color-white);
+	border: var(--border-width) solid var(--border-color);
+	border-radius: var(--border-radius);
+	padding: var(--spacing-3);
+	box-shadow: var(--shadow-sm);
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	font-size: large;
+}
+
+.main-menu button {
+	cursor: pointer;
+}
+
+.main-menu a:hover,
+.main-menu a:focus {
+	background: #fafafa;
+	outline: 2px solid #000;
+}
+
+.submenu {
+	display: none;
+	padding: 0;
+}
+
+.main-menu li,
+.main-menu button {
+	position: relative;
+	list-style: none;
+	min-width: 10rem;
+}
+
+.main-menu li:hover .submenu,
+.main-menu li:focus-within .submenu {
+	display: block;
+	position: absolute;
+	width: 100%;
+}
+
+.main-menu li:hover .submenu a,
+.main-menu li:focus-within .submenu a {
+	display: block;
+}
+
+/* Hamburger menu styles */
+.nav-toggle {
+	display: none;
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.nav-toggle {
+		display: block;
+	}
+
+	.main-menu {
+		display: none;
+	}
+
+	.main-menu.active {
+		display: block;
+	}
+
+	.main-menu a,
+	.main-menu button {
+		padding: var(--spacing-2) var(--spacing-3);
+	}
+
+	.main-menu .submenu li {
+		left: 2rem;
+		top: -1rem;
+		z-index: 100;
+		max-width: 8rem;
+	}
+}
