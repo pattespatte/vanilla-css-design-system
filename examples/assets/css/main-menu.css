@@ -9,10 +9,10 @@
 
 .main-menu a,
 .main-menu button {
-	background-color: var(--color-white);
+	background-color: #fafafa;
 	border: var(--border-width) solid var(--border-color);
 	border-radius: var(--border-radius);
-	padding: var(--spacing-3);
+	padding: var(--spacing-2);
 	box-shadow: var(--shadow-sm);
 	display: block;
 	text-decoration: none;
@@ -25,14 +25,20 @@
 }
 
 .main-menu a:hover,
-.main-menu a:focus {
-	background: #fafafa;
-	outline: 2px solid #000;
+.main-menu a:focus,
+.main-menu button:hover,
+.main-menu button:focus {
+	background: var(--color-white);
+	outline: 2px solid var(--color-primary-default);
 }
 
 .submenu {
 	display: none;
 	padding: 0;
+}
+
+.submenu a {
+	padding: var(--spacing-1);
 }
 
 .main-menu li,
