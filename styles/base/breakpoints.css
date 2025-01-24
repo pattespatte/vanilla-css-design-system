@@ -1,7 +1,7 @@
 /* base/breakpoints.css - Design Tokens */
 
 /* Responsive utilities */
-@media (min-width: 576px) {
+@media (width >= 576px) {
 	.sm-hidden {
 		display: none;
 	}
@@ -21,12 +21,13 @@
 	.sm-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.container {
 		max-width: var(--breakpoint-sm);
 	}
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
 	.md-hidden {
 		display: none;
 	}
@@ -66,12 +67,13 @@
 	.md-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.container {
 		max-width: var(--breakpoint-md);
 	}
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
 	.lg-hidden {
 		display: none;
 	}
@@ -111,12 +113,13 @@
 	.lg-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.container {
 		max-width: var(--breakpoint-lg);
 	}
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
 	.xl-hidden {
 		display: none;
 	}
@@ -136,6 +139,7 @@
 	.xl-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.container {
 		max-width: var(--breakpoint-xl);
 	}

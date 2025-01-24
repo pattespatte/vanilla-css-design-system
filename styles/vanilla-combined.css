@@ -48,8 +48,8 @@
   --color-light: #e9ecef;
   --color-muted: #6c757d;
   --color-dark: #343a40;
-  --color-white: #ffffff;
-  --color-black: #000000;
+  --color-white: #fff;
+  --color-black: #000;
   --color-gray-50: #f9fafb;
   --color-gray-100: #f8f9fa;
   --color-gray-200: #e9ecef;
@@ -64,9 +64,9 @@
 
 :root {
   --transition-base: 200ms;
-  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0px 1px 2px 0px rgb(0 0 0 / 5%);
+  --shadow-md: 0px 4px 6px 0px rgb(0 0 0 / 10%);
+  --shadow-lg: 0px 10px 15px 0px rgb(0 0 0 / 10%);
 }
 
 :root {
@@ -79,7 +79,7 @@
 }
 
 :root {
-  --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-family-base: system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
   --text-sm: 0.875rem;
   --text-lg: 1.25rem;
   --text-light: 200;
@@ -99,7 +99,7 @@
 /* base/breakpoints.css - Design Tokens */
 
 /* Responsive utilities */
-@media (min-width: 576px) {
+@media (width >= 576px) {
 	.sm-hidden {
 		display: none;
 	}
@@ -119,12 +119,13 @@
 	.sm-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.container {
 		max-width: var(--breakpoint-sm);
 	}
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
 	.md-hidden {
 		display: none;
 	}
@@ -164,12 +165,13 @@
 	.md-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.container {
 		max-width: var(--breakpoint-md);
 	}
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
 	.lg-hidden {
 		display: none;
 	}
@@ -209,12 +211,13 @@
 	.lg-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.container {
 		max-width: var(--breakpoint-lg);
 	}
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
 	.xl-hidden {
 		display: none;
 	}
@@ -234,6 +237,7 @@
 	.xl-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.container {
 		max-width: var(--breakpoint-xl);
 	}
@@ -244,6 +248,7 @@
 [data-theme="dark"] {
 	--color-bg: var(--color-dark);
 	--color-text: var(--color-white);
+
 	/* Add dark theme variations */
 }
 
@@ -276,21 +281,27 @@ h6 {
 	font-weight: var(--text-bold);
 	line-height: 1.2;
 }
+
 h1 {
 	font-size: 2.5rem;
 }
+
 h2 {
 	font-size: 2rem;
 }
+
 h3 {
 	font-size: 1.75rem;
 }
+
 h4 {
 	font-size: 1.5rem;
 }
+
 h5 {
 	font-size: 1.25rem;
 }
+
 h6 {
 	font-size: 1rem;
 }
@@ -309,15 +320,19 @@ blockquote {
 .text-sm {
 	font-size: var(--text-sm);
 }
+
 .text-lg {
 	font-size: var(--text-lg);
 }
+
 .text-light {
 	font-weight: var(--text-light);
 }
+
 .text-base {
 	font-weight: var(--text-base);
 }
+
 .text-bold {
 	font-weight: var(--text-bold);
 }
@@ -333,294 +348,388 @@ blockquote {
 	margin-left: auto;
 	max-width: var(--breakpoint-xl);
 }
+
 .grid {
 	display: grid;
 	gap: var(--spacing-3);
 }
+
 .col-span-1 {
 	grid-column: span 1 / span 1;
 }
+
 .col-span-2 {
 	grid-column: span 2 / span 2;
 }
+
 .col-span-3 {
 	grid-column: span 3 / span 3;
 }
+
 .col-span-4 {
 	grid-column: span 4 / span 4;
 }
+
 .col-span-5 {
 	grid-column: span 5 / span 5;
 }
+
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
+
 .col-span-7 {
 	grid-column: span 7 / span 7;
 }
+
 .col-span-8 {
 	grid-column: span 8 / span 8;
 }
+
 .col-span-9 {
 	grid-column: span 9 / span 9;
 }
+
 .col-span-10 {
 	grid-column: span 10 / span 10;
 }
+
 .col-span-11 {
 	grid-column: span 11 / span 11;
 }
+
 .col-span-12 {
 	grid-column: span 12 / span 12;
 }
+
 .grid-cols-1 {
 	grid-template-columns: repeat(1, 1fr);
 }
+
 .grid-cols-2 {
 	grid-template-columns: repeat(2, 1fr);
 }
+
 .grid-cols-3 {
 	grid-template-columns: repeat(3, 1fr);
 }
+
 .grid-cols-4 {
 	grid-template-columns: repeat(4, 1fr);
 }
+
 .grid-cols-5 {
 	grid-template-columns: repeat(5, 1fr);
 }
+
 .grid-cols-6 {
 	grid-template-columns: repeat(6, 1fr);
 }
+
 .grid-cols-12 {
 	grid-template-columns: repeat(12, 1fr);
 }
+
 .gap-1 {
 	gap: var(--spacing-1);
 }
+
 .gap-2 {
 	gap: var(--spacing-2);
 }
+
 .gap-3 {
 	gap: var(--spacing-3);
 }
+
 /* Responsive grids */
-@media (min-width: 576px) {
+@media (width >= 576px) {
 	.sm-col-span-1 {
 		grid-column: span 1 / span 1;
 	}
+
 	.sm-col-span-2 {
 		grid-column: span 2 / span 2;
 	}
+
 	.sm-col-span-3 {
 		grid-column: span 3 / span 3;
 	}
+
 	.sm-col-span-4 {
 		grid-column: span 4 / span 4;
 	}
+
 	.sm-col-span-5 {
 		grid-column: span 5 / span 5;
 	}
+
 	.sm-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.sm-col-span-7 {
 		grid-column: span 7 / span 7;
 	}
+
 	.sm-col-span-8 {
 		grid-column: span 8 / span 8;
 	}
+
 	.sm-col-span-9 {
 		grid-column: span 9 / span 9;
 	}
+
 	.sm-col-span-10 {
 		grid-column: span 10 / span 10;
 	}
+
 	.sm-col-span-11 {
 		grid-column: span 11 / span 11;
 	}
+
 	.sm-col-span-12 {
 		grid-column: span 12 / span 12;
 	}
+
 	.sm-grid-cols-1 {
 		grid-template-columns: repeat(1, 1fr);
 	}
+
 	.sm-grid-cols-2 {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
 	.sm-grid-cols-3 {
 		grid-template-columns: repeat(3, 1fr);
 	}
+
 	.sm-grid-cols-4 {
 		grid-template-columns: repeat(4, 1fr);
 	}
+
 	.sm-grid-cols-5 {
 		grid-template-columns: repeat(5, 1fr);
 	}
+
 	.sm-grid-cols-6 {
 		grid-template-columns: repeat(6, 1fr);
 	}
+
 	.sm-grid-cols-12 {
 		grid-template-columns: repeat(12, 1fr);
 	}
 }
-@media (min-width: 768px) {
+
+@media (width >= 768px) {
 	.md-col-span-1 {
 		grid-column: span 1 / span 1;
 	}
+
 	.md-col-span-2 {
 		grid-column: span 2 / span 2;
 	}
+
 	.md-col-span-3 {
 		grid-column: span 3 / span 3;
 	}
+
 	.md-col-span-4 {
 		grid-column: span 4 / span 4;
 	}
+
 	.md-col-span-5 {
 		grid-column: span 5 / span 5;
 	}
+
 	.md-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.md-col-span-12 {
 		grid-column: span 12 / span 12;
 	}
+
 	.md-grid-cols-1 {
 		grid-template-columns: repeat(1, 1fr);
 	}
+
 	.md-grid-cols-2 {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
 	.md-grid-cols-3 {
 		grid-template-columns: repeat(3, 1fr);
 	}
+
 	.md-grid-cols-4 {
 		grid-template-columns: repeat(4, 1fr);
 	}
+
 	.md-grid-cols-5 {
 		grid-template-columns: repeat(5, 1fr);
 	}
+
 	.md-grid-cols-6 {
 		grid-template-columns: repeat(6, 1fr);
 	}
+
 	.md-grid-cols-12 {
 		grid-template-columns: repeat(12, 1fr);
 	}
 }
-@media (min-width: 992px) {
+
+@media (width >= 992px) {
 	.lg-col-span-1 {
 		grid-column: span 1 / span 1;
 	}
+
 	.lg-col-span-2 {
 		grid-column: span 2 / span 2;
 	}
+
 	.lg-col-span-3 {
 		grid-column: span 3 / span 3;
 	}
+
 	.lg-col-span-4 {
 		grid-column: span 4 / span 4;
 	}
+
 	.lg-col-span-5 {
 		grid-column: span 5 / span 5;
 	}
+
 	.lg-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.lg-col-span-7 {
 		grid-column: span 7 / span 7;
 	}
+
 	.lg-col-span-8 {
 		grid-column: span 8 / span 8;
 	}
+
 	.lg-col-span-9 {
 		grid-column: span 9 / span 9;
 	}
+
 	.lg-col-span-10 {
 		grid-column: span 10 / span 10;
 	}
+
 	.lg-col-span-11 {
 		grid-column: span 11 / span 11;
 	}
+
 	.lg-col-span-12 {
 		grid-column: span 12 / span 12;
 	}
+
 	.lg-grid-cols-1 {
 		grid-template-columns: repeat(1, 1fr);
 	}
+
 	.lg-grid-cols-2 {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
 	.lg-grid-cols-3 {
 		grid-template-columns: repeat(3, 1fr);
 	}
+
 	.lg-grid-cols-4 {
 		grid-template-columns: repeat(4, 1fr);
 	}
+
 	.lg-grid-cols-5 {
 		grid-template-columns: repeat(5, 1fr);
 	}
+
 	.lg-grid-cols-6 {
 		grid-template-columns: repeat(6, 1fr);
 	}
+
 	.lg-grid-cols-12 {
 		grid-template-columns: repeat(12, 1fr);
 	}
 }
-@media (min-width: 1200px) {
+
+@media (width >= 1200px) {
 	.xl-col-span-1 {
 		grid-column: span 1 / span 1;
 	}
+
 	.xl-col-span-2 {
 		grid-column: span 2 / span 2;
 	}
+
 	.xl-col-span-3 {
 		grid-column: span 3 / span 3;
 	}
+
 	.xl-col-span-4 {
 		grid-column: span 4 / span 4;
 	}
+
 	.xl-col-span-5 {
 		grid-column: span 5 / span 5;
 	}
+
 	.xl-col-span-6 {
 		grid-column: span 6 / span 6;
 	}
+
 	.xl-col-span-7 {
 		grid-column: span 7 / span 7;
 	}
+
 	.xl-col-span-8 {
 		grid-column: span 8 / span 8;
 	}
+
 	.xl-col-span-9 {
 		grid-column: span 9 / span 9;
 	}
+
 	.xl-col-span-10 {
 		grid-column: span 10 / span 10;
 	}
+
 	.xl-col-span-11 {
 		grid-column: span 11 / span 11;
 	}
+
 	.xl-col-span-12 {
 		grid-column: span 12 / span 12;
 	}
+
 	.xl-grid-cols-1 {
 		grid-template-columns: repeat(1, 1fr);
 	}
+
 	.xl-grid-cols-2 {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
 	.xl-grid-cols-3 {
 		grid-template-columns: repeat(3, 1fr);
 	}
+
 	.xl-grid-cols-4 {
 		grid-template-columns: repeat(4, 1fr);
 	}
+
 	.xl-grid-cols-5 {
 		grid-template-columns: repeat(5, 1fr);
 	}
+
 	.xl-grid-cols-6 {
 		grid-template-columns: repeat(6, 1fr);
 	}
+
 	.xl-grid-cols-12 {
 		grid-template-columns: repeat(12, 1fr);
 	}
@@ -694,6 +803,7 @@ blockquote {
 	padding: var(--spacing-3);
 	box-shadow: var(--shadow-sm);
 }
+
 .card-image {
 	width: 100%;
 	height: 200px;
@@ -789,7 +899,7 @@ blockquote {
 .form-textarea:focus {
 	outline: none;
 	border-color: var(--color-primary-default);
-	box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+	box-shadow: 0 0 0 3px rgb(0 123 255 / 25%);
 }
 
 /* Disabled state */
@@ -818,7 +928,7 @@ blockquote {
 
 .form-check-input[type="checkbox"] {
 	/* Appearance reset */
-	-webkit-appearance: none;
+	appearance: none;
 	appearance: none;
 
 	/* Basic styling */
@@ -862,7 +972,7 @@ blockquote {
 
 .form-check-input[type="radio"] {
 	/* Appearance reset */
-	-webkit-appearance: none;
+	appearance: none;
 	appearance: none;
 
 	/* Basic styling */
@@ -871,6 +981,7 @@ blockquote {
 	height: 1.15em;
 	border: 1px solid var(--color-gray-400);
 	border-radius: 50%;
+
 	/* Make it round */
 
 	/* For alignment */
@@ -881,6 +992,7 @@ blockquote {
 /* Checked state */
 .form-check-input[type="radio"]:checked {
 	background-color: var(--color-white);
+
 	/* Keep background white */
 	border-color: var(--color-primary-default);
 }
@@ -893,6 +1005,7 @@ blockquote {
 	border-radius: 50%;
 	transform: scale(1);
 	background-color: var(--color-primary-default);
+
 	/* Color for the dot */
 	box-shadow: inset 1em 1em var(--color-primary-default);
 }
@@ -1028,13 +1141,16 @@ blockquote {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+
 	/* Align items to the right */
 	gap: var(--spacing-3);
 	padding: var(--spacing-3) 0;
 	position: relative;
 	max-width: 100%;
+
 	/* Ensure nav doesn't exceed viewport width */
 	width: 100%;
+
 	/* Take full width of container */
 }
 
@@ -1052,10 +1168,13 @@ blockquote {
 	margin: 0;
 	padding: 0;
 	flex-wrap: wrap;
+
 	/* Allow items to wrap on smaller screens */
 	max-width: 100%;
+
 	/* Ensure nav doesn't exceed viewport width */
 	width: 100%;
+
 	/* Take full width of container */
 }
 
@@ -1191,7 +1310,7 @@ blockquote {
 
 /* Responsive adjustments */
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
 	.nav-toggle {
 		display: block;
 	}
@@ -1204,19 +1323,24 @@ blockquote {
 		box-shadow: var(--shadow-md);
 		position: absolute;
 		top: 100%;
+
 		/* Position it below the header */
 		left: 0;
+
 		/* Align to the left edge */
 		right: 0;
+
 		/* Stretch to the right edge */
 		width: 100%;
 		z-index: 1000;
+
 		/* Ensure it appears above other content */
 	}
 
 	.nav-menu.active {
 		display: flex;
 	}
+
 	.pagination ul {
 		gap: var(--spacing-1);
 	}
@@ -1674,7 +1798,6 @@ input[type="checkbox"]:checked~.dropdown-content {
 }
 
 @keyframes bounce {
-
 	0%,
 	100% {
 		transform: translateY(-25%);
@@ -1688,7 +1811,6 @@ input[type="checkbox"]:checked~.dropdown-content {
 }
 
 @keyframes pulse {
-
 	0%,
 	100% {
 		opacity: 1;
@@ -1918,63 +2040,83 @@ input[type="checkbox"]:checked~.dropdown-content {
 .d-block {
 	display: block;
 }
+
 .d-inline {
 	display: inline;
 }
+
 .d-inline-block {
 	display: inline-block;
 }
+
 .d-flex {
 	display: flex;
 }
+
 .d-inline-flex {
 	display: inline-flex;
 }
+
 .d-grid {
 	display: grid;
 }
+
 .d-none {
 	display: none;
 }
+
 .d-table {
 	display: table;
 }
+
 .d-table-row {
 	display: table-row;
 }
+
 .d-table-cell {
 	display: table-cell;
 }
+
 .d-table-caption {
 	display: table-caption;
 }
+
 .d-table-header-group {
 	display: table-header-group;
 }
+
 .d-table-footer-group {
 	display: table-footer-group;
 }
+
 .d-table-row-group {
 	display: table-row-group;
 }
+
 .d-table-column-group {
 	display: table-column-group;
 }
+
 .d-table-column {
 	display: table-column;
 }
+
 .d-table-column-group {
 	display: table-column-group;
 }
+
 .d-table-column-group {
 	display: table-column-group;
 }
+
 .d-table-column-group {
 	display: table-column-group;
 }
+
 .d-table-column-group {
 	display: table-column-group;
 }
+
 .d-table-column-group {
 	display: table-column-group;
 }
@@ -2131,7 +2273,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	  display: none !important;
 	}
 	
-	a[href]:after {
+	a[href]::after {
 	  content: " (" attr(href) ")";
 	}
   }
@@ -2375,7 +2517,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 }
 
 /* Responsive utilities */
-@media (min-width: 576px) {
+@media (width >= 576px) {
 	.sm-m-0 {
 		margin: 0;
 	}
@@ -2425,7 +2567,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	}
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
 	.md-m-0 {
 		margin: 0;
 	}
@@ -2475,7 +2617,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	}
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
 	.lg-m-0 {
 		margin: 0;
 	}
@@ -2525,7 +2667,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	}
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
 	.xl-m-0 {
 		margin: 0;
 	}
@@ -2579,4 +2721,5 @@ input[type="checkbox"]:checked~.dropdown-content {
 /* Add your custom styles here */
 
 /* Remove this comment and replace with overrides or new styles */
+
 /* Since this file has been added last in `main.css`, it will override the styles from the other files. You should not have to use !important 😃 */

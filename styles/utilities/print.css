@@ -4,7 +4,7 @@
 	  display: none !important;
 	}
 	
-	a[href]:after {
+	a[href]::after {
 	  content: " (" attr(href) ")";
 	}
   }

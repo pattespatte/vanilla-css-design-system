@@ -3,13 +3,16 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+
 	/* Align items to the right */
 	gap: var(--spacing-3);
 	padding: var(--spacing-3) 0;
 	position: relative;
 	max-width: 100%;
+
 	/* Ensure nav doesn't exceed viewport width */
 	width: 100%;
+
 	/* Take full width of container */
 }
 
@@ -27,10 +30,13 @@
 	margin: 0;
 	padding: 0;
 	flex-wrap: wrap;
+
 	/* Allow items to wrap on smaller screens */
 	max-width: 100%;
+
 	/* Ensure nav doesn't exceed viewport width */
 	width: 100%;
+
 	/* Take full width of container */
 }
 
@@ -166,7 +172,7 @@
 
 /* Responsive adjustments */
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
 	.nav-toggle {
 		display: block;
 	}
@@ -179,19 +185,24 @@
 		box-shadow: var(--shadow-md);
 		position: absolute;
 		top: 100%;
+
 		/* Position it below the header */
 		left: 0;
+
 		/* Align to the left edge */
 		right: 0;
+
 		/* Stretch to the right edge */
 		width: 100%;
 		z-index: 1000;
+
 		/* Ensure it appears above other content */
 	}
 
 	.nav-menu.active {
 		display: flex;
 	}
+
 	.pagination ul {
 		gap: var(--spacing-1);
 	}

@@ -54,7 +54,7 @@ ul.docs-links.cards li a {
 	border: 1px solid var(--color-gray-100);
 	text-decoration: none;
 	color: var(--color-dark);
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
 ul.docs-links.cards li a:hover {
@@ -194,7 +194,7 @@ ul.docs-links.cards li a:hover {
 }
 
 .bd-highlight {
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: rgb(255 255 255 / 50%);
 }
 
 /* Repeated so they are not overridden by example styles - START */
@@ -216,34 +216,35 @@ ul.docs-links.cards li a:hover {
 	vertical-align: middle;
 }
 
-@media (min-width: 576px) {
+@media (width >= 576px) {
 	.breakpoint-indicator::after {
 		content: "SM (≥576px)";
 	}
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
 	.breakpoint-indicator::after {
 		content: "MD (≥768px)";
 	}
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
 	.breakpoint-indicator::after {
 		content: "LG (≥992px)";
 	}
+
 	#header-logo {
 		display: inline-block;
 	}
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
 	.breakpoint-indicator::after {
 		content: "XL (≥1200px)";
 	}
 }
 
-@media (max-width: 575.98px) {
+@media (width <= 575.98px) {
 	.breakpoint-indicator::after {
 		content: "XS (<576px)";
 	}

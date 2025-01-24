@@ -6,6 +6,7 @@
 	padding: var(--spacing-3);
 	box-shadow: var(--shadow-sm);
 }
+
 .card-image {
 	width: 100%;
 	height: 200px;

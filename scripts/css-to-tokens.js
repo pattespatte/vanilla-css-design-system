@@ -96,7 +96,7 @@ function getTokenType(name, value) {
 	}
 
 	// Colors
-	if (name.includes('color') || value.match(/^#|rgb|hsl/)) {
+	if (name.includes('color') || value.match(/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/) || value.match(/^rgb|hsl/)) {
 		return 'color';
 	}
 
@@ -106,6 +106,15 @@ function getTokenType(name, value) {
 	}
 
 	return 'string';
+}
+
+// Helper function to expand short hex codes to long hex codes
+function expandShortHex(value) {
+	if (typeof value === 'string' && /^#[0-9a-fA-F]{3}$/.test(value)) {
+		// Expand short hex by doubling each character
+		return `#${value[1]}${value[1]}${value[2]}${value[2]}${value[3]}${value[3]}`;
+	}
+	return value; // Return the value as-is if it's not a short hex
 }
 
 // Helper function to process shadow values
@@ -154,6 +163,9 @@ function processValue(name, value, type) {
 				return `${seconds * 1000}ms`;
 			}
 			return value;
+		case 'color':
+			// Expand short hex values to long hex
+			return expandShortHex(value);
 		default:
 			return value;
 	}

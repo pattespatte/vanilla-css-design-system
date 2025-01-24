@@ -222,7 +222,6 @@
 }
 
 @keyframes bounce {
-
 	0%,
 	100% {
 		transform: translateY(-25%);
@@ -236,7 +235,6 @@
 }
 
 @keyframes pulse {
-
 	0%,
 	100% {
 		opacity: 1;
