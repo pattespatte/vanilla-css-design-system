@@ -7,7 +7,13 @@
     "minify:css": "cleancss -o styles/vanilla-combined.min.css styles/vanilla-combined.purged.css && node scripts/postprocess-css.js",
     "build:css": "npm run combine:css && npm run purge:css && npm run minify:css",
     "css-to-tokens": "node scripts/css-to-tokens.js",
-    "tokens-to-css": "node scripts/tokens-to-css.js"
+    "tokens-to-css": "node scripts/tokens-to-css.js",
+    "css-to-figma": "node scripts/css-to-figma.js",
+    "figma-to-css": "node scripts/figma-to-css.js",
+    "css-to-tokens:watch": "nodemon --watch styles/ --ext css --exec 'npm run css-to-tokens'",
+    "tokens-to-css:watch": "nodemon --watch tokens/ --ext json --exec 'npm run tokens-to-css'",
+    "css-to-figma:watch": "nodemon --watch styles/ --ext css --exec 'npm run css-to-figma'",
+    "figma-to-css:watch": "nodemon --watch figma/ --ext json --exec 'npm run figma-to-css'"
   },
   "devDependencies": {
     "postcss": "^8.5.1",

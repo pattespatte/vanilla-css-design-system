@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "collections": [
+    {
+      "name": "Other",
+      "type": "other",
+      "variables": {
+        "breakpoint-sm": {
+          "name": "breakpoint-sm",
+          "type": "dimension",
+          "value": "576px"
+        },
+        "breakpoint-md": {
+          "name": "breakpoint-md",
+          "type": "dimension",
+          "value": "768px"
+        },
+        "breakpoint-lg": {
+          "name": "breakpoint-lg",
+          "type": "dimension",
+          "value": "992px"
+        },
+        "breakpoint-xl": {
+          "name": "breakpoint-xl",
+          "type": "dimension",
+          "value": "1200px"
+        }
+      }
+    }
+  ]
+}
