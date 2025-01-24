@@ -3,8 +3,8 @@
 	display: inline-block;
 	padding: var(--spacing-2) var(--spacing-3);
 	font-size: var(--text-base);
-	font-weight: 400;
-	line-height: 1.5;
+	font-weight: var(--text-base);
+	line-height: var(--line-height-base);
 	text-align: center;
 	text-decoration: none;
 	border: var(--border-width) solid transparent;
@@ -17,6 +17,10 @@
 .btn-primary {
 	background-color: var(--color-primary-default);
 	color: white;
+}
+
+.btn-primary:hover {
+	color: wheat;
 }
 
 .btn-secondary {

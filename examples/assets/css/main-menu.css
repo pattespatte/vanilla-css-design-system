@@ -46,6 +46,7 @@
 	position: relative;
 	list-style: none;
 	min-width: 10rem;
+	margin: .1rem 0;
 }
 
 .main-menu li:hover .submenu,

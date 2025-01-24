@@ -112,7 +112,7 @@ ul.docs-links.cards li a:hover {
 .color-swatch {
 	padding: var(--spacing-3);
 	border-radius: var(--border-radius);
-	color: white;
+	color: var(--color-white);
 	margin-bottom: var(--spacing-2);
 }
 
@@ -146,7 +146,7 @@ ul.docs-links.cards li a:hover {
 	bottom: 1rem;
 	right: 1rem;
 	background: var(--color-dark);
-	color: white;
+	color: var(--color-white);
 	padding: 0.5rem 1rem;
 	border-radius: var(--border-radius);
 	z-index: 1000;
@@ -185,7 +185,7 @@ ul.docs-links.cards li a:hover {
 }
 
 .docs-links.cards a {
-	background-color: white;
+	background-color: var(--color-white);
 	border: var(--border-width) solid var(--border-color);
 	border-radius: var(--border-radius);
 	padding: var(--spacing-3);
