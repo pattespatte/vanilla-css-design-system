@@ -1,6 +1,5 @@
 :root {
   --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --text-base: 1rem;
   --text-sm: 0.875rem;
   --text-lg: 1.25rem;
   --text-light: 200;

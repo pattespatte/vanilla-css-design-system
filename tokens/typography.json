@@ -5,34 +5,28 @@
         "$value": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
         "$type": "string"
       }
+    }
+  },
+  "text": {
+    "sm": {
+      "$value": "0.875rem",
+      "$type": "dimension"
     },
-    "size": {
-      "base": {
-        "$value": "1rem",
-        "$type": "dimension"
-      },
-      "sm": {
-        "$value": "0.875rem",
-        "$type": "dimension"
-      },
-      "lg": {
-        "$value": "1.25rem",
-        "$type": "dimension"
-      }
+    "lg": {
+      "$value": "1.25rem",
+      "$type": "dimension"
     },
-    "weight": {
-      "light": {
-        "$value": 200,
-        "$type": "number"
-      },
-      "base": {
-        "$value": 400,
-        "$type": "number"
-      },
-      "bold": {
-        "$value": 700,
-        "$type": "number"
-      }
+    "light": {
+      "$value": "200",
+      "$type": "string"
+    },
+    "base": {
+      "$value": "400",
+      "$type": "string"
+    },
+    "bold": {
+      "$value": "700",
+      "$type": "string"
     }
   },
   "line": {
