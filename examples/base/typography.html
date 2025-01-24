@@ -23,7 +23,7 @@
 				</a>
 			</div>
 			<nav class="col-span-1 md-col-span-2">
-				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
+				<button class="nav-toggle text-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
 				<ul class="main-menu">
@@ -70,9 +70,9 @@
 			</div>
 			<div class="code-block">
 				<pre><code>:root {
-	--font-size-base: 1rem;	  /* 16px */
-	--font-size-sm: 0.875rem;	/* 14px */
-	--font-size-lg: 1.25rem;	 /* 20px */
+	--text-base: 1rem;	  /* 16px */
+	--text-sm: 0.875rem;	/* 14px */
+	--text-lg: 1.25rem;	 /* 20px */
 }</code></pre>
 			</div>
 		</div>
@@ -88,8 +88,8 @@
 			</div>
 			<div class="code-block">
 				<pre><code>:root {
-	--font-weight-base: 400;
-	--font-weight-bold: 700;
+	--text-base: 400;
+	--text-bold: 700;
 }</code></pre>
 			</div>
 		</div>
@@ -100,7 +100,7 @@
 				Different line heights for optimal readability.
 			</p>
 			<div class="font-demo">
-				<p style="line-height: 1.5;">
+				<p>
 					Default line height (1.5) - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
@@ -119,10 +119,11 @@
 				Common text styles and variations.
 			</p>
 			<div class="font-demo">
-				<p><strong>Bold text</strong> - using &lt;strong&gt; or .bold</p>
-				<p><em>Italic text</em> - using &lt;em&gt; or .italic</p>
-				<p><u>Underlined text</u> - using &lt;u&gt; or .underline</p>
-				<p><small>Small text</small> - using &lt;small&gt; or .small</p>
+				<p><strong>Bold text</strong> - using &lt;strong&gt; or .text-bold</p>
+				<p><em>Italic text</em> - using &lt;em&gt; or .text-italic</p>
+				<p><small>Small text</small> - using &lt;small&gt; or .text-sm</p>
+				<p><del>Strikethrough text</del> - using &lt;del&gt;</p>
+				<p><u>Underlined text</u> - using &lt;u&gt;</p>
 				<p><mark>Highlighted text</mark> - using &lt;mark&gt;</p>
 				<p><code>Inline code</code> - using &lt;code&gt;</p>
 			</div>
@@ -159,7 +160,7 @@
 			<!-- Article Example -->
 			<article class="card">
 				<h2>Article Title</h2>
-				<p class="text-muted">Posted on January 1, 2024</p>
+				<p class="text-muted text-italic">Posted on <script>document.write(new Date().toLocaleDateString());</script></p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
 					incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 					nostrud exercitation ullamco laboris.</p>
@@ -186,25 +187,37 @@
 		<!-- Typography Variables Reference -->
 		<div class="example-section">
 			<h2 class="example-title">Typography Variables Reference</h2>
-			<h3>Font Family</h3>
-			<ul class="p-3">
-				<li><code>--font-family-base</code></li>
-			</ul>
-			<h3>Font Sizes</h3>
-			<ul class="p-3">
-				<li><code>--font-size-base</code></li>
-				<li><code>--font-size-sm</code></li>
-				<li><code>--font-size-lg</code></li>
-			</ul>
-			<h3>Font Weights</h3>
-			<ul class="p-3">
-				<li><code>--font-weight-base</code></li>
-				<li><code>--font-weight-bold</code></li>
-			</ul>
-			<h3>Line Heights</h3>
-			<ul class="p-3">
-				<li><code>--line-height-base</code></li>
-			</ul>
+
+			<div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-4">
+				<div class="card">
+					<h3>Font Family</h3>
+					<ul class="p-3">
+						<li><code>--font-family-base</code></li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3>Font Sizes</h3>
+					<ul class="p-3">
+						<li><code>--text-base</code></li>
+						<li><code>--text-sm</code></li>
+						<li><code>--text-lg</code></li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3>Font Weights</h3>
+					<ul class="p-3">
+						<li><code>--text-base</code></li>
+						<li><code>--text-bold</code></li>
+					</ul>
+				</div>
+				<div class="card">
+					<h3>Line Heights</h3>
+					<ul class="p-3">
+						<li><code>--line-height-base</code></li>
+					</ul>
+				</div>
+			</div>
+
 		</div>
 	</main>
 	<footer>

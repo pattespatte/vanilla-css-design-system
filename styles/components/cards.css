@@ -14,7 +14,7 @@
 }
 
 .card-title {
-	font-size: var(--font-size-lg);
+	font-size: var(--text-lg);
 	margin-bottom: var(--spacing-2);
 }
 

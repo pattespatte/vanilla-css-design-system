@@ -1,11 +1,22 @@
 /* base/typography.css */
 body {
 	font-family: var(--font-family-base);
-	font-size: var(--font-size-base);
-	font-weight: var(--font-weight-base);
+	font-size: var(--text-base);
+	font-weight: var(--text-base);
 	line-height: var(--line-height-base);
 	color: var(--color-dark);
 }
+
+a {
+	color: var(--color-primary-default);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--color-primary-900);
+	text-decoration: underline;
+}
+
 
 h1,
 h2,
@@ -14,7 +25,7 @@ h4,
 h5,
 h6 {
 	margin-bottom: var(--spacing-3);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--text-bold);
 	line-height: 1.2;
 }
 h1 {
@@ -36,18 +47,26 @@ h6 {
 	font-size: 1rem;
 }
 
-.font-size-sm {
-	font-size: var(--font-size-sm);
+p {
+	margin-bottom: var(--spacing-3);
 }
-.font-size-lg {
-	font-size: var(--font-size-lg);
+
+.text-sm {
+	font-size: var(--text-sm);
 }
-.font-weight-light {
-	font-weight: var(--font-weight-light);
+.text-lg {
+	font-size: var(--text-lg);
 }
-.font-weight-base {
-	font-weight: var(--font-weight-base);
+.text-light {
+	font-weight: var(--text-light);
 }
-.font-weight-bold {
-	font-weight: var(--font-weight-bold);
+.text-base {
+	font-weight: var(--text-base);
+}
+.text-bold {
+	font-weight: var(--text-bold);
+}
+
+.text-italic {
+	font-style: italic;
 }

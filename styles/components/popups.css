@@ -34,8 +34,8 @@
 }
 
 .modal-header {
-	font-size: var(--font-size-lg);
-	font-weight: var(--font-weight-bold);
+	font-size: var(--text-lg);
+	font-weight: var(--text-bold);
 	margin-bottom: var(--spacing-3);
 }
 
@@ -46,7 +46,7 @@
 	padding: var(--spacing-3);
 	background: none;
 	border: none;
-	font-size: var(--font-size-lg);
+	font-size: var(--text-lg);
 	cursor: pointer;
 	color: var(--color-dark);
 	text-decoration: none;
@@ -100,7 +100,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	color: var(--color-white);
 	padding: var(--spacing-1) var(--spacing-2);
 	border-radius: var(--radius-sm);
-	font-size: var(--font-size-xs);
+	font-size: var(--text-xs);
 	white-space: nowrap;
 	opacity: 0;
 	transition: all 0.2s ease;
@@ -173,7 +173,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	background: var(--color-light);
 	color: var(--color-dark);
 	cursor: pointer;
-	font-size: var(--font-size-sm);
+	font-size: var(--text-sm);
 }
 
 .accordion-toggle {
@@ -184,7 +184,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	color: var(--color-dark);
 	cursor: pointer;
 	text-align: left;
-	font-size: var(--font-size-sm);
+	font-size: var(--text-sm);
 	border: none;
 	outline: none;
 }

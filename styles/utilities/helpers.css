@@ -88,6 +88,11 @@
 	position: unset;
 }
 
+.text-muted
+{
+	color: var(--color-muted);
+}
+
 .text-left {
 	text-align: left;
 }

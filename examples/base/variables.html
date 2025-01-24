@@ -23,7 +23,7 @@
 				</a>
 			</div>
 			<nav class="col-span-1 md-col-span-2">
-				<button class="nav-toggle font-size-lg" aria-label="Toggle navigation">
+				<button class="nav-toggle text-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
 				<ul class="main-menu">
@@ -158,55 +158,71 @@
 		<div class="example-section">
 			<h2 class="example-title">Typography</h2>
 			<p class="example-description">
-				Font families, sizes, weights, and line heights used in the system.
+				Font families, sizes, weights, and line heights used in the system. More on typography classes on the <a href="../base/typography.html">typography page</a>.
 			</p>
-			<h3 class="mb-3">Font Family</h3>
-			<div class="card mb-3">
-				<p style="font-family: var(--font-family-base)">
-					System Font Stack
-					<br>
-					<code>--font-family-base</code>
-				</p>
+
+			<div class="grid grid-cols-1 md-grid-cols-3 gap-3">
+				<div>
+					<h3 class="mb-3">Font Family</h3>
+					<div class="card mb-3">
+						<p style="font-family: var(--font-family-base)">
+							System Font Stack
+							<br>
+							<code>--font-family-base</code>
+						</p>
+					</div>
+				</div>
+				<div>
+					<h3 class="mb-3">Font Sizes</h3>
+					<div class="card mb-3">
+						<p style="font-size: var(--text-sm)">Small Text (--text-sm)</p>
+						<p style="font-size: var(--text-base)">Base Text (--text-base)</p>
+						<p style="font-size: var(--text-lg)">Large Text (--text-lg)</p>
+					</div>
+				</div>
+				<div>
+					<h3 class="mb-3">Font Weights</h3>
+					<div class="card mb-3">
+						<p style="font-weight: var(--text-base)">Base Weight (--text-base)</p>
+						<p style="font-weight: var(--text-bold)">Bold Weight (--text-bold)</p>
+					</div>
+				</div>
 			</div>
-			<h3 class="mb-3">Font Sizes</h3>
-			<div class="card mb-3">
-				<p style="font-size: var(--font-size-sm)">Small Text (--font-size-sm)</p>
-				<p style="font-size: var(--font-size-base)">Base Text (--font-size-base)</p>
-				<p style="font-size: var(--font-size-lg)">Large Text (--font-size-lg)</p>
-			</div>
-			<h3 class="mb-3">Font Weights</h3>
-			<div class="card mb-3">
-				<p style="font-weight: var(--font-weight-base)">Base Weight (--font-weight-base)</p>
-				<p style="font-weight: var(--font-weight-bold)">Bold Weight (--font-weight-bold)</p>
-			</div>
+
 		</div>
+
 		<!-- Spacing Variables -->
 		<div class="example-section">
 			<h2 class="example-title">Spacing</h2>
 			<p class="example-description">
 				Consistent spacing units used throughout the system.
 			</p>
-			<div class="spacing-demo">
-				<div class="spacing-block" style="width: var(--spacing-1); height: var(--spacing-1);"></div>
-				<code>--spacing-1 (4px)</code>
+
+			<div class="grid grid-cols-1 sm-grid-cols-2 md-grid-cols-3 gap-3">
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-1); height: var(--spacing-1);"></div>
+					<code>--spacing-1 (4px)</code>
+				</div>
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-2); height: var(--spacing-2);"></div>
+					<code>--spacing-2 (8px)</code>
+				</div>
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-3); height: var(--spacing-3);"></div>
+					<code>--spacing-3 (16px)</code>
+				</div>
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-4); height: var(--spacing-4);"></div>
+					<code>--spacing-4 (24px)</code>
+				</div>
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-5); height: var(--spacing-5);"></div>
+					<code>--spacing-5 (32px)</code>
+				</div>
 			</div>
-			<div class="spacing-demo">
-				<div class="spacing-block" style="width: var(--spacing-2); height: var(--spacing-2);"></div>
-				<code>--spacing-2 (8px)</code>
-			</div>
-			<div class="spacing-demo">
-				<div class="spacing-block" style="width: var(--spacing-3); height: var(--spacing-3);"></div>
-				<code>--spacing-3 (16px)</code>
-			</div>
-			<div class="spacing-demo">
-				<div class="spacing-block" style="width: var(--spacing-4); height: var(--spacing-4);"></div>
-				<code>--spacing-4 (24px)</code>
-			</div>
-			<div class="spacing-demo">
-				<div class="spacing-block" style="width: var(--spacing-5); height: var(--spacing-5);"></div>
-				<code>--spacing-5 (32px)</code>
-			</div>
+
 		</div>
+
 		<!-- Border Variables -->
 		<div class="example-section">
 			<h2 class="example-title">Borders</h2>
@@ -332,12 +348,12 @@
 	/* Typography */
 	--font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 	/* You probably want to replace this font family with your own in `custom.css` */
-	--font-size-base: 1rem;
-	--font-size-sm: 0.875rem;
-	--font-size-lg: 1.25rem;
-	--font-weight-light: 200;
-	--font-weight-base: 400;
-	--font-weight-bold: 700;
+	--text-base: 1rem;
+	--text-sm: 0.875rem;
+	--text-lg: 1.25rem;
+	--text-light: 200;
+	--text-base: 400;
+	--text-bold: 700;
 	--line-height-base: 1.5;
 
 	/* Spacing */
