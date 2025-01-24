@@ -39,19 +39,23 @@
 }
 
 .nav-link {
-	text-decoration: none;
+	background-color: var(--color-gray-50);
 	color: var(--color-dark);
 	padding: var(--spacing-2);
+	text-decoration: none;
 	transition: var(--transition-base);
 }
 
 .nav-link:hover {
+	background-color: var(--color-white);
 	color: var(--color-primary-default);
 }
 
 .nav-link.active {
+	background-color: var(--color-white);
 	color: var(--color-primary-default);
 	font-weight: var(--text-bold);
+	box-shadow: inset 0 -3px 0 0 var(--color-primary-default);
 }
 
 /* Mobile navigation */
