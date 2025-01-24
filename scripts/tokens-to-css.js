@@ -61,13 +61,31 @@ function processReferences(value) {
 	});
 }
 
+// Helper function to shorten HEX values
+function shortenHex(value) {
+	if (typeof value === 'string' && /^#[0-9a-fA-F]{6}$/.test(value)) {
+		// Check if the HEX value can be shortened (e.g., #ffffff -> #fff)
+		if (
+			value[1] === value[2] &&
+			value[3] === value[4] &&
+			value[5] === value[6]
+		) {
+			return `#${value[1]}${value[3]}${value[5]}`;
+		}
+	}
+	return value; // Return the original value if it can't be shortened
+}
+
 // Function to convert tokens to CSS variables
 function convertTokensToCSS(tokens) {
 	const flatTokens = flattenObject(tokens);
 	let css = ':root {\n';
 
 	Object.entries(flatTokens).forEach(([key, value]) => {
-		const processedValue = processReferences(value);
+		// Process token references and shorten HEX values
+		let processedValue = processReferences(value);
+		processedValue = shortenHex(processedValue);
+
 		css += `  --${key}: ${processedValue};\n`;
 	});
 
