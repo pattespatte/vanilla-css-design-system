@@ -23,6 +23,11 @@
 	margin: var(--spacing-5);
 }
 
+.mx-0 {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 .mx-1 {
 	margin-left: var(--spacing-1);
 	margin-right: var(--spacing-1);
@@ -46,6 +51,11 @@
 .mx-5 {
 	margin-left: var(--spacing-5);
 	margin-right: var(--spacing-5);
+}
+
+.my-0 {
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .my-1 {

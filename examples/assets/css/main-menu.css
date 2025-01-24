@@ -9,7 +9,7 @@
 
 .main-menu a,
 .main-menu button {
-	background-color: #fafafa;
+	background-color: #f1f1f1;
 	border: var(--border-width) solid var(--border-color);
 	border-radius: var(--border-radius);
 	padding: var(--spacing-2);
@@ -50,6 +50,7 @@
 
 .main-menu li:hover .submenu,
 .main-menu li:focus-within .submenu {
+	cursor: pointer;
 	display: block;
 	position: absolute;
 	width: 100%;
@@ -69,6 +70,7 @@
 @media (max-width: 768px) {
 	.nav-toggle {
 		display: block;
+		justify-self: end;
 	}
 
 	.main-menu {
@@ -79,15 +81,21 @@
 		display: block;
 	}
 
+	.main-menu li,
+	.main-menu button {
+		display: flex;
+		justify-content: flex-end;
+		text-align: left;
+	}
+
 	.main-menu a,
 	.main-menu button {
 		padding: var(--spacing-2) var(--spacing-3);
 	}
 
 	.main-menu .submenu li {
-		left: 2rem;
-		top: -1rem;
+		top: -.1rem;
 		z-index: 100;
-		max-width: 8rem;
+		max-width: 50%;
 	}
 }
