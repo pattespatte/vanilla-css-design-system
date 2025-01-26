@@ -64,9 +64,9 @@
 
 :root {
   --transition-base: 200ms;
-  --shadow-sm: 0px 1px 2px 0px rgb(0 0 0 / 5%);
-  --shadow-md: 0px 4px 6px 0px rgb(0 0 0 / 10%);
-  --shadow-lg: 0px 10px 15px 0px rgb(0 0 0 / 10%);
+  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 5%);
+  --shadow-md: 0px 4px 6px 0px rgba(0, 0, 0, 10%);
+  --shadow-lg: 0px 10px 15px 0px rgba(0, 0, 0, 10%);
 }
 
 :root {
@@ -914,7 +914,7 @@ blockquote {
 .form-textarea:focus {
 	outline: none;
 	border-color: var(--color-primary-default);
-	box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+	box-shadow: 0 0 0 3px rgba(0, 123, 255, 25%);
 }
 
 /* Disabled state */
@@ -929,6 +929,7 @@ blockquote {
 .form-check-input[type="checkbox"] {
 	/* Appearance reset */
 	appearance: none;
+
 	/* Basic styling */
 	background-color: var(--color-white);
 	margin: 0;
@@ -936,6 +937,7 @@ blockquote {
 	height: 1.15em;
 	border: 1px solid var(--color-gray-400);
 	border-radius: 0.15em;
+
 	/* For alignment */
 	display: inline-grid;
 	place-content: center;
@@ -1038,10 +1040,6 @@ blockquote {
 	gap: 0.5em;
 	min-height: 1.5rem;
 	margin-bottom: var(--spacing-2);
-}
-
-.form-check-label {
-	cursor: pointer;
 }
 
 /* Input sizes */
@@ -2086,22 +2084,6 @@ input[type="checkbox"]:checked~.dropdown-content {
 
 .d-table-column {
 	display: table-column;
-}
-
-.d-table-column-group {
-	display: table-column-group;
-}
-
-.d-table-column-group {
-	display: table-column-group;
-}
-
-.d-table-column-group {
-	display: table-column-group;
-}
-
-.d-table-column-group {
-	display: table-column-group;
 }
 
 .d-table-column-group {
