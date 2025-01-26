@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CSS: 100%](https://img.shields.io/badge/css-100%25-blue.svg)](https://github.com/pattespatte/vanilla-css-design-system)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://pattespatte.github.io/vanilla-css-design-system/graphs/commit-activity)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/pattespatte/vanilla-css-design-system/graphs/commit-activity)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/pattespatte/vanilla-css-design-system/issues)
 [![Website Status](https://img.shields.io/website-up-down-green-red/http/pattespatte.github.io/vanilla-css-design-system.svg)](https://pattespatte.github.io/vanilla-css-design-system/examples/)
 
@@ -12,11 +12,11 @@ A lightweight, modular, and highly customizable design system built with vanilla
 
 ## 🌟 Features
 
-✅ **Lightweight**: No unnecessary dependencies, just pure CSS.
-📦 **Modular**: Easily include only what you need.
-🎨 **Customizable**: Designed with CSS variables for easy theming.
-📐 **Responsive**: Built with mobile-first principles.
-✨ **Accessible**: Follows accessibility standards and best practices.
+- ✅ **Lightweight**: No unnecessary dependencies, just pure CSS.
+- 📦 **Modular**: Easily include only what you need.
+- 🎨 **Customizable**: Designed with CSS variables for easy theming.
+- 📐 **Responsive**: Built with mobile-first principles.
+- ✨ **Accessible**: Follows accessibility standards and best practices.
 
 ***
 
@@ -94,10 +94,9 @@ This project is licensed under the MIT License. See the [LICENSE](https://github
 
 ## 📬 Contact & Contributions
 
-👤 **Author**: [pattespatte](https://github.com/pattespatte)
-
-💬 **Feedback**: Found an issue or have a suggestion? Open an issue or submit a pull request.
-➡️ **[Contribute](https://github.com/pattespatte/vanilla-css-design-system/issues)**
+- 👤 **Author**: [pattespatte](https://github.com/pattespatte)
+- 💬 **Feedback**: Found an issue or have a suggestion? Open an issue or submit a pull request.
+- ➡️ **[Contribute](https://github.com/pattespatte/vanilla-css-design-system/issues)**
 
 ***
 
