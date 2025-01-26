@@ -1,153 +1,106 @@
-# Vanilla CSS Design System
+# 🎨 Vanilla CSS Design System
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CSS: 100%](https://img.shields.io/badge/css-100%25-blue.svg)](https://github.com/pattespatte/vanilla-css-design-system)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://pattespatte.github.io/vanilla-css-design-system/graphs/commit-activity)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/pattespatte/vanilla-css-design-system/issues)
+[![Website Status](https://img.shields.io/website-up-down-green-red/http/pattespatte.github.io/vanilla-css-design-system.svg)](https://pattespatte.github.io/vanilla-css-design-system/examples/)
 
 A lightweight, modular, and highly customizable design system built with vanilla CSS. Perfect for creating consistent and responsive web applications.
 
-## Features
+***
 
-- **Reusable CSS Components**: Prebuilt components like buttons, cards, and forms.
-- **Responsive Design**: Built with CSS media queries for seamless responsiveness.
-- **Design Tokens**: Easily convert between CSS variables and design tokens for consistency across platforms.
-- **Production-Ready**: Combined and minified CSS for optimized performance.
-- **Atomic Design Inspired**: Follows BEM naming conventions for maintainability.
-- **Developer-Friendly**: Supports both development and production modes.
+## 🌟 Features
 
----
+✅ **Lightweight**: No unnecessary dependencies, just pure CSS.
+📦 **Modular**: Easily include only what you need.
+🎨 **Customizable**: Designed with CSS variables for easy theming.
+📐 **Responsive**: Built with mobile-first principles.
+✨ **Accessible**: Follows accessibility standards and best practices.
 
-## Getting Started
+***
 
-### Prerequisites
+## 📚 Documentation
 
-- A modern web browser.
-- Basic knowledge of HTML and CSS.
+Explore the full documentation and examples here:
+➡️ **[Design System Documentation](https://pattespatte.github.io/vanilla-css-design-system/examples/)**
 
-### Installation
+***
+
+## 🚀 Quick Start
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/vanilla-css-design-system.git
-```
+   git clone https://github.com/pattespatte/vanilla-css-design-system.git
+   ```
 
-2. Navigate to the project directory:
+2. Install dependencies (optional):
 
    ```bash
-   cd vanilla-css-design-system
+   npm install
    ```
 
-3. Include the CSS file in your HTML:
+3. Build the CSS (optional):
+
+   ```bash
+   npm run build:css
+   ```
+
+4. Include the generated CSS in your project:
 
    ```html
-   <link rel="stylesheet" href="path/to/vanilla-combined.min.css">
+   <link rel="stylesheet" href="styles/vanilla-combined.min.css">
    ```
 
-   Alternatively, for development, use the `main.css` file:
+***
 
-   ```html
-   <link rel="stylesheet" href="styles/main.css">
-   ```
+## 📂 Folder Structure
 
----
-
-### Folder Structure
-
-The project is organized as follows:
-
-```
-styles/
-├── base/          # Base styles (reset, typography, variables)
-├── components/    # Reusable components (buttons, cards, forms)
-├── layout/        # Layout utilities (containers, grids)
-├── utilities/     # Helper classes (spacing, visibility)
-└── custom.css     # Custom styles (optional)
-examples/          # HTML examples showcasing components
-scripts/           # Build and conversion scripts
+```plaintext
+vanilla-css-design-system/
+├── styles/             # CSS files (variables, components, utilities, etc.)
+├── scripts/            # Helper scripts for combining, purging, and converting CSS
+├── examples/           # Demo examples showcasing the design system
+├── tokens/             # Design tokens for easy customization
+├── README.md           # Project documentation
+└── package.json        # Project dependencies and scripts
 ```
 
----
+***
 
-### Build and Production
+## 🛠️ Tools & Technologies
 
-#### 1. Combine and Minify CSS
+- **CSS**: Vanilla CSS with a modular architecture.
+- **Stylelint**: Linting for consistent coding standards.
+- **PurgeCSS**: Removes unused CSS for optimized builds.
+- **CleanCSS**: Minifies the CSS for production.
+- **Nodemon**: Watches for changes and automates tasks.
 
-To generate the combined and minified CSS file (`vanilla-combined.min.css`), run:
+***
 
-```bash
-npm install
-npm run build:css
-```
+## 👀 Examples
 
-This will:
-- Combine all CSS files into one.
-- Purge unused CSS.
-- Minify the output.
+Check out examples showcasing the design system in action:
+➡️ **[View Examples](https://pattespatte.github.io/vanilla-css-design-system/examples/)**
 
-#### 2. Switch Between Development and Production Modes
+***
 
-- **Development Mode**: Use `main.css` for easier debugging.
+## 📝 License
 
-  ```bash
-  npm run dev
-  ```
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/pattespatte/vanilla-css-design-system/blob/main/LICENSE) file for details.
 
-- **Production Mode**: Use the minified CSS file for optimized performance.
+***
 
-  ```bash
-  npm run build
-  ```
+## 📬 Contact & Contributions
 
----
+👤 **Author**: [pattespatte](https://github.com/pattespatte)
 
-### Design Tokens and CSS Variables
+💬 **Feedback**: Found an issue or have a suggestion? Open an issue or submit a pull request.
+➡️ **[Contribute](https://github.com/pattespatte/vanilla-css-design-system/issues)**
 
-The design system supports seamless conversion between CSS variables and design tokens.
+***
 
-#### Convert Between Formats
+## ❤️ Support
 
-- **CSS Variables to Design Tokens**:
-
-  ```bash
-  npm run css-to-tokens
-  ```
-
-- **Design Tokens to CSS Variables**:
-
-  ```bash
-  npm run tokens-to-css
-  ```
-
-#### Example Token Structure
-
-```json
-{
-  "color": {
-    "primary": {
-      "value": "#007bff",
-      "type": "color"
-    }
-  }
-}
-```
-
-Equivalent CSS variable:
-
-```css
-:root {
-  --color-primary: #007bff;
-}
-```
-
----
-
-### Contributing
-
-We welcome contributions! To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request with a detailed description of your changes.
-
----
-
-### License
-
-This project is licensed under the [MIT License](LICENSE).
+If you find this project helpful, please consider giving it a ⭐ on GitHub!
