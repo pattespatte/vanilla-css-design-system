@@ -71,6 +71,7 @@
 @media (width <= 768px) {
 	.nav-toggle {
 		display: block;
+		font-size: xx-large;
 		justify-self: end;
 	}
 
