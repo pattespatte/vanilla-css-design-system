@@ -56,10 +56,6 @@
 	display: table-row-group;
 }
 
-.d-table-column-group {
-	display: table-column-group;
-}
-
 .d-table-column {
 	display: table-column;
 }
@@ -149,10 +145,6 @@
 	float: right;
 }
 
-.float-right {
-	float: right;
-}
-
 .float-none {
 	float: none;
 }
@@ -225,8 +217,4 @@
 
 .justify-between {
 	justify-content: space-between;
-}
-
-.d-none {
-	display: none;
 }

@@ -37,24 +37,6 @@
 	transition: var(--transition-base);
 }
 
-/* Focus states */
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-	outline: none;
-	border-color: var(--color-primary-default);
-	box-shadow: 0 0 0 3px rgb(0 123 255 / 25%);
-}
-
-/* Disabled state */
-.form-input:disabled,
-.form-select:disabled,
-.form-textarea:disabled {
-	background-color: var(--color-light);
-	cursor: not-allowed;
-	opacity: 0.7;
-}
-
 /* Textarea specific */
 .form-textarea {
 	min-height: 100px;
@@ -70,11 +52,27 @@
 	padding-right: var(--spacing-5);
 }
 
+/* Focus states */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+	outline: none;
+	border-color: var(--color-primary-default);
+	box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Disabled state */
+.form-input:disabled,
+.form-select:disabled,
+.form-textarea:disabled {
+	background-color: var(--color-light);
+	cursor: not-allowed;
+	opacity: 0.7;
+}
+
 .form-check-input[type="checkbox"] {
 	/* Appearance reset */
 	appearance: none;
-	appearance: none;
-
 	/* Basic styling */
 	background-color: var(--color-white);
 	margin: 0;
@@ -82,7 +80,6 @@
 	height: 1.15em;
 	border: 1px solid var(--color-gray-400);
 	border-radius: 0.15em;
-
 	/* For alignment */
 	display: inline-grid;
 	place-content: center;
@@ -116,7 +113,6 @@
 
 .form-check-input[type="radio"] {
 	/* Appearance reset */
-	appearance: none;
 	appearance: none;
 
 	/* Basic styling */
@@ -177,11 +173,6 @@
 .form-check-input[type="radio"]:disabled:checked::before {
 	background-color: var(--color-gray-400);
 	box-shadow: inset 1em 1em var(--color-gray-400);
-}
-
-/* Form group spacing */
-.form-group {
-	margin-bottom: var(--spacing-3);
 }
 
 /* Keep the same layout styling from checkboxes */

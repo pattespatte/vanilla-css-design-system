@@ -69,43 +69,43 @@
 
 /* Basic animations */
 .fade-in {
-	animation: fadeIn 0.3s ease-in-out;
+	animation: fade-in 0.3s ease-in-out;
 }
 
 .fade-out {
-	animation: fadeOut 0.3s ease-in-out;
+	animation: fade-out 0.3s ease-in-out;
 }
 
 .slide-in-right {
-	animation: slideInRight 0.3s ease-in-out;
+	animation: slide-in-right 0.3s ease-in-out;
 }
 
 .slide-out-right {
-	animation: slideOutRight 0.3s ease-in-out;
+	animation: slide-out-right 0.3s ease-in-out;
 }
 
 .slide-in-left {
-	animation: slideInLeft 0.3s ease-in-out;
+	animation: slide-in-left 0.3s ease-in-out;
 }
 
 .slide-out-left {
-	animation: slideOutLeft 0.3s ease-in-out;
+	animation: slide-out-left 0.3s ease-in-out;
 }
 
 .slide-in-up {
-	animation: slideInUp 0.3s ease-in-out;
+	animation: slide-in-up 0.3s ease-in-out;
 }
 
 .slide-out-up {
-	animation: slideOutUp 0.3s ease-in-out;
+	animation: slide-out-up 0.3s ease-in-out;
 }
 
 .slide-in-down {
-	animation: slideInDown 0.3s ease-in-out;
+	animation: slide-in-down 0.3s ease-in-out;
 }
 
 .slide-out-down {
-	animation: slideOutDown 0.3s ease-in-out;
+	animation: slide-out-down 0.3s ease-in-out;
 }
 
 .bounce {
@@ -121,7 +121,7 @@
 }
 
 /* Animation keyframes */
-@keyframes fadeIn {
+@keyframes fade-in {
 	from {
 		opacity: 0;
 	}
@@ -131,7 +131,7 @@
 	}
 }
 
-@keyframes fadeOut {
+@keyframes fade-out {
 	from {
 		opacity: 1;
 	}
@@ -141,7 +141,7 @@
 	}
 }
 
-@keyframes slideInRight {
+@keyframes slide-in-right {
 	from {
 		transform: translateX(100%);
 	}
@@ -151,7 +151,7 @@
 	}
 }
 
-@keyframes slideOutRight {
+@keyframes slide-out-right {
 	from {
 		transform: translateX(0);
 	}
@@ -161,7 +161,7 @@
 	}
 }
 
-@keyframes slideInLeft {
+@keyframes slide-in-left {
 	from {
 		transform: translateX(-100%);
 	}
@@ -171,7 +171,7 @@
 	}
 }
 
-@keyframes slideOutLeft {
+@keyframes slide-out-left {
 	from {
 		transform: translateX(0);
 	}
@@ -181,7 +181,7 @@
 	}
 }
 
-@keyframes slideInUp {
+@keyframes slide-in-up {
 	from {
 		transform: translateY(100%);
 	}
@@ -191,7 +191,7 @@
 	}
 }
 
-@keyframes slideOutUp {
+@keyframes slide-out-up {
 	from {
 		transform: translateY(0);
 	}
@@ -201,7 +201,7 @@
 	}
 }
 
-@keyframes slideInDown {
+@keyframes slide-in-down {
 	from {
 		transform: translateY(-100%);
 	}
@@ -211,7 +211,7 @@
 	}
 }
 
-@keyframes slideOutDown {
+@keyframes slide-out-down {
 	from {
 		transform: translateY(0);
 	}

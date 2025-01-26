@@ -1,0 +1,26 @@
+{
+	"extends": "stylelint-config-standard",
+	"rules": {
+		"at-rule-empty-line-before": null,
+		"block-no-empty": [
+			true,
+			{
+				"severity": "warning"
+			}
+		],
+		"color-function-notation": "legacy",
+		"declaration-empty-line-before": null,
+		"font-family-no-missing-generic-family-keyword": true,
+		"function-url-quotes": "always",
+		"max-nesting-depth": 3,
+		"property-no-unknown": true,
+		"selector-pseudo-class-no-unknown": true,
+		"unit-no-unknown": true
+	},
+	"ignoreFiles": [
+		"node_modules/**/*",
+		"styles/vanilla-combined.css",
+		"styles/vanilla-combined.min.css",
+		"styles/vanilla-combined.purged.css"
+	]
+}
