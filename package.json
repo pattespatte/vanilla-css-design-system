@@ -6,17 +6,13 @@
     "purge:css": "node scripts/purge-css.js",
     "lint:css": "stylelint 'styles/**/*.css'",
     "lint:css:fix": "stylelint 'styles/**/*.css' --fix",
-    "lint:css:watch": "nodemon --watch styles/ --ext css --exec 'npm run lint:css'",
     "minify:css": "cleancss -o styles/vanilla-combined.min.css styles/vanilla-combined.purged.css && node scripts/postprocess-css.js",
     "build:css": "npm run combine:css && npm run purge:css && npm run minify:css",
-    "convert:css-to-tokens": "node scripts/css-to-tokens.js",
-    "convert:tokens-to-css": "node scripts/tokens-to-css.js",
-    "convert:css-to-figma": "node scripts/css-to-figma.js",
-    "convert:figma-to-css": "node scripts/figma-to-css.js",
-    "convert:css-to-tokens:watch": "nodemon --watch styles/ --ext css --exec 'npm run convert:css-to-tokens'",
-    "convert:tokens-to-css:watch": "nodemon --watch tokens/ --ext json --exec 'npm run convert:tokens-to-css'",
-    "convert:css-to-figma:watch": "nodemon --watch styles/ --ext css --exec 'npm run convert:css-to-figma'",
-    "convert:figma-to-css:watch": "nodemon --watch figma/ --ext json --exec 'npm run convert:figma-to-css'"
+    "css2tokens": "node scripts/css-to-tokens.js",
+    "tokens2css": "node scripts/tokens-to-css.js",
+    "css2figma": "node scripts/css-to-figma.js",
+    "figma2css": "node scripts/figma-to-css.js",
+    "watch": "nodemon --watch styles/ --watch tokens/ --ext css,json --exec 'npm run build:css && npm run css2tokens && npm run tokens2css'"
   },
   "devDependencies": {
     "postcss": "^8.5.1",
@@ -24,7 +20,7 @@
     "clean-css-cli": "^5.6.3",
     "concat-cli": "^4.0.0",
     "purgecss": "^7.0.2",
-    "stylelint": "^16.14.0",
+    "stylelint": "^16.14.1",
     "stylelint-config-standard": "^37.0.0",
     "nodemon": "^3.1.3"
   }

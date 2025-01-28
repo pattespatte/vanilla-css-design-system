@@ -41,17 +41,56 @@ Explore the full documentation and examples here:
    npm install
    ```
 
-3. Build the CSS (optional):
-
-   ```bash
-   npm run build:css
-   ```
-
-4. Include the generated CSS in your project:
+3. Include the generated CSS in your project:
 
    ```html
    <link rel="stylesheet" href="styles/vanilla-combined.min.css">
    ```
+
+### Build CSS
+
+Combine, purge, and minify CSS:
+
+```bash
+npm run build:css
+```
+
+### Convert Between Formats
+
+**CSS ↔ Tokens**:
+
+  ```bash
+  npm run css2tokens
+  npm run tokens2css
+  ```
+
+### Watch for Changes
+
+Automatically rebuild and convert files on changes:
+
+```bash
+npm run watch
+```
+
+### Lint CSS
+
+Check and fix CSS styles:
+
+```bash
+npm run lint:css
+npm run lint:css:fix
+```
+
+## Scripts Overview
+
+| Script | Description |
+|--------|-------------|
+| `build:css` | Combine, purge, and minify CSS. |
+| `css2tokens` | Convert CSS to design tokens. |
+| `tokens2css` | Convert design tokens to CSS. |
+| `watch` | Watch for changes and rebuild/convert files. |
+| `lint:css` | Lint CSS files. |
+| `lint:css:fix` | Lint and fix CSS files. |
 
 ***
 
