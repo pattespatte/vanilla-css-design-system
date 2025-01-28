@@ -244,6 +244,12 @@
 }
 /* base/settings.css */
 
+/* Default (light theme) */
+:root {
+	--color-bg: var(--color-light);
+	--color-text: var(--color-black);
+}
+
 /* Dark theme */
 [data-theme="dark"] {
 	--color-bg: var(--color-dark);
@@ -252,13 +258,46 @@
 	/* Add dark theme variations */
 }
 
+/* Dark theme */
+
+[data-theme="dark"] body,
+[data-theme="dark"] footer,
+[data-theme="dark"] .card {
+	background-color: var(--color-gray-700);
+}
+
+[data-theme="dark"] a {
+	color: var(--color-primary-300);
+}
+
+#theme-toggle {
+	border: none;
+	border-radius: 50%; /* Makes the button circular */
+	width: 3rem;
+	height: 3rem;
+	cursor: pointer;
+	padding: 0; /* Remove padding to ensure proper centering */
+	display: flex; /* Use Flexbox */
+	align-items: center; /* Center vertically */
+	justify-content: center; /* Center horizontally */
+	background-color: var(--color-bg); /* Use your theme's background color */
+	color: var(--color-text); /* Use your theme's text color */
+	font-size: 1.2rem; /* Adjust emoji size */
+	transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+[data-theme="dark"] #theme-toggle {
+	background-color: var(--color-dark); /* Dark mode background */
+	color: var(--color-white); /* Dark mode text color */
+}
 /* base/typography.css */
 body {
 	font-family: var(--font-family-base);
 	font-size: var(--text-base);
 	font-weight: var(--text-base);
 	line-height: var(--line-height-base);
-	color: var(--color-dark);
+	background-color: var(--color-bg);
+	color: var(--color-text);
 }
 
 a {

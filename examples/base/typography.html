@@ -31,6 +31,7 @@
 				</ul>
 			</nav>
 		</div>
+		<button id="theme-toggle" class="float-right" aria-label="Toggle dark mode">🌙</button>
 	</header>
 	<main class="container my-4">
 		<!-- Font Family -->
@@ -83,11 +84,13 @@
 				Available font weights for different purposes.
 			</p>
 			<div class="font-demo">
+				<p style="font-weight: 200;">Light (200) - Secondary text weight</p>
 				<p style="font-weight: 400;">Regular (400) - Primary text weight</p>
 				<p style="font-weight: 700;">Bold (700) - Emphasis and headings</p>
 			</div>
 			<div class="code-block">
 				<pre><code>:root {
+	--text-light: 200;
 	--text-base: 400;
 	--text-bold: 700;
 }</code></pre>
@@ -226,6 +229,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script>hljs.highlightAll();</script>
 	<script src="../assets/js/main-menu.js"></script>
+	<script src="../assets/js/modes.js"></script>
 </body>
 
 </html>
