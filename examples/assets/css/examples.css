@@ -246,7 +246,8 @@ ul.docs-links.cards li a:hover {
 
 [data-theme="dark"] .subnav a,
 [data-theme="dark"] ul.docs-links.cards li a,
-[data-theme="dark"] ul.docs-links.cards li a:hover {
+[data-theme="dark"] ul.docs-links.cards li a:hover,
+[data-theme="dark"] .form-label {
 	color: var(--color-white);
 	background-color: var(--color-gray-800);
 }
@@ -258,6 +259,22 @@ ul.docs-links.cards li a:hover {
 
 [data-theme="dark"] .border-primary {
 	border-color: var(--color-primary-100);
+}
+
+[data-theme="dark"] .example-description {
+	color: var(--color-gray-400);
+}
+
+[data-theme="dark"] .form-feedback.valid {
+	color: var(--color-success-100);
+	background-color: var(--color-black);
+	font-weight: var(--text-bold);
+}
+
+[data-theme="dark"] .form-feedback.invalid {
+	color: var(--color-danger-100);
+	background-color: var(--color-black);
+	font-weight: var(--text-bold);
 }
 
 @media (width >=576px) {
