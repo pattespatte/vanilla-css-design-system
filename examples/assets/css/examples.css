@@ -262,8 +262,18 @@ ul.docs-links.cards li a:hover {
 [data-theme="dark"] .demo-content,
 [data-theme="dark"] .demo-container,
 [data-theme="dark"] .code-block {
-	color: var(--color-white);
+	color: var(--color-gray-100);
 	background-color: var(--color-gray-700);
+}
+
+[data-theme="dark"] .demo-content,
+[data-theme="dark"] .code-block {
+	color: var(--color-white);
+	background-color: var(--color-gray-600);
+}
+
+[data-theme="dark"] .demo-container {
+	border: var(--border-width) solid var(--color-primary-100);
 }
 
 [data-theme="dark"] ul.docs-links.cards li a:hover,
