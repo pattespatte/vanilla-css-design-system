@@ -73,6 +73,7 @@ ul.docs-links.cards li {
 [data-theme="dark"] .main-menu button:hover,
 [data-theme="dark"] .submenu a:hover {
 	background-color: var(--color-gray-700);
+	color: var(--color-white);
 }
 
 ul.docs-links.cards li a:hover {
