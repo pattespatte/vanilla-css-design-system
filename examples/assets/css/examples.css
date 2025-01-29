@@ -265,6 +265,11 @@ ul.docs-links.cards li a:hover {
 	color: var(--color-gray-400);
 }
 
+[data-theme="dark"] .bd-highlight {
+	background-color: var(--color-gray-900);
+	color: var(--color-gray-100);
+}
+
 [data-theme="dark"] .form-feedback.valid {
 	color: var(--color-success-100);
 	background-color: var(--color-black);

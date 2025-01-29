@@ -26,6 +26,10 @@
 	color: var(--color-primary-300);
 }
 
+[data-theme="dark"] a:hover {
+	color: var(--color-primary-100);
+}
+
 #theme-toggle {
 	border: none;
 	border-radius: 50%; /* Makes the button circular */
