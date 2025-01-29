@@ -273,8 +273,8 @@
 #theme-toggle {
 	border: none;
 	border-radius: 50%; /* Makes the button circular */
-	width: 3rem;
-	height: 3rem;
+	width: 2rem;
+	height: 2rem;
 	cursor: pointer;
 	padding: 0; /* Remove padding to ensure proper centering */
 	display: flex; /* Use Flexbox */
@@ -282,7 +282,7 @@
 	justify-content: center; /* Center horizontally */
 	background-color: var(--color-bg); /* Use your theme's background color */
 	color: var(--color-text); /* Use your theme's text color */
-	font-size: 1.2rem; /* Adjust emoji size */
+	font-size: var(--text-sm); /* Adjust emoji size */
 	transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
