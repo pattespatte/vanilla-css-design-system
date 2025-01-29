@@ -247,12 +247,18 @@ ul.docs-links.cards li a:hover {
 [data-theme="dark"] .subnav a,
 [data-theme="dark"] ul.docs-links.cards li a,
 [data-theme="dark"] ul.docs-links.cards li a:hover,
-[data-theme="dark"] .form-label {
+[data-theme="dark"] .form-label,
+[data-theme="dark"] .demo-nested{
 	color: var(--color-white);
 	background-color: var(--color-gray-800);
 }
 
+[data-theme="dark"] .demo-col{
+	border: var(--border-width) solid var(--border-color);
+}
+
 [data-theme="dark"] .demo-box,
+[data-theme="dark"] .demo-col,
 [data-theme="dark"] .demo-content,
 [data-theme="dark"] .demo-container,
 [data-theme="dark"] .code-block {

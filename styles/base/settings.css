@@ -18,7 +18,8 @@
 
 [data-theme="dark"] body,
 [data-theme="dark"] footer,
-[data-theme="dark"] .card {
+[data-theme="dark"] .card,
+[data-theme="dark"] .input-group-text {
 	background-color: var(--color-gray-700);
 }
 
