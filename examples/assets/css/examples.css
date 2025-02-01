@@ -127,6 +127,15 @@ ul.docs-links.cards li a:hover {
 	margin-bottom: var(--spacing-2);
 }
 
+.font-demo,
+.type-scale-demo {
+	background: var(--color-light);
+	border-radius: var(--border-radius);
+	color: var(--color-dark);
+	padding: var(--spacing-3);
+	margin-bottom: var(--spacing-3);
+}
+
 .spacing-demo {
 	background: var(--color-light);
 	margin-bottom: var(--spacing-3);
@@ -136,20 +145,6 @@ ul.docs-links.cards li a:hover {
 .spacing-block {
 	background: var(--color-primary-100);
 	border: 1px solid var(--color-primary-default);
-}
-
-.type-scale-demo {
-	background: var(--color-light);
-	padding: var(--spacing-3);
-	border-radius: var(--border-radius);
-	margin-bottom: var(--spacing-3);
-}
-
-.font-demo {
-	padding: var(--spacing-3);
-	margin-bottom: var(--spacing-3);
-	background: var(--color-light);
-	border-radius: var(--border-radius);
 }
 
 .breakpoint-indicator {
@@ -250,8 +245,8 @@ ul.docs-links.cards li a:hover {
 [data-theme="dark"] ul.docs-links.cards li a:hover,
 [data-theme="dark"] .form-label,
 [data-theme="dark"] .demo-nested{
-	color: var(--color-white);
 	background-color: var(--color-gray-800);
+	color: var(--color-white);
 }
 
 [data-theme="dark"] .demo-col{
@@ -263,14 +258,14 @@ ul.docs-links.cards li a:hover {
 [data-theme="dark"] .demo-content,
 [data-theme="dark"] .demo-container,
 [data-theme="dark"] .code-block {
-	color: var(--color-gray-100);
 	background-color: var(--color-gray-700);
+	color: var(--color-gray-100);
 }
 
 [data-theme="dark"] .demo-content,
 [data-theme="dark"] .code-block {
-	color: var(--color-white);
 	background-color: var(--color-gray-600);
+	color: var(--color-white);
 }
 
 [data-theme="dark"] .demo-container {
@@ -296,14 +291,14 @@ ul.docs-links.cards li a:hover {
 }
 
 [data-theme="dark"] .form-feedback.valid {
-	color: var(--color-success-100);
 	background-color: var(--color-black);
+	color: var(--color-success-100);
 	font-weight: var(--text-bold);
 }
 
 [data-theme="dark"] .form-feedback.invalid {
-	color: var(--color-danger-100);
 	background-color: var(--color-black);
+	color: var(--color-danger-100);
 	font-weight: var(--text-bold);
 }
 

@@ -5,6 +5,8 @@
 	justify-content: start;
 	list-style: none;
 	padding: 0;
+	position: relative;
+	z-index: 1;
 }
 
 .main-menu a,
@@ -68,7 +70,7 @@
 	cursor: pointer;
 }
 
-@media (width <= 768px) {
+@media (width <=768px) {
 	.nav-toggle {
 		display: block;
 		font-size: xx-large;

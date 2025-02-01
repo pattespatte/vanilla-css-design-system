@@ -159,26 +159,29 @@
 	flex-wrap: nowrap;
 }
 
-.item-top-left {
+.item-top-left,
+.item-top-right,
+.item-bottom-left,
+.item-bottom-right {
 	position: absolute;
+}
+
+.item-top-left {
 	top: 0;
 	left: 0;
 }
 
 .item-top-right {
-	position: absolute;
 	top: 0;
 	right: 0;
 }
 
 .item-bottom-left {
-	position: absolute;
 	bottom: 0;
 	left: 0;
 }
 
 .item-bottom-right {
-	position: absolute;
 	bottom: 0;
 	right: 0;
 }

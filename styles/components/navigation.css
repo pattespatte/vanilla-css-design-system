@@ -1,19 +1,13 @@
 /* components/navigation.css */
 .nav {
-	display: flex;
 	align-items: center;
-	justify-content: flex-end;
-
-	/* Align items to the right */
+	display: flex;
+	justify-content: space-between;
 	gap: var(--spacing-3);
 	padding: var(--spacing-3) 0;
-	position: relative;
+	position: relative; /* Ensure the nav is a positioning context */
 	max-width: 100%;
-
-	/* Ensure nav doesn't exceed viewport width */
 	width: 100%;
-
-	/* Take full width of container */
 }
 
 .nav-brand {
@@ -172,7 +166,7 @@
 
 /* Responsive adjustments */
 
-@media (width <= 768px) {
+@media (width <=768px) {
 	.nav-toggle {
 		display: block;
 	}
