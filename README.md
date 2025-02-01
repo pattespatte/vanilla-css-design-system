@@ -92,6 +92,10 @@ npm run lint:css:fix
 | `lint:css` | Lint CSS files. |
 | `lint:css:fix` | Lint and fix CSS files. |
 
+## CDN Link
+
+[https://rawcdn.githack.com/pattespatte/vanilla-css-design-system/refs/tags/1.0.1/styles/vanilla-combined.min.css](https://rawcdn.githack.com/pattespatte/vanilla-css-design-system/refs/tags/1.0.1/styles/vanilla-combined.min.css)
+
 ***
 
 ## 📂 Folder Structure
