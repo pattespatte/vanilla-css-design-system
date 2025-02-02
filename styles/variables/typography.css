@@ -1,9 +1,10 @@
 :root {
-  --font-family-base: system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, oxygen, ubuntu, cantarell, sans-serif;
-  --text-sm: 0.875rem;
-  --text-lg: 1.25rem;
-  --text-light: 200;
-  --text-base: 400;
-  --text-bold: 700;
-  --line-height-base: 1.5;
+	--font-family-base: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+		roboto, oxygen, ubuntu, cantarell, sans-serif;
+	--text-sm: 0.875rem;
+	--text-lg: 1.25rem;
+	--text-light: 200;
+	--text-base: 400;
+	--text-bold: 700;
+	--line-height-base: 1.5;
 }

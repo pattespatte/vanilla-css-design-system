@@ -1,10 +1,10 @@
 /* utilities/print.css */
 @media print {
 	.no-print {
-	  display: none !important;
+		display: none !important;
 	}
-	
+
 	a[href]::after {
-	  content: " (" attr(href) ")";
+		content: " (" attr(href) ")";
 	}
-  }
+}
