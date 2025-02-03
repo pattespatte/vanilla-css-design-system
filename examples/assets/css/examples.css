@@ -63,32 +63,6 @@ ul.docs-links.cards li {
 	text-decoration: underline;
 }
 
-
-[data-theme="dark"] .main-menu button,
-[data-theme="dark"] .submenu a {
-	color: var(--color-white);
-	background-color: var(--color-gray-800);
-}
-
-[data-theme="dark"] .main-menu button:hover,
-[data-theme="dark"] .submenu a:hover {
-	background-color: var(--color-gray-700);
-	color: var(--color-white);
-}
-
-ul.docs-links.cards li a:hover {
-	background-color: var(--color-gray-100);
-}
-
-[data-theme="dark"] ul.docs-links.cards li a {
-	background-color: var(--color-gray-700);
-}
-
-[data-theme="dark"] ul.docs-links.cards li a:hover {
-	color: var(--color-white);
-	background-color: var(--color-gray-800);
-}
-
 .example-section {
 	background-color: var(--color-white);
 	margin-bottom: var(--spacing-4);
@@ -224,6 +198,32 @@ ul.docs-links.cards li a:hover {
 }
 
 /* Dark theme */
+
+[data-theme="dark"] .main-menu button,
+[data-theme="dark"] .submenu a {
+	color: var(--color-white);
+	background-color: var(--color-gray-800);
+}
+
+[data-theme="dark"] .main-menu button:hover,
+[data-theme="dark"] .submenu a:hover {
+	background-color: var(--color-gray-700);
+	color: var(--color-white);
+}
+
+/* Needs to come after the .submenu styles */
+ul.docs-links.cards li a:hover {
+	background-color: var(--color-gray-100);
+}
+
+[data-theme="dark"] ul.docs-links.cards li a {
+	background-color: var(--color-gray-700);
+}
+
+[data-theme="dark"] ul.docs-links.cards li a:hover {
+	color: var(--color-white);
+	background-color: var(--color-gray-800);
+}
 
 [data-theme="dark"] #header-logo {
 	filter: brightness(0) invert(1); /* Makes the image white */

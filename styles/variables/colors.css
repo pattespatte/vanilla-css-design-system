@@ -1,4 +1,7 @@
+/* variables/colors.css */
+
 :root {
+	/* Primary colors */
 	--color-primary-100: #f3e1eb;
 	--color-primary-200: #e6c4d8;
 	--color-primary-300: #d5b0c7;
@@ -9,6 +12,8 @@
 	--color-primary-800: #380828;
 	--color-primary-900: #26061b;
 	--color-primary-default: var(--color-primary-500);
+
+	/* Secondary colors */
 	--color-secondary-100: #fff9ed;
 	--color-secondary-200: #fff3d9;
 	--color-secondary-300: #fff0c4;
@@ -19,8 +24,12 @@
 	--color-secondary-800: #ffc95c;
 	--color-secondary-900: #ffc048;
 	--color-secondary-default: var(--color-secondary-500);
+
+	/* Tertiary and quaternary colors */
 	--color-tertiary: #e28ab7;
 	--color-quaternary: #0ec3ad;
+
+	/* Status colors */
 	--color-success: #1e7e34;
 	--color-success-100: #d4edda;
 	--color-success-200: #c3e6cb;
@@ -32,11 +41,15 @@
 	--color-warning-200: #ffe8b5;
 	--color-info: #0266d6;
 	--color-info-100: #cce5ff;
+
+	/* Neutral colors */
 	--color-light: #e9ecef;
 	--color-muted: #6c757d;
 	--color-dark: #343a40;
 	--color-white: #fff;
 	--color-black: #000;
+
+	/* Gray scale colors */
 	--color-gray-50: #f9fafb;
 	--color-gray-100: #f8f9fa;
 	--color-gray-200: #e9ecef;

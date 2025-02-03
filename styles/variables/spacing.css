@@ -1,8 +1,10 @@
+/* variables/spacing.css */
+
 :root {
-	--spacing-1: 0.25rem;
-	--spacing-2: 0.5rem;
-	--spacing-3: 1rem;
-	--spacing-4: 1.5rem;
-	--spacing-5: 2rem;
 	--spacing-unit: 0.25rem;
+	--spacing-1: calc(var(--spacing-unit) * 1);
+	--spacing-2: calc(var(--spacing-unit) * 2);
+	--spacing-3: calc(var(--spacing-unit) * 4);
+	--spacing-4: calc(var(--spacing-unit) * 6);
+	--spacing-5: calc(var(--spacing-unit) * 8);
 }

@@ -1,4 +1,6 @@
 /* utilities/accessibility.css */
+
+/* Screen reader only utility class */
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -10,6 +12,7 @@
 	border: 0;
 }
 
+/* Focus visible outline for accessibility */
 :focus-visible {
 	outline: 3px solid var(--color-primary-default);
 	outline-offset: 2px;

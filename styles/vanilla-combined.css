@@ -1,17 +1,32 @@
+/* variables/borders.css */
+
+/* Variables for border styles */
 :root {
-	--border-radius: 0.25rem;
+	--border-radius: var(--spacing-1);
 	--border-width: 1px;
-	--border-color: #ced4da;
+	--border-color: var(--color-gray-400);
 }
 
+/* variables/breakpoints.css */
+
 :root {
+	/* Small devices (landscape phones, 576px and up) */
 	--breakpoint-sm: 576px;
+	
+	/* Medium devices (tablets, 768px and up) */
 	--breakpoint-md: 768px;
+	
+	/* Large devices (desktops, 992px and up) */
 	--breakpoint-lg: 992px;
+	
+	/* Extra large devices (large desktops, 1200px and up) */
 	--breakpoint-xl: 1200px;
 }
 
+/* variables/colors.css */
+
 :root {
+	/* Primary colors */
 	--color-primary-100: #f3e1eb;
 	--color-primary-200: #e6c4d8;
 	--color-primary-300: #d5b0c7;
@@ -22,6 +37,8 @@
 	--color-primary-800: #380828;
 	--color-primary-900: #26061b;
 	--color-primary-default: var(--color-primary-500);
+
+	/* Secondary colors */
 	--color-secondary-100: #fff9ed;
 	--color-secondary-200: #fff3d9;
 	--color-secondary-300: #fff0c4;
@@ -32,8 +49,12 @@
 	--color-secondary-800: #ffc95c;
 	--color-secondary-900: #ffc048;
 	--color-secondary-default: var(--color-secondary-500);
+
+	/* Tertiary and quaternary colors */
 	--color-tertiary: #e28ab7;
 	--color-quaternary: #0ec3ad;
+
+	/* Status colors */
 	--color-success: #1e7e34;
 	--color-success-100: #d4edda;
 	--color-success-200: #c3e6cb;
@@ -45,11 +66,15 @@
 	--color-warning-200: #ffe8b5;
 	--color-info: #0266d6;
 	--color-info-100: #cce5ff;
+
+	/* Neutral colors */
 	--color-light: #e9ecef;
 	--color-muted: #6c757d;
 	--color-dark: #343a40;
 	--color-white: #fff;
 	--color-black: #000;
+
+	/* Gray scale colors */
 	--color-gray-50: #f9fafb;
 	--color-gray-100: #f8f9fa;
 	--color-gray-200: #e9ecef;
@@ -62,34 +87,59 @@
 	--color-gray-900: #212529;
 }
 
+/* variables/other.css */
+
 :root {
+	/* Base transition duration */
 	--transition-base: 200ms;
+
+	/* Small shadow */
 	--shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 5%);
+
+	/* Medium shadow */
 	--shadow-md: 0px 4px 6px 0px rgba(0, 0, 0, 10%);
+
+	/* Large shadow */
 	--shadow-lg: 0px 10px 15px 0px rgba(0, 0, 0, 10%);
 }
 
+/* variables/spacing.css */
+
 :root {
-	--spacing-1: 0.25rem;
-	--spacing-2: 0.5rem;
-	--spacing-3: 1rem;
-	--spacing-4: 1.5rem;
-	--spacing-5: 2rem;
 	--spacing-unit: 0.25rem;
+	--spacing-1: calc(var(--spacing-unit) * 1);
+	--spacing-2: calc(var(--spacing-unit) * 2);
+	--spacing-3: calc(var(--spacing-unit) * 4);
+	--spacing-4: calc(var(--spacing-unit) * 6);
+	--spacing-5: calc(var(--spacing-unit) * 8);
 }
 
 :root {
+	/* Base font family */
 	--font-family-base: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
 		roboto, oxygen, ubuntu, cantarell, sans-serif;
+
+		/* Small text size */
 	--text-sm: 0.875rem;
+
+	/* Large text size */
 	--text-lg: 1.25rem;
+
+	/* Light font weight */
 	--text-light: 200;
+
+	/* Base font weight */
 	--text-base: 400;
+
+	/* Bold font weight */
 	--text-bold: 700;
+
+	/* Base line height */
 	--line-height-base: 1.5;
 }
-
 /* base/01-reset.css */
+
+/* Reset styles */
 *,
 *::before,
 *::after {
@@ -259,8 +309,6 @@
 	/* Add dark theme variations */
 }
 
-/* Dark theme */
-
 [data-theme="dark"] body,
 [data-theme="dark"] footer,
 [data-theme="dark"] .card,
@@ -274,10 +322,10 @@
 	color: var(--color-primary-300);
 }
 
-[data-theme="dark"] a:hover,
-[data-theme="dark"] .breadcrumbs a:hover,
 [data-theme="dark"] .pagination a,
-[data-theme="dark"] .pagination span {
+[data-theme="dark"] .pagination span,
+[data-theme="dark"] a:hover,
+[data-theme="dark"] .breadcrumbs a:hover {
 	background-color: var(--color-gray-700);
 	color: var(--color-primary-100);
 }
@@ -418,6 +466,8 @@ blockquote {
 }
 
 /* layout/grid.css */
+
+/* Container for the grid system */
 .container {
 	width: 100%;
 	margin-right: auto;
@@ -425,11 +475,13 @@ blockquote {
 	max-width: var(--breakpoint-xl);
 }
 
+/* Grid display settings */
 .grid {
 	display: grid;
 	gap: var(--spacing-3);
 }
 
+/* Column span classes */
 .col-span-1 {
 	grid-column: span 1 / span 1;
 }
@@ -478,6 +530,7 @@ blockquote {
 	grid-column: span 12 / span 12;
 }
 
+/* Grid template column classes */
 .grid-cols-1 {
 	grid-template-columns: repeat(1, 1fr);
 }
@@ -506,6 +559,7 @@ blockquote {
 	grid-template-columns: repeat(12, 1fr);
 }
 
+/* Gap size classes */
 .gap-1 {
 	gap: var(--spacing-1);
 }
@@ -882,7 +936,6 @@ blockquote {
 
 .card-image {
 	width: 100%;
-	height: 200px;
 	object-fit: cover;
 	border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
@@ -1618,6 +1671,8 @@ input[type="checkbox"]:checked~.dropdown-content {
 	padding: var(--spacing-3);
 }
 /* utilities/accessibility.css */
+
+/* Screen reader only utility class */
 .sr-only {
 	position: absolute;
 	width: 1px;
@@ -1629,6 +1684,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	border: 0;
 }
 
+/* Focus visible outline for accessibility */
 :focus-visible {
 	outline: 3px solid var(--color-primary-default);
 	outline-offset: 2px;
@@ -1918,9 +1974,9 @@ input[type="checkbox"]:checked~.dropdown-content {
 
 /* Border with all sides */
 .border {
-	border-width: var(--border-width);
-	border-style: solid;
 	border-color: var(--border-color);
+	border-style: solid;
+	border-width: var(--border-width);
 }
 
 /* Border styles */
@@ -2303,20 +2359,28 @@ input[type="checkbox"]:checked~.dropdown-content {
 }
 
 /* utilities/print.css */
+
+/* This CSS file contains styles specifically for print media */
+
 @media print {
+/* Hide elements with the class 'no-print' when printing */
 	.no-print {
 		display: none !important;
 	}
 
+	/* Show links with the href attribute when printing */
 	a[href]::after {
 		content: " (" attr(href) ")";
 	}
 }
 /* utilities/spacing.css */
+
+/* Utility class for no margin */
 .m-0 {
 	margin: 0;
 }
 
+/* Utility classes for margin */
 .m-1 {
 	margin: var(--spacing-1);
 }
@@ -2437,10 +2501,12 @@ input[type="checkbox"]:checked~.dropdown-content {
 	margin-top: var(--spacing-5);
 }
 
+/* Utility class for no padding */
 .p-0 {
 	padding: 0;
 }
 
+/* Utility classes for padding */
 .p-1 {
 	padding: var(--spacing-1);
 }

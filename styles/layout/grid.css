@@ -1,4 +1,6 @@
 /* layout/grid.css */
+
+/* Container for the grid system */
 .container {
 	width: 100%;
 	margin-right: auto;
@@ -6,11 +8,13 @@
 	max-width: var(--breakpoint-xl);
 }
 
+/* Grid display settings */
 .grid {
 	display: grid;
 	gap: var(--spacing-3);
 }
 
+/* Column span classes */
 .col-span-1 {
 	grid-column: span 1 / span 1;
 }
@@ -59,6 +63,7 @@
 	grid-column: span 12 / span 12;
 }
 
+/* Grid template column classes */
 .grid-cols-1 {
 	grid-template-columns: repeat(1, 1fr);
 }
@@ -87,6 +92,7 @@
 	grid-template-columns: repeat(12, 1fr);
 }
 
+/* Gap size classes */
 .gap-1 {
 	gap: var(--spacing-1);
 }

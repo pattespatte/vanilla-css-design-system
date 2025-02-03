@@ -2,9 +2,9 @@
 
 /* Border with all sides */
 .border {
-	border-width: var(--border-width);
-	border-style: solid;
 	border-color: var(--border-color);
+	border-style: solid;
+	border-width: var(--border-width);
 }
 
 /* Border styles */

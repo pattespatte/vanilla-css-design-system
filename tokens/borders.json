@@ -1,15 +1,15 @@
 {
   "border": {
     "radius": {
-      "$value": "0.25rem",
-      "$type": "dimension"
+      "$value": "{spacing.1}",
+      "$type": "string"
     },
     "width": {
       "$value": "1px",
       "$type": "dimension"
     },
     "color": {
-      "$value": "#ced4da",
+      "$value": "{color.gray.400}",
       "$type": "color"
     }
   }

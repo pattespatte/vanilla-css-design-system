@@ -1,8 +1,11 @@
 /* utilities/spacing.css */
+
+/* Utility class for no margin */
 .m-0 {
 	margin: 0;
 }
 
+/* Utility classes for margin */
 .m-1 {
 	margin: var(--spacing-1);
 }
@@ -123,10 +126,12 @@
 	margin-top: var(--spacing-5);
 }
 
+/* Utility class for no padding */
 .p-0 {
 	padding: 0;
 }
 
+/* Utility classes for padding */
 .p-1 {
 	padding: var(--spacing-1);
 }

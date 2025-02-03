@@ -1,9 +1,14 @@
 /* utilities/print.css */
+
+/* This CSS file contains styles specifically for print media */
+
 @media print {
+/* Hide elements with the class 'no-print' when printing */
 	.no-print {
 		display: none !important;
 	}
 
+	/* Show links with the href attribute when printing */
 	a[href]::after {
 		content: " (" attr(href) ")";
 	}

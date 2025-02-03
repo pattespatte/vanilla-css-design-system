@@ -14,8 +14,6 @@
 	/* Add dark theme variations */
 }
 
-/* Dark theme */
-
 [data-theme="dark"] body,
 [data-theme="dark"] footer,
 [data-theme="dark"] .card,
@@ -29,10 +27,10 @@
 	color: var(--color-primary-300);
 }
 
-[data-theme="dark"] a:hover,
-[data-theme="dark"] .breadcrumbs a:hover,
 [data-theme="dark"] .pagination a,
-[data-theme="dark"] .pagination span {
+[data-theme="dark"] .pagination span,
+[data-theme="dark"] a:hover,
+[data-theme="dark"] .breadcrumbs a:hover {
 	background-color: var(--color-gray-700);
 	color: var(--color-primary-100);
 }

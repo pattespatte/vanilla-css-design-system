@@ -1,6 +1,15 @@
+/* variables/other.css */
+
 :root {
+	/* Base transition duration */
 	--transition-base: 200ms;
+
+	/* Small shadow */
 	--shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 5%);
+
+	/* Medium shadow */
 	--shadow-md: 0px 4px 6px 0px rgba(0, 0, 0, 10%);
+
+	/* Large shadow */
 	--shadow-lg: 0px 10px 15px 0px rgba(0, 0, 0, 10%);
 }
