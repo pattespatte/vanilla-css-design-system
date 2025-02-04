@@ -9,7 +9,7 @@ body {
 }
 
 a {
-	color: var(--color-primary-default);
+	color: var(--color-primary);
 	text-decoration: none;
 }
 
@@ -61,7 +61,7 @@ blockquote {
 	margin: 0 0 var(--spacing-3);
 	padding: var(--spacing-3);
 	background-color: var(--color-gray-50);
-	border-left: 4px solid var(--color-primary-default);
+	border-left: 4px solid var(--color-primary);
 }
 
 .text-sm {

@@ -11,7 +11,7 @@
 	--color-primary-700: #4a0a36;
 	--color-primary-800: #380828;
 	--color-primary-900: #26061b;
-	--color-primary-default: var(--color-primary-500);
+	--color-primary: var(--color-primary-500);
 
 	/* Secondary colors */
 	--color-secondary-100: #fff9ed;
@@ -23,7 +23,7 @@
 	--color-secondary-700: #ffd370;
 	--color-secondary-800: #ffc95c;
 	--color-secondary-900: #ffc048;
-	--color-secondary-default: var(--color-secondary-500);
+	--color-secondary: var(--color-secondary-500);
 
 	/* Tertiary and quaternary colors */
 	--color-tertiary: #e28ab7;

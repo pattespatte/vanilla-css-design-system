@@ -19,9 +19,9 @@
 }
 
 .table-bordered th, .table-bordered td {
-	border: 1px solid var(--color-primary-default);
+	border: 1px solid var(--color-primary);
 }
 
 .table-bordered {
-	border: 1px solid var(--color-primary-default);
+	border: 1px solid var(--color-primary);
 }

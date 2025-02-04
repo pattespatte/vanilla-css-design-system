@@ -14,7 +14,7 @@
 	font-size: var(--text-lg);
 	font-weight: var(--text-bold);
 	text-decoration: none;
-	color: var(--color-primary-default);
+	color: var(--color-primary);
 }
 
 .nav-menu {
@@ -48,14 +48,14 @@
 
 .nav-link:hover {
 	background-color: var(--color-white);
-	color: var(--color-primary-default);
+	color: var(--color-primary);
 }
 
 .nav-link.active {
 	background-color: var(--color-white);
-	color: var(--color-primary-default);
+	color: var(--color-primary);
 	font-weight: var(--text-bold);
-	box-shadow: inset 0 -3px 0 0 var(--color-primary-default);
+	box-shadow: inset 0 -3px 0 0 var(--color-primary);
 }
 
 /* Mobile navigation */
@@ -102,7 +102,7 @@
 }
 
 .breadcrumbs a {
-	color: var(--color-primary-default);
+	color: var(--color-primary);
 	text-decoration: none;
 	transition: var(--transition-base);
 }
@@ -153,8 +153,8 @@
 }
 
 .pagination .active {
-	background-color: var(--color-primary-default);
-	border-color: var(--color-primary-default);
+	background-color: var(--color-primary);
+	border-color: var(--color-primary);
 	color: var(--color-white);
 }
 

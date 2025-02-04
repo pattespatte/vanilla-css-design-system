@@ -114,7 +114,7 @@
 }
 
 .text-primary {
-	color: var(--color-primary-default);
+	color: var(--color-primary);
 }
 
 .text-secondary {

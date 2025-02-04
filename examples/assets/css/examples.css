@@ -55,7 +55,7 @@ ul.docs-links.cards li {
 }
 
 .docs-links a {
-	color: var(--color-primary-default);
+	color: var(--color-primary);
 	text-decoration: none;
 }
 
@@ -118,7 +118,7 @@ ul.docs-links.cards li {
 
 .spacing-block {
 	background: var(--color-primary-100);
-	border: 1px solid var(--color-primary-default);
+	border: 1px solid var(--color-primary);
 }
 
 .breakpoint-indicator {
@@ -134,28 +134,28 @@ ul.docs-links.cards li {
 
 .demo-box {
 	background-color: var(--color-primary-100);
-	border: 1px solid var(--color-primary-default);
+	border: 1px solid var(--color-primary);
 	padding: var(--spacing-3);
 	margin-bottom: var(--spacing-3);
 }
 
 .demo-col {
 	background-color: var(--color-primary-100);
-	border: 1px solid var(--color-primary-default);
+	border: 1px solid var(--color-primary);
 	padding: var(--spacing-3);
 	text-align: center;
 }
 
 .demo-nested {
 	background-color: var(--color-secondary-100);
-	border: 1px solid var(--color-secondary-default);
+	border: 1px solid var(--color-secondary);
 	padding: var(--spacing-2);
 	text-align: center;
 }
 
 .demo-container {
 	background-color: var(--color-primary-100);
-	border: 2px dashed var(--color-primary-default);
+	border: 2px dashed var(--color-primary);
 }
 
 .demo-content {

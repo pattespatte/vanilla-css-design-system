@@ -57,7 +57,7 @@
 .form-select:focus,
 .form-textarea:focus {
 	outline: none;
-	border-color: var(--color-primary-default);
+	border-color: var(--color-primary);
 	box-shadow: 0 0 0 3px rgba(0, 123, 255, 25%);
 }
 
@@ -89,8 +89,8 @@
 
 /* Checked state */
 .form-check-input[type="checkbox"]:checked {
-	background-color: var(--color-primary-default);
-	border-color: var(--color-primary-default);
+	background-color: var(--color-primary);
+	border-color: var(--color-primary);
 }
 
 /* Checkmark */
@@ -136,7 +136,7 @@
 	background-color: var(--color-white);
 
 	/* Keep background white */
-	border-color: var(--color-primary-default);
+	border-color: var(--color-primary);
 }
 
 /* Radio dot */
@@ -146,16 +146,16 @@
 	height: 0.65em;
 	border-radius: 50%;
 	transform: scale(1);
-	background-color: var(--color-primary-default);
+	background-color: var(--color-primary);
 
 	/* Color for the dot */
-	box-shadow: inset 1em 1em var(--color-primary-default);
+	box-shadow: inset 1em 1em var(--color-primary);
 }
 
 /* Hover state */
 .form-check-input[type="radio"]:hover {
 	cursor: pointer;
-	border-color: var(--color-primary-default);
+	border-color: var(--color-primary);
 }
 
 /* Focus state */
@@ -260,7 +260,7 @@
 	left: var(--spacing-2);
 	top: 50%;
 	transform: translateY(-50%);
-	color: var(--color-secondary-default);
+	color: var(--color-secondary);
 }
 
 /* Form grid */
