@@ -43,9 +43,9 @@
 	--color-info-100: #cce5ff;
 
 	/* Neutral colors */
-	--color-light: #e9ecef;
-	--color-muted: #6c757d;
-	--color-dark: #343a40;
+	--color-light: var(--color-gray-200);
+	--color-muted: var(--color-gray-600);
+	--color-dark: var(--color-gray-800);
 	--color-white: #fff;
 	--color-black: #000;
 

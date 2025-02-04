@@ -1,88 +1,12 @@
 {
   "color": {
     "primary": {
-      "100": {
-        "$value": "#f3e1eb",
-        "$type": "color"
-      },
-      "200": {
-        "$value": "#e6c4d8",
-        "$type": "color"
-      },
-      "300": {
-        "$value": "#d5b0c7",
-        "$type": "color"
-      },
-      "400": {
-        "$value": "#c29ab0",
-        "$type": "color"
-      },
-      "500": {
-        "$value": "#6e0e50",
-        "$type": "color"
-      },
-      "600": {
-        "$value": "#5c0c43",
-        "$type": "color"
-      },
-      "700": {
-        "$value": "#4a0a36",
-        "$type": "color"
-      },
-      "800": {
-        "$value": "#380828",
-        "$type": "color"
-      },
-      "900": {
-        "$value": "#26061b",
-        "$type": "color"
-      },
-      "default": {
-        "$value": "{color.primary.500}",
-        "$type": "color"
-      }
+      "$value": "{color.primary.500}",
+      "$type": "color"
     },
     "secondary": {
-      "100": {
-        "$value": "#fff9ed",
-        "$type": "color"
-      },
-      "200": {
-        "$value": "#fff3d9",
-        "$type": "color"
-      },
-      "300": {
-        "$value": "#fff0c4",
-        "$type": "color"
-      },
-      "400": {
-        "$value": "#ffe9b0",
-        "$type": "color"
-      },
-      "500": {
-        "$value": "#ffe098",
-        "$type": "color"
-      },
-      "600": {
-        "$value": "#ffd783",
-        "$type": "color"
-      },
-      "700": {
-        "$value": "#ffd370",
-        "$type": "color"
-      },
-      "800": {
-        "$value": "#ffc95c",
-        "$type": "color"
-      },
-      "900": {
-        "$value": "#ffc048",
-        "$type": "color"
-      },
-      "default": {
-        "$value": "{color.secondary.500}",
-        "$type": "color"
-      }
+      "$value": "{color.secondary.500}",
+      "$type": "color"
     },
     "tertiary": {
       "$value": "#e28ab7",
@@ -137,15 +61,15 @@
       "$type": "color"
     },
     "light": {
-      "$value": "#e9ecef",
+      "$value": "{color.gray.200}",
       "$type": "color"
     },
     "muted": {
-      "$value": "#6c757d",
+      "$value": "{color.gray.600}",
       "$type": "color"
     },
     "dark": {
-      "$value": "#343a40",
+      "$value": "{color.gray.800}",
       "$type": "color"
     },
     "white": {
