@@ -57,6 +57,10 @@
         "$value": "#cce5ff",
         "$type": "color"
       },
+      "200": {
+        "$value": "#b8daff",
+        "$type": "color"
+      },
       "$value": "#0266d6",
       "$type": "color"
     },

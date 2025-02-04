@@ -41,6 +41,7 @@
 	--color-warning-200: #ffe8b5;
 	--color-info: #0266d6;
 	--color-info-100: #cce5ff;
+	--color-info-200: #b8daff;
 
 	/* Neutral colors */
 	--color-light: var(--color-gray-200);

@@ -211,6 +211,10 @@ ul.docs-links.cards li {
 	color: var(--color-white);
 }
 
+[data-theme="dark"] .spacing-demo code {
+	color: var(--color-black);
+}
+
 /* Needs to come after the .submenu styles */
 ul.docs-links.cards li a:hover {
 	background-color: var(--color-gray-100);
@@ -244,12 +248,12 @@ ul.docs-links.cards li a:hover {
 [data-theme="dark"] ul.docs-links.cards li a,
 [data-theme="dark"] ul.docs-links.cards li a:hover,
 [data-theme="dark"] .form-label,
-[data-theme="dark"] .demo-nested{
+[data-theme="dark"] .demo-nested {
 	background-color: var(--color-gray-800);
 	color: var(--color-white);
 }
 
-[data-theme="dark"] .demo-col{
+[data-theme="dark"] .demo-col {
 	border: var(--border-width) solid var(--border-color);
 }
 
@@ -293,13 +297,13 @@ ul.docs-links.cards li a:hover {
 [data-theme="dark"] .form-feedback.valid {
 	background-color: var(--color-black);
 	color: var(--color-success-100);
-	font-weight: var(--text-bold);
+	font-weight: var(--text-weight-bold);
 }
 
 [data-theme="dark"] .form-feedback.invalid {
 	background-color: var(--color-black);
 	color: var(--color-danger-100);
-	font-weight: var(--text-bold);
+	font-weight: var(--text-weight-bold);
 }
 
 @media (width >=576px) {

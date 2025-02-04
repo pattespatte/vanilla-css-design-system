@@ -2,8 +2,8 @@
 .btn {
 	display: inline-block;
 	padding: var(--spacing-2) var(--spacing-3);
-	font-size: var(--text-base);
-	font-weight: var(--text-base);
+	font-size: var(--text-weight-base);
+	font-weight: var(--text-weight-base);
 	line-height: var(--line-height-base);
 	text-align: center;
 	text-decoration: none;

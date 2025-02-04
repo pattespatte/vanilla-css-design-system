@@ -9,7 +9,7 @@
 .form-label {
 	display: inline-block;
 	margin-bottom: var(--spacing-2);
-	font-weight: var(--text-bold);
+	font-weight: var(--text-weight-bold);
 	color: var(--color-dark);
 }
 
@@ -27,7 +27,7 @@
 	display: block;
 	width: 100%;
 	padding: var(--spacing-2) var(--spacing-3);
-	font-size: var(--text-base);
+	font-size: var(--text-weight-base);
 	font-family: var(--font-family-base);
 	line-height: var(--line-height-base);
 	color: var(--color-dark);
@@ -190,13 +190,13 @@
 .form-input-sm,
 .form-select-sm {
 	padding: var(--spacing-1) var(--spacing-2);
-	font-size: var(--text-sm);
+	font-size: var(--text-size-sm);
 }
 
 .form-input-lg,
 .form-select-lg {
 	padding: var(--spacing-3) var(--spacing-4);
-	font-size: var(--text-lg);
+	font-size: var(--text-size-lg);
 }
 
 /* Validation states */
@@ -215,7 +215,7 @@
 .form-feedback {
 	display: block;
 	margin-top: var(--spacing-1);
-	font-size: var(--text-sm);
+	font-size: var(--text-size-sm);
 }
 
 .form-feedback.invalid {

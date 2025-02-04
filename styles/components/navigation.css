@@ -11,8 +11,8 @@
 }
 
 .nav-brand {
-	font-size: var(--text-lg);
-	font-weight: var(--text-bold);
+	font-size: var(--text-size-lg);
+	font-weight: var(--text-weight-bold);
 	text-decoration: none;
 	color: var(--color-primary);
 }
@@ -54,7 +54,7 @@
 .nav-link.active {
 	background-color: var(--color-white);
 	color: var(--color-primary);
-	font-weight: var(--text-bold);
+	font-weight: var(--text-weight-bold);
 	box-shadow: inset 0 -3px 0 0 var(--color-primary);
 }
 

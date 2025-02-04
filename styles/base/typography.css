@@ -1,8 +1,8 @@
 /* base/typography.css */
 body {
 	font-family: var(--font-family-base);
-	font-size: var(--text-base);
-	font-weight: var(--text-base);
+	font-size: var(--text-size-base);
+	font-weight: var(--text-weight-base);
 	line-height: var(--line-height-base);
 	background-color: var(--color-bg);
 	color: var(--color-text);
@@ -25,7 +25,7 @@ h4,
 h5,
 h6 {
 	margin-bottom: var(--spacing-3);
-	font-weight: var(--text-bold);
+	font-weight: var(--text-weight-bold);
 	line-height: 1.2;
 }
 
@@ -64,26 +64,26 @@ blockquote {
 	border-left: 4px solid var(--color-primary);
 }
 
-.text-sm {
-	font-size: var(--text-sm);
+.text-size-sm {
+	font-size: var(--text-size-sm);
 }
 
-.text-lg {
-	font-size: var(--text-lg);
+.text-size-lg {
+	font-size: var(--text-size-lg);
 }
 
-.text-light {
-	font-weight: var(--text-light);
+.text-weight-light {
+	font-weight: var(--text-weight-light);
 }
 
-.text-base {
-	font-weight: var(--text-base);
+.text-weight-base {
+	font-weight: var(--text-weight-base);
 }
 
-.text-bold {
-	font-weight: var(--text-bold);
+.text-weight-bold {
+	font-weight: var(--text-weight-bold);
 }
 
-.text-italic {
+.text-style-italic {
 	font-style: italic;
 }

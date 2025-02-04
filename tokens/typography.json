@@ -8,25 +8,29 @@
     }
   },
   "text": {
-    "sm": {
-      "$value": "0.875rem",
-      "$type": "dimension"
+    "size": {
+      "sm": {
+        "$value": "0.875rem",
+        "$type": "dimension"
+      },
+      "lg": {
+        "$value": "1.25rem",
+        "$type": "dimension"
+      }
     },
-    "lg": {
-      "$value": "1.25rem",
-      "$type": "dimension"
-    },
-    "light": {
-      "$value": "200",
-      "$type": "string"
-    },
-    "base": {
-      "$value": "400",
-      "$type": "string"
-    },
-    "bold": {
-      "$value": "700",
-      "$type": "string"
+    "weight": {
+      "light": {
+        "$value": "200",
+        "$type": "string"
+      },
+      "base": {
+        "$value": "400",
+        "$type": "string"
+      },
+      "bold": {
+        "$value": "700",
+        "$type": "string"
+      }
     }
   },
   "line": {

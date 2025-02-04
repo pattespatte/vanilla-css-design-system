@@ -23,7 +23,7 @@
 				</a>
 			</div>
 			<nav class="col-span-1 md-col-span-2 position-relative">
-				<button class="nav-toggle text-lg" aria-label="Toggle navigation">
+				<button class="nav-toggle text-size-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
 				<ul class="main-menu" role="menubar">
@@ -73,9 +73,9 @@
 			</div>
 			<div class="code-block">
 				<pre><code>:root {
-	--text-base: 1rem;	  /* 16px */
-	--text-sm: 0.875rem;	/* 14px */
-	--text-lg: 1.25rem;	 /* 20px */
+	--text-weight-base: 1rem;	  /* 16px */
+	--text-size-sm: 0.875rem;	/* 14px */
+	--text-size-lg: 1.25rem;	 /* 20px */
 }</code></pre>
 			</div>
 		</div>
@@ -92,9 +92,9 @@
 			</div>
 			<div class="code-block">
 				<pre><code>:root {
-	--text-light: 200;
-	--text-base: 400;
-	--text-bold: 700;
+	--text-weight-light: 200;
+	--text-weight-base: 400;
+	--text-weight-bold: 700;
 }</code></pre>
 			</div>
 		</div>
@@ -124,9 +124,9 @@
 				Common text styles and variations.
 			</p>
 			<div class="font-demo">
-				<p><strong>Bold text</strong> - using &lt;strong&gt; or .text-bold</p>
-				<p><em>Italic text</em> - using &lt;em&gt; or .text-italic</p>
-				<p><small>Small text</small> - using &lt;small&gt; or .text-sm</p>
+				<p><strong>Bold text</strong> - using &lt;strong&gt; or .text-weight-bold</p>
+				<p><em>Italic text</em> - using &lt;em&gt; or .text-style-italic</p>
+				<p><small>Small text</small> - using &lt;small&gt; or .text-size-sm</p>
 				<p><del>Strikethrough text</del> - using &lt;del&gt;</p>
 				<p><u>Underlined text</u> - using &lt;u&gt;</p>
 				<p><mark>Highlighted text</mark> - using &lt;mark&gt;</p>
@@ -165,7 +165,7 @@
 			<!-- Article Example -->
 			<article class="card">
 				<h2>Article Title</h2>
-				<p class="text-muted text-italic">Posted on <script>document.write(new Date().toLocaleDateString());</script></p>
+				<p class="text-muted text-style-italic">Posted on <script>document.write(new Date().toLocaleDateString());</script></p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
 					incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
 					nostrud exercitation ullamco laboris.</p>
@@ -203,16 +203,16 @@
 				<div class="card">
 					<h3>Font Sizes</h3>
 					<ul class="p-3">
-						<li><code>--text-base</code></li>
-						<li><code>--text-sm</code></li>
-						<li><code>--text-lg</code></li>
+						<li><code>--text-weight-base</code></li>
+						<li><code>--text-size-sm</code></li>
+						<li><code>--text-size-lg</code></li>
 					</ul>
 				</div>
 				<div class="card">
 					<h3>Font Weights</h3>
 					<ul class="p-3">
-						<li><code>--text-base</code></li>
-						<li><code>--text-bold</code></li>
+						<li><code>--text-weight-base</code></li>
+						<li><code>--text-weight-bold</code></li>
 					</ul>
 				</div>
 				<div class="card">

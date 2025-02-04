@@ -4,19 +4,19 @@
 		roboto, oxygen, ubuntu, cantarell, sans-serif;
 
 		/* Small text size */
-	--text-sm: 0.875rem;
+	--text-size-sm: 0.875rem;
 
 	/* Large text size */
-	--text-lg: 1.25rem;
+	--text-size-lg: 1.25rem;
 
 	/* Light font weight */
-	--text-light: 200;
+	--text-weight-light: 200;
 
 	/* Base font weight */
-	--text-base: 400;
+	--text-weight-base: 400;
 
 	/* Bold font weight */
-	--text-bold: 700;
+	--text-weight-bold: 700;
 
 	/* Base line height */
 	--line-height-base: 1.5;

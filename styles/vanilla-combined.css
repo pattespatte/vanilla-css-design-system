@@ -66,6 +66,7 @@
 	--color-warning-200: #ffe8b5;
 	--color-info: #0266d6;
 	--color-info-100: #cce5ff;
+	--color-info-200: #b8daff;
 
 	/* Neutral colors */
 	--color-light: var(--color-gray-200);
@@ -120,19 +121,19 @@
 		roboto, oxygen, ubuntu, cantarell, sans-serif;
 
 		/* Small text size */
-	--text-sm: 0.875rem;
+	--text-size-sm: 0.875rem;
 
 	/* Large text size */
-	--text-lg: 1.25rem;
+	--text-size-lg: 1.25rem;
 
 	/* Light font weight */
-	--text-light: 200;
+	--text-weight-light: 200;
 
 	/* Base font weight */
-	--text-base: 400;
+	--text-weight-base: 400;
 
 	/* Bold font weight */
-	--text-bold: 700;
+	--text-weight-bold: 700;
 
 	/* Base line height */
 	--line-height-base: 1.5;
@@ -367,7 +368,7 @@
 	justify-content: center; /* Center horizontally */
 	background-color: var(--color-bg); /* Use your theme's background color */
 	color: var(--color-text); /* Use your theme's text color */
-	font-size: var(--text-sm); /* Adjust emoji size */
+	font-size: var(--text-size-sm); /* Adjust emoji size */
 	transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
@@ -378,8 +379,8 @@
 /* base/typography.css */
 body {
 	font-family: var(--font-family-base);
-	font-size: var(--text-base);
-	font-weight: var(--text-base);
+	font-size: var(--text-size-base);
+	font-weight: var(--text-weight-base);
 	line-height: var(--line-height-base);
 	background-color: var(--color-bg);
 	color: var(--color-text);
@@ -402,7 +403,7 @@ h4,
 h5,
 h6 {
 	margin-bottom: var(--spacing-3);
-	font-weight: var(--text-bold);
+	font-weight: var(--text-weight-bold);
 	line-height: 1.2;
 }
 
@@ -441,27 +442,27 @@ blockquote {
 	border-left: 4px solid var(--color-primary);
 }
 
-.text-sm {
-	font-size: var(--text-sm);
+.text-size-sm {
+	font-size: var(--text-size-sm);
 }
 
-.text-lg {
-	font-size: var(--text-lg);
+.text-size-lg {
+	font-size: var(--text-size-lg);
 }
 
-.text-light {
-	font-weight: var(--text-light);
+.text-weight-light {
+	font-weight: var(--text-weight-light);
 }
 
-.text-base {
-	font-weight: var(--text-base);
+.text-weight-base {
+	font-weight: var(--text-weight-base);
 }
 
-.text-bold {
-	font-weight: var(--text-bold);
+.text-weight-bold {
+	font-weight: var(--text-weight-bold);
 }
 
-.text-italic {
+.text-style-italic {
 	font-style: italic;
 }
 
@@ -893,8 +894,8 @@ blockquote {
 .btn {
 	display: inline-block;
 	padding: var(--spacing-2) var(--spacing-3);
-	font-size: var(--text-base);
-	font-weight: var(--text-base);
+	font-size: var(--text-weight-base);
+	font-weight: var(--text-weight-base);
 	line-height: var(--line-height-base);
 	text-align: center;
 	text-decoration: none;
@@ -941,7 +942,7 @@ blockquote {
 }
 
 .card-title {
-	font-size: var(--text-lg);
+	font-size: var(--text-size-lg);
 	margin-bottom: var(--spacing-2);
 }
 
@@ -994,7 +995,7 @@ blockquote {
 .form-label {
 	display: inline-block;
 	margin-bottom: var(--spacing-2);
-	font-weight: var(--text-bold);
+	font-weight: var(--text-weight-bold);
 	color: var(--color-dark);
 }
 
@@ -1012,7 +1013,7 @@ blockquote {
 	display: block;
 	width: 100%;
 	padding: var(--spacing-2) var(--spacing-3);
-	font-size: var(--text-base);
+	font-size: var(--text-weight-base);
 	font-family: var(--font-family-base);
 	line-height: var(--line-height-base);
 	color: var(--color-dark);
@@ -1175,13 +1176,13 @@ blockquote {
 .form-input-sm,
 .form-select-sm {
 	padding: var(--spacing-1) var(--spacing-2);
-	font-size: var(--text-sm);
+	font-size: var(--text-size-sm);
 }
 
 .form-input-lg,
 .form-select-lg {
 	padding: var(--spacing-3) var(--spacing-4);
-	font-size: var(--text-lg);
+	font-size: var(--text-size-lg);
 }
 
 /* Validation states */
@@ -1200,7 +1201,7 @@ blockquote {
 .form-feedback {
 	display: block;
 	margin-top: var(--spacing-1);
-	font-size: var(--text-sm);
+	font-size: var(--text-size-sm);
 }
 
 .form-feedback.invalid {
@@ -1267,8 +1268,8 @@ blockquote {
 }
 
 .nav-brand {
-	font-size: var(--text-lg);
-	font-weight: var(--text-bold);
+	font-size: var(--text-size-lg);
+	font-weight: var(--text-weight-bold);
 	text-decoration: none;
 	color: var(--color-primary);
 }
@@ -1310,7 +1311,7 @@ blockquote {
 .nav-link.active {
 	background-color: var(--color-white);
 	color: var(--color-primary);
-	font-weight: var(--text-bold);
+	font-weight: var(--text-weight-bold);
 	box-shadow: inset 0 -3px 0 0 var(--color-primary);
 }
 
@@ -1499,8 +1500,8 @@ blockquote {
 }
 
 .modal-header {
-	font-size: var(--text-lg);
-	font-weight: var(--text-bold);
+	font-size: var(--text-size-lg);
+	font-weight: var(--text-weight-bold);
 	margin-bottom: var(--spacing-3);
 }
 
@@ -1511,7 +1512,7 @@ blockquote {
 	padding: var(--spacing-3);
 	background: none;
 	border: none;
-	font-size: var(--text-lg);
+	font-size: var(--text-size-lg);
 	cursor: pointer;
 	color: var(--color-dark);
 	text-decoration: none;
@@ -1638,7 +1639,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	background: var(--color-light);
 	color: var(--color-dark);
 	cursor: pointer;
-	font-size: var(--text-sm);
+	font-size: var(--text-size-sm);
 }
 
 .accordion-toggle {
@@ -1649,7 +1650,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	color: var(--color-dark);
 	cursor: pointer;
 	text-align: left;
-	font-size: var(--text-sm);
+	font-size: var(--text-size-sm);
 	border: none;
 	outline: none;
 }
