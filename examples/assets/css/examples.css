@@ -90,12 +90,13 @@ ul.docs-links.cards li {
 
 .color-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 	gap: var(--spacing-3);
 }
 
 .color-swatch {
 	padding: var(--spacing-3);
+	border: var(--border-width) solid var(--border-color);
 	border-radius: var(--border-radius);
 	color: var(--color-white);
 	margin-bottom: var(--spacing-2);
