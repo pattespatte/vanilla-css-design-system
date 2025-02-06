@@ -88,6 +88,9 @@ if (navMenu) {
 
 				// Once the menu is built, initialize accessibility
 				initializeMenuAccessibility();
+
+				// Initialize the active menu item functionality
+				initializeActiveMenuItem();
 			}
 		})
 		.catch(error => console.error('Error loading navigation:', error));
@@ -143,6 +146,34 @@ function initializeMenuAccessibility() {
 			});
 		});
 	});
+}
+
+// Add active class to clicked menu item
+function initializeActiveMenuItem() {
+	// Get all submenu links
+	const menuLinks = document.querySelectorAll('.main-menu [role="menuitem"] > a');
+
+	menuLinks.forEach(link => {
+		link.addEventListener('click', (event) => {
+			// Remove the active class from all links
+			menuLinks.forEach(link => link.classList.remove('active'));
+
+			// Add the active class to the clicked link
+			event.currentTarget.classList.add('active');
+
+			// Optional: Save the active link to localStorage for persistence
+			localStorage.setItem('activeMenuItem', event.currentTarget.getAttribute('href'));
+		});
+	});
+
+	// Optional: Restore the active link from localStorage on page load
+	const activeMenuItem = localStorage.getItem('activeMenuItem');
+	if (activeMenuItem) {
+		const activeLink = document.querySelector(`.main-menu [role="menuitem"] > a[href="${activeMenuItem}"]`);
+		if (activeLink) {
+			activeLink.classList.add('active');
+		}
+	}
 }
 
 // Helper function to format file names into readable labels

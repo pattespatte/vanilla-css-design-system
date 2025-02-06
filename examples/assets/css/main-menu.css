@@ -9,8 +9,7 @@
 	z-index: 1;
 }
 
-.main-menu a,
-.main-menu button {
+.main-menu a {
 	background-color: #f1f1f1;
 	border: var(--border-width) solid var(--border-color);
 	border-radius: var(--border-radius);
@@ -18,20 +17,20 @@
 	box-shadow: var(--shadow-sm);
 	display: block;
 	text-decoration: none;
-	text-align: center;
+	text-align: left;
 	font-size: large;
 }
 
 .main-menu button {
+	background-color: var(--background-color);
+	border: var(--border-width) solid var(--border-color);
+	border-radius: var(--border-radius);
+	padding: var(--spacing-2) var(--spacing-3);
+	box-shadow: var(--shadow-sm);
+	text-decoration: none;
+	text-align: left;
+	font-size: large;
 	cursor: pointer;
-}
-
-.main-menu a:hover,
-.main-menu a:focus,
-.main-menu button:hover,
-.main-menu button:focus {
-	background: var(--color-white);
-	outline: 2px solid var(--color-primary);
 }
 
 .submenu {
@@ -40,15 +39,24 @@
 }
 
 .submenu a {
-	padding: var(--spacing-1);
+	padding: var(--spacing-1) var(--spacing-3);
+	display: block;
 }
 
 .main-menu li,
 .main-menu button {
 	position: relative;
 	list-style: none;
-	min-width: 10rem;
-	margin: .1rem 0;
+	min-width: 11rem;
+	margin: 0.1rem 0;
+}
+
+.main-menu a:hover,
+.main-menu a:focus,
+.main-menu button:hover,
+.main-menu button:focus {
+	background: var(--color-white);
+	outline: 2px solid var(--color-primary);
 }
 
 .main-menu li:hover .submenu,
@@ -62,6 +70,12 @@
 .main-menu li:hover .submenu a,
 .main-menu li:focus-within .submenu a {
 	display: block;
+}
+
+.main-menu a.active {
+	font-weight: var(--text-weight-bold);
+	color: var(--color-primary);
+	border-left: var(--spacing-1) solid var(--color-primary);
 }
 
 /* Hamburger menu styles */
@@ -98,7 +112,7 @@
 	}
 
 	.main-menu .submenu li {
-		top: -.1rem;
+		top: -0.1rem;
 		z-index: 100;
 		max-width: 50%;
 	}
