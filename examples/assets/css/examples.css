@@ -36,7 +36,7 @@ footer {
 	border-radius: calc(var(--border-radius) * 2);
 }
 
-/* Styling for the links to make them look like cards */
+/* Styling for the links to make them look like cards START */
 ul.docs-links.cards {
 	list-style: none;
 	padding: 0;
@@ -62,6 +62,8 @@ ul.docs-links.cards li {
 .docs-links a:hover {
 	text-decoration: underline;
 }
+
+/* Styling for the links to make them look like cards END */
 
 .example-section {
 	background-color: var(--color-white);
