@@ -47,14 +47,14 @@ if (navMenu) {
 					const parentLi = document.createElement('li');
 					parentLi.setAttribute('role', 'menuitem');
 
-					// Use <button> for the category
-					const categoryButton = document.createElement('button');
-					categoryButton.type = 'button'; // Explicitly make it a button
-					categoryButton.textContent = formatCategoryName(category);
-					categoryButton.setAttribute('aria-haspopup', 'true'); // Indicates a submenu is available
-					categoryButton.setAttribute('aria-expanded', 'false'); // Initially collapsed
-					categoryButton.classList.add('category-button');
-					parentLi.appendChild(categoryButton);
+					// Create a link for the category (level 1 button)
+					const categoryLink = document.createElement('a');
+					categoryLink.href = menuGroups[category][0].href; // Link to the first submenu item
+					categoryLink.textContent = formatCategoryName(category);
+					categoryLink.setAttribute('aria-haspopup', 'true'); // Indicates a submenu is available
+					categoryLink.setAttribute('aria-expanded', 'false'); // Initially collapsed
+					categoryLink.classList.add('category-button');
+					parentLi.appendChild(categoryLink);
 
 					// Create a submenu for the category
 					const submenu = document.createElement('ul');
@@ -79,10 +79,19 @@ if (navMenu) {
 					navMenu.appendChild(parentLi);
 
 					// Add toggle functionality for the submenu
-					categoryButton.addEventListener('click', () => {
-						const isExpanded = categoryButton.getAttribute('aria-expanded') === 'true';
-						categoryButton.setAttribute('aria-expanded', !isExpanded);
-						submenu.hidden = isExpanded; // Show/hide submenu
+					categoryLink.addEventListener('click', (event) => {
+						const isExpanded = categoryLink.getAttribute('aria-expanded') === 'true';
+
+						if (!isExpanded) {
+							// If submenu is collapsed, allow navigation to the link's URL
+							categoryLink.setAttribute('aria-expanded', true);
+							submenu.hidden = false;
+						} else {
+							// If submenu is expanded, toggle it and prevent navigation
+							event.preventDefault();
+							categoryLink.setAttribute('aria-expanded', false);
+							submenu.hidden = true;
+						}
 					});
 				});
 
@@ -100,17 +109,17 @@ if (navMenu) {
 
 // Accessibility for the menu
 function initializeMenuAccessibility() {
-	const categoryButtons = document.querySelectorAll('.main-menu > li > button');
+	const categoryLinks = document.querySelectorAll('.main-menu > li > a');
 
-	categoryButtons.forEach(button => {
-		button.addEventListener('keydown', (e) => {
-			const submenu = button.nextElementSibling;
+	categoryLinks.forEach(link => {
+		link.addEventListener('keydown', (e) => {
+			const submenu = link.nextElementSibling;
 
 			if (e.key === 'Enter' || e.key === ' ') {
 				// Toggle submenu visibility on Enter or Space
 				e.preventDefault();
-				const isExpanded = button.getAttribute('aria-expanded') === 'true';
-				button.setAttribute('aria-expanded', !isExpanded);
+				const isExpanded = link.getAttribute('aria-expanded') === 'true';
+				link.setAttribute('aria-expanded', !isExpanded);
 				submenu.hidden = isExpanded;
 			} else if (e.key === 'ArrowDown') {
 				// Focus first submenu item
@@ -122,7 +131,7 @@ function initializeMenuAccessibility() {
 			}
 		});
 
-		const submenuLinks = button.nextElementSibling?.querySelectorAll('a');
+		const submenuLinks = link.nextElementSibling?.querySelectorAll('a');
 
 		submenuLinks?.forEach(link => {
 			link.addEventListener('keydown', (e) => {
@@ -139,9 +148,9 @@ function initializeMenuAccessibility() {
 				} else if (e.key === 'Escape') {
 					// Close the submenu and return focus to the parent
 					e.preventDefault();
-					button.setAttribute('aria-expanded', 'false');
+					link.setAttribute('aria-expanded', 'false');
 					submenu.hidden = true;
-					button.focus();
+					link.focus();
 				}
 			});
 		});
@@ -184,32 +193,4 @@ function formatFileName(fileName) {
 // Helper function to format category names
 function formatCategoryName(category) {
 	return category.charAt(0).toUpperCase() + category.slice(1);
-}
-
-function setupHamburgerMenu() {
-	const navToggle = document.querySelector('.nav-toggle');
-	const mainMenu = document.querySelector('.main-menu');
-
-	if (navToggle && mainMenu) {
-		navToggle.addEventListener('click', () => {
-			mainMenu.classList.toggle('active');
-			const isExpanded = mainMenu.classList.contains('active');
-			navToggle.setAttribute('aria-expanded', isExpanded);
-			// Optional: prevent body scrolling when menu is open
-			document.body.style.overflow = isExpanded ? 'hidden' : '';
-		});
-	}
-}
-
-// Call setupHamburgerMenu after the menu is built
-if (navMenu) {
-	fetch(examplesFolder)
-		.then(response => response.text())
-		.then(html => {
-			// ... your existing menu building code ...
-
-			// After the menu is built and accessibility is initialized
-			setupHamburgerMenu(); // Add this line here
-		})
-		.catch(error => console.error('Error loading navigation:', error));
 }
