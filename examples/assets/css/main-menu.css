@@ -15,7 +15,6 @@
 	border-radius: var(--border-radius);
 	padding: var(--spacing-2);
 	box-shadow: var(--shadow-sm);
-	display: block;
 	text-decoration: none;
 	text-align: left;
 	font-size: large;
@@ -38,6 +37,7 @@
 	padding: 0;
 }
 
+.main-menu a,
 .submenu a {
 	padding: var(--spacing-1) var(--spacing-3);
 	display: block;

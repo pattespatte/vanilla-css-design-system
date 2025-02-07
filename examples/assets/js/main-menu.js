@@ -15,6 +15,23 @@ const navMenu = document.querySelector('.main-menu');
 
 // Check if navigation menu exists
 if (navMenu) {
+
+	// Get the navigation toggle button (hamburger icon)
+	const navToggle = document.querySelector('.nav-toggle');
+
+	// Get the main menu element
+	const mainMenu = document.querySelector('.main-menu');
+
+	// Add an event listener to the navToggle (hamburger icon)
+	if (navToggle && mainMenu) {
+		navToggle.addEventListener('click', () => {
+			// Toggle the 'active' class on the main menu to show or hide it
+			mainMenu.classList.toggle('active');
+		});
+	} else {
+		console.error('Navigation toggle or main menu element not found');
+	}
+
 	// Dynamically fetch and build the menu
 	fetch(examplesFolder)
 		.then(response => response.text())
