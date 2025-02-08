@@ -1,0 +1,40 @@
+/* styles/main.css */
+
+/* Reset styles */
+@import url('reset.css');
+
+/* Variables */
+@import url('../variables/colors.css');
+@import url('../variables/typography.css');
+@import url('../variables/spacing.css');
+@import url('../variables/borders.css');
+@import url('../variables/breakpoints.css');
+@import url('../variables/other.css');
+
+/* Base styles */
+@import url('../foundation/typography.css');
+@import url('../foundation/breakpoints.css');
+@import url('../foundation/settings.css');
+
+/* Layout styles */
+@import url('../layout/grid.css');
+
+/* Component styles */
+@import url('../components/alerts.css');
+@import url('../components/buttons.css');
+@import url('../components/cards.css');
+@import url('../components/data.css');
+@import url('../components/forms.css');
+@import url('../components/navigation.css');
+@import url('../components/popups.css');
+
+/* Utility styles */
+@import url('../utilities/accessibility.css');
+@import url('../utilities/animations.css');
+@import url('../utilities/borders.css');
+@import url('../utilities/helpers.css');
+@import url('../utilities/print.css');
+@import url('../utilities/spacing.css');
+
+/* Custom styles */
+@import url('../custom.css');

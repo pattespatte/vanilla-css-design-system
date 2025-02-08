@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Design Tokens & Variables - Vanilla CSS Design System</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" integrity="sha512-hasIneQUHlh06VNBe7f6ZcHmeRTLIaQWFd43YriJ0UND19bvYRauxthDg8E4eVNPm9bRUhr5JGeqH7FRFXQu5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="../../styles/main.css">
+	<link rel="stylesheet" href="../assets/css/examples.css">
+	<link rel="stylesheet" href="../assets/css/main-menu.css">
+	<link rel="icon" type="image/svg+xml" href="../assets/images/vanilla-logo.svg">
+</head>
+
+<body>
+	<header class="docs-nav">
+		<div class="container grid grid-cols-2 md-grid-cols-3 gap-3">
+			<div class="clearfix">
+				<h1>Design Tokens & Variables</h1>
+				<a href="#" class="nav-brand float-left" data-home-link>
+					Vanilla CSS Design System
+					<img src="../assets/images/vanilla-logo.svg" alt="" id="header-logo">
+				</a>
+			</div>
+			<nav class="col-span-1 md-col-span-2 position-relative">
+				<button class="nav-toggle text-size-lg" aria-label="Toggle navigation">
+					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
+				</button>
+				<ul class="main-menu" role="menubar">
+					<!-- Menu items will be dynamically inserted here -->
+				</ul>
+				<div class="item-bottom-right m-2">
+					<button id="theme-toggle" aria-label="Toggle dark mode">🌑 Dark</button>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<main class="container my-4">
+
+		<!-- Border Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Borders</h2>
+			<p class="example-description">
+				Border properties used in the system.
+			</p>
+			<div class="card mb-3">
+				<div style="border: var(--border-width) solid var(--border-color); padding: var(--spacing-3); border-radius: var(--border-radius);">
+					Default Border
+				</div>
+				<code>--border-width: 1px</code>
+				<br>
+				<code>--border-color: var(--color-gray-400);</code>
+				<br>
+				<code>--border-radius: 0.25rem</code>
+			</div>
+		</div>
+		<!-- Shadow Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Shadows</h2>
+			<p class="example-description">
+				Box shadow variations used in the system.
+			</p>
+			<div class="grid grid-cols-3 gap-3">
+				<div class="card" style="box-shadow: var(--shadow-sm)">
+					<p>Small Shadow</p>
+					<code>--shadow-sm</code>
+				</div>
+				<div class="card" style="box-shadow: var(--shadow-md)">
+					<p>Medium Shadow</p>
+					<code>--shadow-md</code>
+				</div>
+				<div class="card" style="box-shadow: var(--shadow-lg)">
+					<p>Large Shadow</p>
+					<code>--shadow-lg</code>
+				</div>
+			</div>
+		</div>
+		<!-- Breakpoint Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Breakpoints</h2>
+			<p class="example-description">
+				Responsive breakpoints used in the system.
+			</p>
+			<div class="card">
+				<ul class="p-3">
+					<li><code>--breakpoint-sm: 576px</code></li>
+					<li><code>--breakpoint-md: 768px</code></li>
+					<li><code>--breakpoint-lg: 992px</code></li>
+					<li><code>--breakpoint-xl: 1200px</code></li>
+				</ul>
+			</div>
+		</div>
+		<!-- All Variables Reference -->
+		<div class="example-section">
+			<h2 class="example-title">Complete Variables Reference</h2>
+			<div class="code-block">
+				<pre><code>/* variables.css - Design Tokens */
+:root {
+	/* Colors */
+	/* Base Colors */
+	--color-primary: #6e0e50; /* Primary base color */
+	--color-secondary: #ffe098; /* Secondary base color */
+	--color-tertiary: #e28ab7; /* Tertiary color */
+	--color-quaternary: #0ec3ad; /* Quaternary color */
+	
+	/* Primary Color Shades */
+	--color-primary-100: #f3e1eb; /* Lightest */
+	--color-primary-200: #e6c4d8; /* Lighter */
+	--color-primary-300: #d5b0c7; /* Light */
+	--color-primary-400: #c29ab0; /* Medium light */
+	--color-primary-500: #6e0e50; /* Base color */
+	--color-primary-600: #5c0c43; /* Medium dark */
+	--color-primary-700: #4a0a36; /* Dark */
+	--color-primary-800: #380828; /* Darker */
+	--color-primary-900: #26061b; /* Darkest */
+	--color-primary: var(--color-primary-500); /* Default primary color */
+	
+	/* Secondary Color Shades */
+	--color-secondary-100: #fff9ed; /* Lightest */
+	--color-secondary-200: #fff3d9; /* Lighter */
+	--color-secondary-300: #fff0c4; /* Light */
+	--color-secondary-400: #ffe9b0; /* Medium light */
+	--color-secondary-500: #ffe098; /* Base color */
+	--color-secondary-600: #ffd783; /* Medium dark */
+	--color-secondary-700: #ffd370; /* Dark */
+	--color-secondary-800: #ffc95c; /* Darker */
+	--color-secondary-900: #ffc048; /* Darkest */
+	--color-secondary: var(--color-secondary-500); /* Default secondary color */
+	
+	/* System Colors */
+	--color-success: #1e7e34; /* Success color */
+	--color-success-100: #d4edda; /* Light success */
+	--color-success-200: #c3e6cb; /* Medium light success */
+	--color-danger: #dc3545; /* Danger color */
+	--color-danger-100: #f8d7da; /* Light danger */
+	--color-danger-200: #f1c2c6; /* Medium light danger */
+	--color-warning: #ffc647; /* Warning color */
+	--color-warning-100: #fff3cd; /* Light warning */
+	--color-warning-200: #ffe8b5; /* Medium light warning */
+	--color-info: #0266d6; /* Info color */
+	--color-info-100: #cce5ff; /* Light info */
+	--color-info-200: #b8daff; /* Medium light info */
+	
+	/* Neutral Colors */
+	--color-light: #e9ecef; /* Light color */
+	--color-muted: #6c757d; /* Muted color */
+	--color-dark: #343a40; /* Dark color */
+	--color-white: #fff; /* White color */
+	--color-black: #000; /* Black color */
+	--color-transparent: transparent; /* Transparent color */
+	
+	/* Expanded Gray Scale */
+	--color-gray-50: #f9fafb; /* Lightest gray */
+	--color-gray-100: #f8f9fa; /* Slightly darker than 50 */
+	--color-gray-200: #e9ecef; /* Matches --color-light */
+	--color-gray-300: #dee2e6; /* Slightly darker */
+	--color-gray-400: #ced4da; /* Medium light gray */
+	--color-gray-500: #adb5bd; /* Mid gray */
+	--color-gray-600: #6c757d; /* Matches --color-muted */
+	--color-gray-700: #495057; /* Darker muted gray */
+	--color-gray-800: #343a40; /* Matches --color-dark */
+	--color-gray-900: #212529; /* Almost black */
+
+	/* Typography */
+	--font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	/* You probably want to replace this font family with your own in `custom.css` */
+	--text-weight-base: 1rem;
+	--text-size-sm: 0.875rem;
+	--text-size-lg: 1.25rem;
+	--text-weight-light: 200;
+	--text-weight-base: 400;
+	--text-weight-bold: 700;
+	--line-height-base: 1.5;
+
+	/* Spacing */
+	--spacing-unit: 0.25rem;
+	--spacing-1: calc(var(--spacing-unit) * 1);
+	/* 4px */
+	--spacing-2: calc(var(--spacing-unit) * 2);
+	/* 8px */
+	--spacing-3: calc(var(--spacing-unit) * 4);
+	/* 16px */
+	--spacing-4: calc(var(--spacing-unit) * 6);
+	/* 24px */
+	--spacing-5: calc(var(--spacing-unit) * 8);
+	/* 32px */
+
+	/* Border */
+	--border-radius: 0.25rem;
+	--border-width: 1px;
+	--border-color: var(--color-gray-400);
+
+	/* Transitions */
+	--transition-base: all 0.2s ease-in-out;
+
+	/* Shadows */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+	/* Breakpoints */
+	--breakpoint-sm: 576px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 992px;
+	--breakpoint-xl: 1200px;
+}
+				</code></pre>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>hljs.highlightAll();</script>
+	<script src="../assets/js/main-menu.js"></script>
+	<script src="../assets/js/modes.js"></script>
+</body>
+
+</html>
