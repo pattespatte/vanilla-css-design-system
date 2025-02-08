@@ -18,7 +18,7 @@ main {
 }
 
 footer {
-	padding: 1rem 0;
+	padding: var(--spacing-4);
 	background-color: var(--color-gray-200);
 	border-top: var(--border-width) solid var(--border-color);
 }

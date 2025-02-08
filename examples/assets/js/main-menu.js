@@ -115,14 +115,20 @@ function initializeActiveMenuItem() {
 	const menuLinks = document.querySelectorAll('.main-menu [role="menuitem"] > a');
 	menuLinks.forEach(link => {
 		link.addEventListener('click', (event) => {
-			menuLinks.forEach(link => link.classList.remove('active'));
+			menuLinks.forEach(link => {
+				link.classList.remove('active');
+				link.removeAttribute('aria-current');
+			});
 			event.currentTarget.classList.add('active');
+			event.currentTarget.setAttribute('aria-current', 'page');
 			localStorage.setItem('activeMenuItem', event.currentTarget.getAttribute('href'));
 		});
 	});
 	const activeMenuItem = localStorage.getItem('activeMenuItem');
 	if (activeMenuItem) {
-		document.querySelector(`.main-menu [role="menuitem"] > a[href="${activeMenuItem}"]`)?.classList.add('active');
+		const activeLink = document.querySelector(`.main-menu [role="menuitem"] > a[href="${activeMenuItem}"]`);
+		activeLink?.classList.add('active');
+		activeLink?.setAttribute('aria-current', 'page');
 	}
 }
 
