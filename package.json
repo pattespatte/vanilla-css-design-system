@@ -2,7 +2,7 @@
   "scripts": {
     "switch:prod": "node scripts/switch-mode.js prod",
     "switch:dev": "node scripts/switch-mode.js dev",
-    "combine:css": "concat-cli -f styles/variables/*.css styles/base/*.css styles/layout/*.css styles/components/*.css styles/utilities/*.css styles/custom.css -o styles/vanilla-combined.css",
+    "combine:css": "concat-cli -f styles/base/*.css styles/foundation/*.css styles/variables/*.css styles/layout/*.css styles/components/*.css styles/utilities/*.css styles/custom.css -o styles/vanilla-combined.css",
     "purge:css": "node scripts/purge-css.js",
     "lint:css": "stylelint 'styles/**/*.css'",
     "lint:css:fix": "stylelint 'styles/**/*.css' --fix",

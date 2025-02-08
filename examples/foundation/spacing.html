@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Spacing Utilities - Vanilla CSS Design System</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" integrity="sha512-hasIneQUHlh06VNBe7f6ZcHmeRTLIaQWFd43YriJ0UND19bvYRauxthDg8E4eVNPm9bRUhr5JGeqH7FRFXQu5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="../../styles/vanilla-combined.min.css">
+	<link rel="stylesheet" href="../../styles/main.css">
 	<link rel="stylesheet" href="../assets/css/examples.css">
 	<link rel="stylesheet" href="../assets/css/main-menu.css">
 	<link rel="icon" type="image/svg+xml" href="../assets/images/vanilla-logo.svg">
@@ -37,9 +37,42 @@
 	</header>
 
 	<main class="container my-4">
+
+		<!-- Spacing Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Spacing</h2>
+			<p class="example-description">
+				Consistent spacing units used throughout the system.
+			</p>
+
+			<div class="grid grid-cols-1 sm-grid-cols-2 md-grid-cols-3 gap-3">
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-1); height: var(--spacing-1);"></div>
+					<code>--spacing-1 (4px)</code>
+				</div>
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-2); height: var(--spacing-2);"></div>
+					<code>--spacing-2 (8px)</code>
+				</div>
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-3); height: var(--spacing-3);"></div>
+					<code>--spacing-3 (16px)</code>
+				</div>
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-4); height: var(--spacing-4);"></div>
+					<code>--spacing-4 (24px)</code>
+				</div>
+				<div class="spacing-demo">
+					<div class="spacing-block" style="width: var(--spacing-5); height: var(--spacing-5);"></div>
+					<code>--spacing-5 (32px)</code>
+				</div>
+			</div>
+
+		</div>
+
 		<!-- Display Helpers -->
 		<section class="example-section">
-			<h2>Spacing</h2>
+			<h2>Spacing utilities</h2>
 			<p class="my-3">Spacing utilities control margin and padding for elements.</p>
 			<h3>Margin Utilities</h3>
 			<div class="p-0 border border-primary">

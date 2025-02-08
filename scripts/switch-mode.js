@@ -32,7 +32,7 @@ function switchMode(mode) {
 			);
 		} else if (mode === 'prod') {
 			content = content.replace(
-				/\/styles\/main.css">/g,
+				/\/styles\/base\/main.css">/g,
 				'/styles/vanilla-combined.min.css">'
 			);
 		}
