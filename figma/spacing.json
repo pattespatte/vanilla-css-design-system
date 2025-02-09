@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "collections": [
+    {
+      "name": "Spacing",
+      "type": "spacing",
+      "variables": {
+        "spacing-unit": {
+          "name": "spacing-unit",
+          "type": "dimension",
+          "value": "0.25rem"
+        },
+        "spacing-1": {
+          "name": "spacing-1",
+          "type": "string",
+          "value": "calc(var(--spacing-unit) * 1)"
+        },
+        "spacing-2": {
+          "name": "spacing-2",
+          "type": "string",
+          "value": "calc(var(--spacing-unit) * 2)"
+        },
+        "spacing-3": {
+          "name": "spacing-3",
+          "type": "string",
+          "value": "calc(var(--spacing-unit) * 4)"
+        },
+        "spacing-4": {
+          "name": "spacing-4",
+          "type": "string",
+          "value": "calc(var(--spacing-unit) * 6)"
+        },
+        "spacing-5": {
+          "name": "spacing-5",
+          "type": "string",
+          "value": "calc(var(--spacing-unit) * 8)"
+        }
+      }
+    }
+  ]
+}

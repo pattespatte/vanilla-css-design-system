@@ -56,7 +56,7 @@ function getTokenType(name, value) {
 	if (typeof value === 'string' && value.startsWith('{') && value.endsWith('}')) {
 		// Use the name to determine type since the value is a reference
 		if (name.includes('shadow')) return 'shadow';
-		if (name.includes('font-family')) return 'string';
+		if (name.includes('font-family')) return 'fontFamily';
 		if (name.includes('font-size')) return 'dimension';
 		if (name.includes('font-weight')) return 'number';
 		if (name.includes('line-height')) return 'number';
@@ -65,24 +65,24 @@ function getTokenType(name, value) {
 		return 'string';
 	}
 
+	// Font weights - check if it's a numeric value
+	if ((name.includes('font-weight') || name.includes('text.weight')) && !isNaN(value)) {
+		return 'number';
+	}
+
 	// Shadows
 	if (name.includes('shadow')) {
 		return 'shadow';
 	}
 
 	// Font families
-	if (name.includes('font-family')) {
-		return 'string';
+	if (name.includes('font-family') || name.includes('font.family')) {
+		return 'fontFamily';
 	}
 
 	// Font sizes
 	if (name.includes('font-size')) {
 		return 'dimension';
-	}
-
-	// Font weights
-	if (name.includes('font-weight')) {
-		return 'number';
 	}
 
 	// Line height
@@ -147,24 +147,19 @@ function processValue(name, value, type) {
 
 	switch (type) {
 		case 'shadow':
-			// Parse shadow shorthand into structured object
 			return parseShadowValue(value);
 		case 'number':
-			// Convert numeric strings to actual numbers
-			return parseFloat(value);
+			// Ensure we're returning an actual number, not a string
+			return Number(value);
 		case 'duration':
-			// Convert transition value to milliseconds
 			if (value.endsWith('ms')) {
-				// Already in milliseconds, just return as is
 				return value;
 			} else if (value.endsWith('s')) {
-				// Convert seconds to milliseconds
 				const seconds = parseFloat(value.match(/[\d.]+/)[0]);
 				return `${seconds * 1000}ms`;
 			}
 			return value;
 		case 'color':
-			// Expand short hex values to long hex
 			return expandShortHex(value);
 		default:
 			return value;
@@ -206,6 +201,18 @@ function cssToTokens(cssObj) {
 	return tokens;
 }
 
+// Custom JSON stringifier that doesn't quote numbers
+function customStringify(obj, indent = 2) {
+	return JSON.stringify(obj, (key, value) => {
+		// If the value is a number and we're not dealing with a string representation
+		if (typeof value === 'number' && !isNaN(value)) {
+			// Return the number as is (without quotes)
+			return Number(value);
+		}
+		return value;
+	}, indent);
+}
+
 // Process each CSS file
 fs.readdirSync(SOURCE_DIR).forEach(file => {
 	if (file.endsWith('.css')) {
@@ -216,9 +223,9 @@ fs.readdirSync(SOURCE_DIR).forEach(file => {
 		// Convert to tokens
 		const tokens = cssToTokens(cssObj[':root'] || {});
 
-		// Write JSON file
+		// Write JSON file using custom stringification
 		const outputFile = path.join(OUTPUT_DIR, file.replace('.css', '.json'));
-		fs.writeFileSync(outputFile, JSON.stringify(tokens, null, 2));
+		fs.writeFileSync(outputFile, customStringify(tokens));
 
 		console.log(`Converted ${file} to ${path.basename(outputFile)}`);
 	}

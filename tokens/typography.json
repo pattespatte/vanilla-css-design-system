@@ -3,7 +3,7 @@
     "family": {
       "base": {
         "$value": "system-ui, -apple-system, blinkmacsystemfont, \"Segoe UI\",\n\t\troboto, oxygen, ubuntu, cantarell, sans-serif",
-        "$type": "string"
+        "$type": "fontFamily"
       }
     }
   },
@@ -11,6 +11,10 @@
     "size": {
       "sm": {
         "$value": "0.875rem",
+        "$type": "dimension"
+      },
+      "base": {
+        "$value": "1rem",
         "$type": "dimension"
       },
       "lg": {

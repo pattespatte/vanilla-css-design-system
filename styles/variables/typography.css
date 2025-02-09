@@ -3,8 +3,11 @@
 	--font-family-base: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
 		roboto, oxygen, ubuntu, cantarell, sans-serif;
 
-		/* Small text size */
+	/* Small text size */
 	--text-size-sm: 0.875rem;
+
+	/* Base text size */
+	--text-size-base: 1rem;
 
 	/* Large text size */
 	--text-size-lg: 1.25rem;

@@ -1,0 +1,256 @@
+{
+  "version": "1.0",
+  "collections": [
+    {
+      "name": "Color",
+      "type": "color",
+      "variables": {
+        "color-primary-100": {
+          "name": "color-primary-100",
+          "type": "color",
+          "value": "#f3e1eb"
+        },
+        "color-primary-200": {
+          "name": "color-primary-200",
+          "type": "color",
+          "value": "#e6c4d8"
+        },
+        "color-primary-300": {
+          "name": "color-primary-300",
+          "type": "color",
+          "value": "#d5b0c7"
+        },
+        "color-primary-400": {
+          "name": "color-primary-400",
+          "type": "color",
+          "value": "#c29ab0"
+        },
+        "color-primary-500": {
+          "name": "color-primary-500",
+          "type": "color",
+          "value": "#6e0e50"
+        },
+        "color-primary-600": {
+          "name": "color-primary-600",
+          "type": "color",
+          "value": "#5c0c43"
+        },
+        "color-primary-700": {
+          "name": "color-primary-700",
+          "type": "color",
+          "value": "#4a0a36"
+        },
+        "color-primary-800": {
+          "name": "color-primary-800",
+          "type": "color",
+          "value": "#380828"
+        },
+        "color-primary-900": {
+          "name": "color-primary-900",
+          "type": "color",
+          "value": "#26061b"
+        },
+        "color-primary": {
+          "name": "color-primary",
+          "type": "variable_alias",
+          "value": "color-primary-500"
+        },
+        "color-secondary-100": {
+          "name": "color-secondary-100",
+          "type": "color",
+          "value": "#fff9ed"
+        },
+        "color-secondary-200": {
+          "name": "color-secondary-200",
+          "type": "color",
+          "value": "#fff3d9"
+        },
+        "color-secondary-300": {
+          "name": "color-secondary-300",
+          "type": "color",
+          "value": "#fff0c4"
+        },
+        "color-secondary-400": {
+          "name": "color-secondary-400",
+          "type": "color",
+          "value": "#ffe9b0"
+        },
+        "color-secondary-500": {
+          "name": "color-secondary-500",
+          "type": "color",
+          "value": "#ffe098"
+        },
+        "color-secondary-600": {
+          "name": "color-secondary-600",
+          "type": "color",
+          "value": "#ffd783"
+        },
+        "color-secondary-700": {
+          "name": "color-secondary-700",
+          "type": "color",
+          "value": "#ffd370"
+        },
+        "color-secondary-800": {
+          "name": "color-secondary-800",
+          "type": "color",
+          "value": "#ffc95c"
+        },
+        "color-secondary-900": {
+          "name": "color-secondary-900",
+          "type": "color",
+          "value": "#ffc048"
+        },
+        "color-secondary": {
+          "name": "color-secondary",
+          "type": "variable_alias",
+          "value": "color-secondary-500"
+        },
+        "color-tertiary": {
+          "name": "color-tertiary",
+          "type": "color",
+          "value": "#e28ab7"
+        },
+        "color-quaternary": {
+          "name": "color-quaternary",
+          "type": "color",
+          "value": "#0ec3ad"
+        },
+        "color-success": {
+          "name": "color-success",
+          "type": "color",
+          "value": "#1e7e34"
+        },
+        "color-success-100": {
+          "name": "color-success-100",
+          "type": "color",
+          "value": "#d4edda"
+        },
+        "color-success-200": {
+          "name": "color-success-200",
+          "type": "color",
+          "value": "#c3e6cb"
+        },
+        "color-danger": {
+          "name": "color-danger",
+          "type": "color",
+          "value": "#dc3545"
+        },
+        "color-danger-100": {
+          "name": "color-danger-100",
+          "type": "color",
+          "value": "#f8d7da"
+        },
+        "color-danger-200": {
+          "name": "color-danger-200",
+          "type": "color",
+          "value": "#f1c2c6"
+        },
+        "color-warning": {
+          "name": "color-warning",
+          "type": "color",
+          "value": "#ffc647"
+        },
+        "color-warning-100": {
+          "name": "color-warning-100",
+          "type": "color",
+          "value": "#fff3cd"
+        },
+        "color-warning-200": {
+          "name": "color-warning-200",
+          "type": "color",
+          "value": "#ffe8b5"
+        },
+        "color-info": {
+          "name": "color-info",
+          "type": "color",
+          "value": "#0266d6"
+        },
+        "color-info-100": {
+          "name": "color-info-100",
+          "type": "color",
+          "value": "#cce5ff"
+        },
+        "color-info-200": {
+          "name": "color-info-200",
+          "type": "color",
+          "value": "#b8daff"
+        },
+        "color-light": {
+          "name": "color-light",
+          "type": "variable_alias",
+          "value": "color-gray-200"
+        },
+        "color-muted": {
+          "name": "color-muted",
+          "type": "variable_alias",
+          "value": "color-gray-600"
+        },
+        "color-dark": {
+          "name": "color-dark",
+          "type": "variable_alias",
+          "value": "color-gray-800"
+        },
+        "color-white": {
+          "name": "color-white",
+          "type": "color",
+          "value": "#fff"
+        },
+        "color-black": {
+          "name": "color-black",
+          "type": "color",
+          "value": "#000"
+        },
+        "color-gray-50": {
+          "name": "color-gray-50",
+          "type": "color",
+          "value": "#f9fafb"
+        },
+        "color-gray-100": {
+          "name": "color-gray-100",
+          "type": "color",
+          "value": "#f8f9fa"
+        },
+        "color-gray-200": {
+          "name": "color-gray-200",
+          "type": "color",
+          "value": "#e9ecef"
+        },
+        "color-gray-300": {
+          "name": "color-gray-300",
+          "type": "color",
+          "value": "#dee2e6"
+        },
+        "color-gray-400": {
+          "name": "color-gray-400",
+          "type": "color",
+          "value": "#ced4da"
+        },
+        "color-gray-500": {
+          "name": "color-gray-500",
+          "type": "color",
+          "value": "#adb5bd"
+        },
+        "color-gray-600": {
+          "name": "color-gray-600",
+          "type": "color",
+          "value": "#6c757d"
+        },
+        "color-gray-700": {
+          "name": "color-gray-700",
+          "type": "color",
+          "value": "#495057"
+        },
+        "color-gray-800": {
+          "name": "color-gray-800",
+          "type": "color",
+          "value": "#343a40"
+        },
+        "color-gray-900": {
+          "name": "color-gray-900",
+          "type": "color",
+          "value": "#212529"
+        }
+      }
+    }
+  ]
+}

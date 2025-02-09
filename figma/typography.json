@@ -1,0 +1,63 @@
+{
+  "version": "1.0",
+  "collections": [
+    {
+      "name": "Typography",
+      "type": "typography",
+      "variables": {
+        "font-family-base": {
+          "name": "font-family-base",
+          "type": "string",
+          "value": "system-ui, -apple-system, blinkmacsystemfont, \"Segoe UI\",\n\t\troboto, oxygen, ubuntu, cantarell, sans-serif"
+        }
+      }
+    },
+    {
+      "name": "Dimension",
+      "type": "dimension",
+      "variables": {
+        "text-size-sm": {
+          "name": "text-size-sm",
+          "type": "dimension",
+          "value": "0.875rem"
+        },
+        "text-size-base": {
+          "name": "text-size-base",
+          "type": "dimension",
+          "value": "1rem"
+        },
+        "text-size-lg": {
+          "name": "text-size-lg",
+          "type": "dimension",
+          "value": "1.25rem"
+        }
+      }
+    },
+    {
+      "name": "Other",
+      "type": "other",
+      "variables": {
+        "text-weight-light": {
+          "name": "text-weight-light",
+          "type": "number",
+          "value": 200
+        },
+        "text-weight-base": {
+          "name": "text-weight-base",
+          "type": "number",
+          "value": 400
+        },
+        "text-weight-bold": {
+          "name": "text-weight-bold",
+          "type": "number",
+          "value": 700
+        },
+        "line-height-base": {
+          "name": "line-height-base",
+          "type": "number",
+          "value": 1.5
+        }
+      }
+    }
+  ]
+}

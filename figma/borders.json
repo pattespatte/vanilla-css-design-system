@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "collections": [
+    {
+      "name": "Color",
+      "type": "color",
+      "variables": {
+        "border-color": {
+          "name": "border-color",
+          "type": "variable_alias",
+          "value": "color-gray-400"
+        }
+      }
+    },
+    {
+      "name": "Other",
+      "type": "other",
+      "variables": {
+        "border-radius": {
+          "name": "border-radius",
+          "type": "variable_alias",
+          "value": "spacing-1"
+        },
+        "border-width": {
+          "name": "border-width",
+          "type": "dimension",
+          "value": "1px"
+        }
+      }
+    }
+  ]
+}

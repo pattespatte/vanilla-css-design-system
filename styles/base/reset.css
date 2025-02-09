@@ -1,9 +1,9 @@
 /* base/01-reset.css */
 
 /* Reset styles */
-*,
-*::before,
-*::after {
+html, body,
+body::before,
+body::after {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
