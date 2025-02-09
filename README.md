@@ -94,7 +94,7 @@ npm run lint:css:fix
 
 ## CDN Link
 
-[https://rawcdn.githack.com/pattespatte/vanilla-css-design-system/refs/tags/1.0.1/styles/vanilla-combined.min.css](https://rawcdn.githack.com/pattespatte/vanilla-css-design-system/refs/tags/1.0.1/styles/vanilla-combined.min.css)
+[https://rawcdn.githack.com/pattespatte/vanilla-css-design-system/refs/tags/v1.0.2/styles/vanilla-combined.min.css](https://rawcdn.githack.com/pattespatte/vanilla-css-design-system/refs/tags/v1.0.2/styles/vanilla-combined.min.css)
 
 ***
 
