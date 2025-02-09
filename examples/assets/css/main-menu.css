@@ -14,7 +14,6 @@
 	background-color: var(--background-color, #f1f1f1);
 	border: var(--border-width) solid var(--border-color);
 	border-radius: var(--border-radius);
-	padding: var(--spacing-2);
 	box-shadow: var(--shadow-sm);
 	text-decoration: none;
 	text-align: left;
@@ -31,6 +30,7 @@
 	padding: 0;
 }
 
+.main-menu button,
 .main-menu a,
 .submenu a {
 	padding: var(--spacing-1) var(--spacing-3);
@@ -75,6 +75,14 @@
 	justify-self: end;
 }
 
+
+[data-theme="dark"] .main-menu a,
+[data-theme="dark"] .main-menu button,
+[data-theme="dark"] .submenu a {
+	background-color: var(--color-dark);
+	color: var(--color-white);
+}
+
 @media (width <= 768px) {
 	.nav-toggle {
 		display: block;
@@ -93,11 +101,6 @@
 		display: flex;
 		justify-content: flex-end;
 		text-align: left;
-	}
-
-	.main-menu a,
-	.main-menu button {
-		padding: var(--spacing-2) var(--spacing-3);
 	}
 
 	.main-menu .submenu li {
