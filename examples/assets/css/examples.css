@@ -195,10 +195,14 @@ ul.docs-links.cards li {
 
 #header-logo {
 	display: none;
-	width: 3rem;
+	width: 2rem;
 	padding: .5rem;
 	vertical-align: middle;
 	transition: filter 0.3s ease; /* Smooth transition */
+}
+
+h1 #header-logo {
+	width: 3rem;
 }
 
 /* Dark theme */

@@ -107,6 +107,10 @@
 
 /* Responsive grids */
 @media (width >= 576px) {
+	.container {
+		max-width: var(--breakpoint-sm);
+	}
+
 	.sm-col-span-1 {
 		grid-column: span 1 / span 1;
 	}

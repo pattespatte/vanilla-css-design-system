@@ -13,7 +13,6 @@
 
 /* Base styles */
 @import url('foundation/typography.css');
-@import url('foundation/breakpoints.css');
 @import url('foundation/settings.css');
 
 /* Layout styles */
