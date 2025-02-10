@@ -41,8 +41,8 @@
 	border-color: var(--color-success);
 }
 
-.border-danger {
-	border-color: var(--color-danger);
+.border-error {
+	border-color: var(--color-error);
 }
 
 .border-warning {

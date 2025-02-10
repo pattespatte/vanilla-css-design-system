@@ -130,18 +130,18 @@
           "type": "color",
           "value": "#c3e6cb"
         },
-        "color-danger": {
-          "name": "color-danger",
+        "color-error": {
+          "name": "color-error",
           "type": "color",
           "value": "#dc3545"
         },
-        "color-danger-100": {
-          "name": "color-danger-100",
+        "color-error-100": {
+          "name": "color-error-100",
           "type": "color",
           "value": "#f8d7da"
         },
-        "color-danger-200": {
-          "name": "color-danger-200",
+        "color-error-200": {
+          "name": "color-error-200",
           "type": "color",
           "value": "#f1c2c6"
         },

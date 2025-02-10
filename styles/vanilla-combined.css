@@ -240,9 +240,9 @@ blockquote {
 	--color-success: #1e7e34;
 	--color-success-100: #d4edda;
 	--color-success-200: #c3e6cb;
-	--color-danger: #dc3545;
-	--color-danger-100: #f8d7da;
-	--color-danger-200: #f1c2c6;
+	--color-error: #dc3545;
+	--color-error-100: #f8d7da;
+	--color-error-200: #f1c2c6;
 	--color-warning: #ffc647;
 	--color-warning-100: #fff3cd;
 	--color-warning-200: #ffe8b5;
@@ -747,9 +747,9 @@ blockquote {
 }
 
 .alert-error {
-	background-color: var(--color-danger-100);
-	color: var(--color-danger);
-	border-color: var(--color-danger-200);
+	background-color: var(--color-error-100);
+	color: var(--color-error);
+	border-color: var(--color-error-200);
 }
 /* components/buttons.css */
 .btn {
@@ -863,7 +863,7 @@ blockquote {
 /* Required indicator */
 .form-label.required::after {
 	content: "* (required)";
-	color: var(--color-danger);
+	color: var(--color-error);
 	margin-left: var(--spacing-1);
 }
 
@@ -1056,7 +1056,7 @@ blockquote {
 .form-input.is-invalid,
 .form-select.is-invalid,
 .form-textarea.is-invalid {
-	border-color: var(--color-danger);
+	border-color: var(--color-error);
 }
 
 .form-feedback {
@@ -1066,7 +1066,7 @@ blockquote {
 }
 
 .form-feedback.invalid {
-	color: var(--color-danger);
+	color: var(--color-error);
 }
 
 .form-feedback.valid {
@@ -1360,6 +1360,10 @@ blockquote {
 	display: block;
 }
 
+.modal-content {
+	margin-bottom: var(--spacing-4);
+}
+
 .modal-header {
 	font-size: var(--text-size-lg);
 	font-weight: var(--text-weight-bold);
@@ -1383,7 +1387,12 @@ blockquote {
 	color: var(--color-primary);
 }
 
-/* Additional Dropdown Styles */
+/* Dropdown Styles */
+
+.dropdown {
+	position: relative;
+	width: fit-content;
+}
 
 /* Positioning variants */
 .dropdown-right {
@@ -1407,6 +1416,20 @@ blockquote {
 input[type="checkbox"]:checked~.dropdown-content {
 	opacity: 1;
 	transform: scaleY(1);
+}
+
+/* Dropdown items */
+
+.dropdown-item {
+	display: block;
+	padding: var(--spacing-2) var(--spacing-3);
+	text-decoration: none;
+	color: var(--color-dark);
+	transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+	background-color: var(--color-light);
 }
 
 /* Optional: Add icons support */
@@ -1500,7 +1523,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	background: var(--color-light);
 	color: var(--color-dark);
 	cursor: pointer;
-	font-size: var(--text-size-sm);
+	font-weight: var(--text-weight-bold);
 }
 
 .accordion-toggle {
@@ -1875,8 +1898,8 @@ input[type="checkbox"]:checked~.dropdown-content {
 	border-color: var(--color-success);
 }
 
-.border-danger {
-	border-color: var(--color-danger);
+.border-error {
+	border-color: var(--color-error);
 }
 
 .border-warning {

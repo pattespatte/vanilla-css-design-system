@@ -24,6 +24,16 @@ function extractClassesFromStylesheet(stylesheet) {
 					classes.forEach(c => definedClasses.add(c.substring(1)));
 				}
 			}
+			if (rule instanceof CSSMediaRule) {
+				for (const nestedRule of rule.cssRules) {
+					if (nestedRule.selectorText) {
+						const classes = nestedRule.selectorText.match(/\.[a-zA-Z0-9_-]+/g);
+						if (classes) {
+							classes.forEach(c => definedClasses.add(c.substring(1)));
+						}
+					}
+				}
+			}
 		} catch (e) {
 			console.log('Error processing rule:', e);
 		}
@@ -49,5 +59,7 @@ for (const element of allElements) {
 	});
 }
 
-// TODO: Is this really working?
-// console.log('Undefined classes:', Array.from(undefinedClasses));
+// Display any undefined classes in the console
+if (undefinedClasses.size > 0) {
+	console.log('Undefined classes:', Array.from(undefinedClasses));
+}

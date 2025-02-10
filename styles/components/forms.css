@@ -16,7 +16,7 @@
 /* Required indicator */
 .form-label.required::after {
 	content: "* (required)";
-	color: var(--color-danger);
+	color: var(--color-error);
 	margin-left: var(--spacing-1);
 }
 
@@ -209,7 +209,7 @@
 .form-input.is-invalid,
 .form-select.is-invalid,
 .form-textarea.is-invalid {
-	border-color: var(--color-danger);
+	border-color: var(--color-error);
 }
 
 .form-feedback {
@@ -219,7 +219,7 @@
 }
 
 .form-feedback.invalid {
-	color: var(--color-danger);
+	color: var(--color-error);
 }
 
 .form-feedback.valid {

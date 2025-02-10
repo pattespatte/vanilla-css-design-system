@@ -28,7 +28,7 @@
       "$value": "#1e7e34",
       "$type": "color"
     },
-    "danger": {
+    "error": {
       "100": {
         "$value": "#f8d7da",
         "$type": "color"

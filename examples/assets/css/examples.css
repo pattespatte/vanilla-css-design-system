@@ -310,7 +310,7 @@ ul.docs-links.cards li a:hover {
 
 [data-theme="dark"] .form-feedback.invalid {
 	background-color: var(--color-black);
-	color: var(--color-danger-100);
+	color: var(--color-error-100);
 	font-weight: var(--text-weight-bold);
 }
 

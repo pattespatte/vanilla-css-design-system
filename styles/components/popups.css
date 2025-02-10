@@ -33,6 +33,10 @@
 	display: block;
 }
 
+.modal-content {
+	margin-bottom: var(--spacing-4);
+}
+
 .modal-header {
 	font-size: var(--text-size-lg);
 	font-weight: var(--text-weight-bold);
@@ -56,7 +60,12 @@
 	color: var(--color-primary);
 }
 
-/* Additional Dropdown Styles */
+/* Dropdown Styles */
+
+.dropdown {
+	position: relative;
+	width: fit-content;
+}
 
 /* Positioning variants */
 .dropdown-right {
@@ -80,6 +89,20 @@
 input[type="checkbox"]:checked~.dropdown-content {
 	opacity: 1;
 	transform: scaleY(1);
+}
+
+/* Dropdown items */
+
+.dropdown-item {
+	display: block;
+	padding: var(--spacing-2) var(--spacing-3);
+	text-decoration: none;
+	color: var(--color-dark);
+	transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+	background-color: var(--color-light);
 }
 
 /* Optional: Add icons support */
@@ -173,7 +196,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	background: var(--color-light);
 	color: var(--color-dark);
 	cursor: pointer;
-	font-size: var(--text-size-sm);
+	font-weight: var(--text-weight-bold);
 }
 
 .accordion-toggle {

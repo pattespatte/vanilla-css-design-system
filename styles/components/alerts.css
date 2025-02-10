@@ -19,7 +19,7 @@
 }
 
 .alert-error {
-	background-color: var(--color-danger-100);
-	color: var(--color-danger);
-	border-color: var(--color-danger-200);
+	background-color: var(--color-error-100);
+	color: var(--color-error);
+	border-color: var(--color-error-200);
 }
