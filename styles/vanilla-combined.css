@@ -1397,13 +1397,13 @@ blockquote {
 
 .pagination a,
 .pagination span {
-	padding: var(--spacing-2) var(--spacing-3);
+	padding: var(--spacing-2);
 	border: 1px solid var(--color-gray-200);
 	border-radius: var(--border-radius);
 	color: var(--color-dark);
 	text-decoration: none;
 	transition: var(--transition-base);
-	min-width: 2.5rem;
+	min-width: var(--spacing-4);
 	text-align: center;
 }
 

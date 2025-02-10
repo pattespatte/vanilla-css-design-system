@@ -37,4 +37,4 @@
 @import url('utilities/spacing.css');
 
 /* Custom styles */
-@import url('../custom.css');
+@import url('./custom.css');

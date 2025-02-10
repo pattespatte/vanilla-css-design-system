@@ -168,12 +168,13 @@ ul.docs-links.cards li {
 }
 
 .docs-links.cards a {
+	font-size: var(--text-size-lg);
 	background-color: var(--color-white);
 	border: var(--border-width) solid var(--border-color);
 	border-radius: var(--border-radius);
-	padding: var(--spacing-3);
-	box-shadow: var(--shadow-sm);
 	display: block;
+	box-shadow: var(--shadow-sm);
+	padding: var(--spacing-2) var(--spacing-3);
 }
 
 .bd-highlight {
