@@ -87,7 +87,12 @@ ul.docs-links.cards li {
 	padding: var(--spacing-3);
 	border-radius: var(--border-radius);
 	margin-top: var(--spacing-3);
+	margin-bottom: var(--spacing-4);
 	font-family: monospace;
+}
+
+.code-block pre {
+	margin: 0;
 }
 
 .color-grid {
@@ -269,6 +274,7 @@ ul.docs-links.cards li a:hover {
 [data-theme="dark"] .demo-col,
 [data-theme="dark"] .demo-content,
 [data-theme="dark"] .demo-container,
+[data-theme="dark"] .spacing-block,
 [data-theme="dark"] .code-block {
 	background-color: var(--color-gray-700);
 	color: var(--color-gray-100);
