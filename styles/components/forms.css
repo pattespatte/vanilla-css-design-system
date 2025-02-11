@@ -25,7 +25,7 @@
 .form-select,
 .form-textarea {
 	display: block;
-	width: 100%;
+	width: calc(100% - 2rem);
 	padding: var(--spacing-2) var(--spacing-3);
 	font-size: var(--text-weight-base);
 	font-family: var(--font-family-base);
