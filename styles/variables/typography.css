@@ -1,6 +1,6 @@
 :root {
 	/* Base font family */
-	--font-family-base: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+	--font-family-base: "Onest", system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
 		roboto, oxygen, ubuntu, cantarell, sans-serif;
 
 	/* Small text size */
