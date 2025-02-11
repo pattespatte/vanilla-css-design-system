@@ -148,8 +148,9 @@
 }
 
 .pagination a:hover:not(.disabled) {
-	background-color: var(--color-gray-100);
-	border-color: var(--color-gray-300);
+	background-color: var(--color-primary-700);
+	border-color: var(--color-primary-100);
+	color: var(--color-gray-200);
 }
 
 .pagination .active {

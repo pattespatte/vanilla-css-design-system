@@ -22,25 +22,25 @@
 					<img src="../assets/images/vanilla-logo.svg" alt="" id="header-logo">
 				</a>
 			</div>
-			<nav class="col-span-1 md-col-span-2">
+			<nav class="col-span-1 md-col-span-2 position-relative">
 				<button class="nav-toggle text-size-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
 				<ul class="main-menu" role="menubar">
 					<!-- Menu items will be dynamically inserted here -->
 				</ul>
+				<div class="item-bottom-right m-2">
+					<button id="theme-toggle" aria-label="Toggle dark mode">🌑 Dark</button>
+				</div>
 			</nav>
-		</div>
-		<div class="container">
-			<button id="theme-toggle" class="float-right" aria-label="Toggle dark mode">� Dark</button>
 		</div>
 	</header>
 
 	<main class="container my-4">
 		<!-- Width and Height Utilities -->
 		<div class="example-section">
-			<h2>Width and Height Utilities</h2>
-			<p class="my-3">Width and height utilities control the dimensions of elements.</p>
+			<h2 class="example-title">Width and Height Utilities</h2>
+			<p class="example-description">Width and height utilities control the dimensions of elements.</p>
 			<section>
 				<h3>Width Utilities</h3>
 				<div class="w-100 spacing-block">Width 100%</div>
@@ -103,84 +103,81 @@ Height 25%
 &lt;/div&gt;</code></pre>
 				</div>
 			</section>
+		</div>
 
-			<!-- Spacing Variables -->
-			<div class="example-section">
-				<h2 class="example-title">Spacing Utilities</h2>
-				<p class="example-description">
-					Consistent spacing units used throughout the system.
-				</p>
-
-				<section>
-					<h3>Spacing</h3>
-					<p class="my-3">Spacing utilities control margin and padding for elements.</p>
-					<div class="grid grid-cols-1 sm-grid-cols-2 md-grid-cols-3 gap-3">
-						<div class="spacing-demo">
-							<div class="spacing-block" style="width: var(--spacing-1); height: var(--spacing-1);"></div>
-							<code>--spacing-1 (4px)</code>
-						</div>
-						<div class="spacing-demo">
-							<div class="spacing-block" style="width: var(--spacing-2); height: var(--spacing-2);"></div>
-							<code>--spacing-2 (8px)</code>
-						</div>
-						<div class="spacing-demo">
-							<div class="spacing-block" style="width: var(--spacing-3); height: var(--spacing-3);"></div>
-							<code>--spacing-3 (16px)</code>
-						</div>
-						<div class="spacing-demo">
-							<div class="spacing-block" style="width: var(--spacing-4); height: var(--spacing-4);"></div>
-							<code>--spacing-4 (24px)</code>
-						</div>
-						<div class="spacing-demo">
-							<div class="spacing-block" style="width: var(--spacing-5); height: var(--spacing-5);"></div>
-							<code>--spacing-5 (32px)</code>
-						</div>
+		<!-- Spacing Variables -->
+		<div class="example-section">
+			<h2 class="example-title">Spacing Utilities</h2>
+			<p class="example-description">Consistent spacing units used throughout the system.</p>
+			<section>
+				<h3>Spacing</h3>
+				<p class="example-description">Spacing utilities control margin and padding for elements.</p>
+				<div class="grid grid-cols-1 sm-grid-cols-2 md-grid-cols-3 gap-3">
+					<div class="spacing-demo">
+						<div class="spacing-block" style="width: var(--spacing-1); height: var(--spacing-1);"></div>
+						<code>--spacing-1 (4px)</code>
 					</div>
-				</section>
-
-				<!-- Display Helpers -->
-				<section>
-					<h3>Margin Utilities</h3>
-					<div class="p-0 border border-primary">
-						<div class="m-1 p-3 spacing-block">Margin 1</div>
+					<div class="spacing-demo">
+						<div class="spacing-block" style="width: var(--spacing-2); height: var(--spacing-2);"></div>
+						<code>--spacing-2 (8px)</code>
 					</div>
-					<div class="code-block">
-						<pre><code>&lt;div class="m-1 p-3"&gt;
+					<div class="spacing-demo">
+						<div class="spacing-block" style="width: var(--spacing-3); height: var(--spacing-3);"></div>
+						<code>--spacing-3 (16px)</code>
+					</div>
+					<div class="spacing-demo">
+						<div class="spacing-block" style="width: var(--spacing-4); height: var(--spacing-4);"></div>
+						<code>--spacing-4 (24px)</code>
+					</div>
+					<div class="spacing-demo">
+						<div class="spacing-block" style="width: var(--spacing-5); height: var(--spacing-5);"></div>
+						<code>--spacing-5 (32px)</code>
+					</div>
+				</div>
+			</section>
+
+			<!-- Display Helpers -->
+			<section>
+				<h3>Margin Utilities</h3>
+				<div class="p-0 border border-primary">
+					<div class="m-1 p-3 spacing-block">Margin 1</div>
+				</div>
+				<div class="code-block">
+					<pre><code>&lt;div class="m-1 p-3"&gt;
 	Margin 1
 &lt;/div&gt;</code></pre>
-					</div>
-					<div class="my-3 p-0 border border-primary">
-						<div class="m-3 p-3 spacing-block">Margin 3</div>
-					</div>
-					<div class="code-block">
-						<pre><code>&lt;div class="m-3 p-3"&gt;
+				</div>
+				<div class="my-3 p-0 border border-primary">
+					<div class="m-3 p-3 spacing-block">Margin 3</div>
+				</div>
+				<div class="code-block">
+					<pre><code>&lt;div class="m-3 p-3"&gt;
 	Margin 3
 &lt;/div&gt;</code></pre>
-					</div>
-				</section>
-				<section>
-					<h3>Padding Utilities</h3>
-					<div class="p-0 border border-primary">
-						<div class="p-1 m-3 spacing-block">Padding 1</div>
-					</div>
-					<div class="code-block">
-						<pre><code>&lt;div class="p-1 m-3"&gt;
+				</div>
+			</section>
+			<section>
+				<h3>Padding Utilities</h3>
+				<div class="p-0 border border-primary">
+					<div class="p-1 m-3 spacing-block">Padding 1</div>
+				</div>
+				<div class="code-block">
+					<pre><code>&lt;div class="p-1 m-3"&gt;
 	Padding 1
 &lt;/div&gt;</code></pre>
-					</div>
-					<div class="my-3 p-0 border border-primary">
-						<div class="p-3 spacing-block m-3">Padding 3</div>
-					</div>
-					<div class="code-block">
-						<pre><code>&lt;div class="p-3 spacing-block m-3"&gt;
+				</div>
+				<div class="my-3 p-0 border border-primary">
+					<div class="p-3 spacing-block m-3">Padding 3</div>
+				</div>
+				<div class="code-block">
+					<pre><code>&lt;div class="p-3 spacing-block m-3"&gt;
 	Padding 3
 &lt;/div&gt;</code></pre>
-					</div>
-				</section>
-			</div>
-
+				</div>
+			</section>
 		</div>
 	</main>
+
 	<footer>
 		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>
 	</footer>
