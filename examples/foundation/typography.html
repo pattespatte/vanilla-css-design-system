@@ -74,19 +74,19 @@
 		<div class="example-section">
 			<h2 class="example-title">Font Family</h2>
 			<p class="example-description">
-				The design system uses a system font stack for optimal performance and native feel.
+				You can set a custom font stack in the :root selector.
 			</p>
 			<div class="font-demo">
 				<p style="font-size: 1.5rem;">
-					The quick brown fox jumps over the lazy dog
+					The quick brown fox jumps over the lazy dog. 1234567890. !@#$%^&*()_+[]{};:'",./?
 				</p>
 				<p style="color: var(--color-muted);">
-					System font stack
+					Set your font stack globally in the :root selector.
 				</p>
 			</div>
 			<div class="code-block">
 				<pre><code>:root {
-	--font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 
+	--font-family-base: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont, 
 		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }</code></pre>
 			</div>
@@ -268,7 +268,7 @@
 						<pre><code>/* variables.css - Design Tokens */
 :root {
 	/* Base font family */
-	--font-family-base: "Onest", system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+	--font-family-base: "Public Sans", system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
 		roboto, oxygen, ubuntu, cantarell, sans-serif;
 
 	/* Small text size */
