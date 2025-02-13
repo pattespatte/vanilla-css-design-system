@@ -40,23 +40,41 @@
 	</header>
 	<main>
 
-		<!-- Border Variables -->
-		<div class="example-section">
-			<h2 class="example-title">Borders</h2>
-			<p class="example-description">
-				Border properties used in the system.
-			</p>
-			<div class="card mb-3">
-				<div style="border: var(--border-width) solid var(--border-color); padding: var(--spacing-3); border-radius: var(--border-radius);" class="mb-3">
-					Default Border
+		<div class="grid grid-cols-1 md-grid-cols-2 gap-3">
+			<!-- Border Variables -->
+			<div class="example-section">
+				<h2 class="example-title">Borders</h2>
+				<p class="example-description">
+					Border properties used in the system.
+				</p>
+				<div class="card mb-3">
+					<div style="border: var(--border-width) solid var(--border-color); padding: var(--spacing-3); border-radius: var(--border-radius);" class="mb-3">
+						Default Border
+					</div>
+					<code>--border-width: 1px</code>
+					<br>
+					<code>--border-color: var(--color-gray-400);</code>
+					<br>
+					<code>--border-radius: 0.25rem</code>
 				</div>
-				<code>--border-width: 1px</code>
-				<br>
-				<code>--border-color: var(--color-gray-400);</code>
-				<br>
-				<code>--border-radius: 0.25rem</code>
+			</div>
+			<!-- Breakpoint Variables -->
+			<div class="example-section">
+				<h2 class="example-title">Breakpoints</h2>
+				<p class="example-description">
+					Responsive breakpoints used in the system.
+				</p>
+				<div class="card">
+					<ul class="p-3">
+						<li><code>--breakpoint-sm: 576px</code></li>
+						<li><code>--breakpoint-md: 768px</code></li>
+						<li><code>--breakpoint-lg: 992px</code></li>
+						<li><code>--breakpoint-xl: 1200px</code></li>
+					</ul>
+				</div>
 			</div>
 		</div>
+	
 		<!-- Shadow Variables -->
 		<div class="example-section">
 			<h2 class="example-title">Shadows</h2>
@@ -76,21 +94,6 @@
 					<p>Large Shadow</p>
 					<code>--shadow-lg</code>
 				</div>
-			</div>
-		</div>
-		<!-- Breakpoint Variables -->
-		<div class="example-section">
-			<h2 class="example-title">Breakpoints</h2>
-			<p class="example-description">
-				Responsive breakpoints used in the system.
-			</p>
-			<div class="card">
-				<ul class="p-3">
-					<li><code>--breakpoint-sm: 576px</code></li>
-					<li><code>--breakpoint-md: 768px</code></li>
-					<li><code>--breakpoint-lg: 992px</code></li>
-					<li><code>--breakpoint-xl: 1200px</code></li>
-				</ul>
 			</div>
 		</div>
 		<!-- Variables Reference -->
