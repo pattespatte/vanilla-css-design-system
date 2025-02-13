@@ -7,8 +7,8 @@
 	<title>Typography - Vanilla CSS Design System</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" integrity="sha512-hasIneQUHlh06VNBe7f6ZcHmeRTLIaQWFd43YriJ0UND19bvYRauxthDg8E4eVNPm9bRUhr5JGeqH7FRFXQu5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css" integrity="sha512-hasIneQUHlh06VNBe7f6ZcHmeRTLIaQWFd43YriJ0UND19bvYRauxthDg8E4eVNPm9bRUhr5JGeqH7FRFXQu5g==" crossorigin="anonymous" referrerpolicy="no-referrer">
 	<link rel="stylesheet" href="../../styles/main.css">
 	<link rel="stylesheet" href="../assets/css/examples.css">
 	<link rel="stylesheet" href="../assets/css/main-menu.css">
@@ -39,20 +39,28 @@
 		</div>
 	</header>
 	<main>
-		<!-- Typography Variables -->
+		<!-- Overview Section -->
 		<div class="example-section">
-			<h2 class="example-title">Typography</h2>
+			<h2 class="example-title">Overview</h2>
 			<p class="example-description">
 				Font families, sizes, weights, and line heights used in the system.
 			</p>
 
-			<div class="grid grid-cols-1 md-grid-cols-3 gap-3">
+			<div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-3">
 				<section class="card">
 					<h3 class="mb-3">Font Family</h3>
 					<p style="font-family: var(--font-family-base)">
 						System Font Stack
 						<br>
 						<code>--font-family-base</code>
+					</p>
+				</section>
+				<section class="card">
+					<h3 class="mb-3">Line Height</h3>
+					<p style="line-height: var(--line-height-base)">
+						Base Line Height
+						<br>
+						<code>--line-height-base</code>
 					</p>
 				</section>
 				<section class="card">
@@ -70,202 +78,141 @@
 			</div>
 		</div>
 
-		<!-- Font Family -->
+		<!-- Font Family Section -->
 		<div class="example-section">
 			<h2 class="example-title">Font Family</h2>
-			<p class="example-description">
-				You can set a custom font stack in the :root selector.
-			</p>
-			<div class="font-demo">
-				<p style="font-size: 1.5rem;">
-					The quick brown fox jumps over the lazy dog. 1234567890. !@#$%^&*()_+[]{};:'",./?
-				</p>
-				<p style="color: var(--color-muted);">
-					Set your font stack globally in the :root selector.
-				</p>
-			</div>
-			<div class="code-block">
-				<pre><code>:root {
+
+			<section>
+				<h3>System Font Stack</h3>
+				<div class="card">
+					<p style="font-size: 1.5rem;">
+						The quick brown fox jumps over the lazy dog. 1234567890 !@#$%^&*()_+[]{};:'",/?
+					</p>
+					<p style="color: var(--color-muted);">
+						Set your font stack globally in the :root selector.
+					</p>
+				</div>
+				<div class="code-block">
+					<pre><code>:root {
 	--font-family-base: "Public Sans", system-ui, -apple-system, BlinkMacSystemFont, 
 		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }</code></pre>
-			</div>
+				</div>
+			</section>
 		</div>
-		<!-- Type Scale -->
+
+		<!-- Type Scale Section -->
 		<div class="example-section">
 			<h2 class="example-title">Type Scale</h2>
 			<p class="example-description">
-				A consistent type scale for headings and text elements.
+				A consistent type scale for text elements.
 			</p>
-			<div class="type-scale-demo">
-				<h1>Heading 1</h1>
-				<h2>Heading 2</h2>
-				<h3>Heading 3</h3>
-				<h4>Heading 4</h4>
-				<h5>Heading 5</h5>
-				<h6>Heading 6</h6>
-			</div>
-			<div class="code-block">
-				<pre><code>:root {
-	--text-weight-base: 1rem;	  /* 16px */
+			<section>
+				<h3>Size Variables</h3>
+				<div class="code-block">
+					<pre><code>:root {
+	--text-weight-base: 1rem;	/* 16px */
 	--text-size-sm: 0.875rem;	/* 14px */
-	--text-size-lg: 1.25rem;	 /* 20px */
+	--text-size-lg: 1.25rem;	/* 20px */
 }</code></pre>
-			</div>
+				</div>
+			</section>
 		</div>
-		<!-- Font Weights -->
-		<div class="example-section">
-			<h2 class="example-title">Font Weights</h2>
-			<p class="example-description">
-				Available font weights for different purposes.
-			</p>
-			<div class="font-demo">
-				<p style="font-weight: 200;">Light (200) - Secondary text weight</p>
-				<p style="font-weight: 400;">Regular (400) - Primary text weight</p>
-				<p style="font-weight: 700;">Bold (700) - Emphasis and headings</p>
-			</div>
-			<div class="code-block">
-				<pre><code>:root {
-	--text-weight-light: 200;
-	--text-weight-base: 400;
-	--text-weight-bold: 700;
-}</code></pre>
-			</div>
-		</div>
-		<!-- Line Height -->
-		<div class="example-section">
-			<h2 class="example-title">Line Height</h2>
-			<p class="example-description">
-				Different line heights for optimal readability.
-			</p>
-			<div class="font-demo">
-				<p>
-					Default line height (1.5) - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-				</p>
-			</div>
-			<div class="code-block">
-				<pre><code>:root {
-	--line-height-base: 1.5;
-}</code></pre>
-			</div>
-		</div>
-		<!-- Text Styles -->
+
+		<!-- Text Styles Section -->
 		<div class="example-section">
 			<h2 class="example-title">Text Styles</h2>
-			<p class="example-description">
-				Common text styles and variations.
-			</p>
-			<div class="font-demo">
-				<p><strong>Bold text</strong> - using &lt;strong&gt; or .text-weight-bold</p>
-				<p><em>Italic text</em> - using &lt;em&gt; or .text-style-italic</p>
-				<p><small>Small text</small> - using &lt;small&gt; or .text-size-sm</p>
-				<p><del>Strikethrough text</del> - using &lt;del&gt;</p>
-				<p><u>Underlined text</u> - using &lt;u&gt;</p>
-				<p><mark>Highlighted text</mark> - using &lt;mark&gt;</p>
-				<p><code>Inline code</code> - using &lt;code&gt;</p>
-			</div>
-		</div>
-		<!-- Text Colors -->
-		<div class="example-section">
-			<h2 class="example-title">Text Colors</h2>
-			<p class="example-description">
-				Standard text colors for different purposes.
-			</p>
-			<div class="font-demo">
-				<p style="color: var(--color-dark);">Default text color</p>
-				<p style="color: var(--color-muted);">Muted text color</p>
-				<p style="color: var(--color-primary);">Primary text color</p>
-				<p style="color: var(--color-success);">Success text color</p>
-				<p style="color: var(--color-error);">Error text color</p>
-			</div>
-			<div class="code-block">
-				<pre><code>:root {
+
+			<section>
+				<h3>Headings</h3>
+				<div class="type-scale-demo">
+					<h1>Heading 1</h1>
+					<h2>Heading 2</h2>
+					<h3>Heading 3</h3>
+					<h4>Heading 4</h4>
+					<h5>Heading 5</h5>
+					<h6>Heading 6</h6>
+				</div>
+			</section>
+
+			<section>
+				<h3>Basic Text Variations</h3>
+				<div class="card">
+					<p><strong>Bold text</strong> - using &lt;strong&gt; or .text-weight-bold</p>
+					<p><em>Italic text</em> - using &lt;em&gt; or .text-style-italic</p>
+					<p><small>Small text</small> - using &lt;small&gt; or .text-size-sm</p>
+					<p><del>Strikethrough text</del> - using &lt;del&gt;</p>
+					<p><u>Underlined text</u> - using &lt;u&gt;</p>
+					<p><mark>Highlighted text</mark> - using &lt;mark&gt;</p>
+					<p><code>Inline code</code> - using &lt;code&gt;</p>
+				</div>
+			</section>
+
+			<section>
+				<h3>Text Colors</h3>
+				<div class="card">
+					<p style="color: var(--color-dark);">Default text color</p>
+					<p style="color: var(--color-muted);">Muted text color</p>
+					<p style="color: var(--color-primary);">Primary text color</p>
+					<p style="color: var(--color-success);">Success text color</p>
+					<p style="color: var(--color-error);">Error text color</p>
+				</div>
+				<div class="code-block">
+					<pre><code>:root {
 	--color-dark: #343a40;
 	--color-muted: #6c757d;
 	--color-primary: #6e0e50;
 	--color-success: #1e7e34;
 	--color-error: #dc3545;
 }</code></pre>
-			</div>
-		</div>
-		<!-- Text Block Examples -->
-		<div class="example-section">
-			<h2 class="example-title">Text Block Examples</h2>
-			<p class="example-description">
-				Examples of common text patterns and combinations.
-			</p>
-			<!-- Article Example -->
-			<article class="card">
-				<h2>Article Title</h2>
-				<p class="text-muted text-style-italic">Posted on
-					<script>document.write(new Date().toLocaleDateString());</script>
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-					incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-					nostrud exercitation ullamco laboris.</p>
-				<blockquote>
-					This is a blockquote. It stands out from regular text and is commonly used
-					for quotes or notable text.
-				</blockquote>
-				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-					eu fugiat nulla pariatur.</p>
-			</article>
-		</div>
-		<!-- Typography Best Practices -->
-		<div class="example-section">
-			<h2 class="example-title">Typography Best Practices</h2>
-			<ul class="p-3">
-				<li>Use semantic HTML elements (h1-h6, p, etc.)</li>
-				<li>Maintain consistent spacing between text elements</li>
-				<li>Use appropriate font weights for hierarchy</li>
-				<li>Consider line length for readability (50-75 characters)</li>
-				<li>Use color contrast that meets accessibility standards</li>
-				<li>Apply consistent line heights for readability</li>
-			</ul>
-		</div>
-		<!-- Typography Variables Reference -->
-		<div class="example-section">
-			<h2 class="example-title">Typography Variables Reference</h2>
-
-			<div class="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-3">
-				<section class="card">
-					<h3>Font Family</h3>
-					<ul class="p-3">
-						<li><code>--font-family-base</code></li>
-					</ul>
-				</section>
-				<section class="card">
-					<h3>Font Sizes</h3>
-					<ul class="p-3">
-						<li><code>--text-weight-base</code></li>
-						<li><code>--text-size-sm</code></li>
-						<li><code>--text-size-lg</code></li>
-					</ul>
-				</section>
-				<section class="card">
-					<h3>Font Weights</h3>
-					<ul class="p-3">
-						<li><code>--text-weight-base</code></li>
-						<li><code>--text-weight-bold</code></li>
-					</ul>
-				</section>
-				<section class="card">
-					<h3>Line Heights</h3>
-					<ul class="p-3">
-						<li><code>--line-height-base</code></li>
-					</ul>
-				</section>
-			</div>
-
+				</div>
+			</section>
 		</div>
 
-				<!-- Variables Reference -->
-				<div class="example-section">
-					<h2 class="example-title">Fonts Variables Reference</h2>
-					<div class="code-block">
-						<pre><code>/* variables.css - Design Tokens */
+		<!-- Examples Section -->
+		<div class="example-section">
+			<h2 class="example-title">Examples</h2>
+
+			<section>
+				<h3>Article Example</h3>
+				<article class="card">
+					<h2>Article Title</h2>
+					<p class="text-muted text-style-italic">Posted on
+						<script>document.write(new Date().toLocaleDateString());</script>
+					</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+						nostrud exercitation ullamco laboris.</p>
+					<blockquote>
+						This is a blockquote. It stands out from regular text and is commonly used
+						for quotes or notable text.
+					</blockquote>
+					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+						eu fugiat nulla pariatur.</p>
+				</article>
+			</section>
+		</div>
+
+		<!-- Reference Section -->
+		<div class="example-section">
+			<h2 class="example-title">Reference</h2>
+
+			<section>
+				<h3>Best Practices</h3>
+				<ul class="p-3">
+					<li>Use semantic HTML elements (h1-h6, p, etc.)</li>
+					<li>Maintain consistent spacing between text elements</li>
+					<li>Use appropriate font weights for hierarchy</li>
+					<li>Consider line length for readability (50-75 characters)</li>
+					<li>Use color contrast that meets accessibility standards</li>
+					<li>Apply consistent line heights for readability</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Variables Reference</h3>
+				<div class="code-block">
+					<pre><code>/* variables.css - Design Tokens */
 :root {
 	/* Base font family */
 	--font-family-base: "Public Sans", system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
@@ -293,8 +240,9 @@
 	--line-height-base: 1.5;
 }
 						</code></pre>
-					</div>
 				</div>
+			</section>
+		</div>
 	</main>
 	<footer>
 		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>
