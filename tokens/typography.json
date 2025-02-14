@@ -2,7 +2,7 @@
   "font": {
     "family": {
       "base": {
-        "$value": "system-ui, -apple-system, blinkmacsystemfont, \"Segoe UI\",\n\t\troboto, oxygen, ubuntu, cantarell, sans-serif",
+        "$value": "\"Public Sans\", system-ui, -apple-system, blinkmacsystemfont, \"Segoe UI\",\n\t\troboto, oxygen, ubuntu, cantarell, sans-serif",
         "$type": "fontFamily"
       }
     }

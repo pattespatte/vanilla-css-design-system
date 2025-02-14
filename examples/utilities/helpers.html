@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="../../styles/main.css">
 	<link rel="stylesheet" href="../assets/css/examples.css">
 	<link rel="stylesheet" href="../assets/css/main-menu.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css">
 	<link rel="icon" type="image/svg+xml" href="../assets/images/vanilla-logo.svg">
 </head>
 
@@ -40,200 +40,248 @@
 		</div>
 	</header>
 	<main>
-		<!-- Display Helpers -->
+
+		<!-- Flex Direction Utilities -->
 		<div class="example-section">
-			<h2 class="example-title">Display Helpers</h2>
+			<h2 class="example-title">Flex Direction Utilities</h2>
 			<p class="example-description">
-				Control the display property of elements.
+				Control the direction of flex items.
 			</p>
-			<h3>Default display</h3>
-			<div class="demo-box">
+			<div class="demo-box d-flex flex-row">
 				<div class="p-2 bd-highlight border border-primary">Item 1</div>
 				<div class="p-2 bd-highlight border border-primary">Item 2</div>
 				<div class="p-2 bd-highlight border border-primary">Item 3</div>
 			</div>
-			<h3 class="d-none">Hidden element (won't be visible)</h3>
-			<div class="demo-box d-none">Hidden element (won't be visible)</div>
-			<h3>Flex container</h3>
-			<div class="demo-box flex">
+			<div class="demo-box d-flex flex-row-reverse">
+				<div class="p-2 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="demo-box d-flex flex-col">
+				<div class="p-2 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="demo-box d-flex flex-col-reverse">
 				<div class="p-2 bd-highlight border border-primary">Item 1</div>
 				<div class="p-2 bd-highlight border border-primary">Item 2</div>
 				<div class="p-2 bd-highlight border border-primary">Item 3</div>
 			</div>
 			<div class="code-block">
-				<pre><code>&lt;h3&gt;Flex container&lt;/h3&gt;
-&lt;div class="demo-box"&gt;
-	&lt;div class="p-2"&gt;Item 1&lt;/div&gt;
-	&lt;div class="p-2"&gt;Item 2&lt;/div&gt;
-	&lt;div class="p-2"&gt;Item 3&lt;/div&gt;
+				<pre><code>&lt;div class="d-flex flex-row"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;
-&lt;h3 class="d-none"&gt;Hidden element (won't be visible)&lt;/h3&gt;
-&lt;div class="demo-box d-none"&gt;Hidden element (won't be visible)&lt;/div&gt;
-&lt;h3&gt;Flex container&lt;/h3&gt;
-&lt;div class="demo-box flex"&gt;
-	&lt;div class="p-2"&gt;Item 1&lt;/div&gt;
-	&lt;div class="p-2"&gt;Item 2&lt;/div&gt;
-	&lt;div class="p-2"&gt;Item 3&lt;/div&gt;
+&lt;div class="d-flex flex-row-reverse"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="d-flex flex-col"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="d-flex flex-col-reverse"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
 
-		<!-- Flex Utilities -->
+		<!-- Flex Wrap Utilities -->
 		<div class="example-section">
-			<h2 class="example-title">Flex Utilities</h2>
+			<h2 class="example-title">Flex Wrap Utilities</h2>
 			<p class="example-description">
-				Helper classes for flexbox layouts.
+				Control the wrapping of flex items.
 			</p>
-			<div class="demo-box flex items-center justify-between">
-				<div class="bd-highlight border border-primary">Flex Item 1</div>
-				<div class="bd-highlight border border-primary">Flex Item 2</div>
-				<div class="bd-highlight border border-primary">Flex Item 3</div>
+			<div class="demo-box d-flex flex-wrap">
+				<div class="p-2 w-50 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 w-50 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 w-50 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="demo-box d-flex flex-nowrap">
+				<div class="p-2 w-50 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 w-50 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 w-50 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="demo-box d-flex flex-wrap-reverse">
+				<div class="p-2 w-50 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 w-50 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 w-50 bd-highlight border border-primary">Item 3</div>
 			</div>
 			<div class="code-block">
-				<pre><code>&lt;div class="flex items-center justify-between"&gt;
-    &lt;div&gt;Flex Item 1&lt;/div&gt;
-    &lt;div&gt;Flex Item 2&lt;/div&gt;
-    &lt;div&gt;Flex Item 3&lt;/div&gt;
+				<pre><code>&lt;div class="d-flex flex-wrap"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="d-flex flex-nowrap"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="d-flex flex-wrap-reverse"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
 
-		<!-- Text Alignment -->
+		<!-- Flex Grow and Shrink Utilities -->
 		<div class="example-section">
-			<h2 class="example-title">Text Alignment</h2>
+			<h2 class="example-title">Flex Grow and Shrink Utilities</h2>
 			<p class="example-description">
-				Control text alignment with utility classes.
+				Control the growth and shrinkage of flex items.
 			</p>
-			<div class="demo-box text-center bd-highlight">Centered text</div>
-			<div class="demo-box text-left bd-highlight">Left aligned text</div>
-			<div class="demo-box text-right bd-highlight">Right aligned text</div>
-			<div class="code-block">
-				<pre><code>&lt;div class="text-center"&gt;Centered text&lt;/div&gt;
-&lt;div class="text-left"&gt;Left aligned text&lt;/div&gt;
-&lt;div class="text-right"&gt;Right aligned text&lt;/div&gt;</code></pre>
-			</div>
-		</div>
-
-		<!-- Float Utilities -->
-		<div class="example-section">
-			<h2 class="example-title">Float Utilities</h2>
-			<p class="example-description">
-				Float elements to the left or right.
-			</p>
-			<div class="demo-box float-left bd-highlight border border-primary">Float left</div>
-			<div class="demo-box float-right bd-highlight border border-primary">Float right</div>
-			<div class="code-block">
-				<pre><code>&lt;div class="float-left"&gt;Float left&lt;/div&gt;
-&lt;div class="float-right"&gt;Float right&lt;/div&gt;</code></pre>
-			</div>
-		</div>
-
-		<!-- Clearfix -->
-		<div class="example-section">
-			<h2 class="example-title">Clearfix</h2>
-			<p class="example-description">
-				Remove floats from an element.
-			</p>
-			<div class="demo-box clearfix">
-				<div class="float-left bd-highlight border border-primary">Float left</div>
-				<div class="float-right bd-highlight border border-primary">Float right</div>
+			<div class="demo-box d-flex">
+				<div class="p-2 bd-highlight border border-primary flex-grow-0">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary flex-grow-1">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary flex-shrink-0">Item 3</div>
 			</div>
 			<div class="code-block">
-				<pre><code>&lt;div class="clearfix"&gt;
-	&lt;div class="float-left"&gt;Float left&lt;/div&gt;
-	&lt;div class="float-right"&gt;Float right&lt;/div&gt;
+				<pre><code>&lt;div class="flex"&gt;
+	&lt;div class="flex-grow-0"&gt;Item 1&lt;/div&gt;
+	&lt;div class="flex-grow-1"&gt;Item 2&lt;/div&gt;
+	&lt;div class="flex-shrink-0"&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
 
-		<!-- Responsive Visibility -->
+		<!-- Flex Basis Utilities -->
 		<div class="example-section">
-			<h2 class="example-title">Responsive Visibility</h2>
+			<h2 class="example-title">Flex Basis Utilities</h2>
 			<p class="example-description">
-				Control element visibility at different breakpoints.
+				Control the initial size of flex items.
 			</p>
-			<div class="demo-box sm-hidden">Hidden on small screens</div>
-			<div class="demo-box md-hidden">Hidden on medium screens</div>
-			<div class="demo-box lg-hidden">Hidden on large screens</div>
-			<div class="code-block">
-				<pre><code>&lt;div class="sm-hidden"&gt;Hidden on small screens&lt;/div&gt;
-&lt;div class="md-hidden"&gt;Hidden on medium screens&lt;/div&gt;
-&lt;div class="lg-hidden"&gt;Hidden on large screens&lt;/div&gt;</code></pre>
-			</div>
-		</div>
-
-		<!-- Spacing Helpers -->
-		<div class="example-section">
-			<h2 class="example-title">Quick Spacing Helpers</h2>
-			<p class="example-description">
-				Common spacing utility classes for margin and padding.
-			</p>
-			<div class="demo-box p-0">
-				<div class="demo-box m-1 bd-highlight">Margin 1 (all sides)</div>
-			</div>
-			<div class="demo-box p-0">
-				<div class="demo-box m-3 bd-highlight">Margin 3 (all sides)</div>
-			</div>
-			<div class="demo-box p-0">
-				<div class="demo-box mx-3 bd-highlight">Margin 3 (horizontal)</div>
-			</div>
-			<div class="demo-box p-0">
-				<div class="demo-box my-3 bd-highlight">Margin 3 (vertical)</div>
+			<div class="demo-box d-flex">
+				<div class="p-2 bd-highlight border border-primary flex-basis-auto">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary flex-basis-25">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary flex-basis-50">Item 3</div>
 			</div>
 			<div class="code-block">
-				<pre><code>&lt;div class="demo-box p-0"&gt;
-	&lt;div class="demo-box m-1"&gt;Margin 1 (all sides)&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="demo-box p-0"&gt;
-	&lt;div class="demo-box m-3"&gt;Margin 3 (all sides)&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="demo-box p-0"&gt;
-	&lt;div class="demo-box mx-3"&gt;Margin 3 (horizontal)&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="demo-box p-0"&gt;
-	&lt;div class="demo-box my-3"&gt;Margin 3 (vertical)&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-			</div>
-		</div>
-
-		<!-- Common Combinations -->
-		<div class="example-section">
-			<h2 class="example-title">Common Helper Combinations</h2>
-			<p class="example-description">
-				Frequently used combinations of helper classes.
-			</p>
-			<div class="demo-box flex justify-between p-3">
-				<div class="bd-highlight border border-primary">
-					One Flex Item
-				</div>
-				<div class="bd-highlight border border-primary">
-					Another Flex Item
-				</div>
-			</div>
-			<div class="code-block">
-				<pre><code>&lt;div class="flex justify-between p-3"&gt;
-	&lt;div&gt;One Flex Item&lt;/div&gt;
-	&lt;div&gt;Another Flex Item&lt;/div&gt;
+				<pre><code>&lt;div class="flex"&gt;
+	&lt;div class="flex-basis-auto"&gt;Item 1&lt;/div&gt;
+	&lt;div class="flex-basis-25"&gt;Item 2&lt;/div&gt;
+	&lt;div class="flex-basis-50"&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
+
+		<!-- Flex Alignment Utilities -->
 		<div class="example-section">
-			<div class="demo-box position-relative" style="height: 15rem;">
-				<div class="demo-box item-top-left m-3 bd-highlight">Top Left</div>
-				<div class="demo-box item-top-right m-3 bd-highlight">Top Right</div>
-				<div class="demo-box item-bottom-left m-3 bd-highlight">Bottom Left</div>
-				<div class="demo-box item-bottom-right m-3 bd-highlight">Bottom Right</div>
+			<h2 class="example-title">Flex Alignment Utilities</h2>
+			<p class="example-description">
+				Control the alignment of flex items.
+			</p>
+			<div class="demo-box d-flex items-start" style="height: 150px;">
+				<div class="p-2 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="demo-box d-flex items-end" style="height: 150px;">
+				<div class="p-2 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="demo-box d-flex items-center" style="height: 150px;">
+				<div class="p-2 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="demo-box d-flex items-baseline" style="height: 150px;">
+				<div class="p-2 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="demo-box d-flex items-stretch" style="height: 150px;">
+				<div class="p-2 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary">Item 3</div>
 			</div>
 			<div class="code-block">
-				<pre><code>&lt;div class="position-relative" style="height: 15rem"&gt;
-	&lt;div class="demo-box item-top-left m-3"&gt;Top Left&lt;/div&gt;
-	&lt;div class="demo-box item-top-right m-3"&gt;Top Right&lt;/div&gt;
-	&lt;div class="demo-box item-bottom-left m-3"&gt;Bottom Left&lt;/div&gt;
-	&lt;div class="demo-box item-bottom-right m-3"&gt;Bottom Right&lt;/div&gt;
+				<pre><code>&lt;div class="d-flex items-start"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="d-flex items-end"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="d-flex items-center"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="d-flex items-baseline"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="d-flex items-stretch"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 			</div>
 		</div>
+
+		<!-- Flex Order Utilities -->
+		<div class="example-section">
+			<h2 class="example-title">Flex Order Utilities</h2>
+			<p class="example-description">
+				Control the order of flex items.
+			</p>
+			<div class="demo-box d-flex">
+				<div class="p-2 bd-highlight border border-primary order-2">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary order-1">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary order-3">Item 3</div>
+			</div>
+			<div class="code-block">
+				<pre><code>&lt;div class="flex"&gt;
+	&lt;div class="order-2"&gt;Item 2&lt;/div&gt;
+	&lt;div class="order-1"&gt;Item 1&lt;/div&gt;
+	&lt;div class="order-3"&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Flex Gap Utilities -->
+		<div class="example-section">
+			<h2 class="example-title">Flex Gap Utilities</h2>
+			<p class="example-description">
+				Control the gap between flex items.
+			</p>
+			<div class="demo-box d-flex gap-1">
+				<div class="p-2 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="demo-box d-flex gap-3">
+				<div class="p-2 bd-highlight border border-primary">Item 1</div>
+				<div class="p-2 bd-highlight border border-primary">Item 2</div>
+				<div class="p-2 bd-highlight border border-primary">Item 3</div>
+			</div>
+			<div class="code-block">
+				<pre><code>&lt;div class="d-flex gap-1"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="d-flex gap-3"&gt;
+	&lt;div&gt;Item 1&lt;/div&gt;
+	&lt;div&gt;Item 2&lt;/div&gt;
+	&lt;div&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<!-- Helper Classes Reference -->
 		<div class="example-section">
 			<h2 class="example-title">Helper Classes Reference</h2>
 			<div class="card">
@@ -251,12 +299,17 @@
 
 				<h3>Flex</h3>
 				<ul class="p-3">
-					<li><code>.flex</code> - Flex container</li>
-					<li><code>.flex-{col|row}</code> - Flex direction</li>
-					<li><code>.flex-{wrap|nowrap}</code> - Flex wrap</li>
-					<li><code>.items-center</code> - Align items center</li>
-					<li><code>.justify-between</code> - Justify content space-between</li>
-					<li><code>.gap-{1|2|3}</code> - Gap spacing</li>
+					<li><code>.d-flex</code> - Flex container</li>
+					<li><code>.flex-{row|row-reverse|column|column-reverse}</code> - Flex direction</li>
+					<li><code>.flex-{wrap|nowrap|wrap-reverse}</code> - Flex wrap</li>
+					<li><code>.items-{start|end|center|baseline|stretch}</code> - Align items</li>
+					<li><code>.self-{auto|start|end|center|baseline|stretch}</code> - Align self</li>
+					<li><code>.justify-{start|end|center|between|around|evenly}</code> - Justify content</li>
+					<li><code>.content-{start|end|center|between|around|stretch}</code> - Align content</li>
+					<li><code>.flex-{grow-0|grow-1|shrink-0|shrink-1}</code> - Flex grow and shrink</li>
+					<li><code>.flex-basis-{auto|0|25|50|75|100}</code> - Flex basis</li>
+					<li><code>.order-{1|2|3|last|first|none}</code> - Order</li>
+					<li><code>.gap-{0|1|2|3|4|5|6}</code> - Gap spacing</li>
 				</ul>
 
 				<h3>Text</h3>
@@ -271,6 +324,7 @@
 				</ul>
 			</div>
 		</div>
+
 	</main>
 	<footer>
 		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>

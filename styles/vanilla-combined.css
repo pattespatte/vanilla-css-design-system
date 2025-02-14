@@ -192,17 +192,20 @@ blockquote {
 /* variables/breakpoints.css */
 
 :root {
-	/* Small devices (landscape phones, 576px and up) */
+	/* Small devices (Catches most modern smartphones in landscape mode) */
 	--breakpoint-sm: 576px;
 	
-	/* Medium devices (tablets, 768px and up) */
+	/* Medium devices (Catches most tablets in portrait mode) */
 	--breakpoint-md: 768px;
 	
-	/* Large devices (desktops, 992px and up) */
+	/* Large devices (Catches smaller desktops and tablets in landscape mode) */
 	--breakpoint-lg: 992px;
 	
-	/* Extra large devices (large desktops, 1200px and up) */
+	/* Extra large devices (Catches larger desktops and monitors) */
 	--breakpoint-xl: 1200px;
+
+	/* Extra extra large devices (Catches largest desktops and monitors) */
+	--breakpoint-xxl: 1400px;
 }
 
 /* variables/colors.css */
@@ -1131,15 +1134,18 @@ blockquote {
 .nav-menu {
 	display: flex;
 	list-style: none;
-	gap: var(--spacing-2); /* Add space between tabs */
+	gap: var(--spacing-2);
 	margin: 0;
-	padding: 0;
+    padding: calc(var(--spacing-1) / 2);
 	flex-wrap: wrap;
 	max-width: 100%;
 	width: 100%;
+	position: relative;
+	border-bottom: var(--spacing-1) solid var(--color-gray-300);
+}
 
-	/* Add bottom border for the entire tab bar */
-	border-bottom: 1px solid var(--color-gray-300);
+.nav-menu li:first-child {
+	margin-left: 1rem; /* Move the first tab 1rem to the right */
 }
 
 .nav-menu a {
@@ -1154,12 +1160,11 @@ blockquote {
 	transition: var(--transition-base);
 
 	/* Add borders for tabs */
-	border: 1px solid var(--color-gray-500);
-	border-bottom: none;
+	border: 1px solid var(--color-gray-300);
 
 	/* Add rounded top corners */
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
+	border-top-left-radius: var(--spacing-2);
+	border-top-right-radius: var(--spacing-2);
 
 	/* Ensure the active tab appears "connected" to the content */
 	margin-bottom: -1px;
@@ -1167,6 +1172,9 @@ blockquote {
 	/* Optional: Add some horizontal padding */
 	padding-left: var(--spacing-4);
 	padding-right: var(--spacing-4);
+
+	position: relative;
+	z-index: 2;
 }
 
 .nav-link:hover {
@@ -1175,14 +1183,14 @@ blockquote {
 }
 
 .nav-link.active {
+	/* Make the active tab appear "connected" by making its background overlap the border */
 	background-color: var(--color-white);
 	color: var(--color-primary);
 	font-weight: var(--text-weight-bold);
 	border-width: 2px;
 	position: relative;
-
-	/* Make the active tab appear "connected" by making its background overlap the border */
 	border-bottom: 1px solid var(--color-white);
+	z-index: 3;
 }
 
 /* Mobile navigation */
@@ -2136,8 +2144,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	position: unset;
 }
 
-.text-muted
-{
+.text-muted {
 	color: var(--color-muted);
 }
 
@@ -2187,17 +2194,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 	clear: both;
 }
 
-.flex {
-	display: flex;
-}
-
-.flex-col {
-	flex-direction: column;
-}
-
-.flex-row {
-	flex-direction: row;
-}
+/* Flexbox */
 
 .flex-wrap {
 	flex-wrap: wrap;
@@ -2205,6 +2202,208 @@ input[type="checkbox"]:checked~.dropdown-content {
 
 .flex-nowrap {
 	flex-wrap: nowrap;
+}
+
+/* Flex Direction Utilities */
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-row-reverse {
+	flex-direction: row-reverse;
+}
+
+.flex-col {
+	flex-direction: column;
+}
+
+.flex-col-reverse {
+	flex-direction: column-reverse;
+}
+
+.flex-wrap-reverse {
+	flex-wrap: wrap-reverse;
+}
+
+/* Flex Grow and Shrink Utilities */
+.flex-grow-0 {
+	flex-grow: 0;
+}
+
+.flex-grow-1 {
+	flex-grow: 1;
+}
+
+.flex-shrink-0 {
+	flex-shrink: 0;
+}
+
+.flex-shrink-1 {
+	flex-shrink: 1;
+}
+
+/* Flex Basis Utilities */
+.flex-basis-auto {
+	flex-basis: auto;
+}
+
+.flex-basis-0 {
+	flex-basis: 0;
+}
+
+.flex-basis-25 {
+	flex-basis: 25%;
+}
+
+.flex-basis-50 {
+	flex-basis: 50%;
+}
+
+.flex-basis-75 {
+	flex-basis: 75%;
+}
+
+.flex-basis-100 {
+	flex-basis: 100%;
+}
+
+/* Flex Alignment Utilities */
+.items-start {
+	align-items: flex-start;
+}
+
+.items-end {
+	align-items: flex-end;
+}
+
+.items-center {
+	align-items: center;
+}
+
+.items-baseline {
+	align-items: baseline;
+}
+
+.items-stretch {
+	align-items: stretch;
+}
+
+.self-auto {
+	align-self: auto;
+}
+
+.self-start {
+	align-self: flex-start;
+}
+
+.self-end {
+	align-self: flex-end;
+}
+
+.self-center {
+	align-self: center;
+}
+
+.self-baseline {
+	align-self: baseline;
+}
+
+.self-stretch {
+	align-self: stretch;
+}
+
+.justify-start {
+	justify-content: flex-start;
+}
+
+.justify-end {
+	justify-content: flex-end;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.justify-around {
+	justify-content: space-around;
+}
+
+.justify-evenly {
+	justify-content: space-evenly;
+}
+
+.content-start {
+	align-content: flex-start;
+}
+
+.content-end {
+	align-content: flex-end;
+}
+
+.content-center {
+	align-content: center;
+}
+
+.content-between {
+	align-content: space-between;
+}
+
+.content-around {
+	align-content: space-around;
+}
+
+.content-stretch {
+	align-content: stretch;
+}
+
+/* Order Utilities */
+.order-1 {
+	order: 1;
+}
+
+.order-2 {
+	order: 2;
+}
+
+.order-3 {
+	order: 3;
+}
+
+.order-last {
+	order: 9999;
+}
+
+.order-first {
+	order: -9999;
+}
+
+.order-none {
+	order: 0;
+}
+
+/* Flex Gap Utilities */
+.gap-0 {
+	gap: 0;
+}
+
+.gap-1 {
+	gap: var(--spacing-1);
+}
+
+.gap-2 {
+	gap: var(--spacing-2);
+}
+
+.gap-3 {
+	gap: var(--spacing-3);
+}
+
+.gap-4 {
+	gap: var(--spacing-4);
 }
 
 .item-top-left,
@@ -2234,18 +2433,6 @@ input[type="checkbox"]:checked~.dropdown-content {
 	right: 0;
 }
 
-.gap-1 {
-	gap: var(--spacing-1);
-}
-
-.gap-2 {
-	gap: var(--spacing-2);
-}
-
-.gap-3 {
-	gap: var(--spacing-3);
-}
-
 .items-center {
 	align-items: center;
 }
@@ -2266,7 +2453,6 @@ input[type="checkbox"]:checked~.dropdown-content {
 	.sm-d-inline {
 		display: inline;
 	}
-
 }
 
 @media (width >= 768px) {
@@ -2322,6 +2508,7 @@ input[type="checkbox"]:checked~.dropdown-content {
 		max-width: var(--breakpoint-xl);
 	}
 }
+
 /* utilities/print.css */
 
 /* This CSS file contains styles specifically for print media */
