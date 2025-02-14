@@ -13,15 +13,18 @@
 .nav-menu {
 	display: flex;
 	list-style: none;
-	gap: var(--spacing-2); /* Add space between tabs */
+	gap: var(--spacing-2);
 	margin: 0;
-	padding: 0;
+    padding: calc(var(--spacing-1) / 2);
 	flex-wrap: wrap;
 	max-width: 100%;
 	width: 100%;
+	position: relative;
+	border-bottom: var(--spacing-1) solid var(--color-gray-300);
+}
 
-	/* Add bottom border for the entire tab bar */
-	border-bottom: 1px solid var(--color-gray-300);
+.nav-menu li:first-child {
+	margin-left: 1rem; /* Move the first tab 1rem to the right */
 }
 
 .nav-menu a {
@@ -36,12 +39,11 @@
 	transition: var(--transition-base);
 
 	/* Add borders for tabs */
-	border: 1px solid var(--color-gray-500);
-	border-bottom: none;
+	border: 1px solid var(--color-gray-300);
 
 	/* Add rounded top corners */
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
+	border-top-left-radius: var(--spacing-2);
+	border-top-right-radius: var(--spacing-2);
 
 	/* Ensure the active tab appears "connected" to the content */
 	margin-bottom: -1px;
@@ -49,6 +51,9 @@
 	/* Optional: Add some horizontal padding */
 	padding-left: var(--spacing-4);
 	padding-right: var(--spacing-4);
+
+	position: relative;
+	z-index: 2;
 }
 
 .nav-link:hover {
@@ -57,14 +62,14 @@
 }
 
 .nav-link.active {
+	/* Make the active tab appear "connected" by making its background overlap the border */
 	background-color: var(--color-white);
 	color: var(--color-primary);
 	font-weight: var(--text-weight-bold);
 	border-width: 2px;
 	position: relative;
-
-	/* Make the active tab appear "connected" by making its background overlap the border */
 	border-bottom: 1px solid var(--color-white);
+	z-index: 3;
 }
 
 /* Mobile navigation */
