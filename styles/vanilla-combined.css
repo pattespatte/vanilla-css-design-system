@@ -1123,33 +1123,23 @@ blockquote {
 	justify-content: space-between;
 	gap: var(--spacing-3);
 	padding: var(--spacing-3) 0;
-	position: relative; /* Ensure the nav is a positioning context */
+	position: relative;
 	max-width: 100%;
 	width: 100%;
-}
-
-.nav-brand {
-	font-size: var(--text-size-lg);
-	font-weight: var(--text-weight-bold);
-	text-decoration: none;
-	color: var(--color-primary);
 }
 
 .nav-menu {
 	display: flex;
 	list-style: none;
-	gap: var(--spacing-3);
+	gap: var(--spacing-2); /* Add space between tabs */
 	margin: 0;
 	padding: 0;
 	flex-wrap: wrap;
-
-	/* Allow items to wrap on smaller screens */
 	max-width: 100%;
-
-	/* Ensure nav doesn't exceed viewport width */
 	width: 100%;
 
-	/* Take full width of container */
+	/* Add bottom border for the entire tab bar */
+	border-bottom: 1px solid var(--color-gray-300);
 }
 
 .nav-menu a {
@@ -1162,6 +1152,21 @@ blockquote {
 	padding: var(--spacing-2);
 	text-decoration: none;
 	transition: var(--transition-base);
+
+	/* Add borders for tabs */
+	border: 1px solid var(--color-gray-500);
+	border-bottom: none;
+
+	/* Add rounded top corners */
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+
+	/* Ensure the active tab appears "connected" to the content */
+	margin-bottom: -1px;
+
+	/* Optional: Add some horizontal padding */
+	padding-left: var(--spacing-4);
+	padding-right: var(--spacing-4);
 }
 
 .nav-link:hover {
@@ -1173,7 +1178,11 @@ blockquote {
 	background-color: var(--color-white);
 	color: var(--color-primary);
 	font-weight: var(--text-weight-bold);
-	box-shadow: inset 0 -3px 0 0 var(--color-primary);
+	border-width: 2px;
+	position: relative;
+
+	/* Make the active tab appear "connected" by making its background overlap the border */
+	border-bottom: 1px solid var(--color-white);
 }
 
 /* Mobile navigation */
@@ -1190,7 +1199,7 @@ blockquote {
 	display: none;
 }
 
-.tab-radio:checked+.tab-content {
+.tab-radio:checked + .tab-content {
 	display: block;
 }
 
@@ -1326,6 +1335,7 @@ blockquote {
 		min-width: 2rem;
 	}
 }
+
 /* components/popups.css */
 
 /* Modals */
