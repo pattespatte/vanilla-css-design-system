@@ -62,11 +62,15 @@
 						link.addEventListener('click', function (event) {
 							event.preventDefault(); // Prevent the default anchor behavior
 
-							// Remove the 'active' class from all links
-							navLinks.forEach(nav => nav.classList.remove('active'));
+							// Remove the 'active' class and 'aria-current' attribute from all links
+							navLinks.forEach(nav => {
+								nav.classList.remove('active');
+								nav.removeAttribute('aria-current');
+							});
 
-							// Add the 'active' class to the clicked link
+							// Add the 'active' class and 'aria-current' attribute to the clicked link
 							this.classList.add('active');
+							this.setAttribute('aria-current', 'page');
 						});
 					});
 				</script>
