@@ -17,6 +17,7 @@
 
 /* Layout styles */
 @import url('layout/grid.css');
+@import url('layout/holy-grail.css');
 
 /* Component styles */
 @import url('components/alerts.css');

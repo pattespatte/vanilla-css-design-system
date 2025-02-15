@@ -405,7 +405,7 @@
 	}
 
 	.container {
-		max-width: var(--breakpoint-md);
+		max-width: var(--breakpoint-xxl);
 	}
 }
 
@@ -422,9 +422,6 @@
 		display: inline;
 	}
 
-	.container {
-		max-width: var(--breakpoint-lg);
-	}
 }
 
 @media (width >= 1200px) {
@@ -440,7 +437,4 @@
 		display: inline;
 	}
 
-	.container {
-		max-width: var(--breakpoint-xl);
-	}
 }

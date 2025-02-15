@@ -1,9 +1,9 @@
 // Get the current script's location and extract the base URL
 const scriptBasePath = document.currentScript.src.replace(/\/assets\/js\/main-menu\.js$/, '');
-const examplesFolder = `${scriptBasePath}/`;
+const siteFolder = `${scriptBasePath}/`;
 
 // Update elements that need the base path
-document.querySelector('[data-home-link]')?.setAttribute('href', examplesFolder);
+document.querySelector('[data-home-link]')?.setAttribute('href', siteFolder);
 
 // Get references to navigation elements
 const navMenu = document.querySelector('.main-menu');
@@ -14,22 +14,27 @@ navToggle?.addEventListener('click', () => navMenu.classList.toggle('active'));
 
 // Fetch and build the menu
 if (navMenu) {
-	fetch(examplesFolder)
+	fetch(siteFolder)
 		.then(response => response.text())
 		.then(html => {
 			const htmlFiles = html.match(/<a href="([^"]+\.html)"/g);
+			// console.log('Matched HTML files:', htmlFiles);
 			if (!htmlFiles) return;
 
 			const menuGroups = htmlFiles.reduce((groups, file) => {
 				const filePath = file.match(/<a href="([^"]+\.html)"/)[1];
+				// console.log('File path:', filePath);
 				const [category, fileName] = [filePath.split('/')[0], filePath.split('/').pop().replace('.html', '')];
+				// console.log('Category:', category);
+				// console.log('File name:', fileName);
 				if (!groups[category]) groups[category] = [];
-				groups[category].push({ href: `${examplesFolder}${filePath}`, label: formatFileName(fileName) });
+				groups[category].push({ href: `${siteFolder}${filePath}`, label: formatFileName(fileName) });
 				return groups;
 			}, {});
 
 			Object.entries(menuGroups).forEach(([category, items]) => {
 				const parentLi = createMenuItem(formatCategoryName(category), items[0].href, true);
+				// console.log('Created menu item:', parentLi);
 				const submenu = document.createElement('ul');
 				submenu.classList.add('submenu');
 				submenu.setAttribute('role', 'menu');

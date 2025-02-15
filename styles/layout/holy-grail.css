@@ -1,0 +1,27 @@
+/* utilities/holy-grail.css */
+
+/* Holy Grail Layout */
+.holy-grail-layout {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
+}
+
+.holy-grail-body {
+	display: grid;
+	grid-template-columns: 25% 1fr 25%;
+}
+
+/* Responsive Holy Grail Layout */
+.holy-grail-layout-responsive {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
+}
+
+@media (width <= 768px) {
+	.holy-grail-layout-responsive .holy-grail-body {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr auto;
+	}
+}

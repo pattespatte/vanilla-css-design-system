@@ -17,7 +17,7 @@ main {
 	flex: 1;
 	width: 100%;
 	margin: var(--spacing-4) auto;
-	max-width: var(--breakpoint-xl);
+	max-width: var(--breakpoint-xxl);
 }
 
 footer {
@@ -38,6 +38,85 @@ footer {
 	border: var(--border-width) solid var(--color-gray-100);
 	border-radius: calc(var(--border-radius) * 2);
 }
+
+
+/* Styling color swatches START */
+.color-swatch-cyan {
+	background-color: #17a2b8;
+	color: var(--color-white);
+}
+
+.color-swatch-blue {
+	background-color: #007bff;
+	color: var(--color-white);
+}
+
+.color-swatch-indigo {
+	background-color: #6610f2;
+	color: var(--color-white);
+}
+
+.color-swatch-purple {
+	background-color: #6f42c1;
+	color: var(--color-white);
+}
+
+.color-swatch-pink {
+	background-color: #e83e8c;
+	color: var(--color-white);
+}
+
+.color-swatch-red {
+	background-color: #dc3545;
+	color: var(--color-white);
+}
+
+.color-swatch-orange {
+	background-color: #fd7e14;
+	color: var(--color-white);
+}
+
+.color-swatch-yellow {
+	background-color: #ffc107;
+	color: var(--color-white);
+}
+
+.color-swatch-green {
+	background-color: #28a745;
+	color: var(--color-white);
+}
+
+.color-swatch-teal {
+	background-color: #20c997;
+	color: var(--color-white);
+}
+
+.color-swatch-white {
+	background-color: #fff;
+	color: var(--color-white);
+}
+
+.color-swatch-gray {
+	background-color: #6c757d;
+	color: var(--color-white);
+}
+
+.color-swatch-gray-dark {
+	background-color: #343a40;
+	color: var(--color-white);
+}
+
+.color-swatch-black {
+	background-color: #000;
+	color: var(--color-white);
+}
+
+.color-swatch-light {
+	background-color: #f8f9fa;
+	color: var(--color-white);
+}
+
+/* Styling color swatches END */
 
 /* Styling for the links to make them look like cards START */
 ul.docs-links.cards {

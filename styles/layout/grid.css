@@ -5,7 +5,7 @@
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	max-width: var(--breakpoint-xl);
+	max-width: var(--breakpoint-xxl);
 }
 
 /* Grid display settings */
@@ -107,10 +107,6 @@
 
 /* Responsive grids */
 @media (width >= 576px) {
-	.container {
-		max-width: var(--breakpoint-sm);
-	}
-
 	.sm-col-span-1 {
 		grid-column: span 1 / span 1;
 	}
