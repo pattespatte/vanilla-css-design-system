@@ -333,7 +333,7 @@ blockquote {
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	max-width: var(--breakpoint-xxl);
+	max-width: var(--breakpoint-xl);
 }
 
 /* Grid display settings */
@@ -2482,10 +2482,6 @@ input[type="checkbox"]:checked~.dropdown-content {
 
 	.md-d-inline {
 		display: inline;
-	}
-
-	.container {
-		max-width: var(--breakpoint-xxl);
 	}
 }
 

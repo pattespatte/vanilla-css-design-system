@@ -403,10 +403,6 @@
 	.md-d-inline {
 		display: inline;
 	}
-
-	.container {
-		max-width: var(--breakpoint-xxl);
-	}
 }
 
 @media (width >= 992px) {
