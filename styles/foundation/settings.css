@@ -24,7 +24,7 @@
 
 [data-theme="dark"] a,
 [data-theme="dark"] .breadcrumbs a {
-	color: var(--color-primary-300);
+	color: var(--color-primary-200);
 }
 
 [data-theme="dark"] .pagination a,

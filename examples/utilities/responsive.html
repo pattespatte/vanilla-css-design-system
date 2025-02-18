@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="../../styles/main.css">
 	<link rel="stylesheet" href="../assets/css/examples.css">
 	<link rel="stylesheet" href="../assets/css/main-menu.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/a11y-light.min.css">
 	<link rel="icon" type="image/svg+xml" href="../assets/images/vanilla-logo.svg">
 </head>
 
@@ -83,6 +83,12 @@
 							<td><code>xl</code></td>
 							<td>≥ 1200px</td>
 						</tr>
+						<tr>
+							<td>Extra extra large</td>
+							<td><code>xxl</code></td>
+							<td>≥ 1400px</td>
+						</tr>
+
 					</tbody>
 				</table>
 			</div>
@@ -107,6 +113,9 @@
 			</div>
 			<div class="demo-box d-none xl-d-block">
 				Only visible on extra large screens (xl)
+			</div>
+			<div class="demo-box d-none xxl-d-block">
+				Only visible on extra extra large screens (xxl)
 			</div>
 			<div class="code-block">
 				<pre><code>&lt;div class="sm-hidden"&gt;
@@ -218,19 +227,19 @@
 			<section>
 				<h3>Display Classes</h3>
 				<ul class="p-3">
-					<li><code>{sm|md|lg|xl}-hidden</code></li>
-					<li><code>{sm|md|lg|xl}-block</code></li>
-					<li><code>{sm|md|lg|xl}-flex</code></li>
+					<li><code>{sm|md|lg|xl|xxl}-hidden</code></li>
+					<li><code>{sm|md|lg|xl|xxl}-block</code></li>
+					<li><code>{sm|md|lg|xl|xxl}-flex</code></li>
 				</ul>
 				<h3>Grid Classes</h3>
 				<ul class="p-3">
-					<li><code>{sm|md|lg|xl}-grid-cols-{1-12}</code></li>
-					<li><code>{sm|md|lg|xl}-col-span-{1-12}</code></li>
+					<li><code>{sm|md|lg|xl|xxl}-grid-cols-{1-12}</code></li>
+					<li><code>{sm|md|lg|xl|xxl}-col-span-{1-12}</code></li>
 				</ul>
 				<h3>Spacing Classes</h3>
 				<ul class="p-3">
-					<li><code>{sm|md|lg|xl}-p-{1-5}</code></li>
-					<li><code>{sm|md|lg|xl}-m-{1-5}</code></li>
+					<li><code>{sm|md|lg|xl|xxl}-p-{1-5}</code></li>
+					<li><code>{sm|md|lg|xl|xxl}-m-{1-5}</code></li>
 				</ul>
 			</section>
 		</div>

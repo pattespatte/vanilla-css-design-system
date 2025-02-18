@@ -34,7 +34,7 @@ body::after {
 
 [data-theme="dark"] a,
 [data-theme="dark"] .breadcrumbs a {
-	color: var(--color-primary-300);
+	color: var(--color-primary-200);
 }
 
 [data-theme="dark"] .pagination a,
@@ -942,7 +942,8 @@ blockquote {
 	margin-bottom: var(--spacing-3);
 }
 
-.table th, .table td {
+.table th,
+.table td {
 	padding: var(--spacing-2);
 	text-align: left;
 }
@@ -951,17 +952,27 @@ blockquote {
 	background-color: var(--color-primary-100);
 }
 
+.table-bordered th,
+.table-bordered td {
+	border: 1px solid var(--color-primary);
+}
+
+[data-theme="dark"] .table th {
+	background-color: var(--color-primary-800);
+}
+
 .table tr:nth-child(even) {
 	background-color: var(--color-gray-100);
 }
 
-.table-bordered th, .table-bordered td {
-	border: 1px solid var(--color-primary);
+[data-theme="dark"] .table tr:nth-child(even) {
+	background-color: var(--color-gray-700);
 }
 
 .table-bordered {
 	border: 1px solid var(--color-primary);
 }
+
 /* components/forms.css */
 
 /* Form Groups */

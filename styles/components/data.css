@@ -5,7 +5,8 @@
 	margin-bottom: var(--spacing-3);
 }
 
-.table th, .table td {
+.table th,
+.table td {
 	padding: var(--spacing-2);
 	text-align: left;
 }
@@ -14,12 +15,21 @@
 	background-color: var(--color-primary-100);
 }
 
+.table-bordered th,
+.table-bordered td {
+	border: 1px solid var(--color-primary);
+}
+
+[data-theme="dark"] .table th {
+	background-color: var(--color-primary-800);
+}
+
 .table tr:nth-child(even) {
 	background-color: var(--color-gray-100);
 }
 
-.table-bordered th, .table-bordered td {
-	border: 1px solid var(--color-primary);
+[data-theme="dark"] .table tr:nth-child(even) {
+	background-color: var(--color-gray-700);
 }
 
 .table-bordered {
