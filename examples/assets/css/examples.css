@@ -402,6 +402,12 @@ ul.docs-links.cards li a:hover {
 	font-weight: var(--text-weight-bold);
 }
 
+@media (width <=575.98px) {
+	.breakpoint-indicator::after {
+		content: "XS (<576px)";
+	}
+}
+
 @media (width >=576px) {
 	.breakpoint-indicator::after {
 		content: "SM (≥576px)";
@@ -430,8 +436,8 @@ ul.docs-links.cards li a:hover {
 	}
 }
 
-@media (width <=575.98px) {
+@media (width >=1400px) {
 	.breakpoint-indicator::after {
-		content: "XS (<576px)";
+		content: "XXL (≥1400px)";
 	}
 }

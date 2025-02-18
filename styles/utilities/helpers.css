@@ -434,3 +434,18 @@
 	}
 
 }
+
+@media (width >= 1400px) {
+	.xxl-hidden {
+		display: none;
+	}
+
+	.xxl-d-block {
+		display: block;
+	}
+
+	.xxl-d-inline {
+		display: inline;
+	}
+
+}
