@@ -4,22 +4,33 @@
 	border-radius: var(--border-radius);
 	margin-bottom: var(--spacing-3);
 	border: 1px solid transparent;
+	border-left: 4px solid; /* Default width for left border */
 }
 
 .alert-success {
 	background-color: var(--color-success-100);
 	color: var(--color-success);
 	border-color: var(--color-success-200);
+	border-left-color: var(--color-success-dark); /* Dark green */
 }
 
 .alert-warning {
 	background-color: var(--color-warning-100);
 	color: var(--color-warning);
 	border-color: var(--color-warning-200);
+	border-left-color: var(--color-warning-dark); /* Dark orange */
 }
 
 .alert-error {
 	background-color: var(--color-error-100);
 	color: var(--color-error);
 	border-color: var(--color-error-200);
+	border-left-color: var(--color-error-dark); /* Dark red */
+}
+
+/* Optional: Style close button */
+.close-alert {
+	cursor: pointer;
+	font-size: 1.2em;
+	font-weight: bold;
 }
