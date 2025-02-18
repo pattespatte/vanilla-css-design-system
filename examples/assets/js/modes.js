@@ -6,7 +6,7 @@ const savedTheme = localStorage.getItem('theme');
 
 // Function to update the button's emoji based on the theme
 function updateToggleIcon(theme) {
-	themeToggle.textContent = theme === 'dark' ? '🌙 Light' : '🌑 Dark';
+	themeToggle.textContent = theme === 'dark' ? 'Light' : 'Dark';
 }
 
 // Apply the saved theme (if found) and update the button's emoji
