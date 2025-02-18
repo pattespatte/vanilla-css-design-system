@@ -1557,7 +1557,7 @@ blockquote {
 	transform: scaleY(0);
 }
 
-input[type="checkbox"]:checked~.dropdown-content {
+input[type="checkbox"]:checked ~ .dropdown-content {
 	opacity: 1;
 	transform: scaleY(1);
 }
@@ -1668,6 +1668,24 @@ input[type="checkbox"]:checked~.dropdown-content {
 	color: var(--color-dark);
 	cursor: pointer;
 	font-weight: var(--text-weight-bold);
+	position: relative; /* Add this */
+}
+
+/* CSS for the plus/minus icon */
+.accordion label::after {
+	content: "+";
+	position: absolute;
+	right: var(--spacing-3);
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1.5em;
+	font-weight: normal;
+	transition: transform 0.3s ease;
+}
+
+/* Change to minus when accordion is open */
+.accordion-toggle:checked ~ label::after {
+	content: "−";
 }
 
 .accordion-toggle {
@@ -1695,10 +1713,11 @@ input[type="checkbox"]:checked~.dropdown-content {
 	transition: max-height 0.3s ease-out, padding 0.3s ease-out;
 }
 
-.accordion-toggle:checked~.accordion-content {
+.accordion-toggle:checked ~ .accordion-content {
 	max-height: 200px;
 	padding: var(--spacing-3);
 }
+
 /* utilities/accessibility.css */
 
 /* Screen reader only utility class */
