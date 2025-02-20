@@ -414,6 +414,12 @@ ul.docs-links.cards li a:hover {
 	font-weight: var(--text-weight-bold);
 }
 
+[data-theme="dark"] .hljs-tag,
+[data-theme="dark"] .hljs-attr,
+[data-theme="dark"] .hljs-tag .hljs-name {
+	color: var(--color-success-100);
+}
+
 @media (width <=575.98px) {
 	.breakpoint-indicator::after {
 		content: "XS (<576px)";

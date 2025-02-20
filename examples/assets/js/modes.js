@@ -9,10 +9,25 @@ function updateToggleText(theme) {
 	themeToggle.textContent = theme === 'dark' ? 'Light' : 'Dark';
 }
 
+// Function to update the stylesheet based on the theme
+function updateStylesheet(theme) {
+	const stylesheetLink = document.querySelector('link[rel="stylesheet"][href*="styles/a11y"]');
+	if (stylesheetLink) {
+		const newHref = theme === 'dark' 
+			? 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/a11y-dark.min.css' 
+			: 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/a11y-light.min.css';
+		
+		const newStylesheetLink = stylesheetLink.cloneNode();
+		newStylesheetLink.href = newHref;
+		stylesheetLink.parentNode.replaceChild(newStylesheetLink, stylesheetLink);
+	}
+}
+
 // Function to apply the theme based on the user's preference or saved theme
 function applyTheme(theme) {
 	document.documentElement.setAttribute('data-theme', theme);
 	updateToggleText(theme);
+	updateStylesheet(theme);
 }
 
 // Check if the user has a system-level color scheme preference
