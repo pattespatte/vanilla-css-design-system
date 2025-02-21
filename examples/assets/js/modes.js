@@ -16,7 +16,6 @@ function updateStylesheet(theme) {
 		const newHref = theme === 'dark' 
 			? 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/a11y-dark.min.css' 
 			: 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/a11y-light.min.css';
-		
 		const newStylesheetLink = stylesheetLink.cloneNode();
 		newStylesheetLink.href = newHref;
 		stylesheetLink.parentNode.replaceChild(newStylesheetLink, stylesheetLink);
