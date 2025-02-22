@@ -237,7 +237,7 @@ ul.docs-links.cards li {
 
 .demo-nested {
 	background-color: var(--color-secondary-100);
-	border: 1px solid var(--color-secondary);
+	border: 1px solid var(--color-primary);
 	padding: var(--spacing-2);
 	text-align: center;
 }
@@ -368,6 +368,7 @@ ul.docs-links.cards li a:hover {
 [data-theme="dark"] .form-label,
 [data-theme="dark"] .demo-nested {
 	background-color: var(--color-gray-800);
+	border: 1px solid var(--color-white);
 	color: var(--color-white);
 }
 

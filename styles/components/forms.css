@@ -50,6 +50,7 @@
 	background-repeat: no-repeat;
 	background-position: right var(--spacing-2) center;
 	padding-right: var(--spacing-5);
+	width: 100%;
 }
 
 /* Focus states */
