@@ -2,10 +2,11 @@
 
 :root {
 	/* Primary colors */
-	--color-primary-100: #f3e1eb;
-	--color-primary-200: #e6c4d8;
-	--color-primary-300: #d5b0c7;
-	--color-primary-400: #c29ab0;
+	--color-primary-50: #f7e3ed;
+	--color-primary-100: #f4d1e0;
+	--color-primary-200: #e8a3c1;
+	--color-primary-300: #dc75a2;
+	--color-primary-400: #983579;
 	--color-primary-500: #6e0e50;
 	--color-primary-600: #5c0c43;
 	--color-primary-700: #4a0a36;
@@ -14,6 +15,7 @@
 	--color-primary: var(--color-primary-500);
 
 	/* Secondary colors */
+	--color-secondary-50: #fff8eb;
 	--color-secondary-100: #fff9ed;
 	--color-secondary-200: #fff3d9;
 	--color-secondary-300: #fff0c4;
@@ -22,7 +24,8 @@
 	--color-secondary-600: #ffd783;
 	--color-secondary-700: #ffd370;
 	--color-secondary-800: #ffc95c;
-	--color-secondary-900: #ffc048;
+	--color-secondary-850: #ffb347;
+	--color-secondary-900: #d97a3b;
 	--color-secondary: var(--color-secondary-500);
 
 	/* Tertiary and quaternary colors */
