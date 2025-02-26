@@ -2,7 +2,7 @@
 body {
 	font-family: var(--font-family-base);
 	font-size: var(--text-size-base);
-	font-weight: var(--text-weight-base);
+	font-weight: var(--text-weight-regular);
 	line-height: var(--line-height-base);
 	background-color: var(--color-bg);
 	color: var(--color-text);
@@ -76,8 +76,8 @@ blockquote {
 	font-weight: var(--text-weight-light);
 }
 
-.text-weight-base {
-	font-weight: var(--text-weight-base);
+.text-weight-regular {
+	font-weight: var(--text-weight-regular);
 }
 
 .text-weight-bold {

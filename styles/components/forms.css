@@ -27,7 +27,7 @@
 	display: block;
 	width: calc(100% - 2rem);
 	padding: var(--spacing-2) var(--spacing-3);
-	font-size: var(--text-weight-base);
+	font-size: var(--text-weight-regular);
 	font-family: var(--font-family-base);
 	line-height: var(--line-height-base);
 	color: var(--color-dark);
