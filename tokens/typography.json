@@ -27,7 +27,7 @@
         "$value": "200",
         "$type": "string"
       },
-      "base": {
+      "regular": {
         "$value": "400",
         "$type": "string"
       },

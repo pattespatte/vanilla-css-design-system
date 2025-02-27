@@ -112,7 +112,7 @@ body::after {
 body {
 	font-family: var(--font-family-base);
 	font-size: var(--text-size-base);
-	font-weight: var(--text-weight-base);
+	font-weight: var(--text-weight-regular);
 	line-height: var(--line-height-base);
 	background-color: var(--color-bg);
 	color: var(--color-text);
@@ -186,8 +186,8 @@ blockquote {
 	font-weight: var(--text-weight-light);
 }
 
-.text-weight-base {
-	font-weight: var(--text-weight-base);
+.text-weight-regular {
+	font-weight: var(--text-weight-regular);
 }
 
 .text-weight-bold {
@@ -338,7 +338,7 @@ blockquote {
 	--text-weight-light: 200;
 
 	/* Base font weight */
-	--text-weight-base: 400;
+	--text-weight-regular: 400;
 
 	/* Bold font weight */
 	--text-weight-bold: 700;
@@ -892,8 +892,8 @@ blockquote {
 .btn {
 	display: inline-block;
 	padding: var(--spacing-2) var(--spacing-3);
-	font-size: var(--text-weight-base);
-	font-weight: var(--text-weight-base);
+	font-size: var(--text-weight-regular);
+	font-weight: var(--text-weight-regular);
 	line-height: var(--line-height-base);
 	text-align: center;
 	text-decoration: none;
@@ -1022,7 +1022,7 @@ blockquote {
 	display: block;
 	width: calc(100% - 2rem);
 	padding: var(--spacing-2) var(--spacing-3);
-	font-size: var(--text-weight-base);
+	font-size: var(--text-weight-regular);
 	font-family: var(--font-family-base);
 	line-height: var(--line-height-base);
 	color: var(--color-dark);
