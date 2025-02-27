@@ -1,5 +1,30 @@
 /* utilities/helpers.css */
 
+/* Utility classes */
+.opacity-0 {
+	opacity: var(--opacity-0);
+}
+
+.opacity-20 {
+	opacity: var(--opacity-20);
+}
+
+.opacity-40 {
+	opacity: var(--opacity-40);
+}
+
+.opacity-60 {
+	opacity: var(--opacity-60);
+}
+
+.opacity-80 {
+	opacity: var(--opacity-80);
+}
+
+.opacity-100 {
+	opacity: var(--opacity-100);
+}
+
 .d-block {
 	display: block;
 }
@@ -417,7 +442,6 @@
 	.lg-d-inline {
 		display: inline;
 	}
-
 }
 
 @media (width >= 1200px) {
@@ -432,7 +456,6 @@
 	.xl-d-inline {
 		display: inline;
 	}
-
 }
 
 @media (width >= 1400px) {
@@ -447,5 +470,4 @@
 	.xxl-d-inline {
 		display: inline;
 	}
-
 }

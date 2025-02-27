@@ -16,7 +16,7 @@
     "watch": "nodemon --watch styles/ --watch tokens/ --ext css,json --exec 'npm run build:css && npm run css2tokens && npm run tokens2css'"
   },
   "devDependencies": {
-    "postcss": "^8.5.2",
+    "postcss": "8.5.3",
     "postcss-js": "^4.0.1",
     "clean-css-cli": "^5.6.3",
     "concat-cli": "^4.0.0",

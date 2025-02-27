@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Opacity - Vanilla CSS Design System</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap">
+	<link rel="stylesheet" href="https://unpkg.com/browse/@highlightjs/cdn-assets@11.4.0/styles/default.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/browse/@highlightjs/cdn-assets@11.4.0/styles/a11y-light.min.css">
+	<link rel="stylesheet" href="../../styles/main.css">
+	<link rel="stylesheet" href="../assets/css/examples.css">
+	<link rel="stylesheet" href="../assets/css/main-menu.css">
+	<link rel="icon" type="image/svg+xml" href="../assets/images/vanilla-logo.svg">
+</head>
+
+<body>
+	<header class="docs-nav">
+		<div class="container grid grid-cols-2 md-grid-cols-3 gap-3">
+			<div class="clearfix">
+				<h1>Opacity Utilities</h1>
+				<a href="#" class="float-left" data-home-link>
+					Vanilla CSS Design System
+					<img src="../assets/images/vanilla-logo.svg" alt="" id="header-logo">
+				</a>
+			</div>
+			<nav class="col-span-1 md-col-span-2 position-relative">
+				<button class="nav-toggle text-size-lg" aria-label="Toggle navigation">
+					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
+				</button>
+				<ul class="main-menu" role="menubar">
+					<!-- Menu items will be dynamically inserted here -->
+				</ul>
+				<div class="item-bottom-right m-2">
+					<button id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<h1>Opacity</h1>
+
+			<p>Opacity controls the transparency level of elements. Our design system provides standardized opacity values to ensure consistency across interfaces.</p>
+
+			<h2>Opacity Scale</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<div class="opacity-sample-wrapper">
+					<div class="opacity-sample" style="opacity: 1.0;">
+						<div class="opacity-value">1.0</div>
+					</div>
+					<div class="opacity-description">
+						<code>--opacity-100</code><br>
+						<span>Full opacity</span>
+					</div>
+				</div>
+
+				<div class="opacity-sample-wrapper">
+					<div class="opacity-sample" style="opacity: 0.8;">
+						<div class="opacity-value">0.8</div>
+					</div>
+					<div class="opacity-description">
+						<code>--opacity-80</code><br>
+						<span>High opacity</span>
+					</div>
+				</div>
+
+				<div class="opacity-sample-wrapper">
+					<div class="opacity-sample" style="opacity: 0.6;">
+						<div class="opacity-value">0.6</div>
+					</div>
+					<div class="opacity-description">
+						<code>--opacity-60</code><br>
+						<span>Medium opacity</span>
+					</div>
+				</div>
+
+				<div class="opacity-sample-wrapper">
+					<div class="opacity-sample" style="opacity: 0.4;">
+						<div class="opacity-value">0.4</div>
+					</div>
+					<div class="opacity-description">
+						<code>--opacity-40</code><br>
+						<span>Low opacity</span>
+					</div>
+				</div>
+
+				<div class="opacity-sample-wrapper">
+					<div class="opacity-sample" style="opacity: 0.2;">
+						<div class="opacity-value">0.2</div>
+					</div>
+					<div class="opacity-description">
+						<code>--opacity-20</code><br>
+						<span>Very low opacity</span>
+					</div>
+				</div>
+
+				<div class="opacity-sample-wrapper">
+					<div class="opacity-sample" style="opacity: 0;">
+						<div class="opacity-value">0</div>
+					</div>
+					<div class="opacity-description">
+						<code>--opacity-0</code><br>
+						<span>Transparent</span>
+					</div>
+				</div>
+			</div>
+
+			<h2>Usage</h2>
+			<p>Opacity values can be used via CSS variables:</p>
+
+			<pre><code>
+.element {
+    opacity: var(--opacity-60);
+}
+        </code></pre>
+
+			<h3>Utility Classes</h3>
+			<p>Utility classes are available for quick implementation:</p>
+
+			<pre><code>
+&lt;div class="opacity-100"&gt;Fully opaque element&lt;/div&gt;
+&lt;div class="opacity-60"&gt;Semi-transparent element&lt;/div&gt;
+&lt;div class="opacity-0"&gt;Invisible element (still in DOM)&lt;/div&gt;
+        </code></pre>
+
+			<h2>Design Considerations</h2>
+			<ul>
+				<li>Use opacity consistently to maintain visual hierarchy</li>
+				<li>Consider accessibility implications when applying opacity to text</li>
+				<li>Remember that opacity affects an element and all its children</li>
+				<li>For background-only transparency, use RGBA color values instead</li>
+			</ul>
+
+			<h2>CSS Implementation</h2>
+			<pre><code>
+:root {
+    --opacity-0: 0;
+    --opacity-20: 0.2;
+    --opacity-40: 0.4;
+    --opacity-60: 0.6;
+    --opacity-80: 0.8;
+    --opacity-100: 1;
+}
+
+/* Utility classes */
+.opacity-0 { opacity: var(--opacity-0); }
+.opacity-20 { opacity: var(--opacity-20); }
+.opacity-40 { opacity: var(--opacity-40); }
+.opacity-60 { opacity: var(--opacity-60); }
+.opacity-80 { opacity: var(--opacity-80); }
+.opacity-100 { opacity: var(--opacity-100); }
+        </code></pre>
+		</div>
+
+	</main>
+	<footer>
+		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script>hljs.highlightAll();</script>
+	<script src="../assets/js/main-menu.js"></script>
+	<script src="../assets/js/modes.js"></script>
+	<script src="../assets/js/find-missing-css.js"></script>
+</body>
+
+</html>

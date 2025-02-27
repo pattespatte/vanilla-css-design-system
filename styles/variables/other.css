@@ -1,6 +1,13 @@
 /* variables/other.css */
 
 :root {
+	--opacity-0: 0;
+	--opacity-20: 0.2;
+	--opacity-40: 0.4;
+	--opacity-60: 0.6;
+	--opacity-80: 0.8;
+	--opacity-100: 1;
+
 	/* Base transition duration */
 	--transition-base: 200ms;
 
