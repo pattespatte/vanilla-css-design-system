@@ -340,6 +340,10 @@ h1 #header-logo {
 	background-color: var(--color-gray-800);
 }
 
+[data-theme="dark"] [data-home-link]>#header-logo {
+	filter: brightness(0) invert(50%); /* Makes the image white */
+}
+
 [data-theme="dark"] .main-menu button:hover,
 [data-theme="dark"] .submenu a:hover {
 	background-color: var(--color-gray-700);
