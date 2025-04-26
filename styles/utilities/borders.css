@@ -138,23 +138,23 @@
 
 /* Border opacity variations */
 .border-opacity-0 {
-	border-color: rgba(var(--border-color-rgb), 0);
+	border-color: rgb(var(--border-color-rgb), 0);
 }
 
 .border-opacity-25 {
-	border-color: rgba(var(--border-color-rgb), 0.25);
+	border-color: rgb(var(--border-color-rgb), 0.25);
 }
 
 .border-opacity-50 {
-	border-color: rgba(var(--border-color-rgb), 0.5);
+	border-color: rgb(var(--border-color-rgb), 0.5);
 }
 
 .border-opacity-75 {
-	border-color: rgba(var(--border-color-rgb), 0.75);
+	border-color: rgb(var(--border-color-rgb), 0.75);
 }
 
 .border-opacity-100 {
-	border-color: rgba(var(--border-color-rgb), 1);
+	border-color: rgb(var(--border-color-rgb), 1);
 }
 
 /* Border widths */

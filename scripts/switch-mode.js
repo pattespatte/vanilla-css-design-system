@@ -1,24 +1,25 @@
 const fs = require('fs');
 const path = require('path');
 
-// Function to recursively get all HTML files
+// Recursively get all HTML files in a directory
 function getAllHtmlFiles(dirPath, arrayOfFiles) {
 	const files = fs.readdirSync(dirPath);
 
 	arrayOfFiles = arrayOfFiles || [];
 
 	files.forEach(file => {
-		if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-			arrayOfFiles = getAllHtmlFiles(dirPath + "/" + file, arrayOfFiles);
+		const fullPath = path.join(dirPath, file);
+		if (fs.statSync(fullPath).isDirectory()) {
+			arrayOfFiles = getAllHtmlFiles(fullPath, arrayOfFiles);
 		} else if (path.extname(file) === '.html') {
-			arrayOfFiles.push(path.join(dirPath, file));
+			arrayOfFiles.push(fullPath);
 		}
 	});
 
 	return arrayOfFiles;
 }
 
-// Function to switch between dev and prod modes
+// Switch between dev and prod modes
 function switchMode(mode) {
 	const htmlFiles = getAllHtmlFiles('./examples');
 
@@ -27,12 +28,12 @@ function switchMode(mode) {
 
 		if (mode === 'dev') {
 			content = content.replace(
-				/\/styles\/vanilla-combined.min.css">/g,
+				/\/styles\/vanilla-combined\.min\.css">/g,
 				'/styles/main.css">'
 			);
 		} else if (mode === 'prod') {
 			content = content.replace(
-				/\/styles\/base\/main.css">/g,
+				/\/styles\/main\.css">/g,
 				'/styles/vanilla-combined.min.css">'
 			);
 		}

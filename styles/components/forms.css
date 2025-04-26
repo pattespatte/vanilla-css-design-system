@@ -59,7 +59,7 @@
 .form-textarea:focus {
 	outline: none;
 	border-color: var(--color-primary);
-	box-shadow: 0 0 0 3px rgba(0, 123, 255, 25%);
+	box-shadow: 0 0 0 3px rgb(0, 123, 255, 25%);
 }
 
 /* Disabled state */

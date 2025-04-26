@@ -7,7 +7,7 @@
     "purge:css": "node scripts/purge-css.js",
     "lint:css": "stylelint 'styles/**/*.css'",
     "lint:css:fix": "stylelint 'styles/**/*.css' --fix",
-    "minify:css": "cleancss -o styles/vanilla-combined.min.css styles/vanilla-combined.purged.css && node scripts/postprocess-css.js",
+    "minify:css": "node scripts/minify-css-lightning.js",
     "build:css": "npm run combine:css && npm run purge:css && npm run minify:css",
     "css2tokens": "node scripts/css-to-tokens.js",
     "tokens2css": "node scripts/tokens-to-css.js",
@@ -18,11 +18,11 @@
   "devDependencies": {
     "postcss": "8.5.3",
     "postcss-js": "^4.0.1",
-    "clean-css-cli": "^5.6.3",
+    "lightningcss": "^1.29.3",
     "concat-cli": "^4.0.0",
     "purgecss": "^7.0.2",
-    "stylelint": "^16.14.1",
-    "stylelint-config-standard": "^37.0.0",
-    "nodemon": "^3.1.3"
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard": "^38.0.0",
+    "nodemon": "^3.1.10"
   }
 }

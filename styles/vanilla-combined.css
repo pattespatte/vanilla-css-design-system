@@ -296,17 +296,24 @@ blockquote {
 /* variables/other.css */
 
 :root {
+	--opacity-0: 0;
+	--opacity-20: 0.2;
+	--opacity-40: 0.4;
+	--opacity-60: 0.6;
+	--opacity-80: 0.8;
+	--opacity-100: 1;
+
 	/* Base transition duration */
 	--transition-base: 200ms;
 
 	/* Small shadow */
-	--shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 5%);
+	--shadow-sm: 0px 1px 2px 0px rgb(0, 0, 0, 5%);
 
 	/* Medium shadow */
-	--shadow-md: 0px 4px 6px 0px rgba(0, 0, 0, 10%);
+	--shadow-md: 0px 4px 6px 0px rgb(0, 0, 0, 10%);
 
 	/* Large shadow */
-	--shadow-lg: 0px 10px 15px 0px rgba(0, 0, 0, 10%);
+	--shadow-lg: 0px 10px 15px 0px rgb(0, 0, 0, 10%);
 }
 
 /* variables/spacing.css */
@@ -1054,7 +1061,7 @@ blockquote {
 .form-textarea:focus {
 	outline: none;
 	border-color: var(--color-primary);
-	box-shadow: 0 0 0 3px rgba(0, 123, 255, 25%);
+	box-shadow: 0 0 0 3px rgb(0, 123, 255, 25%);
 }
 
 /* Disabled state */
@@ -2179,23 +2186,23 @@ input[type="checkbox"]:checked ~ .dropdown-content {
 
 /* Border opacity variations */
 .border-opacity-0 {
-	border-color: rgba(var(--border-color-rgb), 0);
+	border-color: rgb(var(--border-color-rgb), 0);
 }
 
 .border-opacity-25 {
-	border-color: rgba(var(--border-color-rgb), 0.25);
+	border-color: rgb(var(--border-color-rgb), 0.25);
 }
 
 .border-opacity-50 {
-	border-color: rgba(var(--border-color-rgb), 0.5);
+	border-color: rgb(var(--border-color-rgb), 0.5);
 }
 
 .border-opacity-75 {
-	border-color: rgba(var(--border-color-rgb), 0.75);
+	border-color: rgb(var(--border-color-rgb), 0.75);
 }
 
 .border-opacity-100 {
-	border-color: rgba(var(--border-color-rgb), 1);
+	border-color: rgb(var(--border-color-rgb), 1);
 }
 
 /* Border widths */
@@ -2220,6 +2227,31 @@ input[type="checkbox"]:checked ~ .dropdown-content {
 }
 
 /* utilities/helpers.css */
+
+/* Utility classes */
+.opacity-0 {
+	opacity: var(--opacity-0);
+}
+
+.opacity-20 {
+	opacity: var(--opacity-20);
+}
+
+.opacity-40 {
+	opacity: var(--opacity-40);
+}
+
+.opacity-60 {
+	opacity: var(--opacity-60);
+}
+
+.opacity-80 {
+	opacity: var(--opacity-80);
+}
+
+.opacity-100 {
+	opacity: var(--opacity-100);
+}
 
 .d-block {
 	display: block;
@@ -2638,7 +2670,6 @@ input[type="checkbox"]:checked ~ .dropdown-content {
 	.lg-d-inline {
 		display: inline;
 	}
-
 }
 
 @media (width >= 1200px) {
@@ -2653,7 +2684,6 @@ input[type="checkbox"]:checked ~ .dropdown-content {
 	.xl-d-inline {
 		display: inline;
 	}
-
 }
 
 @media (width >= 1400px) {
@@ -2668,8 +2698,8 @@ input[type="checkbox"]:checked ~ .dropdown-content {
 	.xxl-d-inline {
 		display: inline;
 	}
-
 }
+
 /* utilities/print.css */
 
 /* This CSS file contains styles specifically for print media */
