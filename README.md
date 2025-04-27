@@ -94,11 +94,11 @@ npm run lint:css:fix
 
 ## CDN Link
 
-Simple usage &mdash; skip the installation steps and just include the ready-to-use combined CSS file with a CDN link to you own site:
+Simple usage &ndash; skip the installation steps and just include the ready-to-use combined CSS file with a CDN link to you own site:
 
 [https://rawcdn.githack.com/pattespatte/vanilla-css-design-system/refs/tags/v1.0.2/styles/vanilla-combined.min.css](https://rawcdn.githack.com/pattespatte/vanilla-css-design-system/refs/tags/v1.0.2/styles/vanilla-combined.min.css)
 
-Examlple:
+Example:
 
 ```html
 <link rel="stylesheet" href="https://rawcdn.githack.com/pattespatte/vanilla-css-design-system/refs/tags/v1.0.2/styles/vanilla-combined.min.css">
@@ -125,7 +125,7 @@ vanilla-css-design-system/
 - **CSS**: Vanilla CSS with a modular architecture.
 - **Stylelint**: Linting for consistent coding standards.
 - **PurgeCSS**: Removes unused CSS for optimized builds.
-- **CleanCSS**: Minifies the CSS for production.
+- **Lightning CSS**: Minifies the CSS for production.
 - **Nodemon**: Watches for changes and automates tasks.
 
 ***
