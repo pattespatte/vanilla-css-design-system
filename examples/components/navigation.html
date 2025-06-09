@@ -26,15 +26,15 @@
 					<img src="../assets/images/vanilla-logo.svg" alt="" id="header-logo">
 				</a>
 			</div>
-			<nav class="col-span-1 md-col-span-2 position-relative">
-				<button class="nav-toggle text-size-lg" aria-label="Toggle navigation">
+			<nav class="col-span-1 md-col-span-2 position-relative" aria-label="Main menu">
+				<button type="button" class="nav-toggle text-size-lg" aria-label="Toggle navigation">
 					☰ <!-- You can replace this with an SVG icon or a better-looking character -->
 				</button>
 				<ul class="main-menu" role="menubar">
 					<!-- Menu items will be dynamically inserted here -->
 				</ul>
 				<div class="item-bottom-right m-2">
-					<button id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+					<button type="button" id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
 				</div>
 			</nav>
 		</div>
@@ -46,7 +46,7 @@
 			<p class="example-description">
 				Basic horizontal navigation with hover effects.
 			</p>
-			<nav class="nav">
+			<nav class="nav" aria-label="Basic navigation">
 				<ul class="nav-menu">
 					<li><a href="#" class="nav-link">Home</a></li>
 					<li><a href="#" class="nav-link active">About</a></li>
@@ -94,7 +94,7 @@
 			<p class="example-description">
 				Navigation aid showing the current page's location in a hierarchical structure.
 			</p>
-			<nav class="breadcrumbs">
+			<nav class="breadcrumbs" aria-label="Breadcrumb">
 				<ul>
 					<li><a href="#">Home</a></li>
 					<li><a href="#">Products</a></li>
@@ -118,7 +118,7 @@
 			<p class="example-description">
 				Navigation for splitting content across multiple pages.
 			</p>
-			<nav class="pagination">
+			<nav class="pagination" aria-label="Pagination navigation">
 				<ul>
 					<li><a href="#" class="disabled">Previous</a></li>
 					<li><a href="#" class="active">1</a></li>
@@ -129,6 +129,20 @@
 					<li><a href="#">Next</a></li>
 				</ul>
 			</nav>
+			<script>
+				// Pagination active state handler
+				const paginationLinks = document.querySelectorAll('.pagination a:not(.disabled)');
+				paginationLinks.forEach(link => {
+					link.addEventListener('click', function (event) {
+						event.preventDefault();
+						// Only update for number links, not "Previous"/"Next"
+						if (!isNaN(this.textContent)) {
+							paginationLinks.forEach(l => l.classList.remove('active'));
+							this.classList.add('active');
+						}
+					});
+				});
+			</script>
 			<div class="code-block">
 				<pre><code>&lt;nav class="pagination"&gt;
 	&lt;ul&gt;
