@@ -18,13 +18,17 @@
     "dev:build": "npm run build:css && npm run dev"
   },
   "devDependencies": {
+    "concat-cli": "^4.0.0",
+    "lightningcss": "^1.29.3",
+    "nodemon": "^3.1.10",
     "postcss": "8.5.3",
     "postcss-js": "^4.0.1",
-    "lightningcss": "^1.29.3",
-    "concat-cli": "^4.0.0",
     "purgecss": "^7.0.2",
     "stylelint": "^16.19.1",
-    "stylelint-config-standard": "^38.0.0",
-    "nodemon": "^3.1.10"
+    "stylelint-config-standard": "^38.0.0"
+  },
+  "dependencies": {
+    "axe-playwright": "^2.2.2",
+    "playwright": "^1.56.1"
   }
 }
