@@ -174,9 +174,9 @@
 }
 
 .pagination .disabled {
-	color: var(--color-gray-400);
+	color: var(--color-gray-800);
 	cursor: not-allowed;
-	background-color: var(--color-gray-50);
+	background-color: var(--color-gray-200);
 }
 
 /* Responsive adjustments */
