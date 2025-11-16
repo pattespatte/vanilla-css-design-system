@@ -1,22 +1,12 @@
-/* variables/other.css */
-
 :root {
-	--opacity-0: 0;
-	--opacity-20: 0.2;
-	--opacity-40: 0.4;
-	--opacity-60: 0.6;
-	--opacity-80: 0.8;
-	--opacity-100: 1;
-
-	/* Base transition duration */
-	--transition-base: 200ms;
-
-	/* Small shadow */
-	--shadow-sm: 0px 1px 2px 0px rgb(0, 0, 0, 5%);
-
-	/* Medium shadow */
-	--shadow-md: 0px 4px 6px 0px rgb(0, 0, 0, 10%);
-
-	/* Large shadow */
-	--shadow-lg: 0px 10px 15px 0px rgb(0, 0, 0, 10%);
+  --opacity-0: 0;
+  --opacity-20: 0.2;
+  --opacity-40: 0.4;
+  --opacity-60: 0.6;
+  --opacity-80: 0.8;
+  --opacity-100: 1;
+  --transition-base: 200ms;
+  --shadow-sm: 0px 1px 2px 0px rgb(0, 0, 0, 5%);
+  --shadow-md: 0px 4px 6px 0px rgb(0, 0, 0, 10%);
+  --shadow-lg: 0px 10px 15px 0px rgb(0, 0, 0, 10%);
 }

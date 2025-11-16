@@ -1,4 +1,30 @@
 {
+  "opacity": {
+    "0": {
+      "$value": "0",
+      "$type": "string"
+    },
+    "20": {
+      "$value": "0.2",
+      "$type": "string"
+    },
+    "40": {
+      "$value": "0.4",
+      "$type": "string"
+    },
+    "60": {
+      "$value": "0.6",
+      "$type": "string"
+    },
+    "80": {
+      "$value": "0.8",
+      "$type": "string"
+    },
+    "100": {
+      "$value": "1",
+      "$type": "string"
+    }
+  },
   "transition": {
     "base": {
       "$value": "200ms",
@@ -13,7 +39,7 @@
           "y": "1px",
           "blur": "2px",
           "spread": "0px",
-          "color": "rgba(0, 0, 0, 5%)"
+          "color": "rgb(0, 0, 0, 5%)"
         }
       ],
       "$type": "shadow"
@@ -25,7 +51,7 @@
           "y": "4px",
           "blur": "6px",
           "spread": "0px",
-          "color": "rgba(0, 0, 0, 10%)"
+          "color": "rgb(0, 0, 0, 10%)"
         }
       ],
       "$type": "shadow"
@@ -37,7 +63,7 @@
           "y": "10px",
           "blur": "15px",
           "spread": "0px",
-          "color": "rgba(0, 0, 0, 10%)"
+          "color": "rgb(0, 0, 0, 10%)"
         }
       ],
       "$type": "shadow"

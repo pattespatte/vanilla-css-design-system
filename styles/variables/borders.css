@@ -1,8 +1,5 @@
-/* variables/borders.css */
-
-/* Variables for border styles */
 :root {
-	--border-radius: var(--spacing-1);
-	--border-width: 1px;
-	--border-color: var(--color-gray-400);
+  --border-radius: var(--spacing-1);
+  --border-width: 1px;
+  --border-color: var(--color-gray-400);
 }

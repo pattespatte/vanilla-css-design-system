@@ -41,7 +41,19 @@ Explore the full documentation and examples here:
    npm install
    ```
 
-3. Include the generated CSS in your project:
+3. Start the development server (recommended for development):
+
+   ```bash
+   npm run dev
+   ```
+
+   This will:
+   - Automatically switch to development mode
+   - Start a local server at http://localhost:3000
+   - Watch for changes in CSS and token files
+   - Automatically rebuild and refresh your browser
+
+4. Include the generated CSS in your project:
 
    ```html
    <link rel="stylesheet" href="styles/vanilla-combined.min.css">
@@ -64,13 +76,40 @@ npm run build:css
   npm run tokens2css
   ```
 
-### Watch for Changes
+### Development Workflow
 
-Automatically rebuild and convert files on changes:
+This design system supports two modes: development and production.
+
+#### Development Mode
+In development mode, the examples use the unbuilt CSS files (`main.css`) which imports all individual CSS files. This allows for faster development and debugging.
+
+#### Production Mode
+In production mode, the examples use the optimized and minified CSS file (`vanilla-combined.min.css`) which contains only the CSS that is actually used.
+
+#### Development Server with Hot Reload
+
+Start a development server with automatic hot reload:
+
+```bash
+npm run dev
+```
+
+This command will:
+- Switch to development mode automatically
+- Start a server at http://localhost:3000
+- Watch for changes in CSS and token files
+- Rebuild CSS when changes are detected
+- Automatically refresh your browser
+
+#### Watch for Changes (Manual)
+
+If you prefer to watch files without the development server:
 
 ```bash
 npm run watch
 ```
+
+This will watch for changes in the `styles/` and `tokens/` directories and rebuild the CSS when changes are detected.
 
 ### Lint CSS
 
@@ -85,12 +124,16 @@ npm run lint:css:fix
 
 | Script | Description |
 |--------|-------------|
+| `dev` | Start development server with hot reload. |
+| `dev:build` | Build CSS and start development server. |
 | `build:css` | Combine, purge, and minify CSS. |
 | `css2tokens` | Convert CSS to design tokens. |
 | `tokens2css` | Convert design tokens to CSS. |
 | `watch` | Watch for changes and rebuild/convert files. |
 | `lint:css` | Lint CSS files. |
 | `lint:css:fix` | Lint and fix CSS files. |
+| `switch:dev` | Switch examples to use development CSS files. |
+| `switch:prod` | Switch examples to use production CSS files. |
 
 ## CDN Link
 

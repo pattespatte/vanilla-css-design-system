@@ -13,7 +13,9 @@
     "tokens2css": "node scripts/tokens-to-css.js",
     "css2figma": "node scripts/css-to-figma.js",
     "figma2css": "node scripts/figma-to-css.js",
-    "watch": "nodemon --watch styles/ --watch tokens/ --ext css,json --exec 'npm run build:css && npm run css2tokens && npm run tokens2css'"
+    "watch": "nodemon --watch styles/ --watch tokens/ --ext css,json --exec 'npm run build:css && npm run css2tokens && npm run tokens2css'",
+    "dev": "node scripts/dev-server-final.js",
+    "dev:build": "npm run build:css && npm run dev"
   },
   "devDependencies": {
     "postcss": "8.5.3",

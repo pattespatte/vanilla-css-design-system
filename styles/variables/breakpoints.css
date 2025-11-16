@@ -1,18 +1,7 @@
-/* variables/breakpoints.css */
-
 :root {
-	/* Small devices (Catches most modern smartphones in landscape mode) */
-	--breakpoint-sm: 576px;
-	
-	/* Medium devices (Catches most tablets in portrait mode) */
-	--breakpoint-md: 768px;
-	
-	/* Large devices (Catches smaller desktops and tablets in landscape mode) */
-	--breakpoint-lg: 992px;
-	
-	/* Extra large devices (Catches larger desktops and monitors) */
-	--breakpoint-xl: 1200px;
-
-	/* Extra extra large devices (Catches largest desktops and monitors) */
-	--breakpoint-xxl: 1400px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
 }
