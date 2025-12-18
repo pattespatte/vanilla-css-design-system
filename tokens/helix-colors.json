@@ -1,0 +1,189 @@
+{
+  "helix": {
+    "darkblue": {
+      "700": {
+        "$value": "#3b4992",
+        "$type": "color",
+        "description": "Dark blue shade 700 - primary dark blue for backgrounds and borders"
+      },
+      "800": {
+        "$value": "#3b4992",
+        "$type": "color",
+        "description": "Dark blue shade 800 - medium dark blue for hover states"
+      },
+      "900": {
+        "$value": "#334075",
+        "$type": "color",
+        "description": "Dark blue shade 900 - darker blue for active states"
+      },
+      "950": {
+        "$value": "#232948",
+        "$type": "color",
+        "description": "Dark blue shade 950 - darkest blue for emphasis"
+      }
+    },
+    "beige": {
+      "50": {
+        "$value": "#f6f3ee",
+        "$type": "color",
+        "description": "Beige shade 50 - lightest beige for subtle backgrounds"
+      },
+      "100": {
+        "$value": "#f0ece4",
+        "$type": "color",
+        "description": "Beige shade 100 - very light beige for primary backgrounds"
+      },
+      "200": {
+        "$value": "#e2d7c7",
+        "$type": "color",
+        "description": "Beige shade 200 - light beige for secondary backgrounds"
+      },
+      "300": {
+        "$value": "#cfbcA3",
+        "$type": "color",
+        "description": "Beige shade 300 - medium beige for accents and borders"
+      },
+      "400": {
+        "$value": "#b99d7e",
+        "$type": "color",
+        "description": "Beige shade 400 - medium-dark beige for hover states"
+      },
+      "500": {
+        "$value": "#aa8665",
+        "$type": "color",
+        "description": "Beige shade 500 - standard beige for active states"
+      }
+    },
+    "semantic": {
+      "background": {
+        "primary": {
+          "$value": "{helix.beige.100}",
+          "$type": "color",
+          "description": "Primary background color"
+        },
+        "secondary": {
+          "$value": "{helix.beige.200}",
+          "$type": "color",
+          "description": "Secondary background color"
+        },
+        "tertiary": {
+          "$value": "{helix.beige.50}",
+          "$type": "color",
+          "description": "Tertiary background color"
+        },
+        "accent": {
+          "$value": "{helix.darkblue.700}",
+          "$type": "color",
+          "description": "Accent background color"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "{helix.darkblue.950}",
+          "$type": "color",
+          "description": "Primary text color"
+        },
+        "secondary": {
+          "$value": "{helix.darkblue.900}",
+          "$type": "color",
+          "description": "Secondary text color"
+        },
+        "muted": {
+          "$value": "{helix.darkblue.800}",
+          "$type": "color",
+          "description": "Muted text color"
+        },
+        "inverse": {
+          "$value": "{helix.beige.100}",
+          "$type": "color",
+          "description": "Inverse text color for dark backgrounds"
+        }
+      },
+      "border": {
+        "primary": {
+          "$value": "{helix.beige.300}",
+          "$type": "color",
+          "description": "Primary border color"
+        },
+        "secondary": {
+          "$value": "{helix.beige.200}",
+          "$type": "color",
+          "description": "Secondary border color"
+        },
+        "strong": {
+          "$value": "{helix.darkblue.700}",
+          "$type": "color",
+          "description": "Strong border color"
+        },
+        "subtle": {
+          "$value": "{helix.beige.100}",
+          "$type": "color",
+          "description": "Subtle border color"
+        }
+      },
+      "interactive": {
+        "primary": {
+          "default": {
+            "$value": "{helix.darkblue.700}",
+            "$type": "color",
+            "description": "Primary interactive color default state"
+          },
+          "hover": {
+            "$value": "{helix.darkblue.800}",
+            "$type": "color",
+            "description": "Primary interactive color hover state"
+          },
+          "active": {
+            "$value": "{helix.darkblue.900}",
+            "$type": "color",
+            "description": "Primary interactive color active state"
+          },
+          "focus": {
+            "$value": "{helix.darkblue.800}",
+            "$type": "color",
+            "description": "Primary interactive color focus state"
+          }
+        },
+        "secondary": {
+          "default": {
+            "$value": "{helix.beige.300}",
+            "$type": "color",
+            "description": "Secondary interactive color default state"
+          },
+          "hover": {
+            "$value": "{helix.beige.400}",
+            "$type": "color",
+            "description": "Secondary interactive color hover state"
+          },
+          "active": {
+            "$value": "{helix.beige.500}",
+            "$type": "color",
+            "description": "Secondary interactive color active state"
+          },
+          "focus": {
+            "$value": "{helix.beige.400}",
+            "$type": "color",
+            "description": "Secondary interactive color focus state"
+          }
+        }
+      }
+    },
+    "neutral": {
+      "white": {
+        "$value": "#ffffff",
+        "$type": "color",
+        "description": "Pure white"
+      },
+      "black": {
+        "$value": "#000000",
+        "$type": "color",
+        "description": "Pure black"
+      },
+      "transparent": {
+        "$value": "transparent",
+        "$type": "color",
+        "description": "Fully transparent"
+      }
+    }
+  }
+}

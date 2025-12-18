@@ -1,20 +1,45 @@
-// Select the toggle button
-const themeToggle = document.getElementById('theme-toggle');
+// Select the theme buttons
+const themePurpleYellow = document.getElementById('theme-purple-yellow');
+const themeDarkblueBeige = document.getElementById('theme-darkblue-beige');
+const themeDark = document.getElementById('theme-dark');
 
 // Get the user's saved theme from localStorage (if any)
 const savedTheme = localStorage.getItem('theme');
 
-// Function to update the button's text based on the theme
-function updateToggleText(theme) {
-	themeToggle.textContent = theme === 'dark' ? 'Light' : 'Dark';
+// Function to update the active state of theme buttons
+function updateActiveButton(theme) {
+	// Remove active class from all buttons
+	document.querySelectorAll('.theme-btn').forEach(btn => {
+		btn.classList.remove('active');
+	});
+	
+	// Add active class to the current theme button
+	let activeButton;
+	switch(theme) {
+		case 'light':
+			activeButton = themePurpleYellow;
+			break;
+		case 'helix':
+			activeButton = themeDarkblueBeige;
+			break;
+		case 'dark':
+			activeButton = themeDark;
+			break;
+		default:
+			activeButton = themePurpleYellow;
+	}
+	
+	if (activeButton) {
+		activeButton.classList.add('active');
+	}
 }
 
 // Function to update the stylesheet based on the theme
 function updateStylesheet(theme) {
 	const stylesheetLink = document.querySelector('link[rel="stylesheet"][href*="styles/a11y"]');
 	if (stylesheetLink) {
-		const newHref = theme === 'dark' 
-			? 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/a11y-dark.min.css' 
+		const newHref = theme === 'dark'
+			? 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/a11y-dark.min.css'
 			: 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/a11y-light.min.css';
 		const newStylesheetLink = stylesheetLink.cloneNode();
 		newStylesheetLink.href = newHref;
@@ -25,7 +50,7 @@ function updateStylesheet(theme) {
 // Function to apply the theme based on the user's preference or saved theme
 function applyTheme(theme) {
 	document.documentElement.setAttribute('data-theme', theme);
-	updateToggleText(theme);
+	updateActiveButton(theme);
 	updateStylesheet(theme);
 }
 
@@ -36,34 +61,30 @@ const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 function handleColorSchemeChange(e) {
 	const systemTheme = e.matches ? 'dark' : 'light';
 	applyTheme(systemTheme);
-
-	if (systemTheme === 'dark') {
-		themeToggle.style.display = 'none';
-	} else {
-		themeToggle.style.display = 'inline-block';
-	}
 }
 
 // Check the initial color scheme preference and apply the theme accordingly
-if (prefersDarkScheme.matches) {
-	applyTheme('dark');
-	themeToggle.style.display = 'none';
-} else if (savedTheme) {
+if (savedTheme) {
 	applyTheme(savedTheme);
+} else {
+	applyTheme('light'); // Default to light theme
 }
 
 // Listen for system-level color scheme changes
 prefersDarkScheme.addListener(handleColorSchemeChange);
 
-// Listen for toggle button clicks
-themeToggle.addEventListener('click', () => {
-	// Get the current theme
-	const currentTheme = document.documentElement.getAttribute('data-theme');
+// Listen for theme button clicks
+themePurpleYellow.addEventListener('click', () => {
+	applyTheme('light');
+	localStorage.setItem('theme', 'light');
+});
 
-	// Toggle between 'dark' and 'light'
-	const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-	applyTheme(newTheme);
+themeDarkblueBeige.addEventListener('click', () => {
+	applyTheme('helix');
+	localStorage.setItem('theme', 'helix');
+});
 
-	// Save the new theme in localStorage
-	localStorage.setItem('theme', newTheme);
+themeDark.addEventListener('click', () => {
+	applyTheme('dark');
+	localStorage.setItem('theme', 'dark');
 });

@@ -50,4 +50,40 @@
   --color-gray-700: #495057;
   --color-gray-800: #343a40;
   --color-gray-900: #212529;
+
+  /* Helix dark blue colors */
+  --helix-darkblue-700: #3b4992;
+  --helix-darkblue-800: #3b4992;
+  --helix-darkblue-900: #334075;
+  --helix-darkblue-950: #232948;
+
+  /* Helix beige colors */
+  --helix-beige-50: #f6f3ee;
+  --helix-beige-100: #f0ece4;
+  --helix-beige-200: #e2d7c7;
+  --helix-beige-300: #cfbca3;
+  --helix-beige-400: #b99d7e;
+  --helix-beige-500: #aa8665;
+
+  /* Helix semantic colors */
+  --helix-bg-primary: var(--helix-beige-100);
+  --helix-bg-secondary: var(--helix-beige-200);
+  --helix-bg-tertiary: var(--helix-beige-50);
+  --helix-bg-accent: var(--helix-darkblue-700);
+  --helix-text-primary: var(--helix-darkblue-950);
+  --helix-text-secondary: var(--helix-darkblue-900);
+  --helix-text-muted: var(--helix-darkblue-800);
+  --helix-text-inverse: var(--helix-beige-100);
+  --helix-border-primary: var(--helix-beige-300);
+  --helix-border-secondary: var(--helix-beige-200);
+  --helix-border-strong: var(--helix-darkblue-700);
+  --helix-border-subtle: var(--helix-beige-100);
+  --helix-interactive-primary-default: var(--helix-darkblue-700);
+  --helix-interactive-primary-hover: var(--helix-darkblue-800);
+  --helix-interactive-primary-active: var(--helix-darkblue-900);
+  --helix-interactive-primary-focus: var(--helix-darkblue-800);
+  --helix-interactive-secondary-default: var(--helix-beige-300);
+  --helix-interactive-secondary-hover: var(--helix-beige-400);
+  --helix-interactive-secondary-active: var(--helix-beige-500);
+  --helix-interactive-secondary-focus: var(--helix-beige-400);
 }

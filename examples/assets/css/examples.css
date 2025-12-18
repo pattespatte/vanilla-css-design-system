@@ -326,6 +326,92 @@ h1 #header-logo {
 	width: 3rem;
 }
 
+/* Theme buttons */
+.theme-buttons {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.theme-btn {
+	border: none;
+	border-radius: var(--border-radius);
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	font-size: var(--text-size-sm);
+	font-weight: var(--text-weight-medium);
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+.theme-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+}
+
+.theme-btn.active {
+	box-shadow: var(--shadow-lg);
+	transform: translateY(-1px);
+}
+
+.theme-btn.active::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background-color: currentcolor;
+}
+
+/* Purple/Yellow theme button */
+#theme-purple-yellow {
+	background-color: var(--color-primary-500);
+	color: var(--color-secondary-500);
+	border: 2px solid var(--color-primary-600);
+}
+
+#theme-purple-yellow:hover {
+	background-color: var(--color-primary-600);
+}
+
+#theme-purple-yellow.active {
+	background-color: var(--color-primary-700);
+	border-color: var(--color-primary-800);
+}
+
+/* Dark Blue/Beige theme button */
+#theme-darkblue-beige {
+	background-color: var(--helix-darkblue-700);
+	color: var(--helix-beige-100);
+	border: 2px solid var(--helix-darkblue-800);
+}
+
+#theme-darkblue-beige:hover {
+	background-color: var(--helix-darkblue-800);
+}
+
+#theme-darkblue-beige.active {
+	background-color: var(--helix-darkblue-900);
+	border-color: var(--helix-darkblue-950);
+}
+
+/* Dark Mode theme button */
+#theme-dark {
+	background-color: var(--color-gray-800);
+	color: var(--color-gray-200);
+	border: 2px solid var(--color-gray-900);
+}
+
+#theme-dark:hover {
+	background-color: var(--color-gray-900);
+}
+
+#theme-dark.active {
+	background-color: var(--color-black);
+	border-color: var(--color-black);
+}
+
 /* Dark theme */
 
 #theme-toggle {
@@ -388,6 +474,10 @@ ul.docs-links.cards li a:hover {
 
 [data-theme="dark"] #header-logo {
 	filter: brightness(0) invert(1); /* Makes the image white */
+}
+
+[data-theme="helix"] #header-logo {
+	filter: brightness(0) saturate(100%) invert(16%) sepia(69%) saturate(2456%) hue-rotate(227deg) brightness(94%) contrast(88%);
 }
 
 [data-theme="dark"] body,

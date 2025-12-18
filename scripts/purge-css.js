@@ -10,7 +10,7 @@ async function purgeCSS() {
 			content: ['./examples/**/*.html'],
 			css: [inputFile],
 			safelist: {
-				standard: [/\.is-/, /\.has-/, /\.js-/],
+				standard: [/\.is-/, /\.has-/, /\.js-/, /helix/, /\[data-theme="helix"\]/],
 				deep: [/:hover/, /:focus/, /:active/],
 				greedy: [/\.modal/, /\.tooltip/],
 				keyframes: true,

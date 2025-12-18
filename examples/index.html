@@ -18,7 +18,11 @@
 		<div class="container">
 			<h1 class="float-left">Vanilla CSS Design System<img src="assets/images/vanilla-logo.svg" alt="" id="header-logo"></h1>
 			<div class="float-right">
-				<button type="button" id="theme-toggle" class="float-right" aria-label="Toggle dark mode">Dark</button>
+				<div class="theme-buttons">
+					<button type="button" id="theme-purple-yellow" class="theme-btn" aria-label="Purple/Yellow theme">Purple/Yellow</button>
+					<button type="button" id="theme-darkblue-beige" class="theme-btn" aria-label="Dark Blue/Beige theme">Dark Blue/Beige</button>
+					<button type="button" id="theme-dark" class="theme-btn" aria-label="Dark mode">Dark Mode</button>
+				</div>
 			</div>
 		</div>
 	</header>
@@ -66,6 +70,7 @@
 		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>
 	</footer>
 	<span data-theme="dark" class="d-none">Necessary workaround for making dark mode work with PurgeCSS. You can move this item but not delete it.</span>
+	<span data-theme="helix" class="d-none">Necessary workaround for making helix mode work with PurgeCSS. You can move this item but not delete it.</span>
 	<script src="assets/js/modes.js"></script>
 	<script src="assets/js/find-missing-css.js"></script>
 </body>
