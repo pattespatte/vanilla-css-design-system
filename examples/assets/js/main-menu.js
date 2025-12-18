@@ -1,6 +1,9 @@
 // Get the current script's location and extract the base URL
 const scriptBasePath = document.currentScript.src.replace(/\/assets\/js\/main-menu\.js$/, '');
-const siteFolder = `${scriptBasePath}/`;
+// Always point to the examples root directory, not the current page's directory
+const siteFolder = scriptBasePath.includes('/examples/') ?
+  scriptBasePath.split('/examples/')[0] + '/examples/' :
+  `${scriptBasePath}/`;
 
 // Update elements that need the base path
 document.querySelector('[data-home-link]')?.setAttribute('href', siteFolder);

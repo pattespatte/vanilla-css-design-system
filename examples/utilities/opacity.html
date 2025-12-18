@@ -34,7 +34,11 @@
 					<!-- Menu items will be dynamically inserted here -->
 				</ul>
 				<div class="item-bottom-right m-2">
-					<button type="button" id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+					<div class="theme-buttons">
+						<button type="button" id="theme-purple-yellow" class="theme-btn" aria-label="Purple/Yellow theme">Purple/Yellow</button>
+						<button type="button" id="theme-darkblue-beige" class="theme-btn" aria-label="Dark Blue/Beige theme">Dark Blue/Beige</button>
+						<button type="button" id="theme-dark" class="theme-btn" aria-label="Dark mode">Dark Mode</button>
+					</div>
 				</div>
 			</nav>
 		</div>
@@ -164,6 +168,8 @@
 	<script src="../assets/js/main-menu.js"></script>
 	<script src="../assets/js/modes.js"></script>
 	<script src="../assets/js/find-missing-css.js"></script>
+	<span data-theme="dark" class="d-none">Necessary workaround for making dark mode work with PurgeCSS. You can move this item but not delete it.</span>
+	<span data-theme="helix" class="d-none">Necessary workaround for making helix mode work with PurgeCSS. You can move this item but not delete it.</span>
 </body>
 
 </html>

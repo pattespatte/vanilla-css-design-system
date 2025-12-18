@@ -1,7 +1,6 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { spawn } = require('child_process');
 const { execSync } = require('child_process');
 
 // Configuration
@@ -9,10 +8,6 @@ const PORT = process.env.DEV_PORT || 3000;
 const HOST = process.env.DEV_HOST || 'localhost';
 const EXAMPLES_DIR = path.join(__dirname, '../examples');
 const STYLES_DIR = path.join(__dirname, '../styles');
-const TOKENS_DIR = path.join(__dirname, '../tokens');
-
-// Store connected clients for hot reload
-const clients = new Set();
 
 // MIME types for different file extensions
 const mimeTypes = {
@@ -35,10 +30,20 @@ function getMimeType(filePath) {
 
 // Serve a file
 function serveFile(filePath, res) {
-  const fullPath = path.join(EXAMPLES_DIR, filePath);
+  let fullPath;
   
-  // If the file doesn't exist, try to serve index.html
+  // Check if this is a request for styles directory
+  if (filePath.startsWith('styles/')) {
+    fullPath = path.join(__dirname, '..', filePath);
+  } else {
+    fullPath = path.join(EXAMPLES_DIR, filePath);
+  }
+  
+  console.log(`Attempting to serve: ${fullPath}`);
+  
+  // If file doesn't exist, try to serve index.html
   if (!fs.existsSync(fullPath) || fs.statSync(fullPath).isDirectory()) {
+    console.log(`File not found or is directory: ${fullPath}, serving index.html instead`);
     if (filePath !== '/' && filePath !== '') {
       return serveFile('index.html', res);
     }
@@ -48,38 +53,52 @@ function serveFile(filePath, res) {
   
   const ext = path.extname(filePath).toLowerCase();
   
-  // For HTML files, inject hot reload script
+  // For HTML files, inject live reload script
   if (ext === '.html') {
     let content = fs.readFileSync(fullPath, 'utf8');
     
-    // Inject hot reload script before closing body tag
-    const hotReloadScript = `
+    // Inject live reload script before closing body tag
+    const liveReloadScript = `
 <script>
   (function() {
-    const eventSource = new EventSource('/hot-reload');
-    eventSource.onmessage = function(event) {
-      if (event.data === 'reload') {
-        console.log('Hot reload triggered, refreshing page...');
-        window.location.reload();
-      }
-    };
-    eventSource.onerror = function() {
-      console.log('Hot reload connection lost, attempting to reconnect...');
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-    };
+    console.log('Live reload enabled - refresh the page to see CSS changes');
+    
+    // Check for CSS changes every 2 seconds
+    setInterval(() => {
+      const links = document.querySelectorAll('link[rel="stylesheet"]');
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.includes('main.css')) {
+          // Force reload by adding timestamp
+          const newHref = href.split('?')[0] + '?t=' + Date.now();
+          link.setAttribute('href', newHref);
+        }
+      });
+    }, 2000);
   })();
 </script>`;
     
-    // Insert before closing body tag or at the end of file
+    // Insert before closing body tag or at the end of the file
     if (content.includes('</body>')) {
-      content = content.replace('</body>', hotReloadScript + '\n</body>');
+      content = content.replace('</body>', liveReloadScript + '\n</body>');
     } else {
-      content += hotReloadScript;
+      content += liveReloadScript;
     }
     
     res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(content);
+    return;
+  }
+  
+  // For CSS files, add cache control headers
+  if (ext === '.css') {
+    const content = fs.readFileSync(fullPath);
+    res.writeHead(200, { 
+      'Content-Type': 'text/css',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
     res.end(content);
     return;
   }
@@ -90,65 +109,9 @@ function serveFile(filePath, res) {
   res.end(content);
 }
 
-// Handle hot reload endpoint
-function handleHotReload(req, res) {
-  res.writeHead(200, {
-    'Content-Type': 'text/event-stream',
-    'Cache-Control': 'no-cache',
-    'Connection': 'keep-alive',
-    'Access-Control-Allow-Origin': '*'
-  });
-  
-  // Add this client to the list
-  clients.add(res);
-  
-  // Send initial connection message
-  res.write('data: connected\n\n');
-  
-  // Handle client disconnect
-  req.on('close', () => {
-    clients.delete(res);
-  });
-}
-
-// Trigger hot reload for all connected clients
-function triggerReload() {
-  clients.forEach(client => {
-    try {
-      client.write('data: reload\n\n');
-    } catch (e) {
-      // Client disconnected, remove from list
-      clients.delete(client);
-    }
-  });
-}
-
-// Watch for file changes
-function startWatching() {
-  console.log('👀 Watching for changes in styles and tokens...');
-  
-  // Use our custom watch script that integrates with hot reload
-  const watchProcess = spawn('node', [path.join(__dirname, 'watch-with-reload.js')], {
-    stdio: 'inherit',
-    shell: true
-  });
-  
-  watchProcess.on('close', (code) => {
-    console.log(`Watch process exited with code ${code}`);
-  });
-  
-  return watchProcess;
-}
-
-// Create the HTTP server
+// Create HTTP server
 const server = http.createServer((req, res) => {
-  // Handle hot reload endpoint
-  if (req.url === '/hot-reload') {
-    handleHotReload(req, res);
-    return;
-  }
-  
-  // Parse the URL
+  // Parse URL
   let url = req.url;
   if (url === '/') {
     url = '/index.html';
@@ -157,7 +120,12 @@ const server = http.createServer((req, res) => {
   // Remove query parameters
   url = url.split('?')[0];
   
-  // Serve the file
+  // Remove /examples/ prefix if present (since we're already serving from examples directory)
+  if (url.startsWith('/examples/')) {
+    url = url.substring('/examples/'.length);
+  }
+  
+  // Serve file
   serveFile(url.slice(1), res);
 });
 
@@ -170,24 +138,40 @@ try {
   console.error('❌ Error switching to development mode:', error.message);
 }
 
-// Start watching for file changes
-const watchProcess = startWatching();
-
 // Start the server
 server.listen(PORT, HOST, () => {
   console.log(`🚀 Development server running at http://${HOST}:${PORT}`);
   console.log(`📁 Serving files from: ${EXAMPLES_DIR}`);
-  console.log(`🔥 Hot reload enabled`);
+  console.log(`🔥 Live reload enabled (CSS changes will be applied automatically)`);
+  console.log(`\n💡 Tips:`);
+  console.log(`   - Edit CSS files in the styles/ directory`);
+  console.log(`   - Run 'npm run build:css' to rebuild the combined CSS`);
+  console.log(`   - Changes will be reflected automatically in the browser`);
+  console.log(`   - Press Ctrl+C to stop the server and switch back to production mode`);
+});
+
+// Handle server errors, particularly for port conflicts
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`\n❌ Port ${PORT} is already in use!`);
+    console.error(`\n🔧 Solutions:`);
+    console.error(`   1. Kill the process using port ${PORT}:`);
+    console.error(`      lsof -ti:${PORT} | xargs kill`);
+    console.error(`\n   2. Or use a different port:`);
+    console.error(`      DEV_PORT=${parseInt(PORT) + 1} npm run dev`);
+    console.error(`\n   3. Or find what's using the port:`);
+    console.error(`      lsof -i :${PORT}`);
+    console.error(`\n💡 Tip: This error usually happens when a previous dev server is still running.`);
+    process.exit(1);
+  } else {
+    console.error('❌ Server error:', err);
+    process.exit(1);
+  }
 });
 
 // Handle server shutdown
 process.on('SIGINT', () => {
   console.log('\n🛑 Shutting down development server...');
-  
-  // Kill the watch process
-  if (watchProcess) {
-    watchProcess.kill();
-  }
   
   // Switch back to prod mode
   try {
@@ -204,6 +188,3 @@ process.on('SIGINT', () => {
     process.exit(0);
   });
 });
-
-// Export triggerReload for use by file watcher
-global.triggerReload = triggerReload;

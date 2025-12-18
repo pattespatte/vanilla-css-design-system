@@ -34,7 +34,11 @@
 					<!-- Menu items will be dynamically inserted here -->
 				</ul>
 				<div class="item-bottom-right m-2">
-					<button type="button" id="theme-toggle" aria-label="Toggle dark mode">Dark</button>
+					<div class="theme-buttons">
+						<button type="button" id="theme-purple-yellow" class="theme-btn" aria-label="Purple/Yellow theme">Purple/Yellow</button>
+						<button type="button" id="theme-darkblue-beige" class="theme-btn" aria-label="Dark Blue/Beige theme">Dark Blue/Beige</button>
+						<button type="button" id="theme-dark" class="theme-btn" aria-label="Dark mode">Dark Mode</button>
+					</div>
 				</div>
 			</nav>
 		</div>
@@ -45,9 +49,9 @@
 			<p class="example-description">
 				The default button style using the .btn class.
 			</p>
-			<button class="btn btn-primary">Primary Button</button>
+			<button type="button" class="btn btn-primary">Primary Button</button>
 			<div class="code-block">
-				<pre><code>&lt;button class="btn btn-primary"&gt;Primary Button&lt;/button&gt;</code></pre>
+				<pre><code><button type="button" class="btn btn-primary">Primary Button</button></code></pre>
 			</div>
 		</div>
 		<div class="example-section">
@@ -56,23 +60,25 @@
 				Different styles and states for buttons.
 			</p>
 			<div class="grid grid-cols-2 gap-3">
-				<button class="btn btn-primary">Primary</button>
-				<button class="btn btn-secondary">Secondary</button>
+				<button type="button" class="btn btn-primary">Primary</button>
+				<button type="button" class="btn btn-secondary">Secondary</button>
 			</div>
 			<div class="code-block">
-				<pre><code>&lt;button class="btn btn-primary"&gt;Secondary&lt;/button&gt;
-&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;</code></pre>
+				<pre><code><button type="button" class="btn btn-primary">Secondary</button>
+<button type="button" class="btn btn-secondary">Secondary</button></code></pre>
 			</div>
 		</div>
 	</main>
 	<footer>
 		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>
 	</footer>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLz4vqgFiJMYiFbe-q8ChWkyMIF7w/4u7rHynf9gnB8/ylApHRd1JR7deUc5IJTzPcQ=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script>hljs.highlightAll();</script>
 	<script src="../assets/js/main-menu.js"></script>
 	<script src="../assets/js/modes.js"></script>
 	<script src="../assets/js/find-missing-css.js"></script>
+	<span data-theme="dark" class="d-none">Necessary workaround for making dark mode work with PurgeCSS. You can move this item but not delete it.</span>
+	<span data-theme="helix" class="d-none">Necessary workaround for making helix mode work with PurgeCSS. You can move this item but not delete it.</span>
 </body>
 
 </html>
