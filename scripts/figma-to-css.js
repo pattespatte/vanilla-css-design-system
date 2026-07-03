@@ -4,16 +4,6 @@ const path = require('path');
 const SOURCE_DIR = './figma';
 const OUTPUT_DIR = './styles/variables';
 
-// Helper function to convert Figma color value to CSS
-function formatColorValue(value) {
-	// If it's already a valid CSS color format, return as is
-	if (typeof value === 'string' && (value.startsWith('#') || value.startsWith('rgb') || value.startsWith('hsl'))) {
-		return value;
-	}
-	// Handle other color formats if needed
-	return value;
-}
-
 // Helper function to convert Figma effect value to CSS
 function formatEffectValue(effect) {
 	if (effect.type === 'DROP_SHADOW') {
@@ -34,7 +24,8 @@ function formatValue(variable) {
 
 	switch (variable.type) {
 		case 'color':
-			return formatColorValue(variable.value);
+			// Figma color values are already CSS-compatible (hex/rgb/hsl); emit as-is.
+			return variable.value;
 		case 'effect':
 			return formatEffectValue(variable.value);
 		case 'dimension':

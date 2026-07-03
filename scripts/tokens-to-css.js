@@ -16,33 +16,30 @@ function dotToHyphen(str) {
 	return str.replace(/\./g, '-');
 }
 
-// Helper function to flatten token objects
+// Helper function to flatten token objects. $value/$type are token meta keys,
+// not nested tokens, so they are skipped at the top of each recursion. This
+// avoids rebuilding a filtered shallow copy of every node on the way down.
 function flattenObject(obj, prefix = '') {
 	return Object.keys(obj).reduce((acc, key) => {
+		if (key === '$value' || key === '$type') {
+			return acc;
+		}
 		const pre = prefix.length ? `${prefix}-` : '';
+		const child = obj[key];
 
 		// Handle the case where an object has both $value and other properties
-		if (typeof obj[key] === 'object' && obj[key] !== null) {
+		if (typeof child === 'object' && child !== null) {
 			// If the object has a $value, add it to accumulator
-			if ('$value' in obj[key]) {
-				if (typeof obj[key]['$value'] === 'object') {
-					acc[`${pre}${key}`] = formatShadowValue(obj[key]['$value']);
-				} else {
-					acc[`${pre}${key}`] = obj[key]['$value'];
-				}
+			if ('$value' in child) {
+				acc[`${pre}${key}`] = typeof child.$value === 'object'
+					? formatShadowValue(child.$value)
+					: child.$value;
 			}
 
-			// Continue flattening the object (for nested properties)
-			// Only process properties that aren't $value or $type
-			const nestedObj = Object.keys(obj[key])
-				.filter(k => k !== '$value' && k !== '$type')
-				.reduce((o, k) => ({ ...o, [k]: obj[key][k] }), {});
-
-			if (Object.keys(nestedObj).length > 0) {
-				Object.assign(acc, flattenObject(nestedObj, `${pre}${key}`));
-			}
+			// Continue flattening the object (for nested properties).
+			Object.assign(acc, flattenObject(child, `${pre}${key}`));
 		} else {
-			acc[`${pre}${key}`] = obj[key];
+			acc[`${pre}${key}`] = child;
 		}
 		return acc;
 	}, {});
@@ -115,10 +112,13 @@ function tokensToCSS() {
 		if (path.extname(file) === '.json') {
 			const baseName = path.basename(file, '.json');
 			const tokenPath = path.join(tokensDir, file);
-			const css = processTokenFile(tokenPath);
-
-			// Write to CSS file
-			fs.writeFileSync(path.join(variablesDir, `${baseName}.css`), css);
+			try {
+				const css = processTokenFile(tokenPath);
+				// Write to CSS file
+				fs.writeFileSync(path.join(variablesDir, `${baseName}.css`), css);
+			} catch (error) {
+				console.error(`Error processing ${file}:`, error.message);
+			}
 		}
 	});
 

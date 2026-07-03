@@ -6,20 +6,26 @@ const { execSync } = require('child_process');
 // Configuration
 const PORT = process.env.DEV_PORT || 3000;
 const HOST = process.env.DEV_HOST || 'localhost';
-const EXAMPLES_DIR = path.join(__dirname, '../examples');
-const STYLES_DIR = path.join(__dirname, '../styles');
+const PROJECT_ROOT = path.join(__dirname, '..');
+const EXAMPLES_DIR = path.join(PROJECT_ROOT, 'examples');
 
 // MIME types for different file extensions
 const mimeTypes = {
   '.html': 'text/html',
   '.js': 'text/javascript',
+  '.mjs': 'text/javascript',
   '.css': 'text/css',
   '.json': 'application/json',
   '.png': 'image/png',
-  '.jpg': 'image/jpg',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
   '.gif': 'image/gif',
+  '.webp': 'image/webp',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
+  '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
+  '.map': 'application/json',
 };
 
 // Get MIME type for a file
@@ -28,41 +34,71 @@ function getMimeType(filePath) {
   return mimeTypes[ext] || 'application/octet-stream';
 }
 
-// Serve a file
-function serveFile(filePath, res) {
+// Resolve a request path against a root directory, refusing anything that
+// escapes the root. Returns an absolute path inside root, or null on rejection.
+function resolveWithin(root, requestPath) {
+  const resolved = path.resolve(root, requestPath);
+  // `resolved === root` (the bare dir) is allowed; anything beneath it must
+  // share the root + separator prefix.
+  if (resolved !== root && !resolved.startsWith(root + path.sep)) {
+    return null;
+  }
+  return resolved;
+}
+
+// Serve a file. If it does not exist or is a directory, fall back to
+// index.html exactly once (tracked via `fellBack`) instead of recursing.
+function serveFile(requestPath, res, fellBack = false) {
+  let root;
   let fullPath;
-  
-  // Check if this is a request for styles directory
-  if (filePath.startsWith('styles/')) {
-    fullPath = path.join(__dirname, '..', filePath);
+
+  // Requests for the styles directory are served from the project root so the
+  // source CSS is available to the examples; everything else from examples/.
+  if (requestPath.startsWith('styles/')) {
+    root = PROJECT_ROOT;
+    fullPath = resolveWithin(root, requestPath);
   } else {
-    fullPath = path.join(EXAMPLES_DIR, filePath);
+    root = EXAMPLES_DIR;
+    fullPath = resolveWithin(root, requestPath);
   }
-  
+
+  // Reject path-traversal attempts.
+  if (fullPath === null) {
+    res.writeHead(403, { 'Content-Type': 'text/plain' });
+    res.end('403 Forbidden');
+    console.warn(`Rejected path outside root: ${requestPath}`);
+    return;
+  }
+
   console.log(`Attempting to serve: ${fullPath}`);
-  
-  // If file doesn't exist, try to serve index.html
-  if (!fs.existsSync(fullPath) || fs.statSync(fullPath).isDirectory()) {
-    console.log(`File not found or is directory: ${fullPath}, serving index.html instead`);
-    if (filePath !== '/' && filePath !== '') {
-      return serveFile('index.html', res);
+
+  // If file doesn't exist or is a directory, fall back to index.html once.
+  const exists = fs.existsSync(fullPath);
+  const isDir = exists && fs.statSync(fullPath).isDirectory();
+  if (!exists || isDir) {
+    if (fellBack) {
+      // index.html itself is missing — don't recurse forever.
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('404 Not Found');
+      console.error(`index.html not found under ${EXAMPLES_DIR}`);
+      return;
     }
-    filePath = 'index.html';
-    return serveFile(filePath, res);
+    console.log(`File not found or is directory: ${fullPath}, serving index.html instead`);
+    return serveFile('index.html', res, true);
   }
-  
-  const ext = path.extname(filePath).toLowerCase();
-  
+
+  const ext = path.extname(fullPath).toLowerCase();
+
   // For HTML files, inject live reload script
   if (ext === '.html') {
-    let content = fs.readFileSync(fullPath, 'utf8');
-    
+    const content = fs.readFileSync(fullPath, 'utf8');
+
     // Inject live reload script before closing body tag
     const liveReloadScript = `
 <script>
   (function() {
     console.log('Live reload enabled - refresh the page to see CSS changes');
-    
+
     // Check for CSS changes every 2 seconds
     setInterval(() => {
       const links = document.querySelectorAll('link[rel="stylesheet"]');
@@ -77,23 +113,24 @@ function serveFile(filePath, res) {
     }, 2000);
   })();
 </script>`;
-    
+
     // Insert before closing body tag or at the end of the file
+    let finalContent;
     if (content.includes('</body>')) {
-      content = content.replace('</body>', liveReloadScript + '\n</body>');
+      finalContent = content.replace('</body>', liveReloadScript + '\n</body>');
     } else {
-      content += liveReloadScript;
+      finalContent = content + liveReloadScript;
     }
-    
+
     res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end(content);
+    res.end(finalContent);
     return;
   }
-  
+
   // For CSS files, add cache control headers
   if (ext === '.css') {
     const content = fs.readFileSync(fullPath);
-    res.writeHead(200, { 
+    res.writeHead(200, {
       'Content-Type': 'text/css',
       'Cache-Control': 'no-cache, no-store, must-revalidate',
       'Pragma': 'no-cache',
@@ -102,11 +139,24 @@ function serveFile(filePath, res) {
     res.end(content);
     return;
   }
-  
+
   // For other files, serve as-is
   const content = fs.readFileSync(fullPath);
-  res.writeHead(200, { 'Content-Type': getMimeType(filePath) });
+  res.writeHead(200, { 'Content-Type': getMimeType(fullPath) });
   res.end(content);
+}
+
+// Switch between dev/prod example bundles. Failures are logged but never
+// crash the server lifecycle, so a mid-run error doesn't leave the working
+// tree in an inconsistent state or block the server from starting.
+function switchMode(mode) {
+  try {
+    console.log(`🔄 Switching to ${mode} mode...`);
+    execSync(`npm run switch:${mode}`, { stdio: 'inherit' });
+    console.log(`✅ Switched to ${mode} mode`);
+  } catch (error) {
+    console.error(`❌ Error switching to ${mode} mode:`, error.message);
+  }
 }
 
 // Create HTTP server
@@ -116,27 +166,21 @@ const server = http.createServer((req, res) => {
   if (url === '/') {
     url = '/index.html';
   }
-  
+
   // Remove query parameters
   url = url.split('?')[0];
-  
+
   // Remove /examples/ prefix if present (since we're already serving from examples directory)
   if (url.startsWith('/examples/')) {
     url = url.substring('/examples/'.length);
   }
-  
+
   // Serve file
   serveFile(url.slice(1), res);
 });
 
 // Switch to dev mode
-try {
-  console.log('🔄 Switching to development mode...');
-  execSync('npm run switch:dev', { stdio: 'inherit' });
-  console.log('✅ Switched to development mode');
-} catch (error) {
-  console.error('❌ Error switching to development mode:', error.message);
-}
+switchMode('dev');
 
 // Start the server
 server.listen(PORT, HOST, () => {
@@ -158,7 +202,7 @@ server.on('error', (err) => {
     console.error(`   1. Kill the process using port ${PORT}:`);
     console.error(`      lsof -ti:${PORT} | xargs kill`);
     console.error(`\n   2. Or use a different port:`);
-    console.error(`      DEV_PORT=${parseInt(PORT) + 1} npm run dev`);
+    console.error(`      DEV_PORT=${parseInt(PORT, 10) + 1} npm run dev`);
     console.error(`\n   3. Or find what's using the port:`);
     console.error(`      lsof -i :${PORT}`);
     console.error(`\n💡 Tip: This error usually happens when a previous dev server is still running.`);
@@ -172,16 +216,10 @@ server.on('error', (err) => {
 // Handle server shutdown
 process.on('SIGINT', () => {
   console.log('\n🛑 Shutting down development server...');
-  
+
   // Switch back to prod mode
-  try {
-    console.log('🔄 Switching back to production mode...');
-    execSync('npm run switch:prod', { stdio: 'inherit' });
-    console.log('✅ Switched to production mode');
-  } catch (error) {
-    console.error('❌ Error switching to production mode:', error.message);
-  }
-  
+  switchMode('prod');
+
   // Close the server
   server.close(() => {
     console.log('✅ Server closed');

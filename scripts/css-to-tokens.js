@@ -3,8 +3,8 @@ const path = require('path');
 const postcss = require('postcss');
 const postcssJs = require('postcss-js');
 
-const SOURCE_DIR = './styles/variables';
-const OUTPUT_DIR = './tokens';
+const SOURCE_DIR = path.join(__dirname, '../styles/variables');
+const OUTPUT_DIR = path.join(__dirname, '../tokens');
 
 // Helper function to create nested object structure
 function createNestedObject(obj, path, value) {
@@ -66,7 +66,7 @@ function getTokenType(name, value) {
 	}
 
 	// Font weights - check if it's a numeric value
-	if ((name.includes('font-weight') || name.includes('text.weight')) && !isNaN(value)) {
+	if (name.includes('font-weight') && !isNaN(value)) {
 		return 'number';
 	}
 
@@ -100,8 +100,10 @@ function getTokenType(name, value) {
 		return 'color';
 	}
 
-	// Dimensions (px, rem, em, etc.)
-	if (value.match(/px|rem|em|%|vw|vh|vh/)) {
+	// Dimensions (px, rem, em, etc.) — anchored so the whole value is a
+	// number followed by a unit. This avoids misclassifying a value that merely
+	// contains the substring "em" (e.g. a font-family name) as a dimension.
+	if (value.match(/^[\d.]+(px|rem|em|%|vw|vh)$/)) {
 		return 'dimension';
 	}
 
@@ -152,12 +154,8 @@ function processValue(name, value, type) {
 			// Ensure we're returning an actual number, not a string
 			return Number(value);
 		case 'duration':
-			if (value.endsWith('ms')) {
-				return value;
-			} else if (value.endsWith('s')) {
-				const seconds = parseFloat(value.match(/[\d.]+/)[0]);
-				return `${seconds * 1000}ms`;
-			}
+			// Preserve the original unit (s or ms) so css2tokens → tokens2css
+			// round-trips losslessly instead of forcing everything to ms.
 			return value;
 		case 'color':
 			return expandShortHex(value);
@@ -201,16 +199,9 @@ function cssToTokens(cssObj) {
 	return tokens;
 }
 
-// Custom JSON stringifier that doesn't quote numbers
-function customStringify(obj, indent = 2) {
-	return JSON.stringify(obj, (key, value) => {
-		// If the value is a number and we're not dealing with a string representation
-		if (typeof value === 'number' && !isNaN(value)) {
-			// Return the number as is (without quotes)
-			return Number(value);
-		}
-		return value;
-	}, indent);
+// Ensure the output directory exists before writing
+if (!fs.existsSync(OUTPUT_DIR)) {
+	fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 }
 
 // Process each CSS file
@@ -223,9 +214,9 @@ fs.readdirSync(SOURCE_DIR).forEach(file => {
 		// Convert to tokens
 		const tokens = cssToTokens(cssObj[':root'] || {});
 
-		// Write JSON file using custom stringification
+		// Write JSON file
 		const outputFile = path.join(OUTPUT_DIR, file.replace('.css', '.json'));
-		fs.writeFileSync(outputFile, customStringify(tokens));
+		fs.writeFileSync(outputFile, JSON.stringify(tokens, null, 2));
 
 		console.log(`Converted ${file} to ${path.basename(outputFile)}`);
 	}
