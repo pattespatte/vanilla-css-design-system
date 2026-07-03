@@ -1,7 +1,12 @@
+# Keep built files untracked
 styles/vanilla-combined.css
 styles/vanilla-combined.purged.css
 # styles/vanilla-combined.min.css
 # tokens/*.json
+
+# AI agent instructions (local only, never published)
+AGENTS.md
+.clavix/
 
 # Node modules
 node_modules/
