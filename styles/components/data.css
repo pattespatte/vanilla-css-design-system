@@ -20,7 +20,7 @@
 	border: 1px solid var(--color-primary);
 }
 
-[data-theme="dark"] .table th {
+[data-mode="dark"] .table th {
 	background-color: var(--color-primary-800);
 }
 
@@ -28,7 +28,7 @@
 	background-color: var(--color-gray-100);
 }
 
-[data-theme="dark"] .table tr:nth-child(even) {
+[data-mode="dark"] .table tr:nth-child(even) {
 	background-color: var(--color-gray-700);
 }
 

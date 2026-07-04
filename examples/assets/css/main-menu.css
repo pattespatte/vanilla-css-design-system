@@ -76,9 +76,9 @@
 }
 
 
-[data-theme="dark"] .main-menu a,
-[data-theme="dark"] .main-menu button,
-[data-theme="dark"] .submenu a {
+[data-mode="dark"] .main-menu a,
+[data-mode="dark"] .main-menu button,
+[data-mode="dark"] .submenu a {
 	background-color: var(--color-dark);
 	color: var(--color-white);
 }

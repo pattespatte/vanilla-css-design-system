@@ -1,120 +1,148 @@
-// Select the theme buttons
-const themePurpleYellow = document.getElementById('theme-purple-yellow');
-const themeDarkblueBeige = document.getElementById('theme-darkblue-beige');
-const themeDark = document.getElementById('theme-dark');
+/**
+ * modes.js — orthogonal theme × mode controller.
+ *
+ * Two independent attributes on <html>:
+ *   data-theme = "purple-yellow" | "darkblue-beige"   (palette)
+ *   data-mode  = "light" | "dark" | "auto"             (mode; "auto" follows
+ *                                                       the OS prefers-color-scheme)
+ *
+ * Defaults (no saved preference): purple-yellow theme + auto mode.
+ * Selections persist across reloads via localStorage (best-effort — storage may
+ * be disabled in private mode, in which case we silently fall back).
+ *
+ * Listens for the `header:ready` event (dispatched by header.js) before
+ * binding, so this works regardless of whether the header was injected or is
+ * already present in the document.
+ */
+(function () {
+  'use strict';
 
-// Safe localStorage helpers — access throws in private/incognito mode or when
-// storage is disabled, so wrap reads/writes and degrade gracefully.
-const themeStorage = {
-  get() {
-    try {
-      return localStorage.getItem('theme');
-    } catch (e) {
-      return null;
-    }
-  },
-  set(theme) {
-    try {
-      localStorage.setItem('theme', theme);
-    } catch (e) {
-      /* ignore quota / disabled storage */
-    }
-  },
-};
+  const DEFAULT_THEME = 'purple-yellow';
+  const DEFAULT_MODE = 'auto';
+  const THEME_KEY = 'theme';
+  const MODE_KEY = 'mode';
 
-// Get the user's saved theme from localStorage (if any)
-const savedTheme = themeStorage.get();
+  // Safe localStorage helpers — access throws in private/incognito mode or
+  // when storage is disabled, so wrap reads/writes and degrade gracefully.
+  const storage = {
+    get(key) {
+      try {
+        return localStorage.getItem(key);
+      } catch (e) {
+        return null;
+      }
+    },
+    set(key, value) {
+      try {
+        localStorage.setItem(key, value);
+      } catch (e) {
+        /* ignore quota / disabled storage */
+      }
+    },
+  };
 
-// Function to update the active state of theme buttons
-function updateActiveButton(theme) {
-  // Remove active class from all buttons
-  document.querySelectorAll('.theme-btn').forEach(btn => {
-    btn.classList.remove('active');
-  });
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-  // Add active class to the current theme button
-  let activeButton;
-  switch (theme) {
-    case 'light':
-      activeButton = themePurpleYellow;
-      break;
-    case 'helix':
-      activeButton = themeDarkblueBeige;
-      break;
-    case 'dark':
-      activeButton = themeDark;
-      break;
-    default:
-      activeButton = themePurpleYellow;
+  // Resolve the effective light/dark mode. "auto" → check the OS preference.
+  function resolveMode(mode) {
+    if (mode === 'auto') return prefersDark.matches ? 'dark' : 'light';
+    return mode;
   }
 
-  if (activeButton) {
-    activeButton.classList.add('active');
+  // Apply the chosen theme + mode to <html>. The theme attribute is the
+  // user's palette pick. The mode attribute is set to the RESOLVED light/dark
+  // value (so CSS rules keyed on [data-mode="light"|"dark"] apply correctly
+  // even when the user picked "auto"); the user's choice is tracked separately
+  // on data-mode-choice so syncControls can show which button is pressed.
+  function applyState(theme, mode) {
+    const root = document.documentElement;
+    const resolved = resolveMode(mode);
+    root.setAttribute('data-theme', theme);
+    root.setAttribute('data-mode', resolved);
+    root.setAttribute('data-mode-choice', mode);
+    updateStylesheet(resolved);
+    syncControls(theme, mode);
   }
-}
 
-// Function to update the stylesheet based on the theme
-function updateStylesheet(theme) {
-  const stylesheetLink = document.querySelector('link[rel="stylesheet"][href*="styles/a11y"]');
-  if (stylesheetLink) {
-    const newHref = theme === 'dark'
+  // Swap the highlight.js stylesheet to match the resolved light/dark mode.
+  function updateStylesheet(resolved) {
+    const link = document.querySelector('link[rel="stylesheet"][href*="styles/a11y"]');
+    if (!link) return;
+    const newHref = resolved === 'dark'
       ? 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/a11y-dark.min.css'
       : 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/a11y-light.min.css';
-    // Swap the href in place rather than cloning+replacing the <link>, so the
-    // browser can reuse the element instead of refetching + reparsing.
-    stylesheetLink.href = newHref;
+    // Swap href in place so the browser reuses the <link> element.
+    link.href = newHref;
   }
-}
 
-// Function to apply the theme based on the user's preference or saved theme
-function applyTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
-  updateActiveButton(theme);
-  updateStylesheet(theme);
-}
+  // Update the segmented controls to reflect the current state.
+  function syncControls(theme, mode) {
+    const resolved = resolveMode(mode);
 
-// Check if the user has a system-level color scheme preference
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    document.querySelectorAll('.segmented--theme .segmented-btn').forEach((btn) => {
+      btn.setAttribute('aria-pressed', btn.dataset.themeValue === theme ? 'true' : 'false');
+    });
 
-// Track whether the user has made an explicit theme choice. Once they have,
-// stop letting OS color-scheme changes override their selection.
-let userHasChosen = Boolean(savedTheme);
-
-// Function to handle system-level color scheme changes
-function handleColorSchemeChange(e) {
-  if (userHasChosen) {
-    return; // Respect the user's explicit selection.
+    document.querySelectorAll('.segmented--mode .segmented-btn').forEach((btn) => {
+      const pressed = btn.dataset.modeValue === mode;
+      btn.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+      // Auto button keeps its system icon; the small "A" badge is the only
+      // signal that it is set to automatic. We do NOT swap to sun/moon even
+      // when we know the resolved mode, so the user can always tell the
+      // button apart from explicit Light/Dark picks.
+    });
   }
-  const systemTheme = e.matches ? 'dark' : 'light';
-  applyTheme(systemTheme);
-}
 
-// Check the initial color scheme preference and apply the theme accordingly
-if (savedTheme) {
-  applyTheme(savedTheme);
-} else {
-  applyTheme('light'); // Default to light theme
-}
+  // Wire up click handlers on the segmented controls. Safe to call repeatedly —
+  // listeners are attached to each button exactly once via data-hook flag.
+  function bindControls() {
+    document.querySelectorAll('.segmented--theme .segmented-btn').forEach((btn) => {
+      if (btn.dataset.hooked) return;
+      btn.dataset.hooked = '1';
+      btn.addEventListener('click', () => {
+        const theme = btn.dataset.themeValue;
+        storage.set(THEME_KEY, theme);
+        applyState(theme, currentMode());
+      });
+    });
 
-// Listen for system-level color scheme changes (addEventListener is the
-// current standard; addListener is the deprecated alias).
-prefersDarkScheme.addEventListener('change', handleColorSchemeChange);
+    document.querySelectorAll('.segmented--mode .segmented-btn').forEach((btn) => {
+      if (btn.dataset.hooked) return;
+      btn.dataset.hooked = '1';
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.modeValue;
+        storage.set(MODE_KEY, mode);
+        applyState(currentTheme(), mode);
+      });
+    });
+  }
 
-// Listen for theme button clicks
-themePurpleYellow.addEventListener('click', () => {
-  userHasChosen = true;
-  applyTheme('light');
-  themeStorage.set('light');
-});
+  function currentTheme() {
+    return storage.get(THEME_KEY) || DEFAULT_THEME;
+  }
 
-themeDarkblueBeige.addEventListener('click', () => {
-  userHasChosen = true;
-  applyTheme('helix');
-  themeStorage.set('helix');
-});
+  function currentMode() {
+    return storage.get(MODE_KEY) || DEFAULT_MODE;
+  }
 
-themeDark.addEventListener('click', () => {
-  userHasChosen = true;
-  applyTheme('dark');
-  themeStorage.set('dark');
-});
+  // When the OS color-scheme changes, only re-resolve if the user is on auto.
+  // An explicit Light/Dark pick must not be overridden by the OS.
+  prefersDark.addEventListener('change', () => {
+    if (currentMode() === 'auto') {
+      applyState(currentTheme(), 'auto');
+    }
+  });
+
+  // Initialise. Wait for header:ready so the controls exist before we bind.
+  function init() {
+    bindControls();
+    applyState(currentTheme(), currentMode());
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  document.addEventListener('header:ready', init);
+})();

@@ -65,7 +65,7 @@
   --helix-beige-400: #b99d7e;
   --helix-beige-500: #aa8665;
 
-  /* Helix semantic colors */
+  /* Helix semantic colors (light variant — beige surfaces, dark blue text) */
   --helix-bg-primary: var(--helix-beige-100);
   --helix-bg-secondary: var(--helix-beige-200);
   --helix-bg-tertiary: var(--helix-beige-50);
@@ -86,4 +86,19 @@
   --helix-interactive-secondary-hover: var(--helix-beige-400);
   --helix-interactive-secondary-active: var(--helix-beige-500);
   --helix-interactive-secondary-focus: var(--helix-beige-400);
+
+  /* Helix dark variant — deep navy surfaces, soft beige text.
+     Used by [data-theme="darkblue-beige"][data-mode="dark"] in settings.css
+     so the helix palette keeps its identity but inverts for dark mode. */
+  --helix-dark-bg-primary: var(--helix-darkblue-950);
+  --helix-dark-bg-secondary: var(--helix-darkblue-900);
+  --helix-dark-bg-tertiary: var(--helix-darkblue-800);
+  --helix-dark-text-primary: var(--helix-beige-100);
+  --helix-dark-text-secondary: var(--helix-beige-200);
+  --helix-dark-text-muted: var(--helix-beige-300);
+  --helix-dark-text-inverse: var(--helix-darkblue-950);
+  --helix-dark-border-primary: var(--helix-darkblue-800);
+  --helix-dark-border-secondary: var(--helix-darkblue-700);
+  --helix-dark-border-strong: var(--helix-beige-400);
+  --helix-dark-border-subtle: var(--helix-darkblue-900);
 }

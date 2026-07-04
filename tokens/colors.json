@@ -206,5 +206,195 @@
         "$type": "color"
       }
     }
+  },
+  "helix": {
+    "darkblue": {
+      "700": {
+        "$value": "#3b4992",
+        "$type": "color"
+      },
+      "800": {
+        "$value": "#3b4992",
+        "$type": "color"
+      },
+      "900": {
+        "$value": "#334075",
+        "$type": "color"
+      },
+      "950": {
+        "$value": "#232948",
+        "$type": "color"
+      }
+    },
+    "beige": {
+      "50": {
+        "$value": "#f6f3ee",
+        "$type": "color"
+      },
+      "100": {
+        "$value": "#f0ece4",
+        "$type": "color"
+      },
+      "200": {
+        "$value": "#e2d7c7",
+        "$type": "color"
+      },
+      "300": {
+        "$value": "#cfbca3",
+        "$type": "color"
+      },
+      "400": {
+        "$value": "#b99d7e",
+        "$type": "color"
+      },
+      "500": {
+        "$value": "#aa8665",
+        "$type": "color"
+      }
+    },
+    "bg": {
+      "primary": {
+        "$value": "{helix.beige.100}",
+        "$type": "string"
+      },
+      "secondary": {
+        "$value": "{helix.beige.200}",
+        "$type": "string"
+      },
+      "tertiary": {
+        "$value": "{helix.beige.50}",
+        "$type": "string"
+      },
+      "accent": {
+        "$value": "{helix.darkblue.700}",
+        "$type": "string"
+      }
+    },
+    "text": {
+      "primary": {
+        "$value": "{helix.darkblue.950}",
+        "$type": "string"
+      },
+      "secondary": {
+        "$value": "{helix.darkblue.900}",
+        "$type": "string"
+      },
+      "muted": {
+        "$value": "{helix.darkblue.800}",
+        "$type": "string"
+      },
+      "inverse": {
+        "$value": "{helix.beige.100}",
+        "$type": "string"
+      }
+    },
+    "border": {
+      "primary": {
+        "$value": "{helix.beige.300}",
+        "$type": "string"
+      },
+      "secondary": {
+        "$value": "{helix.beige.200}",
+        "$type": "string"
+      },
+      "strong": {
+        "$value": "{helix.darkblue.700}",
+        "$type": "string"
+      },
+      "subtle": {
+        "$value": "{helix.beige.100}",
+        "$type": "string"
+      }
+    },
+    "interactive": {
+      "primary": {
+        "default": {
+          "$value": "{helix.darkblue.700}",
+          "$type": "string"
+        },
+        "hover": {
+          "$value": "{helix.darkblue.800}",
+          "$type": "string"
+        },
+        "active": {
+          "$value": "{helix.darkblue.900}",
+          "$type": "string"
+        },
+        "focus": {
+          "$value": "{helix.darkblue.800}",
+          "$type": "string"
+        }
+      },
+      "secondary": {
+        "default": {
+          "$value": "{helix.beige.300}",
+          "$type": "string"
+        },
+        "hover": {
+          "$value": "{helix.beige.400}",
+          "$type": "string"
+        },
+        "active": {
+          "$value": "{helix.beige.500}",
+          "$type": "string"
+        },
+        "focus": {
+          "$value": "{helix.beige.400}",
+          "$type": "string"
+        }
+      }
+    },
+    "dark": {
+      "bg": {
+        "primary": {
+          "$value": "{helix.darkblue.950}",
+          "$type": "string"
+        },
+        "secondary": {
+          "$value": "{helix.darkblue.900}",
+          "$type": "string"
+        },
+        "tertiary": {
+          "$value": "{helix.darkblue.800}",
+          "$type": "string"
+        }
+      },
+      "text": {
+        "primary": {
+          "$value": "{helix.beige.100}",
+          "$type": "string"
+        },
+        "secondary": {
+          "$value": "{helix.beige.200}",
+          "$type": "string"
+        },
+        "muted": {
+          "$value": "{helix.beige.300}",
+          "$type": "string"
+        },
+        "inverse": {
+          "$value": "{helix.darkblue.950}",
+          "$type": "string"
+        }
+      },
+      "border": {
+        "primary": {
+          "$value": "{helix.darkblue.800}",
+          "$type": "string"
+        },
+        "secondary": {
+          "$value": "{helix.darkblue.700}",
+          "$type": "string"
+        },
+        "strong": {
+          "$value": "{helix.beige.400}",
+          "$type": "string"
+        },
+        "subtle": {
+          "$value": "{helix.darkblue.900}",
+          "$type": "string"
+        }
+      }
+    }
   }
 }

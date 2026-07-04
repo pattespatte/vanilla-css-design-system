@@ -10,22 +10,22 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap">
 	<link rel="stylesheet" href="../styles/vanilla-combined.min.css">
 	<link rel="stylesheet" href="assets/css/examples.css">
+	<link rel="stylesheet" href="assets/css/main-menu.css">
 	<link rel="icon" type="image/svg+xml" href="assets/images/vanilla-logo.svg">
 </head>
 
 <body>
-	<header class="docs-nav">
-		<div class="container">
-			<h1 class="float-left">Vanilla CSS Design System<img src="assets/images/vanilla-logo.svg" alt="" id="header-logo"></h1>
-			<div class="float-right">
-				<div class="theme-buttons">
-					<button type="button" id="theme-purple-yellow" class="theme-btn" aria-label="Purple/Yellow theme">Purple/Yellow</button>
-					<button type="button" id="theme-darkblue-beige" class="theme-btn" aria-label="Dark Blue/Beige theme">Dark Blue/Beige</button>
-					<button type="button" id="theme-dark" class="theme-btn" aria-label="Dark mode">Dark Mode</button>
-				</div>
-			</div>
-		</div>
-	</header>
+	<!-- Header mount. Static fallback content stays visible without JS; with JS,
+	     header.js replaces it with the full header (brand + nav + controls). -->
+	<div id="header-mount"
+		data-page-title=""
+		data-home-url="index.html"
+		data-logo-url="assets/images/vanilla-logo.svg">
+		<a href="index.html" class="brand">
+			<img src="assets/images/vanilla-logo.svg" alt="" id="header-logo">
+			Vanilla CSS Design System
+		</a>
+	</div>
 	<main class="container my-4 grid md-grid-cols-3 gap-3">
 		<div class="docs-section">
 			<h2>Foundation</h2>
@@ -69,8 +69,22 @@
 	<footer>
 		<p class="container">Examples from <a href="https://github.com/pattespatte/vanilla-css-design-system">Vanilla CSS Design System</a></p>
 	</footer>
-	<span data-theme="dark" class="d-none">Necessary workaround for making dark mode work with PurgeCSS. You can move this item but not delete it.</span>
-	<span data-theme="helix" class="d-none">Necessary workaround for making helix mode work with PurgeCSS. You can move this item but not delete it.</span>
+	<!-- PurgeCSS keep-alive markers. The production build strips attribute
+	     selectors that do not appear in any scanned HTML. These hidden spans
+	     force the theme/mode selectors used in styles/foundation/settings.css
+	     to be retained. Do not delete; they may be moved as long as they
+	     remain in a scanned file.
+
+	     Note: purple-yellow has no marker because it is the :root default and
+	     has no explicit selector. "auto" has no marker because the data-mode
+	     attribute is always set to the RESOLVED light/dark value at runtime
+	     (see modes.js); there is no [data-mode="auto"] CSS rule. -->
+	<span data-theme="darkblue-beige" data-mode="light" class="d-none">PurgeCSS marker</span>
+	<span data-theme="darkblue-beige" data-mode="dark" class="d-none">PurgeCSS marker</span>
+	<span data-theme="purple-yellow" data-mode="light" class="d-none">PurgeCSS marker</span>
+	<span data-theme="purple-yellow" data-mode="dark" class="d-none">PurgeCSS marker</span>
+	<script src="assets/js/header.js"></script>
+	<script src="assets/js/main-menu.js"></script>
 	<script src="assets/js/modes.js"></script>
 	<script src="assets/js/find-missing-css.js"></script>
 </body>

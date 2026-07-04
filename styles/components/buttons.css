@@ -35,13 +35,13 @@
 	box-shadow: var(--shadow-sm);
 }
 
-/* Heliox theme button styles */
-[data-theme="helix"] .btn-primary {
+/* Helix theme button styles (palette override, applies in both modes) */
+[data-theme="darkblue-beige"] .btn-primary {
 	background-color: var(--helix-darkblue-700);
 	color: var(--helix-beige-100);
 }
 
-[data-theme="helix"] .btn-primary:hover {
+[data-theme="darkblue-beige"] .btn-primary:hover {
 	background-color: var(--helix-darkblue-800);
 	color: var(--helix-beige-100);
 }

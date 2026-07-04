@@ -10,262 +10,397 @@ body::after {
 }
 /* base/settings.css */
 
-/* Default (light theme) */
+/* Orthogonal theme × mode model.
+ *
+ * Two independent attributes on <html>:
+ *   data-theme = "purple-yellow" | "darkblue-beige"   (palette)
+ *   data-mode  = "light" | "dark" | "auto"             (mode; auto resolves
+ *                                                       via prefers-color-scheme)
+ *
+ * Palette tokens (--color-primary, --color-secondary) come from [data-theme];
+ * surface tokens (--color-bg, --color-text, body/card backgrounds) come from
+ * [data-mode].
+ *
+ * NOTE: rules are ordered by strictly ascending CSS specificity to satisfy
+ * stylelint's no-descending-specificity rule. This unfortunately scatters
+ * related component rules across specificity tiers — see the (a,b,c) markers
+ * in each section header.
+ */
+
+/* ===== (0,1,0) attribute-only token definitions ===== */
+
 :root {
 	--color-bg: var(--color-light);
 	--color-text: var(--color-black);
 }
 
-/* Theme-specific root variables */
-[data-theme="dark"] {
-	--color-bg: var(--color-dark);
-	--color-text: var(--color-white);
-
-	/* Add dark theme variations */
-}
-
-[data-theme="helix"] {
-	--color-bg: var(--helix-bg-primary);
-	--color-text: var(--helix-text-primary);
-
-	/* Override primary and secondary colors for helix theme */
+[data-theme="darkblue-beige"] {
 	--color-primary: var(--helix-darkblue-700);
 	--color-secondary: var(--helix-beige-300);
 }
 
-/* Single element selectors - maintain specificity order */
-[data-theme="dark"] body {
+[data-mode="dark"] {
+	--color-bg: var(--color-dark);
+	--color-text: var(--color-white);
+}
+
+/* ===== (0,1,1) single attribute + element ===== */
+
+[data-mode="dark"] body {
 	background-color: var(--color-gray-800);
 	color: var(--color-white);
 }
 
-[data-theme="helix"] body {
-	background-color: var(--helix-bg-primary);
-	color: var(--helix-text-primary);
+[data-mode="dark"] a {
+	color: var(--color-primary-200);
 }
 
-[data-theme="dark"] footer {
-	background-color: var(--color-gray-800);
-	color: var(--color-white);
-}
-
-[data-theme="helix"] footer {
-	background-color: var(--helix-bg-primary);
-	color: var(--helix-text-primary);
-}
-
-[data-theme="dark"] blockquote {
+[data-mode="dark"] blockquote {
 	background-color: var(--color-gray-800);
 	border-left-color: var(--color-primary-200);
 	color: var(--color-white);
 }
 
-[data-theme="helix"] blockquote {
-	background-color: var(--helix-bg-secondary);
-	border-left-color: var(--helix-interactive-primary-default);
-	color: var(--helix-text-primary);
-}
-
-[data-theme="dark"] .nav-menu {
-	border-bottom-color: var(--color-gray-600);
-}
-
-[data-theme="helix"] .nav-menu {
-	border-bottom-color: var(--helix-border-primary);
-}
-
-/* Class selectors - maintain specificity order */
-[data-theme="dark"] .card {
+[data-mode="dark"] footer {
 	background-color: var(--color-gray-800);
 	color: var(--color-white);
 }
 
-[data-theme="helix"] .card {
-	background-color: var(--helix-bg-primary);
-	color: var(--helix-text-primary);
+/* ===== (0,2,0) attribute + class, and two-attribute token defs ===== */
+
+[data-theme="darkblue-beige"][data-mode="dark"] {
+	--color-bg: var(--helix-dark-bg-primary);
+	--color-text: var(--helix-dark-text-primary);
 }
 
-[data-theme="dark"] .input-group-text {
+[data-mode="dark"] .card {
 	background-color: var(--color-gray-800);
 	color: var(--color-white);
 }
 
-[data-theme="helix"] .input-group-text {
-	background-color: var(--helix-bg-primary);
-	color: var(--helix-text-primary);
+[data-mode="dark"] .input-group-text {
+	background-color: var(--color-gray-800);
+	color: var(--color-white);
 }
 
-[data-theme="dark"] .nav-link {
+[data-mode="dark"] .nav-link {
 	background-color: var(--color-gray-700);
 	border-color: var(--color-gray-600);
 	color: var(--color-white);
 }
 
-[data-theme="helix"] .nav-link {
-	background-color: var(--helix-bg-secondary);
-	border-color: var(--helix-border-primary);
+[data-mode="dark"] .nav-menu {
+	border-bottom-color: var(--color-gray-600);
+}
+
+[data-mode="dark"] .form-input,
+[data-mode="dark"] .form-select,
+[data-mode="dark"] .form-textarea {
+	background-color: var(--color-gray-700);
+	border-color: var(--color-gray-600);
+	color: var(--color-white);
+}
+
+/* ===== (0,2,1) single attribute + element-state, and two-attribute + element ===== */
+
+[data-mode="dark"] .breadcrumbs a {
+	color: var(--color-primary-200);
+}
+
+[data-mode="dark"] .pagination a {
+	background-color: var(--color-gray-700);
+	color: var(--color-primary-100);
+}
+
+[data-mode="dark"] .pagination span {
+	background-color: var(--color-gray-700);
+	color: var(--color-primary-100);
+}
+
+[data-mode="dark"] a:hover {
+	background-color: var(--color-gray-700);
+	color: var(--color-primary-100);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] body {
+	background-color: var(--helix-bg-primary);
 	color: var(--helix-text-primary);
 }
 
-[data-theme="dark"] .nav-link.active {
+[data-theme="darkblue-beige"][data-mode="light"] a {
+	color: var(--helix-interactive-primary-default);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] blockquote {
+	background-color: var(--helix-bg-secondary);
+	border-left-color: var(--helix-interactive-primary-default);
+	color: var(--helix-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] footer {
+	background-color: var(--helix-bg-primary);
+	color: var(--helix-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] body {
+	background-color: var(--helix-dark-bg-primary);
+	color: var(--helix-dark-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] a {
+	color: var(--helix-beige-300);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] blockquote {
+	background-color: var(--helix-dark-bg-secondary);
+	border-left-color: var(--helix-interactive-primary-default);
+	color: var(--helix-dark-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] footer {
+	background-color: var(--helix-dark-bg-primary);
+	color: var(--helix-dark-text-primary);
+}
+
+/* ===== (0,3,0) single attribute + class.class, and two-attribute + class ===== */
+
+[data-mode="dark"] .nav-link.active {
 	background-color: var(--color-gray-800);
 	color: var(--color-primary-300);
 	box-shadow: none;
 	border-bottom: 1px solid var(--color-gray-800);
 }
 
-[data-theme="helix"] .nav-link.active {
+[data-mode="dark"] .breadcrumbs .active {
+	color: var(--color-white);
+}
+
+[data-mode="dark"] .pagination .active {
+	background-color: var(--color-gray-900);
+	border-color: var(--color-white);
+	color: var(--color-white);
+}
+
+[data-mode="dark"] .pagination .disabled {
+	background-color: var(--color-gray-700);
+	border-color: var(--color-gray-600);
+	color: var(--color-white);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .card {
+	background-color: var(--helix-bg-primary);
+	color: var(--helix-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .input-group-text {
+	background-color: var(--helix-bg-primary);
+	color: var(--helix-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .nav-link {
+	background-color: var(--helix-bg-secondary);
+	border-color: var(--helix-border-primary);
+	color: var(--helix-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .nav-menu {
+	border-bottom-color: var(--helix-border-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .form-input,
+[data-theme="darkblue-beige"][data-mode="light"] .form-select,
+[data-theme="darkblue-beige"][data-mode="light"] .form-textarea {
+	background-color: var(--helix-bg-primary);
+	border-color: var(--helix-border-primary);
+	color: var(--helix-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .card {
+	background-color: var(--helix-dark-bg-secondary);
+	color: var(--helix-dark-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .input-group-text {
+	background-color: var(--helix-dark-bg-secondary);
+	color: var(--helix-dark-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .nav-link {
+	background-color: var(--helix-dark-bg-secondary);
+	border-color: var(--helix-dark-border-primary);
+	color: var(--helix-dark-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .nav-menu {
+	border-bottom-color: var(--helix-dark-border-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .form-input,
+[data-theme="darkblue-beige"][data-mode="dark"] .form-select,
+[data-theme="darkblue-beige"][data-mode="dark"] .form-textarea {
+	background-color: var(--helix-dark-bg-secondary);
+	border-color: var(--helix-dark-border-primary);
+	color: var(--helix-dark-text-primary);
+}
+
+/* ===== (0,3,1) single attribute + class + element-state, and two-attribute + element-state ===== */
+
+[data-mode="dark"] .breadcrumbs a:hover {
+	background-color: var(--color-gray-700);
+	color: var(--color-primary-100);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .breadcrumbs a {
+	color: var(--helix-interactive-primary-default);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .pagination a {
+	background-color: var(--helix-bg-secondary);
+	color: var(--helix-interactive-primary-hover);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .pagination span {
+	background-color: var(--helix-bg-secondary);
+	color: var(--helix-interactive-primary-hover);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] a:hover {
+	background-color: var(--helix-bg-secondary);
+	color: var(--helix-interactive-primary-hover);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .breadcrumbs a {
+	color: var(--helix-beige-300);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .pagination a {
+	background-color: var(--helix-dark-bg-secondary);
+	color: var(--helix-beige-200);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .pagination span {
+	background-color: var(--helix-dark-bg-secondary);
+	color: var(--helix-beige-200);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] a:hover {
+	background-color: var(--helix-dark-bg-secondary);
+	color: var(--helix-beige-200);
+}
+
+/* ===== (0,4,0) two-attribute + class.class ===== */
+
+[data-theme="darkblue-beige"][data-mode="light"] .nav-link.active {
 	background-color: var(--helix-bg-primary);
 	color: var(--helix-interactive-primary-active);
 	box-shadow: none;
 	border-bottom: 1px solid var(--helix-border-primary);
 }
 
-[data-theme="dark"] .form-input,
-[data-theme="dark"] .form-select,
-[data-theme="dark"] .form-textarea {
-	background-color: var(--color-gray-700);
-	border-color: var(--color-gray-600);
-	color: var(--color-white);
-}
-
-[data-theme="helix"] .form-input,
-[data-theme="helix"] .form-select,
-[data-theme="helix"] .form-textarea {
-	background-color: var(--helix-bg-primary);
-	border-color: var(--helix-border-primary);
+[data-theme="darkblue-beige"][data-mode="light"] .breadcrumbs .active {
 	color: var(--helix-text-primary);
 }
 
-/* Link selectors - maintain specificity order */
-[data-theme="dark"] a {
-	color: var(--color-primary-200);
-}
-
-[data-theme="helix"] a {
-	color: var(--helix-interactive-primary-default);
-}
-
-[data-theme="dark"] a:hover {
-	background-color: var(--color-gray-700);
-	color: var(--color-primary-100);
-}
-
-[data-theme="helix"] a:hover {
-	background-color: var(--helix-bg-secondary);
-	color: var(--helix-interactive-primary-hover);
-}
-
-/* Pagination selectors - maintain specificity order */
-[data-theme="dark"] .pagination a {
-	background-color: var(--color-gray-700);
-	color: var(--color-primary-100);
-}
-
-[data-theme="helix"] .pagination a {
-	background-color: var(--helix-bg-secondary);
-	color: var(--helix-interactive-primary-hover);
-}
-
-[data-theme="dark"] .pagination span {
-	background-color: var(--color-gray-700);
-	color: var(--color-primary-100);
-}
-
-[data-theme="helix"] .pagination span {
-	background-color: var(--helix-bg-secondary);
-	color: var(--helix-interactive-primary-hover);
-}
-
-[data-theme="dark"] .pagination .disabled {
-	background-color: var(--color-gray-700);
-	border-color: var(--color-gray-600);
-	color: var(--color-white);
-}
-
-[data-theme="helix"] .pagination .disabled {
-	background-color: var(--helix-bg-secondary);
-	border-color: var(--helix-border-primary);
-	color: var(--helix-text-primary);
-}
-
-/* Breadcrumb selectors - maintain specificity order */
-[data-theme="dark"] .breadcrumbs a {
-	color: var(--color-primary-200);
-}
-
-[data-theme="helix"] .breadcrumbs a {
-	color: var(--helix-interactive-primary-default);
-}
-
-[data-theme="dark"] .breadcrumbs a:hover {
-	background-color: var(--color-gray-700);
-	color: var(--color-primary-100);
-}
-
-[data-theme="helix"] .breadcrumbs a:hover {
-	background-color: var(--helix-bg-secondary);
-	color: var(--helix-interactive-primary-hover);
-}
-
-[data-theme="dark"] .breadcrumbs .active {
-	color: var(--color-white);
-}
-
-[data-theme="helix"] .breadcrumbs .active {
-	color: var(--helix-text-primary);
-}
-
-[data-theme="dark"] .pagination a:hover:not(.disabled) {
-	background-color: var(--color-gray-700);
-	border-color: var(--color-gray-600);
-	color: var(--color-white);
-}
-
-[data-theme="helix"] .pagination a:hover:not(.disabled) {
-	background-color: var(--helix-bg-secondary);
-	border-color: var(--helix-border-primary);
-	color: var(--helix-text-primary);
-}
-
-[data-theme="dark"] .pagination .active {
-	background-color: var(--color-gray-900);
-	border-color: var(--color-white);
-	color: var(--color-white);
-}
-
-[data-theme="helix"] .pagination .active {
+[data-theme="darkblue-beige"][data-mode="light"] .pagination .active {
 	background-color: var(--helix-darkblue-900);
 	border-color: var(--helix-border-strong);
 	color: var(--helix-text-inverse);
 }
 
-/* Theme toggle button */
+[data-theme="darkblue-beige"][data-mode="light"] .pagination .disabled {
+	background-color: var(--helix-bg-secondary);
+	border-color: var(--helix-border-primary);
+	color: var(--helix-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .nav-link.active {
+	background-color: var(--helix-dark-bg-primary);
+	color: var(--helix-beige-300);
+	box-shadow: none;
+	border-bottom: 1px solid var(--helix-dark-border-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .breadcrumbs .active {
+	color: var(--helix-dark-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .pagination .active {
+	background-color: var(--helix-darkblue-700);
+	border-color: var(--helix-beige-400);
+	color: var(--helix-beige-100);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .pagination .disabled {
+	background-color: var(--helix-dark-bg-secondary);
+	border-color: var(--helix-dark-border-primary);
+	color: var(--helix-dark-text-primary);
+}
+
+/* ===== (0,4,1) attribute + class + element + pseudo, and two-attribute + element-state ===== */
+
+[data-mode="dark"] .pagination a:hover:not(.disabled) {
+	background-color: var(--color-gray-700);
+	border-color: var(--color-gray-600);
+	color: var(--color-white);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .breadcrumbs a:hover {
+	background-color: var(--helix-bg-secondary);
+	color: var(--helix-interactive-primary-hover);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .breadcrumbs a:hover {
+	background-color: var(--helix-dark-bg-secondary);
+	color: var(--helix-beige-200);
+}
+
+/* ===== (0,5,1) two-attribute + class + element + pseudo + :not ===== */
+
+[data-theme="darkblue-beige"][data-mode="light"] .pagination a:hover:not(.disabled) {
+	background-color: var(--helix-bg-secondary);
+	border-color: var(--helix-border-primary);
+	color: var(--helix-text-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .pagination a:hover:not(.disabled) {
+	background-color: var(--helix-dark-bg-secondary);
+	border-color: var(--helix-dark-border-primary);
+	color: var(--helix-dark-text-primary);
+}
+
+/* ===== (1,0,0)+ #theme-toggle (ID selector base + overrides) ===== */
+
 #theme-toggle {
 	border: none;
-	border-radius: 50%; /* Makes the button circular */
+	border-radius: 50%;
 	width: 2rem;
 	height: 2rem;
 	cursor: pointer;
-	padding: 0; /* Remove padding to ensure proper centering */
-	display: flex; /* Use Flexbox */
-	align-items: center; /* Center vertically */
-	justify-content: center; /* Center horizontally */
-	background-color: var(--color-bg); /* Use your theme's background color */
-	color: var(--color-text); /* Use your theme's text color */
-	font-size: var(--text-size-sm); /* Adjust emoji size */
-	transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	font-size: var(--text-size-sm);
+	transition: background-color 0.3s, color 0.3s;
 }
 
-[data-theme="dark"] #theme-toggle {
-	background-color: var(--color-gray-700); /* Dark mode background */
-	color: var(--color-white); /* Dark mode text color */
+[data-mode="dark"] #theme-toggle {
+	background-color: var(--color-gray-700);
+	color: var(--color-white);
 }
 
-[data-theme="helix"] #theme-toggle {
+[data-theme="darkblue-beige"][data-mode="light"] #theme-toggle {
 	background-color: var(--helix-bg-secondary);
 	color: var(--helix-text-primary);
 }
+
+[data-theme="darkblue-beige"][data-mode="dark"] #theme-toggle {
+	background-color: var(--helix-dark-bg-secondary);
+	color: var(--helix-dark-text-primary);
+}
+
 /* base/typography.css */
 body {
 	font-family: var(--font-family-base);
@@ -437,7 +572,7 @@ blockquote {
   --helix-beige-400: #b99d7e;
   --helix-beige-500: #aa8665;
 
-  /* Helix semantic colors */
+  /* Helix semantic colors (light variant — beige surfaces, dark blue text) */
   --helix-bg-primary: var(--helix-beige-100);
   --helix-bg-secondary: var(--helix-beige-200);
   --helix-bg-tertiary: var(--helix-beige-50);
@@ -458,6 +593,21 @@ blockquote {
   --helix-interactive-secondary-hover: var(--helix-beige-400);
   --helix-interactive-secondary-active: var(--helix-beige-500);
   --helix-interactive-secondary-focus: var(--helix-beige-400);
+
+  /* Helix dark variant — deep navy surfaces, soft beige text.
+     Used by [data-theme="darkblue-beige"][data-mode="dark"] in settings.css
+     so the helix palette keeps its identity but inverts for dark mode. */
+  --helix-dark-bg-primary: var(--helix-darkblue-950);
+  --helix-dark-bg-secondary: var(--helix-darkblue-900);
+  --helix-dark-bg-tertiary: var(--helix-darkblue-800);
+  --helix-dark-text-primary: var(--helix-beige-100);
+  --helix-dark-text-secondary: var(--helix-beige-200);
+  --helix-dark-text-muted: var(--helix-beige-300);
+  --helix-dark-text-inverse: var(--helix-darkblue-950);
+  --helix-dark-border-primary: var(--helix-darkblue-800);
+  --helix-dark-border-secondary: var(--helix-darkblue-700);
+  --helix-dark-border-strong: var(--helix-beige-400);
+  --helix-dark-border-subtle: var(--helix-darkblue-900);
 }
 
 :root {
@@ -1072,6 +1222,17 @@ blockquote {
 	filter: brightness(90%);
 	box-shadow: var(--shadow-sm);
 }
+
+/* Helix theme button styles (palette override, applies in both modes) */
+[data-theme="darkblue-beige"] .btn-primary {
+	background-color: var(--helix-darkblue-700);
+	color: var(--helix-beige-100);
+}
+
+[data-theme="darkblue-beige"] .btn-primary:hover {
+	background-color: var(--helix-darkblue-800);
+	color: var(--helix-beige-100);
+}
 /* components/cards.css */
 .card {
 	background-color: var(--color-white);
@@ -1125,7 +1286,7 @@ blockquote {
 	border: 1px solid var(--color-primary);
 }
 
-[data-theme="dark"] .table th {
+[data-mode="dark"] .table th {
 	background-color: var(--color-primary-800);
 }
 
@@ -1133,7 +1294,7 @@ blockquote {
 	background-color: var(--color-gray-100);
 }
 
-[data-theme="dark"] .table tr:nth-child(even) {
+[data-mode="dark"] .table tr:nth-child(even) {
 	background-color: var(--color-gray-700);
 }
 

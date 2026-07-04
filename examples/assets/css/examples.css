@@ -27,9 +27,170 @@ footer {
 }
 
 .docs-nav {
-	padding: var(--spacing-4);
+	padding: var(--spacing-3) var(--spacing-4);
 	background: var(--color-gray-200);
 	border-bottom: var(--border-width) solid var(--border-color);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+/* Per-theme/mode header backgrounds. The .docs-nav surface and the .segmented
+   control surfaces must track the active theme so all text on them passes
+   WCAG AA contrast. Defaults (purple-yellow + light) come from the rules above
+   and the .segmented base rule below. */
+[data-mode="dark"] .docs-nav {
+	background: var(--color-gray-700);
+	border-bottom-color: var(--color-gray-600);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .docs-nav {
+	background: var(--helix-bg-secondary);
+	border-bottom-color: var(--helix-border-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .docs-nav {
+	background: var(--helix-dark-bg-secondary);
+	border-bottom-color: var(--helix-dark-border-primary);
+}
+
+/* Single-row header layout: brand | nav | controls. The injected header
+   (header.js) supplies this structure on every page so layout is identical. */
+.docs-nav .docs-nav-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--spacing-3);
+	flex-wrap: wrap;
+	max-width: var(--breakpoint-xl);
+	margin: 0 auto;
+}
+
+.docs-nav .brand {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacing-2);
+	text-decoration: none;
+	color: var(--color-text);
+	font-weight: var(--text-weight-bold);
+	white-space: nowrap;
+}
+
+.docs-nav .brand img {
+	width: 2rem;
+	height: 2rem;
+}
+
+.docs-nav .nav-slot {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	min-width: 0;
+}
+
+.docs-nav .controls {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-2);
+	flex-shrink: 0;
+}
+
+/* Mobile: collapse nav behind the existing ☰ toggle. */
+@media (max-width: 768px) {
+	.docs-nav .docs-nav-inner {
+		flex-wrap: wrap;
+	}
+
+	.docs-nav .nav-slot {
+		order: 3;
+		flex-basis: 100%;
+	}
+}
+
+/* Override main-menu.css for the inline header menubar. The base styles in
+   main-menu.css were designed for a vertical sidebar (large chunky buttons);
+   inside the sticky header we want a compact horizontal menu. */
+.docs-nav .main-menu {
+	display: flex;
+	flex-wrap: wrap;
+	grid-gap: 0;
+	gap: var(--spacing-1);
+	justify-content: center;
+}
+
+.docs-nav .main-menu > li {
+	min-width: 0;
+	margin: 0;
+}
+
+.docs-nav .main-menu a,
+.docs-nav .main-menu button {
+	font-size: var(--text-size-sm);
+	padding: var(--spacing-1) var(--spacing-2);
+	box-shadow: none;
+	/* Explicit bg + color + border so contrast passes WCAG and each menu
+	   item reads as a discrete button. Defaults are the purple-yellow +
+	   light combo; per-theme/mode overrides follow below. */
+	background-color: var(--color-white);
+	color: var(--color-gray-900);
+	border: var(--border-width) solid var(--color-gray-400);
+	border-radius: var(--border-radius);
+}
+
+.docs-nav .main-menu a:hover,
+.docs-nav .main-menu a:focus {
+	background-color: var(--color-gray-200);
+	outline: none;
+	border-color: var(--color-primary);
+}
+
+.docs-nav .main-menu a.active {
+	/* Keep all four borders uniform so activating an item doesn't shift its
+	   content. The base .main-menu a.active rule in main-menu.css adds a
+	   fat left border which causes a visible jump on click. */
+	border: var(--border-width) solid var(--color-primary);
+	border-radius: var(--border-radius);
+	background-color: var(--color-gray-200);
+}
+
+/* Per-theme/mode contrast overrides for the header menu buttons. The base
+   rule above uses --color-white / --color-gray-900 (purple-yellow light);
+   each combination below adjusts bg + text + border to keep WCAG AA contrast
+   against the header background for that theme × mode. */
+[data-mode="dark"] .docs-nav .main-menu a,
+[data-mode="dark"] .docs-nav .main-menu button {
+	background-color: var(--color-gray-800);
+	color: var(--color-white);
+	border-color: var(--color-gray-600);
+}
+
+[data-mode="dark"] .docs-nav .main-menu a:hover,
+[data-mode="dark"] .docs-nav .main-menu a:focus {
+	background-color: var(--color-gray-700);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .docs-nav .main-menu a,
+[data-theme="darkblue-beige"][data-mode="light"] .docs-nav .main-menu button {
+	background-color: var(--helix-bg-secondary);
+	color: var(--helix-text-primary);
+	border-color: var(--helix-border-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .docs-nav .main-menu a:hover,
+[data-theme="darkblue-beige"][data-mode="light"] .docs-nav .main-menu a:focus {
+	background-color: var(--helix-bg-tertiary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .docs-nav .main-menu a,
+[data-theme="darkblue-beige"][data-mode="dark"] .docs-nav .main-menu button {
+	background-color: var(--helix-dark-bg-secondary);
+	color: var(--helix-dark-text-primary);
+	border-color: var(--helix-dark-border-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .docs-nav .main-menu a:hover,
+[data-theme="darkblue-beige"][data-mode="dark"] .docs-nav .main-menu a:focus {
+	background-color: var(--helix-dark-bg-tertiary);
 }
 
 .docs-section {
@@ -314,102 +475,152 @@ ul.docs-links.cards li {
 
 /* Repeated so they are not overridden by example styles - END */
 
+/* Header logo — shown by the brand link in the injected header.
+   The old `display: none` + h1 override existed because home used an <h1>
+   with the logo and inner pages used a link; both now share .brand. */
 #header-logo {
-	display: none;
+	display: inline-block;
 	width: 2rem;
-	padding: 0.5rem;
+	padding: 0;
 	vertical-align: middle;
-	transition: filter 0.3s ease; /* Smooth transition */
+	transition: filter 0.3s ease;
 }
 
-h1 #header-logo {
-	width: 3rem;
+/* Page title sits below the header in the content area, same on every page. */
+.page-title {
+	margin-top: 0;
 }
 
-/* Theme buttons */
-.theme-buttons {
-	display: flex;
-	gap: 0.5rem;
-}
-
-.theme-btn {
-	border: none;
+/* Segmented controls — used for theme (palette) and mode (light/dark/auto).
+   Two buttons sit inline as a single pill; the active button gets a fill.
+   keyboard-operable via aria-pressed; focus-visible keeps an outline.
+   Per-theme/mode overrides track the active surface so button text passes
+   WCAG AA contrast in every combination. */
+.segmented {
+	display: inline-flex;
+	gap: 0;
+	border: var(--border-width) solid var(--color-gray-400);
 	border-radius: var(--border-radius);
-	padding: 0.5rem 1rem;
+	overflow: hidden;
+	background-color: var(--color-white);
+	color: var(--color-gray-900);
+}
+
+[data-mode="dark"] .segmented {
+	background-color: var(--color-gray-800);
+	color: var(--color-white);
+	border-color: var(--color-gray-600);
+}
+
+[data-theme="darkblue-beige"][data-mode="light"] .segmented {
+	background-color: var(--helix-bg-primary);
+	color: var(--helix-text-primary);
+	border-color: var(--helix-border-primary);
+}
+
+[data-theme="darkblue-beige"][data-mode="dark"] .segmented {
+	background-color: var(--helix-dark-bg-tertiary);
+	color: var(--helix-dark-text-primary);
+	border-color: var(--helix-dark-border-primary);
+}
+
+.segmented-btn {
+	border: none;
+	background: transparent;
+	/* Inherit color from the themed .segmented container so contrast tracks
+	   the active surface. */
+	color: inherit;
+	padding: 0.4rem 0.75rem;
 	cursor: pointer;
 	font-size: var(--text-size-sm);
 	font-weight: var(--text-weight-medium);
-	transition: all 0.3s ease;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	transition: background-color 0.2s ease, color 0.2s ease;
 	position: relative;
-	overflow: hidden;
+	white-space: nowrap;
 }
 
-.theme-btn:hover {
-	transform: translateY(-2px);
-	box-shadow: var(--shadow-md);
+/* Inner divider between segmented buttons. Match the container's border
+   color in each theme × mode so the divider reads clearly without looking
+   like a separate hairline. */
+.segmented-btn + .segmented-btn {
+	border-left: var(--border-width) solid var(--color-gray-400);
 }
 
-.theme-btn.active {
-	box-shadow: var(--shadow-lg);
-	transform: translateY(-1px);
+[data-mode="dark"] .segmented-btn + .segmented-btn {
+	border-left-color: var(--color-gray-600);
 }
 
-.theme-btn.active::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 3px;
-	background-color: currentcolor;
+[data-theme="darkblue-beige"][data-mode="light"] .segmented-btn + .segmented-btn {
+	border-left-color: var(--helix-border-primary);
 }
 
-/* Purple/Yellow theme button */
-#theme-purple-yellow {
-	background-color: var(--color-primary-500);
-	color: var(--color-secondary-500);
-	border: 2px solid var(--color-primary-600);
+[data-theme="darkblue-beige"][data-mode="dark"] .segmented-btn + .segmented-btn {
+	border-left-color: var(--helix-dark-border-primary);
 }
 
-#theme-purple-yellow:hover {
-	background-color: var(--color-primary-600);
+.segmented-btn:hover {
+	background-color: var(--color-gray-200);
 }
 
-#theme-purple-yellow.active {
-	background-color: var(--color-primary-700);
-	border-color: var(--color-primary-800);
+.segmented-btn:focus-visible {
+	outline: 2px solid var(--color-primary);
+	outline-offset: -2px;
+	z-index: 1;
 }
 
-/* Dark Blue/Beige theme button */
-#theme-darkblue-beige {
-	background-color: var(--helix-darkblue-700);
-	color: var(--helix-beige-100);
-	border: 2px solid var(--helix-darkblue-800);
+.segmented-btn[aria-pressed="true"] {
+	background-color: var(--color-primary);
+	color: var(--color-white);
 }
 
-#theme-darkblue-beige:hover {
-	background-color: var(--helix-darkblue-800);
+/* Theme segmented — color dot swatch */
+.segmented-btn .swatch {
+	display: inline-block;
+	width: 0.9rem;
+	height: 0.9rem;
+	border-radius: 50%;
+	/* Wider, smoother border: 2px solid with a subtle outer ring via box-shadow
+	   so the swatch reads as a discrete icon against any theme background. */
+	border: 2px solid var(--color-gray-400);
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+	flex-shrink: 0;
+	background-clip: padding-box;
 }
 
-#theme-darkblue-beige.active {
-	background-color: var(--helix-darkblue-900);
-	border-color: var(--helix-darkblue-950);
+/* Track the swatch border to the active theme × mode for clear visibility. */
+[data-mode="dark"] .segmented-btn .swatch {
+	border-color: var(--color-gray-500);
 }
 
-/* Dark Mode theme button */
-#theme-dark {
-	background-color: var(--color-gray-800);
-	color: var(--color-gray-200);
-	border: 2px solid var(--color-gray-900);
+[data-theme="darkblue-beige"][data-mode="light"] .segmented-btn .swatch {
+	border-color: var(--helix-border-strong);
 }
 
-#theme-dark:hover {
-	background-color: var(--color-gray-900);
+[data-theme="darkblue-beige"][data-mode="dark"] .segmented-btn .swatch {
+	border-color: var(--helix-beige-400);
 }
 
-#theme-dark.active {
-	background-color: var(--color-black);
-	border-color: var(--color-black);
+.segmented--theme .segmented-btn[data-theme-value="purple-yellow"] .swatch {
+	background: linear-gradient(135deg, var(--color-primary-500) 0 50%, var(--color-secondary-500) 50% 100%);
+}
+
+.segmented--theme .segmented-btn[data-theme-value="darkblue-beige"] .swatch {
+	background: linear-gradient(135deg, var(--helix-darkblue-700) 0 50%, var(--helix-beige-300) 50% 100%);
+}
+
+/* Mode segmented — single icon glyph per button (sun/moon/system). */
+.segmented--mode .segmented-btn .icon {
+	font-size: 1rem;
+	line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.segmented-btn {
+		transition: none;
+	}
 }
 
 /* Dark theme */
@@ -422,38 +633,38 @@ h1 #header-logo {
 	text-shadow: -2px 0 var(--color-white), 0 2px var(--color-white), 2px 0 var(--color-white), 0 -2px var(--color-white);
 }
 
-[data-theme="dark"] #theme-toggle {
+[data-mode="dark"] #theme-toggle {
 	background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0-1.5v-17a8.5 8.5 0 110 17z' id='dark-theme-icon' fill='%23222'/%3E%3C/svg%3E");
 	text-shadow: -2px 0 var(--color-black), 0 2px var(--color-black), 2px 0 var(--color-black), 0 -2px var(--color-black);
 }
 
-[data-theme="dark"] .main-menu button,
-[data-theme="dark"] .submenu a {
+[data-mode="dark"] .main-menu button,
+[data-mode="dark"] .submenu a {
 	color: var(--color-white);
 	background-color: var(--color-gray-800);
 }
 
-[data-theme="dark"] [data-home-link]>#header-logo {
+[data-mode="dark"] .brand #header-logo {
 	filter: brightness(0) invert(50%); /* Makes the image white */
 }
 
-[data-theme="dark"] .main-menu button:hover,
-[data-theme="dark"] .submenu a:hover {
+[data-mode="dark"] .main-menu button:hover,
+[data-mode="dark"] .submenu a:hover {
 	background-color: var(--color-gray-700);
 	color: var(--color-white);
 }
 
-[data-theme="dark"] .main-menu button.active,
-[data-theme="dark"] .spacing-demo {
+[data-mode="dark"] .main-menu button.active,
+[data-mode="dark"] .spacing-demo {
 	background-color: var(--color-gray-900);
 	color: var(--color-white);
 }
 
-[data-theme="dark"] .spacing-block {
+[data-mode="dark"] .spacing-block {
 	border: 1px solid var(--color-primary-100);
 }
 
-[data-theme="dark"] .spacing-demo code {
+[data-mode="dark"] .spacing-demo code {
 	background-color: var(--color-gray-800);
 	color: var(--color-white);
 }
@@ -463,106 +674,106 @@ ul.docs-links.cards li a:hover {
 	background-color: var(--color-gray-100);
 }
 
-[data-theme="dark"] ul.docs-links.cards li a {
+[data-mode="dark"] ul.docs-links.cards li a {
 	background-color: var(--color-gray-700);
 }
 
-[data-theme="dark"] ul.docs-links.cards li a:hover {
+[data-mode="dark"] ul.docs-links.cards li a:hover {
 	color: var(--color-white);
 	background-color: var(--color-gray-800);
 }
 
-[data-theme="dark"] #header-logo {
+[data-mode="dark"] #header-logo {
 	filter: brightness(0) invert(1); /* Makes the image white */
 }
 
-[data-theme="helix"] #header-logo {
+[data-theme="darkblue-beige"] #header-logo {
 	filter: brightness(0) saturate(100%) invert(16%) sepia(69%) saturate(2456%) hue-rotate(227deg) brightness(94%) contrast(88%);
 }
 
-[data-theme="dark"] body,
-[data-theme="dark"] footer,
-[data-theme="dark"] .docs-nav {
+[data-mode="dark"] body,
+[data-mode="dark"] footer,
+[data-mode="dark"] .docs-nav {
 	background-color: var(--color-gray-700);
 }
 
-[data-theme="dark"] .docs-section,
-[data-theme="dark"] .example-section {
+[data-mode="dark"] .docs-section,
+[data-mode="dark"] .example-section {
 	background-color: var(--color-gray-800);
 }
 
-[data-theme="dark"] .subnav a,
-[data-theme="dark"] ul.docs-links.cards li a,
-[data-theme="dark"] ul.docs-links.cards li a:hover,
-[data-theme="dark"] .form-label,
-[data-theme="dark"] .demo-nested {
+[data-mode="dark"] .subnav a,
+[data-mode="dark"] ul.docs-links.cards li a,
+[data-mode="dark"] ul.docs-links.cards li a:hover,
+[data-mode="dark"] .form-label,
+[data-mode="dark"] .demo-nested {
 	background-color: var(--color-gray-800);
 	border: 1px solid var(--color-white);
 	color: var(--color-white);
 }
 
-[data-theme="dark"] .demo-col {
+[data-mode="dark"] .demo-col {
 	border: var(--border-width) solid var(--border-color);
 }
 
-[data-theme="dark"] .demo-box,
-[data-theme="dark"] .demo-col,
-[data-theme="dark"] .demo-content,
-[data-theme="dark"] .demo-container,
-[data-theme="dark"] .spacing-block,
-[data-theme="dark"] .code-block {
+[data-mode="dark"] .demo-box,
+[data-mode="dark"] .demo-col,
+[data-mode="dark"] .demo-content,
+[data-mode="dark"] .demo-container,
+[data-mode="dark"] .spacing-block,
+[data-mode="dark"] .code-block {
 	background-color: var(--color-gray-700);
 	color: var(--color-gray-100);
 }
 
-[data-theme="dark"] .demo-content,
-[data-theme="dark"] .code-block {
+[data-mode="dark"] .demo-content,
+[data-mode="dark"] .code-block {
 	background-color: var(--color-gray-600);
 	color: var(--color-white);
 }
 
-[data-theme="dark"] .demo-container {
+[data-mode="dark"] .demo-container {
 	border: var(--border-width) solid var(--color-primary-100);
 }
 
-[data-theme="dark"] ul.docs-links.cards li a:hover,
-[data-theme="dark"] .subnav a:hover {
+[data-mode="dark"] ul.docs-links.cards li a:hover,
+[data-mode="dark"] .subnav a:hover {
 	background-color: var(--color-gray-700);
 }
 
-[data-theme="dark"] .border-primary {
+[data-mode="dark"] .border-primary {
 	border-color: var(--color-primary-100);
 }
 
-[data-theme="dark"] .example-description {
+[data-mode="dark"] .example-description {
 	color: var(--color-gray-400);
 }
 
-[data-theme="dark"] .bd-highlight {
+[data-mode="dark"] .bd-highlight {
 	background-color: var(--color-gray-900);
 	color: var(--color-gray-100);
 }
 
-[data-theme="dark"] .form-feedback.valid {
+[data-mode="dark"] .form-feedback.valid {
 	background-color: var(--color-black);
 	color: var(--color-success-100);
 	font-weight: var(--text-weight-bold);
 }
 
-[data-theme="dark"] .form-feedback.invalid {
+[data-mode="dark"] .form-feedback.invalid {
 	background-color: var(--color-black);
 	color: var(--color-error-100);
 	font-weight: var(--text-weight-bold);
 }
 
-[data-theme="dark"] .opacity-description {
+[data-mode="dark"] .opacity-description {
 	background-color: var(--color-gray-800);
 	color: var(--color-white);
 }
 
-[data-theme="dark"] .hljs-tag,
-[data-theme="dark"] .hljs-attr,
-[data-theme="dark"] .hljs-tag .hljs-name {
+[data-mode="dark"] .hljs-tag,
+[data-mode="dark"] .hljs-attr,
+[data-mode="dark"] .hljs-tag .hljs-name {
 	color: var(--color-success-100);
 }
 

@@ -23,9 +23,6 @@ const menuStorage = {
   },
 };
 
-// Update elements that need the base path
-document.querySelector('[data-home-link]')?.setAttribute('href', siteFolder);
-
 // Get references to navigation elements
 const navMenu = document.querySelector('.main-menu');
 const navToggle = document.querySelector('.nav-toggle');
@@ -33,8 +30,24 @@ const navToggle = document.querySelector('.nav-toggle');
 // Toggle the main menu visibility
 navToggle?.addEventListener('click', () => navMenu.classList.toggle('active'));
 
-// Fetch and build the menu
-if (navMenu) {
+// Fetch and build the menu. The header is injected by header.js, so the
+// .main-menu element may not exist yet when this script first runs — wrap
+// initialization in a function we can run on `header:ready` as well as on
+// plain DOMContentLoaded (for any page that still ships a static header).
+function initMenu() {
+  const menu = document.querySelector('.main-menu');
+  const toggle = document.querySelector('.nav-toggle');
+
+  toggle?.addEventListener('click', () => menu?.classList.toggle('active'));
+
+  if (!menu) {
+    console.error('Navigation menu element not found');
+    return;
+  }
+  // Already populated? Don't rebuild on a duplicate header:ready event.
+  if (menu.dataset.populated) return;
+  menu.dataset.populated = '1';
+
   fetch(siteFolder)
     .then(response => response.text())
     .then(html => {
@@ -43,6 +56,8 @@ if (navMenu) {
 
       const menuGroups = htmlFiles.reduce((groups, file) => {
         const filePath = file.match(/<a href="([^"]+\.html)"/)[1];
+        // Skip the home page itself — it is the brand link, not a nav category.
+        if (filePath === 'index.html') return groups;
         const [category, fileName] = [filePath.split('/')[0], filePath.split('/').pop().replace('.html', '')];
         if (!groups[category]) groups[category] = [];
         groups[category].push({ href: `${siteFolder}${filePath}`, label: formatFileName(fileName) });
@@ -58,7 +73,7 @@ if (navMenu) {
 
         items.forEach(item => submenu.appendChild(createMenuItem(item.label, item.href)));
         parentLi.appendChild(submenu);
-        navMenu.appendChild(parentLi);
+        menu.appendChild(parentLi);
 
         parentLi.querySelector('a').addEventListener('click', (event) => {
           const isExpanded = event.target.getAttribute('aria-expanded') === 'true';
@@ -72,15 +87,24 @@ if (navMenu) {
       initializeActiveMenuItem();
     })
     .catch(error => console.error('Error loading navigation:', error));
-} else {
-  console.error('Navigation menu element not found');
 }
 
-// Create a menu item
+// Run once the DOM is ready, and again when the injected header lands.
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMenu);
+} else {
+  initMenu();
+}
+document.addEventListener('header:ready', initMenu);
+
+// Create a menu item. Per ARIA APG, the *link* gets role="menuitem"; the
+// <li> wrapper is a presentational container with role="none" so screen
+// readers walk directly from the menubar to the menuitem links.
 function createMenuItem(label, href, isCategory = false) {
   const li = document.createElement('li');
-  li.setAttribute('role', 'menuitem');
+  li.setAttribute('role', 'none');
   const a = document.createElement('a');
+  a.setAttribute('role', 'menuitem');
   a.href = href;
   a.textContent = label;
   if (isCategory) {
@@ -133,7 +157,8 @@ function handleSubmenuKeydown(e, link, submenuLinks) {
 
 // Initialize active menu item functionality
 function initializeActiveMenuItem() {
-  const menuLinks = Array.from(document.querySelectorAll('.main-menu [role="menuitem"] > a'));
+  // The <a> elements carry role="menuitem" themselves (li is role="none").
+  const menuLinks = Array.from(document.querySelectorAll('.main-menu a[role="menuitem"]'));
 
   // Highlight the currently-active link from the saved path. Resolve it by
   // comparing href values directly rather than interpolating the stored string
@@ -148,7 +173,7 @@ function initializeActiveMenuItem() {
   // A single delegated listener handles activation for any menu item, avoiding
   // an O(n) update attached to each of n links.
   navMenu.addEventListener('click', (event) => {
-    const link = event.target.closest('.main-menu [role="menuitem"] > a');
+    const link = event.target.closest('.main-menu a[role="menuitem"]');
     if (!link) return;
     menuLinks.forEach(l => {
       l.classList.remove('active');
