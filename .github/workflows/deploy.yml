@@ -1,0 +1,68 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment, cancel any in-flight run.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.1
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build CSS (combine → purge → minify)
+        run: bun run build:css
+
+      - name: Switch examples to prod bundle
+        run: bun run switch:prod
+
+      # Stage only the deployable files. Examples reference ../styles/ and
+      # ./assets/ at relative paths, so the published site needs `examples/`
+      # alongside a `styles/` containing just the minified bundle. Everything
+      # else (node_modules, tokens/, scripts/, figma/, source styles/) is
+      # build-time only and should not ship.
+      - name: Stage deployable site
+        run: |
+          mkdir -p _site/styles
+          cp -r examples _site/examples
+          # The minified bundle is the only styles artifact the examples need.
+          cp styles/vanilla-combined.min.css _site/styles/vanilla-combined.min.css
+          # .nojekyll is not strictly required with the Actions builder, but
+          # keeps the legacy fallback happy if Pages config is ever reset.
+          touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
