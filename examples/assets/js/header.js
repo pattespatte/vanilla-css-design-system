@@ -132,29 +132,28 @@
   // Replace the mount's static fallback content with the built header.
   mount.replaceWith(header);
 
-  // Page title is the first child of <main>, as the page's <h1>. Home has no
-  // explicit title (the brand link IS the home identity), so emit a visually-
-  // hidden h1 to give the page a sensible heading for assistive tech without
-  // changing the visual layout. In both cases the h1 is wrapped in .container
-  // so it matches the page content width.
+  // Page title is the first child of <main>, as the page's <h1>.
+  // Home has no explicit title (the brand link IS the home identity), so emit
+  // a visually-hidden h1 for assistive tech. The visible title is wrapped in
+  // .container so it matches page content width; the sr-only h1 is inserted
+  // bare so it does NOT become a visible grid item in <main class="grid ...">
+  // (which would steal a grid cell and break the home layout).
   const main = document.querySelector('main');
-  const buildH1 = (className, text) => {
+  if (pageTitle) {
     const wrap = document.createElement('div');
     wrap.className = 'container';
     const h1 = document.createElement('h1');
-    h1.className = className;
-    h1.textContent = text;
+    h1.className = 'page-title';
+    h1.textContent = pageTitle;
     wrap.appendChild(h1);
-    return wrap;
-  };
-  const titleEl = pageTitle
-    ? buildH1('page-title', pageTitle)
-    : buildH1('sr-only', 'Vanilla CSS Design System documentation');
-  if (main) {
-    main.insertAdjacentElement('afterbegin', titleEl);
+    main ? main.insertAdjacentElement('afterbegin', wrap)
+         : header.insertAdjacentElement('afterend', wrap);
   } else {
-    // No <main> on the page — fall back to placing it just after the header.
-    header.insertAdjacentElement('afterend', titleEl);
+    const h1 = document.createElement('h1');
+    h1.className = 'sr-only';
+    h1.textContent = 'Vanilla CSS Design System documentation';
+    main ? main.insertAdjacentElement('afterbegin', h1)
+         : header.insertAdjacentElement('afterend', h1);
   }
 
   // Notify dependent scripts that the header DOM exists.
