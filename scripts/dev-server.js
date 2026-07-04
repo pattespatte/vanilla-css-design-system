@@ -8,6 +8,42 @@ const PORT = process.env.DEV_PORT || 3000;
 const HOST = process.env.DEV_HOST || 'localhost';
 const PROJECT_ROOT = path.join(__dirname, '..');
 const EXAMPLES_DIR = path.join(PROJECT_ROOT, 'examples');
+const STYLES_DIR = path.join(PROJECT_ROOT, 'styles');
+
+// Live-reload internals. The previous implementation force-swapped every
+// stylesheet href on a fixed timer, which made the page flash even when no
+// file had changed. Instead we expose the newest CSS mtime under styles/ and
+// let the client reload only when that value actually advances.
+const DEV_VERSION_PATH = '/__dev__/css-version';
+
+// Walk styles/ recursively and return the newest mtimeMs across all .css
+// files. Returns 0 if there are none.
+function getCssVersion() {
+  let newest = 0;
+  const walk = (dir) => {
+    let entries;
+    try {
+      entries = fs.readdirSync(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+      } else if (entry.name.endsWith('.css')) {
+        try {
+          const mtime = fs.statSync(full).mtimeMs;
+          if (mtime > newest) newest = mtime;
+        } catch {
+          // ignore stat errors — file may have been removed mid-walk
+        }
+      }
+    }
+  };
+  walk(STYLES_DIR);
+  return newest;
+}
 
 // MIME types for different file extensions
 const mimeTypes = {
@@ -97,20 +133,38 @@ function serveFile(requestPath, res, fellBack = false) {
     const liveReloadScript = `
 <script>
   (function() {
-    console.log('Live reload enabled - refresh the page to see CSS changes');
+    console.log('Live reload enabled - CSS changes will hot-reload automatically');
 
-    // Check for CSS changes every 2 seconds
-    setInterval(() => {
-      const links = document.querySelectorAll('link[rel="stylesheet"]');
-      links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.includes('main.css')) {
-          // Force reload by adding timestamp
-          const newHref = href.split('?')[0] + '?t=' + Date.now();
-          link.setAttribute('href', newHref);
+    // Poll the dev server for the newest CSS mtime. Only reload stylesheets
+    // when that value actually advances, so unchanged CSS doesn't flash.
+    let lastVersion = null;
+    async function checkVersion() {
+      try {
+        const res = await fetch('/__dev__/css-version', { cache: 'no-store' });
+        if (!res.ok) return;
+        const data = await res.json();
+        const version = data.version;
+        if (lastVersion === null) {
+          lastVersion = version;
+          return;
         }
-      });
-    }, 2000);
+        if (version !== lastVersion) {
+          lastVersion = version;
+          const links = document.querySelectorAll('link[rel="stylesheet"]');
+          links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.includes('main.css')) {
+              const newHref = href.split('?')[0] + '?v=' + version;
+              link.setAttribute('href', newHref);
+            }
+          });
+        }
+      } catch (e) {
+        // server may be mid-restart; try again next tick
+      }
+    }
+    setInterval(checkVersion, 1000);
+    checkVersion();
   })();
 </script>`;
 
@@ -169,6 +223,15 @@ const server = http.createServer((req, res) => {
 
   // Remove query parameters
   url = url.split('?')[0];
+
+  // Live-reload polling endpoint: returns the newest CSS mtime as JSON.
+  // The client compares this to its last-seen value and only reloads
+  // stylesheets when the version actually changes.
+  if (url === DEV_VERSION_PATH) {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ version: getCssVersion() }));
+    return;
+  }
 
   // Remove /examples/ prefix if present (since we're already serving from examples directory)
   if (url.startsWith('/examples/')) {
