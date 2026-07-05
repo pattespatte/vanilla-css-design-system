@@ -5,7 +5,11 @@
 
 URL="${1:-http://localhost:3000/}"
 DATE_TIME_STAMP="$(date +%Y%m%d_%H%M%S)"
-OUTPUT_FOLDER="reports"
+
+# Resolve repo root from script location so the script works from any cwd
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+OUTPUT_FOLDER="$REPO_ROOT/reports"
 OUTPUT_FILE="axe_report__$DATE_TIME_STAMP.html"
 
 # Check if Node.js is installed
@@ -74,13 +78,23 @@ async function extractLinks(page) {
 	const browser = await chromium.launch({ headless: true });
 	const page = await browser.newPage();
 
+	// Wait for client-side JS (theme/mode controls, header injection) and any
+	// CSS transitions to settle before measuring. Without this, axe can sample
+	// mid-transition colors (e.g. the segmented control's 200ms background-color
+	// fade) and report false-positive contrast failures.
+	const SETTLE_MS = 500;
+	const gotoAndSettle = async (url) => {
+		await page.goto(url, { waitUntil: 'load', timeout: 30000 });
+		await page.waitForTimeout(SETTLE_MS);
+	};
+
 	console.log('\n🕷️  Crawling and testing...\n');
 
 	// First, check if the initial URL is accessible
 	const initialUrl = toVisit[0];
 	try {
 		console.log(`📄 ${initialUrl}`);
-		await page.goto(initialUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+		await gotoAndSettle(initialUrl);
 	} catch (error) {
 		console.log(`   ⚠️  Error: ${error.message}`);
 		
@@ -119,8 +133,8 @@ async function extractLinks(page) {
 				results.push({ url, violations, count });
 			} else {
 				console.log(`📄 ${url}`);
-				await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
-				
+				await gotoAndSettle(url);
+
 				await injectAxe(page);
 				const violations = await getViolations(page, null, {
 					runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']
@@ -218,7 +232,7 @@ process.on('unhandledRejection', (reason, promise) => {
 EOF
 
 # Execute the script with arguments
-node temp_audit.cjs "$URL" "../$OUTPUT_FOLDER" "$OUTPUT_FILE"
+node temp_audit.cjs "$URL" "$OUTPUT_FOLDER" "$OUTPUT_FILE"
 NODE_EXIT_CODE=$?
 
 # Clean up the temporary file
@@ -237,4 +251,4 @@ if [ $NODE_EXIT_CODE -ne 0 ]; then
 fi
 
 echo "✅ Done!"
-open "../$OUTPUT_FOLDER/$OUTPUT_FILE" 2>/dev/null || echo "Open: ../$OUTPUT_FOLDER/$OUTPUT_FILE"
+open "$OUTPUT_FOLDER/$OUTPUT_FILE" 2>/dev/null || echo "Open: $OUTPUT_FOLDER/$OUTPUT_FILE"

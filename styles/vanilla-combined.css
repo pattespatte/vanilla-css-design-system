@@ -1375,6 +1375,7 @@ blockquote {
 	gap: var(--spacing-2);
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- cross-component grouping */
 .breadcrumbs li {
 	display: flex;
 	align-items: center;
@@ -1416,10 +1417,12 @@ blockquote {
 	flex-wrap: wrap;
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- cross-component grouping */
 .pagination li {
 	display: flex;
 }
 
+/* stylelint-disable-next-line no-descending-specificity -- cross-component grouping */
 .pagination a,
 .pagination span {
 	padding: var(--spacing-2);
@@ -1753,7 +1756,8 @@ input[type="checkbox"]:checked ~ .dropdown-content {
 	padding: 0;
 	margin: -1px;
 	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
 	border: 0;
 }
 
