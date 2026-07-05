@@ -224,10 +224,24 @@ fs.readdirSync(SOURCE_DIR).forEach(file => {
 });
 
 // Process each theme's tokens.css in styles/themes/<name>/
-// Theme tokens are emitted as <name>-tokens.json so they don't collide with
-// the structural tokens files. Both :root and [data-theme="..."] blocks are
-// extracted — the :root block carries the raw palette, the [data-theme]
-// block carries the alias mapping.
+//
+// Output structure (e.g. tokens/helix-tokens.json):
+//   {
+//     "helix": {              ← alias mapping from [data-theme="helix"] block
+//       "color": { ... }      (e.g. color.primary → {helix.color.primary})
+//     },
+//     "helix": { ... },       ← raw palette from :root block (same top-level
+//                              key, merged — see Object.assign below)
+//     ...raw palette tokens at the root level too (helix.darkblue.500 etc.)
+//   }
+//
+// Downstream consumers (Style Dictionary, Figma sync, etc.) should look in
+// TWO places per theme file:
+//   1. The top-level raw palette (helix.darkblue.*, helix.beige.*)
+//   2. The <themeName>.* subtree for the alias mapping (helix.color.*)
+//
+// Files are named <name>-tokens.json so they don't collide with the
+// structural tokens (borders.json, spacing.json, etc.) emitted above.
 if (fs.existsSync(THEMES_DIR)) {
 	fs.readdirSync(THEMES_DIR).forEach(themeName => {
 		const themeDir = path.join(THEMES_DIR, themeName);

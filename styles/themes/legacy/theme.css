@@ -25,4 +25,9 @@
 
 /* Intentionally empty. See file header — legacy surfaces are the :root
    defaults. Add [data-theme="legacy"] surface overrides here if any
-   legacy-only adjustments are introduced later. */
+   legacy-only adjustments are introduced later.
+
+   Why keep this file at all? Architectural symmetry with helix/theme.css:
+   both themes expose a tokens.css + theme.css pair, so contributors
+   searching for "where does theme X override surfaces" find a consistent
+   answer. Deleting it would save 28 lines but break that pattern. */
