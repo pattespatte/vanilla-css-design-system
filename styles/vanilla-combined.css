@@ -282,16 +282,23 @@ blockquote {
 
 /* styles/variables/colors.css
  *
- * PALETTE MOVED — this file is now an empty stub.
+ * DEPRECATED STUB — palette moved to per-theme files.
  *
- * Legacy palette (purple/yellow):    styles/themes/legacy/tokens.css
- * Helix palette (dark blue / beige): styles/themes/helix/tokens.css
+ *   Legacy palette (purple/yellow):    styles/themes/legacy/tokens.css
+ *   Helix palette (dark blue / beige): styles/themes/helix/tokens.css
  *
- * This file is preserved (empty) so existing build tooling — concat-cli's
- * `styles/variables/*.css` glob and css-to-tokens.js's readdirSync — keeps
- * working until that tooling is updated to scan the themes/ directory.
- * Phase 3 of the theme-split plan handles that update; this stub can be
- * deleted once the build pipeline walks styles/themes/ explicitly.
+ * TODO(v1.1): delete this file and update the tooling that still expects it:
+ *   1. package.json `combine:css` — remove `styles/variables/colors.css`
+ *      is already covered by the `styles/variables/*.css` glob, so just
+ *      delete the file; the glob will simply match one fewer file.
+ *   2. scripts/css-to-tokens.js — walks `styles/variables/` via readdirSync;
+ *      deleting this file means one fewer iteration, no code change needed.
+ *   3. styles/main.css — remove the `@import url('variables/colors.css')`
+ *      line (currently annotated as a stub).
+ *
+ * Kept as an empty stub for now so existing build tooling keeps working
+ * without a coordinated multi-file update. Safe to remove once the v1.1
+ * cleanup is in flight.
  */
 
 :root {
@@ -3340,7 +3347,12 @@ input[type="checkbox"]:checked ~ .dropdown-content {
 
 /* Intentionally empty. See file header — legacy surfaces are the :root
    defaults. Add [data-theme="legacy"] surface overrides here if any
-   legacy-only adjustments are introduced later. */
+   legacy-only adjustments are introduced later.
+
+   Why keep this file at all? Architectural symmetry with helix/theme.css:
+   both themes expose a tokens.css + theme.css pair, so contributors
+   searching for "where does theme X override surfaces" find a consistent
+   answer. Deleting it would save 28 lines but break that pattern. */
 
 /* styles/themes/helix/tokens.css
  *

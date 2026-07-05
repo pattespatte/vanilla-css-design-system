@@ -130,8 +130,16 @@
   function currentTheme() {
     let stored = storage.get(THEME_KEY) || DEFAULT_THEME;
     if (THEME_MIGRATION[stored]) {
+      const old = stored;
       stored = THEME_MIGRATION[stored];
       storage.set(THEME_KEY, stored);
+      // Heads-up before the alias drops in v1.1. Silent migration in v1.0
+      // would have been too quiet — users deserve a warning that their
+      // stored value is on its way out.
+      console.warn(
+        '[vanilla-css] theme value "' + old + '" is deprecated and was migrated to "' +
+        stored + '". The old value will be removed in v1.1.'
+      );
     }
     return stored;
   }
