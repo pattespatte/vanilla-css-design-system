@@ -21,9 +21,12 @@
  * palette at the bottom of this file (DEPRECATED, drop in v1.1).
  */
 
-/* ===== (0,1,0) alias mapping ===== */
-
-[data-theme="helix"] {
+/* ===== (0,1,0) alias mapping =====
+   The mapping is declared once here and applied to both attribute values
+   so the back-compat alias works without duplicating 46 lines of CSS.
+   See the bottom of this file for the v1.1 drop procedure. */
+[data-theme="helix"],
+[data-theme="darkblue-beige"] {
 	/* Map neutral --color-* aliases (consumed by components) to the helix
 	   theme's namespaced tokens. Also overrides the full primary/secondary
 	   scale so colors.html shows the helix palette end-to-end. */
@@ -59,25 +62,25 @@
 /* ===== (0,2,0) two-attribute token defs ===== */
 
 [data-theme="helix"][data-mode="dark"] {
-	--color-bg: var(--helix-dark-bg-primary);
-	--color-text: var(--helix-dark-text-primary);
+	--color-bg: var(--helix-color-dark-bg-primary);
+	--color-text: var(--helix-color-dark-text-primary);
 }
 
 /* ===== (0,2,1) two-attribute + element ===== */
 
 [data-theme="helix"][data-mode="light"] body {
-	background-color: var(--helix-bg-primary);
-	color: var(--helix-text-primary);
+	background-color: var(--helix-color-bg-primary);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="light"] a {
-	color: var(--helix-interactive-primary-default);
+	color: var(--helix-color-interactive-primary-default);
 }
 
 [data-theme="helix"][data-mode="light"] blockquote {
-	background-color: var(--helix-bg-secondary);
-	border-left-color: var(--helix-interactive-primary-default);
-	color: var(--helix-text-primary);
+	background-color: var(--helix-color-bg-secondary);
+	border-left-color: var(--helix-color-interactive-primary-default);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="light"] footer {
@@ -87,8 +90,8 @@
 }
 
 [data-theme="helix"][data-mode="dark"] body {
-	background-color: var(--helix-dark-bg-primary);
-	color: var(--helix-dark-text-primary);
+	background-color: var(--helix-color-dark-bg-primary);
+	color: var(--helix-color-dark-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] a {
@@ -96,72 +99,72 @@
 }
 
 [data-theme="helix"][data-mode="dark"] blockquote {
-	background-color: var(--helix-dark-bg-secondary);
-	border-left-color: var(--helix-interactive-primary-default);
-	color: var(--helix-dark-text-primary);
+	background-color: var(--helix-color-dark-bg-secondary);
+	border-left-color: var(--helix-color-interactive-primary-default);
+	color: var(--helix-color-dark-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] footer {
-	background-color: var(--helix-dark-bg-primary);
-	color: var(--helix-dark-text-primary);
+	background-color: var(--helix-color-dark-bg-primary);
+	color: var(--helix-color-dark-text-primary);
 }
 
 /* ===== (0,3,0) two-attribute + class ===== */
 
 [data-theme="helix"][data-mode="light"] .card {
-	background-color: var(--helix-bg-primary);
-	color: var(--helix-text-primary);
+	background-color: var(--helix-color-bg-primary);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="light"] .input-group-text {
-	background-color: var(--helix-bg-primary);
-	color: var(--helix-text-primary);
+	background-color: var(--helix-color-bg-primary);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="light"] .nav-link {
-	background-color: var(--helix-bg-secondary);
-	border-color: var(--helix-border-primary);
-	color: var(--helix-text-primary);
+	background-color: var(--helix-color-bg-secondary);
+	border-color: var(--helix-color-border-primary);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="light"] .nav-menu {
-	border-bottom-color: var(--helix-border-primary);
+	border-bottom-color: var(--helix-color-border-primary);
 }
 
 [data-theme="helix"][data-mode="light"] .form-input,
 [data-theme="helix"][data-mode="light"] .form-select,
 [data-theme="helix"][data-mode="light"] .form-textarea {
-	background-color: var(--helix-bg-primary);
-	border-color: var(--helix-border-primary);
-	color: var(--helix-text-primary);
+	background-color: var(--helix-color-bg-primary);
+	border-color: var(--helix-color-border-primary);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] .card {
-	background-color: var(--helix-dark-bg-secondary);
-	color: var(--helix-dark-text-primary);
+	background-color: var(--helix-color-dark-bg-secondary);
+	color: var(--helix-color-dark-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] .input-group-text {
-	background-color: var(--helix-dark-bg-secondary);
-	color: var(--helix-dark-text-primary);
+	background-color: var(--helix-color-dark-bg-secondary);
+	color: var(--helix-color-dark-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] .nav-link {
-	background-color: var(--helix-dark-bg-secondary);
-	border-color: var(--helix-dark-border-primary);
-	color: var(--helix-dark-text-primary);
+	background-color: var(--helix-color-dark-bg-secondary);
+	border-color: var(--helix-color-dark-border-primary);
+	color: var(--helix-color-dark-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] .nav-menu {
-	border-bottom-color: var(--helix-dark-border-primary);
+	border-bottom-color: var(--helix-color-dark-border-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] .form-input,
 [data-theme="helix"][data-mode="dark"] .form-select,
 [data-theme="helix"][data-mode="dark"] .form-textarea {
-	background-color: var(--helix-dark-bg-secondary);
-	border-color: var(--helix-dark-border-primary);
-	color: var(--helix-dark-text-primary);
+	background-color: var(--helix-color-dark-bg-secondary);
+	border-color: var(--helix-color-dark-border-primary);
+	color: var(--helix-color-dark-text-primary);
 }
 
 /* ===== (0,3,1) / (0,2,2) two-attribute + element-state ===== */
@@ -175,22 +178,22 @@
 }
 
 [data-theme="helix"][data-mode="light"] .breadcrumbs a {
-	color: var(--helix-interactive-primary-default);
+	color: var(--helix-color-interactive-primary-default);
 }
 
 [data-theme="helix"][data-mode="light"] .pagination a {
-	background-color: var(--helix-bg-secondary);
-	color: var(--helix-interactive-primary-hover);
+	background-color: var(--helix-color-bg-secondary);
+	color: var(--helix-color-interactive-primary-hover);
 }
 
 [data-theme="helix"][data-mode="light"] .pagination span {
-	background-color: var(--helix-bg-secondary);
-	color: var(--helix-interactive-primary-hover);
+	background-color: var(--helix-color-bg-secondary);
+	color: var(--helix-color-interactive-primary-hover);
 }
 
 [data-theme="helix"][data-mode="light"] a:hover {
-	background-color: var(--helix-bg-secondary);
-	color: var(--helix-interactive-primary-hover);
+	background-color: var(--helix-color-bg-secondary);
+	color: var(--helix-color-interactive-primary-hover);
 }
 
 [data-theme="helix"][data-mode="dark"] .breadcrumbs a {
@@ -198,17 +201,17 @@
 }
 
 [data-theme="helix"][data-mode="dark"] .pagination a {
-	background-color: var(--helix-dark-bg-secondary);
+	background-color: var(--helix-color-dark-bg-secondary);
 	color: var(--helix-beige-200);
 }
 
 [data-theme="helix"][data-mode="dark"] .pagination span {
-	background-color: var(--helix-dark-bg-secondary);
+	background-color: var(--helix-color-dark-bg-secondary);
 	color: var(--helix-beige-200);
 }
 
 [data-theme="helix"][data-mode="dark"] a:hover {
-	background-color: var(--helix-dark-bg-secondary);
+	background-color: var(--helix-color-dark-bg-secondary);
 	color: var(--helix-beige-200);
 }
 
@@ -220,37 +223,37 @@
 /* ===== (0,4,0) two-attribute + class.class ===== */
 
 [data-theme="helix"][data-mode="light"] .nav-link.active {
-	background-color: var(--helix-bg-primary);
-	color: var(--helix-interactive-primary-active);
+	background-color: var(--helix-color-bg-primary);
+	color: var(--helix-color-interactive-primary-active);
 	box-shadow: none;
-	border-bottom: 1px solid var(--helix-border-primary);
+	border-bottom: 1px solid var(--helix-color-border-primary);
 }
 
 [data-theme="helix"][data-mode="light"] .breadcrumbs .active {
-	color: var(--helix-text-primary);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="light"] .pagination .active {
 	background-color: var(--helix-darkblue-900);
-	border-color: var(--helix-border-strong);
-	color: var(--helix-text-inverse);
+	border-color: var(--helix-color-border-strong);
+	color: var(--helix-color-text-inverse);
 }
 
 [data-theme="helix"][data-mode="light"] .pagination .disabled {
-	background-color: var(--helix-bg-secondary);
-	border-color: var(--helix-border-primary);
-	color: var(--helix-text-primary);
+	background-color: var(--helix-color-bg-secondary);
+	border-color: var(--helix-color-border-primary);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] .nav-link.active {
-	background-color: var(--helix-dark-bg-primary);
+	background-color: var(--helix-color-dark-bg-primary);
 	color: var(--helix-beige-300);
 	box-shadow: none;
-	border-bottom: 1px solid var(--helix-dark-border-primary);
+	border-bottom: 1px solid var(--helix-color-dark-border-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] .breadcrumbs .active {
-	color: var(--helix-dark-text-primary);
+	color: var(--helix-color-dark-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] .pagination .active {
@@ -260,92 +263,45 @@
 }
 
 [data-theme="helix"][data-mode="dark"] .pagination .disabled {
-	background-color: var(--helix-dark-bg-secondary);
-	border-color: var(--helix-dark-border-primary);
-	color: var(--helix-dark-text-primary);
+	background-color: var(--helix-color-dark-bg-secondary);
+	border-color: var(--helix-color-dark-border-primary);
+	color: var(--helix-color-dark-text-primary);
 }
 
 /* ===== (0,4,1) two-attribute + element-state ===== */
 
 [data-theme="helix"][data-mode="light"] .breadcrumbs a:hover {
-	background-color: var(--helix-bg-secondary);
-	color: var(--helix-interactive-primary-hover);
+	background-color: var(--helix-color-bg-secondary);
+	color: var(--helix-color-interactive-primary-hover);
 }
 
 [data-theme="helix"][data-mode="dark"] .breadcrumbs a:hover {
-	background-color: var(--helix-dark-bg-secondary);
+	background-color: var(--helix-color-dark-bg-secondary);
 	color: var(--helix-beige-200);
 }
 
 /* ===== (0,5,1) two-attribute + class + element + pseudo + :not ===== */
 
 [data-theme="helix"][data-mode="light"] .pagination a:hover:not(.disabled) {
-	background-color: var(--helix-bg-secondary);
-	border-color: var(--helix-border-primary);
-	color: var(--helix-text-primary);
+	background-color: var(--helix-color-bg-secondary);
+	border-color: var(--helix-color-border-primary);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] .pagination a:hover:not(.disabled) {
-	background-color: var(--helix-dark-bg-secondary);
-	border-color: var(--helix-dark-border-primary);
-	color: var(--helix-dark-text-primary);
+	background-color: var(--helix-color-dark-bg-secondary);
+	border-color: var(--helix-color-dark-border-primary);
+	color: var(--helix-color-dark-text-primary);
 }
 
 /* ===== (1,0,0)+ #theme-toggle (ID selector overrides) ===== */
 
 [data-theme="helix"][data-mode="light"] #theme-toggle {
-	background-color: var(--helix-bg-secondary);
-	color: var(--helix-text-primary);
+	background-color: var(--helix-color-bg-secondary);
+	color: var(--helix-color-text-primary);
 }
 
 [data-theme="helix"][data-mode="dark"] #theme-toggle {
-	background-color: var(--helix-dark-bg-secondary);
-	color: var(--helix-dark-text-primary);
-}
-
-/* ===== Backward-compat alias (DEPRECATED, drop in v1.1) =====
-   Prior versions used [data-theme="darkblue-beige"] as the attribute value.
-   This block keeps every --color-* alias that helix overrides resolving to
-   helix values when [data-theme="darkblue-beige"] is present, so any
-   component consuming var(--color-*) picks up the helix palette. New code
-   should use [data-theme="helix"].
-
-   Scope note (honest): this alias remaps the TOKEN aliases only. The direct
-   surface overrides above (e.g. the navy footer, helix body background) are
-   keyed on [data-theme="helix"] and are NOT re-declared here. In practice
-   this is fine because the runtime controller (modes.js, phase 4) migrates a
-   stored "darkblue-beige" value to "helix" on load, so <html> ends up with
-   [data-theme="helix"] and the surface rules apply. This block is the safety
-   net for unmigrated contexts (static markup, PurgeCSS keep-alive marker
-   spans) where only token resolution matters. If full surface fidelity under
-   the raw "darkblue-beige" attribute is ever needed, switch these rules to
-   selector groups: [data-theme="helix"] X, [data-theme="darkblue-beige"] X. */
-[data-theme="darkblue-beige"] {
-	--color-primary: var(--helix-color-primary);
-	--color-primary-50: var(--helix-color-primary-50);
-	--color-primary-100: var(--helix-color-primary-100);
-	--color-primary-200: var(--helix-color-primary-200);
-	--color-primary-300: var(--helix-color-primary-300);
-	--color-primary-400: var(--helix-color-primary-400);
-	--color-primary-500: var(--helix-color-primary-500);
-	--color-primary-600: var(--helix-color-primary-600);
-	--color-primary-700: var(--helix-color-primary-700);
-	--color-primary-800: var(--helix-color-primary-800);
-	--color-primary-900: var(--helix-color-primary-900);
-	--color-secondary: var(--helix-color-secondary);
-	--color-secondary-50: var(--helix-color-secondary-50);
-	--color-secondary-100: var(--helix-color-secondary-100);
-	--color-secondary-200: var(--helix-color-secondary-200);
-	--color-secondary-300: var(--helix-color-secondary-300);
-	--color-secondary-400: var(--helix-color-secondary-400);
-	--color-secondary-500: var(--helix-color-secondary-500);
-	--color-secondary-600: var(--helix-color-secondary-600);
-	--color-secondary-700: var(--helix-color-secondary-700);
-	--color-secondary-800: var(--helix-color-secondary-800);
-	--color-secondary-900: var(--helix-color-secondary-900);
-	--color-bg: var(--helix-color-bg-primary);
-	--color-text: var(--helix-color-text-primary);
-	--color-light: var(--helix-color-light);
-	--color-muted: var(--helix-color-muted);
-	--color-dark: var(--helix-color-dark);
+	background-color: var(--helix-color-dark-bg-secondary);
+	color: var(--helix-color-dark-text-primary);
 }

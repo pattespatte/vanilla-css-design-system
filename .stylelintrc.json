@@ -21,6 +21,7 @@
 		"node_modules/**/*",
 		"styles/vanilla-combined.css",
 		"styles/vanilla-combined.min.css",
-		"styles/vanilla-combined.purged.css"
+		"styles/vanilla-combined.purged.css",
+		"styles/themes/*.min.css"
 	]
 }
