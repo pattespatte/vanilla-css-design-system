@@ -17,10 +17,20 @@
 (function () {
   'use strict';
 
-  const DEFAULT_THEME = 'purple-yellow';
+  const DEFAULT_THEME = 'legacy';
   const DEFAULT_MODE = 'auto';
   const THEME_KEY = 'theme';
   const MODE_KEY = 'mode';
+
+  // One-time migration: prior versions used 'purple-yellow' and
+  // 'darkblue-beige' as the theme attribute values. They were renamed to
+  // 'legacy' and 'helix' respectively. Silently rewrite stored values so
+  // existing users keep their chosen theme; the [data-theme] alias in
+  // helix/theme.css covers the same rewrite at the CSS layer.
+  const THEME_MIGRATION = {
+    'purple-yellow': 'legacy',
+    'darkblue-beige': 'helix',
+  };
 
   // Safe localStorage helpers — access throws in private/incognito mode or
   // when storage is disabled, so wrap reads/writes and degrade gracefully.
@@ -118,7 +128,12 @@
   }
 
   function currentTheme() {
-    return storage.get(THEME_KEY) || DEFAULT_THEME;
+    let stored = storage.get(THEME_KEY) || DEFAULT_THEME;
+    if (THEME_MIGRATION[stored]) {
+      stored = THEME_MIGRATION[stored];
+      storage.set(THEME_KEY, stored);
+    }
+    return stored;
   }
 
   function currentMode() {

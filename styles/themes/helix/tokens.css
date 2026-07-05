@@ -1,0 +1,178 @@
+/* styles/themes/helix/tokens.css
+ *
+ * Helix theme palette — dark-blue/white, recently reworked to resemble
+ * ehalsomyndigheten.se. White surfaces with deep navy text and a navy
+ * footer with white type.
+ *
+ * Token namespace uses --helix-* prefix throughout (raw palette +
+ * semantic aliases + dark variant) so the helix theme is fully
+ * self-contained and can be dropped in without colliding with the
+ * legacy --color-* defaults. The mapping from --helix-color-* onto
+ * the neutral --color-* aliases happens in theme.css.
+ *
+ * Defined on :root (not [data-theme="helix"]) so the raw palette and
+ * semantic tokens are always available; the alias mapping activates
+ * only when [data-theme="helix"] is set on <html>.
+ */
+
+:root {
+  /* ===== Raw palette: deep navy (primary identity) ===== */
+  --helix-darkblue-50: #eef0f7;
+  --helix-darkblue-100: #d6dae8;
+  --helix-darkblue-200: #adb4d1;
+  --helix-darkblue-300: #848fb9;
+  --helix-darkblue-400: #5b65a2;
+  --helix-darkblue-500: #3b4992;
+  --helix-darkblue-600: #3b4992;
+  --helix-darkblue-700: #3b4992;
+  --helix-darkblue-800: #334075;
+  --helix-darkblue-900: #334075;
+  --helix-darkblue-950: #232948;
+
+  /* Deepest navy — matches the eHälsomyndigheten body/footer text
+     color (#081130). Primary text color in the light variant. */
+  --helix-darkblue-1000: #081130;
+
+  /* ===== Raw palette: beige (accent) ===== */
+  --helix-beige-50: #faf8f3;
+  --helix-beige-100: #f4f0e7;
+  --helix-beige-200: #e8dfcd;
+  --helix-beige-300: #d4c4a3;
+  --helix-beige-400: #b89c70;
+  --helix-beige-500: #a08555;
+  --helix-beige-600: #806843;
+  --helix-beige-700: #5f4d33;
+  --helix-beige-800: #403424;
+  --helix-beige-900: #221c12;
+
+  /* ===== Semantic aliases (light variant) =====
+     White surfaces with the faintest cool tint, deep navy text, beige
+     used only as accent borders/highlights. */
+  --helix-color-bg-primary: #fff;
+  --helix-color-bg-secondary: var(--helix-beige-50);
+  --helix-color-bg-tertiary: #f7f9fb;
+  --helix-color-bg-accent: var(--helix-darkblue-700);
+  --helix-color-text-primary: var(--helix-darkblue-1000);
+  --helix-color-text-secondary: var(--helix-darkblue-950);
+  --helix-color-text-muted: var(--helix-darkblue-900);
+  --helix-color-text-inverse: #fff;
+  --helix-color-border-primary: var(--helix-darkblue-900);
+  --helix-color-border-secondary: var(--helix-beige-300);
+  --helix-color-border-strong: var(--helix-darkblue-950);
+  --helix-color-border-subtle: var(--helix-beige-100);
+  --helix-color-interactive-primary-default: var(--helix-darkblue-950);
+  --helix-color-interactive-primary-hover: var(--helix-darkblue-900);
+  --helix-color-interactive-primary-active: var(--helix-darkblue-800);
+  --helix-color-interactive-primary-focus: var(--helix-darkblue-900);
+  --helix-color-interactive-secondary-default: var(--helix-beige-200);
+  --helix-color-interactive-secondary-hover: var(--helix-beige-300);
+  --helix-color-interactive-secondary-active: var(--helix-beige-400);
+  --helix-color-interactive-secondary-focus: var(--helix-beige-300);
+
+  /* ===== Semantic aliases (dark variant) =====
+     Deep navy surfaces, soft beige text — helix palette keeps its
+     identity but inverts for dark mode. Used by
+     [data-theme="helix"][data-mode="dark"] in theme.css. */
+  --helix-color-dark-bg-primary: var(--helix-darkblue-950);
+  --helix-color-dark-bg-secondary: var(--helix-darkblue-900);
+  --helix-color-dark-bg-tertiary: var(--helix-darkblue-800);
+  --helix-color-dark-text-primary: var(--helix-beige-100);
+  --helix-color-dark-text-secondary: var(--helix-beige-200);
+  --helix-color-dark-text-muted: var(--helix-beige-300);
+  --helix-color-dark-text-inverse: var(--helix-darkblue-950);
+  --helix-color-dark-border-primary: var(--helix-darkblue-800);
+  --helix-color-dark-border-secondary: var(--helix-darkblue-700);
+  --helix-color-dark-border-strong: var(--helix-beige-400);
+  --helix-color-dark-border-subtle: var(--helix-darkblue-900);
+
+  /* ===== Full color scale for the alias mapping =====
+     Helix defines the complete 50-900 ramp so colors.html shows the
+     helix palette end-to-end, not just two overridden base values.
+     Primary ramp = navy (lighter tints toward 50, deeper toward 900);
+     secondary ramp = beige (lighter toward 50, richer toward 900).
+     Explicit hex values for Lightning CSS compatibility — no
+     color-mix(). */
+  --helix-color-primary-50: var(--helix-darkblue-50);
+  --helix-color-primary-100: var(--helix-darkblue-100);
+  --helix-color-primary-200: var(--helix-darkblue-200);
+  --helix-color-primary-300: var(--helix-darkblue-300);
+  --helix-color-primary-400: var(--helix-darkblue-400);
+  --helix-color-primary-500: var(--helix-darkblue-500);
+  --helix-color-primary-600: var(--helix-darkblue-600);
+  --helix-color-primary-700: var(--helix-darkblue-700);
+  --helix-color-primary-800: var(--helix-darkblue-800);
+  --helix-color-primary-900: var(--helix-darkblue-900);
+  --helix-color-primary: var(--helix-color-primary-700);
+  --helix-color-secondary-50: var(--helix-beige-50);
+  --helix-color-secondary-100: var(--helix-beige-100);
+  --helix-color-secondary-200: var(--helix-beige-200);
+  --helix-color-secondary-300: var(--helix-beige-300);
+  --helix-color-secondary-400: var(--helix-beige-400);
+  --helix-color-secondary-500: var(--helix-beige-500);
+  --helix-color-secondary-600: var(--helix-beige-600);
+  --helix-color-secondary-700: var(--helix-beige-700);
+  --helix-color-secondary-800: var(--helix-beige-800);
+  --helix-color-secondary-900: var(--helix-beige-900);
+  --helix-color-secondary: var(--helix-color-secondary-300);
+
+  /* Helix semantic status colors — keep legacy greens/reds/etc. but
+     tune to fit the navy/beige palette. Reuse legacy values for now;
+     can be specialized later. */
+  --helix-color-success: #1e7e34;
+  --helix-color-success-100: #d4edda;
+  --helix-color-success-200: #c3e6cb;
+  --helix-color-error: #dc3545;
+  --helix-color-error-100: #f8d7da;
+  --helix-color-error-200: #f1c2c6;
+  --helix-color-warning: #ffc647;
+  --helix-color-warning-100: #fff3cd;
+  --helix-color-warning-200: #ffe8b5;
+  --helix-color-info: #0266d6;
+  --helix-color-info-100: #cce5ff;
+  --helix-color-info-200: #b8daff;
+
+  /* Helix surface aliases (legacy-compatible) */
+  --helix-color-light: var(--helix-beige-50);
+  --helix-color-muted: var(--helix-darkblue-900);
+  --helix-color-dark: var(--helix-darkblue-950);
+  --helix-color-white: #fff;
+  --helix-color-black: #000;
+
+  /* ===== Back-compat aliases (old name → new name) =====
+     The original helix tokens used --helix-bg-primary, --helix-text-primary,
+     etc. (no "color" segment). They were renamed to --helix-color-* to match
+     the Helix CSS reference pattern. These aliases keep existing consumers
+     (settings.css, examples.css) working during the migration; they will be
+     removed once every consumer is updated to the new names. */
+  --helix-bg-primary: var(--helix-color-bg-primary);
+  --helix-bg-secondary: var(--helix-color-bg-secondary);
+  --helix-bg-tertiary: var(--helix-color-bg-tertiary);
+  --helix-bg-accent: var(--helix-color-bg-accent);
+  --helix-text-primary: var(--helix-color-text-primary);
+  --helix-text-secondary: var(--helix-color-text-secondary);
+  --helix-text-muted: var(--helix-color-text-muted);
+  --helix-text-inverse: var(--helix-color-text-inverse);
+  --helix-border-primary: var(--helix-color-border-primary);
+  --helix-border-secondary: var(--helix-color-border-secondary);
+  --helix-border-strong: var(--helix-color-border-strong);
+  --helix-border-subtle: var(--helix-color-border-subtle);
+  --helix-interactive-primary-default: var(--helix-color-interactive-primary-default);
+  --helix-interactive-primary-hover: var(--helix-color-interactive-primary-hover);
+  --helix-interactive-primary-active: var(--helix-color-interactive-primary-active);
+  --helix-interactive-primary-focus: var(--helix-color-interactive-primary-focus);
+  --helix-interactive-secondary-default: var(--helix-color-interactive-secondary-default);
+  --helix-interactive-secondary-hover: var(--helix-color-interactive-secondary-hover);
+  --helix-interactive-secondary-active: var(--helix-color-interactive-secondary-active);
+  --helix-interactive-secondary-focus: var(--helix-color-interactive-secondary-focus);
+  --helix-dark-bg-primary: var(--helix-color-dark-bg-primary);
+  --helix-dark-bg-secondary: var(--helix-color-dark-bg-secondary);
+  --helix-dark-bg-tertiary: var(--helix-color-dark-bg-tertiary);
+  --helix-dark-text-primary: var(--helix-color-dark-text-primary);
+  --helix-dark-text-secondary: var(--helix-color-dark-text-secondary);
+  --helix-dark-text-muted: var(--helix-color-dark-text-muted);
+  --helix-dark-text-inverse: var(--helix-color-dark-text-inverse);
+  --helix-dark-border-primary: var(--helix-color-dark-border-primary);
+  --helix-dark-border-secondary: var(--helix-color-dark-border-secondary);
+  --helix-dark-border-strong: var(--helix-color-dark-border-strong);
+  --helix-dark-border-subtle: var(--helix-color-dark-border-subtle);
+}

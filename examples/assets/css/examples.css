@@ -603,12 +603,14 @@ ul.docs-links.cards li {
 	border-color: var(--helix-beige-400);
 }
 
-.segmented--theme .segmented-btn[data-theme-value="purple-yellow"] .swatch {
-	background: linear-gradient(135deg, var(--color-primary-500) 0 50%, var(--color-secondary-500) 50% 100%);
+/* Theme swatches use raw palette tokens so each dot shows its theme's
+   identity regardless of which theme is currently active. */
+.segmented--theme .segmented-btn[data-theme-value="legacy"] .swatch {
+	background: linear-gradient(135deg, #6e0e50 0 50%, #ffe098 50% 100%);
 }
 
-.segmented--theme .segmented-btn[data-theme-value="darkblue-beige"] .swatch {
-	background: linear-gradient(135deg, var(--helix-darkblue-700) 0 50%, var(--helix-beige-300) 50% 100%);
+.segmented--theme .segmented-btn[data-theme-value="helix"] .swatch {
+	background: linear-gradient(135deg, #3b4992 0 50%, #d4c4a3 50% 100%);
 }
 
 /* Mode segmented — single icon glyph per button (sun/moon/system). */

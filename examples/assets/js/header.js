@@ -82,8 +82,8 @@
   themeControl.setAttribute('role', 'group');
   themeControl.setAttribute('aria-label', 'Color theme');
   const themes = [
-    { value: 'purple-yellow', label: 'Purple/Yellow' },
-    { value: 'darkblue-beige', label: 'Dark Blue/Beige' },
+    { value: 'legacy', label: 'Legacy' },
+    { value: 'helix', label: 'Helix' },
   ];
   themes.forEach((t) => {
     const btn = document.createElement('button');

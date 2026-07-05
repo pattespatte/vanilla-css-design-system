@@ -3,8 +3,8 @@
 /* Reset styles */
 @import url('base/reset.css');
 
-/* Variables */
-@import url('variables/colors.css');
+/* Variables (structural, theme-independent) */
+@import url('variables/colors.css'); /* stub — palette moved to themes/* */
 @import url('variables/typography.css');
 @import url('variables/spacing.css');
 @import url('variables/borders.css');
@@ -36,5 +36,14 @@
 @import url('utilities/print.css');
 @import url('utilities/spacing.css');
 
-/* Custom styles */
+/* Theme tokens + rules — loaded LAST (before custom) so [data-theme="..."]
+   overrides win the cascade. Legacy is the :root default; helix activates
+   via [data-theme="helix"]. Each theme is self-contained and can also be
+   shipped standalone as themes/<name>.min.css. */
+@import url('themes/legacy/tokens.css');
+@import url('themes/legacy/theme.css');
+@import url('themes/helix/tokens.css');
+@import url('themes/helix/theme.css');
+
+/* Custom styles — user escape hatch, always last */
 @import url('./custom.css');

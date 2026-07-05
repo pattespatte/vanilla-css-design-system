@@ -71,18 +71,22 @@
 	</footer>
 	<!-- PurgeCSS keep-alive markers. The production build strips attribute
 	     selectors that do not appear in any scanned HTML. These hidden spans
-	     force the theme/mode selectors used in styles/foundation/settings.css
-	     to be retained. Do not delete; they may be moved as long as they
-	     remain in a scanned file.
+	     force the theme/mode selectors used in styles/themes/*/theme.css and
+	     styles/foundation/settings.css to be retained. Do not delete; they may
+	     be moved as long as they remain in a scanned file.
 
-	     Note: purple-yellow has no marker because it is the :root default and
-	     has no explicit selector. "auto" has no marker because the data-mode
-	     attribute is always set to the RESOLVED light/dark value at runtime
-	     (see modes.js); there is no [data-mode="auto"] CSS rule. -->
-	<span data-theme="darkblue-beige" data-mode="light" class="d-none">PurgeCSS marker</span>
-	<span data-theme="darkblue-beige" data-mode="dark" class="d-none">PurgeCSS marker</span>
-	<span data-theme="purple-yellow" data-mode="light" class="d-none">PurgeCSS marker</span>
-	<span data-theme="purple-yellow" data-mode="dark" class="d-none">PurgeCSS marker</span>
+	     - legacy has no marker because it is the :root default (no explicit
+	       [data-theme="legacy"] surface rules exist).
+	     - helix and the darkblue-beige alias both need markers because their
+	       [data-theme] rules live in theme.css.
+	     - auto has no marker because the data-mode attribute is always set to
+	       the RESOLVED light/dark value at runtime (see modes.js); there is no
+	       [data-mode="auto"] CSS rule. -->
+	<span data-theme="helix" data-mode="light" class="d-none">PurgeCSS marker</span>
+	<span data-theme="helix" data-mode="dark" class="d-none">PurgeCSS marker</span>
+	<span data-theme="darkblue-beige" class="d-none">PurgeCSS marker (deprecated alias, drop in v1.1)</span>
+	<span data-mode="light" class="d-none">PurgeCSS marker</span>
+	<span data-mode="dark" class="d-none">PurgeCSS marker</span>
 	<script src="assets/js/header.js"></script>
 	<script src="assets/js/main-menu.js"></script>
 	<script src="assets/js/modes.js"></script>

@@ -1,0 +1,28 @@
+/* styles/themes/legacy/theme.css
+ *
+ * Legacy theme rules — surface overrides for [data-theme="legacy"].
+ *
+ * Legacy is the implicit DEFAULT theme: its tokens live on :root in
+ * tokens.css under their --color-* names directly (no separate --legacy-*
+ * namespace was created), so the alias mapping block that helix needs is
+ * redundant here. This file exists for architectural consistency with
+ * helix/theme.css (both themes expose a tokens.css + theme.css pair) and
+ * as a forward-compat home for any future legacy-specific surface
+ * overrides.
+ *
+ * There are currently NO legacy-specific surface overrides. The legacy
+ * surfaces are the :root defaults (see foundation/settings.css):
+ *   --color-bg:   var(--color-light)
+ *   --color-text: var(--color-black)
+ * and every component inherits those. Helix, by contrast, must override
+ * each surface explicitly because it changes the baseline.
+ *
+ * Keeping [data-theme="legacy"] empty (rather than re-declaring the
+ * --color-* scale pointing back at itself) would be a no-op — but an
+ * empty rule triggers stylelint's block-no-empty warning, so we leave a
+ * documenting comment instead and rely on the :root defaults.
+ */
+
+/* Intentionally empty. See file header — legacy surfaces are the :root
+   defaults. Add [data-theme="legacy"] surface overrides here if any
+   legacy-only adjustments are introduced later. */

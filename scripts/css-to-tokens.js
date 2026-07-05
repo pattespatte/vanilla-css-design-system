@@ -4,6 +4,7 @@ const postcss = require('postcss');
 const postcssJs = require('postcss-js');
 
 const SOURCE_DIR = path.join(__dirname, '../styles/variables');
+const THEMES_DIR = path.join(__dirname, '../styles/themes');
 const OUTPUT_DIR = path.join(__dirname, '../tokens');
 
 // Helper function to create nested object structure
@@ -204,7 +205,7 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 	fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 }
 
-// Process each CSS file
+// Process each CSS file in styles/variables/ (structural tokens)
 fs.readdirSync(SOURCE_DIR).forEach(file => {
 	if (file.endsWith('.css')) {
 		const cssContent = fs.readFileSync(path.join(SOURCE_DIR, file), 'utf8');
@@ -221,3 +222,39 @@ fs.readdirSync(SOURCE_DIR).forEach(file => {
 		console.log(`Converted ${file} to ${path.basename(outputFile)}`);
 	}
 });
+
+// Process each theme's tokens.css in styles/themes/<name>/
+// Theme tokens are emitted as <name>-tokens.json so they don't collide with
+// the structural tokens files. Both :root and [data-theme="..."] blocks are
+// extracted — the :root block carries the raw palette, the [data-theme]
+// block carries the alias mapping.
+if (fs.existsSync(THEMES_DIR)) {
+	fs.readdirSync(THEMES_DIR).forEach(themeName => {
+		const themeDir = path.join(THEMES_DIR, themeName);
+		if (!fs.statSync(themeDir).isDirectory()) return;
+		const tokensFile = path.join(themeDir, 'tokens.css');
+		if (!fs.existsSync(tokensFile)) return;
+
+		const cssContent = fs.readFileSync(tokensFile, 'utf8');
+		const root = postcss.parse(cssContent);
+		const cssObj = postcssJs.objectify(root);
+
+		// Merge :root tokens and [data-theme="<name>"] tokens (if any) into
+		// one output. The [data-theme] keys come back as selectors like
+		// '[data-theme="helix"]' — extract their nested custom properties.
+		const tokens = cssToTokens(cssObj[':root'] || {});
+		Object.entries(cssObj).forEach(([selector, block]) => {
+			if (selector.startsWith('[data-theme=') && block) {
+				const themeTokens = cssToTokens(block);
+				// Namespace under the theme name to avoid clashing with
+				// structural tokens.
+				tokens[themeName] = tokens[themeName] || {};
+				Object.assign(tokens[themeName], themeTokens);
+			}
+		});
+
+		const outputFile = path.join(OUTPUT_DIR, `${themeName}-tokens.json`);
+		fs.writeFileSync(outputFile, JSON.stringify(tokens, null, 2));
+		console.log(`Converted themes/${themeName}/tokens.css to ${path.basename(outputFile)}`);
+	});
+}
