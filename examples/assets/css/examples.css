@@ -26,13 +26,40 @@ footer {
 	border-top: var(--border-width) solid var(--border-color);
 }
 
-.docs-nav {
+.docs-nav,
+#header-mount {
 	padding: var(--spacing-3) var(--spacing-4);
 	background: var(--color-gray-200);
 	border-bottom: var(--border-width) solid var(--border-color);
 	position: sticky;
 	top: 0;
 	z-index: 100;
+	/* Reserve space for the full header (brand row + nav/controls row +
+	   padding ≈ 96px) so the layout doesn't shift when header.js replaces
+	   the static fallback or when the nav menu populates asynchronously.
+	   Use border-box so padding is included. */
+	box-sizing: border-box;
+	min-height: 96px;
+}
+
+/* Brand link styling — applies to both the JS-injected header (.docs-nav) and
+   the static fallback in #header-mount so there is no layout shift while
+   header.js loads. */
+.docs-nav .brand,
+#header-mount .brand {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacing-2);
+	text-decoration: none;
+	color: var(--color-text);
+	font-weight: var(--text-weight-bold);
+	white-space: nowrap;
+}
+
+.docs-nav .brand img,
+#header-mount .brand img {
+	width: 2rem;
+	height: 2rem;
 }
 
 /* Per-theme/mode header backgrounds. The .docs-nav surface and the .segmented
@@ -64,21 +91,6 @@ footer {
 	flex-wrap: wrap;
 	max-width: var(--breakpoint-xl);
 	margin: 0 auto;
-}
-
-.docs-nav .brand {
-	display: inline-flex;
-	align-items: center;
-	gap: var(--spacing-2);
-	text-decoration: none;
-	color: var(--color-text);
-	font-weight: var(--text-weight-bold);
-	white-space: nowrap;
-}
-
-.docs-nav .brand img {
-	width: 2rem;
-	height: 2rem;
 }
 
 .docs-nav .nav-slot {

@@ -129,31 +129,49 @@
 
   inner.appendChild(controls);
 
+  // Capture the fallback h1 BEFORE replacing the mount, so we can move it
+  // into <main> rather than creating a duplicate. This avoids FOUC: the
+  // static h1 renders immediately, header.js just relocates it.
+  const fallbackH1 = mount.querySelector('h1');
+
   // Replace the mount's static fallback content with the built header.
   mount.replaceWith(header);
 
-  // Page title is the first child of <main>, as the page's <h1>.
-  // Home has no explicit title (the brand link IS the home identity), so emit
-  // a visually-hidden h1 for assistive tech. The visible title is wrapped in
-  // .container so it matches page content width; the sr-only h1 is inserted
-  // bare so it does NOT become a visible grid item in <main class="grid ...">
-  // (which would steal a grid cell and break the home layout).
+  // Page title: <h1> as the first child of <main>. The static fallback in
+  // #header-mount already includes this h1 (to avoid FOUC layout shift), so
+  // move it from the mount into <main> rather than creating a duplicate.
+  // Home has no visible title — the fallback contains an sr-only h1 for
+  // assistive tech, which we move the same way.
   const main = document.querySelector('main');
-  if (pageTitle) {
-    const wrap = document.createElement('div');
-    wrap.className = 'container';
-    const h1 = document.createElement('h1');
-    h1.className = 'page-title';
-    h1.textContent = pageTitle;
-    wrap.appendChild(h1);
-    main ? main.insertAdjacentElement('afterbegin', wrap)
-         : header.insertAdjacentElement('afterend', wrap);
-  } else {
-    const h1 = document.createElement('h1');
-    h1.className = 'sr-only';
-    h1.textContent = 'Vanilla CSS Design System documentation';
-    main ? main.insertAdjacentElement('afterbegin', h1)
-         : header.insertAdjacentElement('afterend', h1);
+  if (fallbackH1 && main) {
+    // For visible titles wrap in .container to match page content width;
+    // sr-only h1 stays bare so it doesn't steal a grid cell on home.
+    if (fallbackH1.classList.contains('page-title')) {
+      const wrap = document.createElement('div');
+      wrap.className = 'container';
+      wrap.appendChild(fallbackH1);
+      main.insertAdjacentElement('afterbegin', wrap);
+    } else {
+      // sr-only h1 — move bare.
+      main.insertAdjacentElement('afterbegin', fallbackH1);
+    }
+  } else if (main) {
+    // No fallback h1 found — create one (back-compat for pages that haven't
+    // been migrated to include the static h1).
+    if (pageTitle) {
+      const wrap = document.createElement('div');
+      wrap.className = 'container';
+      const h1 = document.createElement('h1');
+      h1.className = 'page-title';
+      h1.textContent = pageTitle;
+      wrap.appendChild(h1);
+      main.insertAdjacentElement('afterbegin', wrap);
+    } else {
+      const h1 = document.createElement('h1');
+      h1.className = 'sr-only';
+      h1.textContent = 'Vanilla CSS Design System documentation';
+      main.insertAdjacentElement('afterbegin', h1);
+    }
   }
 
   // Notify dependent scripts that the header DOM exists.
