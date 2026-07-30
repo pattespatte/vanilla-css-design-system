@@ -207,9 +207,54 @@ footer {
 
 .docs-section {
 	background-color: var(--color-light);
-	padding: 1.5rem;
+	padding: var(--spacing-3);
 	border: var(--border-width) solid var(--color-gray-100);
-	border-radius: calc(var(--border-radius) * 2);
+	border-radius: var(--border-radius);
+}
+
+/* Home-page docs index. The global h2/h3 scale (foundation/typography.css)
+   is designed for documentation prose and the Typography demo page; here it
+   dwarfs the short card lists. Scope a compact scale to .docs-section so the
+   home page reads as a calm index without touching the global heading sizes. */
+.docs-section h2 {
+	font-size: 1.4rem;
+	margin: 0 0 var(--spacing-3);
+	padding-bottom: var(--spacing-2);
+	border-bottom: var(--border-width) solid var(--color-gray-200);
+}
+
+.docs-section h3 {
+	font-size: 0.95rem;
+	font-weight: var(--text-weight-bold);
+	/* Reads as a section sub-label rather than a heading: small caps style. */
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--color-gray-600);
+	margin: var(--spacing-3) 0 var(--spacing-2);
+}
+
+/* Tighten the card lists themselves: denser gap, base-size text, slimmer
+   padding. Shadows and hover bg are unchanged so the cards still read as
+   discrete, clickable targets. */
+.docs-section ul.docs-links.cards li {
+	margin-bottom: 0.5rem;
+}
+
+.docs-section .docs-links.cards a {
+	font-size: var(--text-size-base);
+	padding: var(--spacing-1) var(--spacing-2);
+}
+
+/* On small screens let the scoped headings grow back a little so they don't
+   disappear — matches the existing 575.98px breakpoint used elsewhere here. */
+@media (width <= 575.98px) {
+	.docs-section h2 {
+		font-size: 1.25rem;
+	}
+
+	.docs-section h3 {
+		font-size: 1rem;
+	}
 }
 
 /* Styling color swatches START */
