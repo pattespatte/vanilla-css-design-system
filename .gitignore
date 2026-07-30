@@ -14,6 +14,7 @@ styles/vanilla-combined.purged.css
 # AI agent instructions (local only, never published)
 AGENTS.md
 .clavix/
+.zcode/
 
 # Node modules
 node_modules/

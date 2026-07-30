@@ -124,6 +124,10 @@
 [data-theme="helix"][data-mode="light"] .nav-link {
 	background-color: var(--helix-color-bg-secondary);
 	border-color: var(--helix-color-border-primary);
+
+	/* Thin bottom edge in a softer color than the menu line, mirroring how
+	   legacy's 1px gray tab edge sits above its 4px gray menu border. */
+	border-bottom-color: var(--helix-color-border-secondary);
 	color: var(--helix-color-text-primary);
 }
 
@@ -152,6 +156,10 @@
 [data-theme="helix"][data-mode="dark"] .nav-link {
 	background-color: var(--helix-color-dark-bg-secondary);
 	border-color: var(--helix-color-dark-border-primary);
+
+	/* Thin bottom edge in a softer color than the menu line, mirroring how
+	   legacy's 1px gray tab edge sits above its 4px gray menu border. */
+	border-bottom-color: var(--helix-color-dark-border-secondary);
 	color: var(--helix-color-dark-text-primary);
 }
 
@@ -226,7 +234,7 @@
 	background-color: var(--helix-color-bg-primary);
 	color: var(--helix-color-interactive-primary-active);
 	box-shadow: none;
-	border-bottom: 1px solid var(--helix-color-border-primary);
+	border-bottom: 1px solid transparent;
 }
 
 [data-theme="helix"][data-mode="light"] .breadcrumbs .active {
@@ -249,7 +257,7 @@
 	background-color: var(--helix-color-dark-bg-primary);
 	color: var(--helix-beige-300);
 	box-shadow: none;
-	border-bottom: 1px solid var(--helix-color-dark-border-primary);
+	border-bottom: 1px solid transparent;
 }
 
 [data-theme="helix"][data-mode="dark"] .breadcrumbs .active {
